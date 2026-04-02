@@ -1,0 +1,59 @@
+id,division_name,country_id,tier,param3,param4
+1,Super League,27,0,40,90
+2,Division 1,27,1,30,80
+3,Division 2,27,2,20,70
+4,Division 3,27,3,10,60
+5,Division 1,32,0,40,90
+6,Division 2,32,1,30,80
+7,Division 1,34,0,40,90
+8,Division 2,34,1,30,80
+9,Super League,67,0,40,90
+10,Division 1,67,1,30,80
+11,Division 1,41,0,40,90
+12,Division 2,41,1,30,80
+13,Belgian 1,10,0,0,0
+14,Albanian 1,2,0,0,0
+15,Austrian 1,8,0,0,0
+16,Belarussian 1,114,0,0,0
+17,Bulgarian 1,13,0,0,0
+18,Croatian 1,20,0,0,0
+19,Cypriot 1,22,0,0,0
+20,Czech Rep 1,23,0,0,0
+21,Danish Super 1,24,0,0,0
+22,Estonian 1,28,0,0,0
+23,Georgian 1,33,0,0,0
+24,Greek 1,36,0,0,0
+25,Dutch Premier,25,0,0,0
+26,Icelandic 1,38,0,0,0
+27,Israelian 1,40,0,0,0
+28,Latvian 1,46,0,0,0
+29,San Marino 1,108,0,0,0
+30,Lithuanian 1,50,0,0,0
+31,Luxembourg 1,51,0,0,0
+32,Maltease 1,52,0,0,0
+33,Faroe Isles 1,115,0,0,0
+34,N Ireland 1,55,0,0,0
+35,Norwegian Premier,59,0,0,0
+36,Polish 1,62,0,0,0
+37,Portugeuse 1,63,0,0,0
+38,Eire 1,66,0,0,0
+39,Romanian 1,64,0,0,0
+40,Russian Premier,65,0,0,0
+41,Slovakian 1,69,0,0,0
+42,Slovenian 1,70,0,0,0
+43,Spanish Premier,74,0,0,0
+44,Swedish Premier,76,0,0,0
+45,Swiss 1,77,0,0,0
+46,Turkish 1,79,0,0,0
+47,Ukrainian 1,81,0,0,0
+48,Welsh Premier,84,0,0,0
+49,Yugoslavian 1,86,0,0,0
+50,Vauxhall Conference,27,0,0,0
+51,Armenian 1,110,0,0,0
+52,Azerbajan 1,9,0,0,0
+53,Finnish 1,31,0,0,0
+54,Hungarian 1,37,0,0,0
+55,Other,117,0,0,0
+56,Spare,117,0,0,0
+57,HiddenEA,117,0,0,0
+58,And another,0,0,0,0

@@ -1,0 +1,17 @@
+id,position,abbreviation,sort_order,zone
+1,Goalkeeper,GK,0,Goalkeeper
+2,Right Back,RB,6,Defender
+3,Left  Back,LB,2,Defender
+4,Central Defence,CD,4,Defender
+5,Right Wing Back,RWB,5,Defender
+6,Left Wing Back,LWB,3,Defender
+7,Sweeper,SW,1,Defender
+8,Defensive Midfield,DM,7,Midfielder
+9,Right Midfield,RM,9,Midfielder
+10,Left Midfield,LM,8,Midfielder
+11,Attacking Midfield,AM,10,Midfielder
+12,Right Winger,RW,13,Attacker
+13,Left Winger,LW,12,Attacker
+14,Free Role,FR,11,Attacker
+15,Forward,FOR,15,Attacker
+16,Support Striker,SS,14,Attacker

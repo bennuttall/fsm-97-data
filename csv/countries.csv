@@ -1,0 +1,121 @@
+id,country,demonym,code
+1,Alaska,Alaskian,ALA
+2,Albania,Albanian,ALB
+3,Algeria,Algerian,ALG
+4,United States,American,USA
+5,Saudi Arabia,Arabian,SAU
+6,Argentina,Argentinian,ARG
+7,Australia,Australian,AUT
+8,Austria,Austrian,AUS
+9,Azerbijan,Azerbijanian,AZE
+10,Belgium,Belgian,BEG
+11,Bolivia,Bolivian,BOL
+12,Brazil,Brazilian,BRA
+13,Bulgaria,Bulgarian,BUL
+14,Cameroon,Cameroonian,CAM
+15,Canada,Canadian,CAN
+16,Chile,Chilean,CHL
+17,China,Chinese,CHI
+18,Colombia,Colombian,COL
+19,Costa Rica,Costa Rican,COS
+20,Croatia,Croatian,CRO
+21,Cuba,Cuban,CUB
+22,Cyprus,Cypriot,CYP
+23,Czech Republic,Czech,CZE
+24,Denmark,Danish,DEN
+25,Holland,Dutch,HOL
+26,Egypt,Egyptian,EGY
+27,England,English,ENG
+28,Estonia,Estonian,EST
+29,Ethiopia,Ethiopian,ETH
+30,Fiji,Fijian,FIJ
+31,Finland,Finnish,FIN
+32,France,French,FRA
+33,Georgia,Georgian,GEO
+34,Germany,German,GER
+35,Ghana,Ghanian,GHA
+36,Greece,Greek,GRC
+37,Hungary,Hungarian,HUN
+38,Iceland,Icelandic,ICE
+39,India,Indian,IND
+40,Israel,Israelian,ISR
+41,Italy,Italian,ITA
+42,Ivory Coast,Ivoryian,IVO
+43,Jamaica,Jamaican,JAM
+44,Japan,Japanese,JAP
+45,Jordan,Jordanian,JOR
+46,Latvia,Latvian,LAT
+47,Liberia,Liberian,LIB
+48,Libya,Libyian,LBY
+49,Lietchenstein,Lietchensteiner,LTS
+50,Lithuania,Lithuanian,LIT
+51,Luxembourg,Luxembourgen,LUX
+52,Malta,Maltese,MAL
+53,Mexico,Mexican,MEX
+54,Moldova,Moldovian,MOL
+55,Northern Ireland,Irish,NIR
+56,New Zealand,New Zealander,NWZ
+57,Nigeria,Nigerian,NIG
+58,North Korea,North Korean,NKO
+59,Norway,Norwegian,NOR
+60,Pakistan,Pakistani,PAK
+61,Peru,Peruvian,PER
+62,Poland,Polish,POL
+63,Portugal,Portuguese,POR
+64,Romania,Romanian,ROM
+65,Russia,Russian,RUS
+66,Eire,Irish,EIR
+67,Scotland,Scottish,SCO
+68,Serbia,Serbian,SER
+69,Slovakia,Slovakian,SLO
+70,Slovenia,Slovenian,SLV
+71,Western Samoa,Samoan,WSO
+72,South Africa,South African,SAF
+73,South Korea,South Korean,SKO
+74,Spain,Spanish,SPA
+75,Sri Lanka,Sri Lankan,SRI
+76,Sweden,Swedish,SWE
+77,Switzerland,Swiss,SWI
+78,Trinidad & Tobago,Trinidadian,TRI
+79,Turkey,Turkish,TUR
+80,Uganda,Ugandan,UGA
+81,Ukraine,Ukranian,UKR
+82,Uruguay,Uruguayan,URU
+83,Venezualia,Venuezalian,VEN
+84,Wales,Welsh,WAL
+85,West Indies,West Indian,WIN
+86,Yugoslavia,Yugoslavian,YUG
+87,Zaire,Zarian,ZAI
+88,Zimbabwe,Zimbabwean,ZIM
+89,Bosnia,Bosnian,BOS
+90,Macedonia,Macedonian,MAC
+91,New Guinea,Guinean,NEW
+92,Gambia,Gambian,GAM
+93,Senegal,Senegalian,SEN
+94,Mongolia,Mongolian,MON
+95,Tonga,Tongan,TON
+96,Chad,Chadian,CHA
+97,Panama,Panamanian,PAN
+98,Zambia,Zambian,ZAM
+99,Bermuda,Bermudan,BER
+100,Barbados,Barbadian,BAR
+101,Sierra Leonne,Sierra Leonean,SLE
+102,Morocco,Moroccan,MOR
+103,Surinam,Surinamese,SUR
+104,Guadeloupe,Guadeloupean,GUA
+105,Tahiti,Tahitian,TAH
+106,Martinique,Martinican,MAR
+107,Benin,Beninese,BEN
+108,San Marino,San Marinese,SAN
+109,Congo,Congon,CON
+110,Armenia,Armenian,ARM
+111,Haiti,Haitian,HAI
+112,Tunisia,Tunisian,TUN
+113,Madagascar,Madagascan,MAD
+114,Belarus,Belarussian,BEL
+115,Faroe Islands,Faroese,FAR
+116,Paraguay,Paraguayan,PAR
+117,Other,Other,OTH
+118,Angola,Angolan,ANG
+119,Kazakistan,Kazak,KAZ
+120,Mauritius,Mauritian,MAU
