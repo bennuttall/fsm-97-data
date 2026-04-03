@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Cellnet Riverside Stadiu — FIFA Soccer Manager 97</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+<span class="nav-brand">⚽ FSM97</span>
+<a href="../index.html" class="">Home</a>
+<a href="../leagues/index.html" class="">Leagues</a>
+<a href="../teams/index.html" class="">Teams</a>
+<a href="../stadiums/index.html" class="active">Stadiums</a>
+<a href="../positions/index.html" class="">Positions</a>
+<a href="../nationalities/index.html" class="">Nationalities</a>
+<a href="../stats/index.html" class="">Stats</a>
+<a href="../trivia/index.html" class="">Trivia</a>
+</nav>
+<header><h1>The Cellnet Riverside Stadiu</h1><div class="sub">Capacity 30,000 · Cleveland</div><div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html">Stadiums</a> › The Cellnet Riverside Stadiu</div></header>
+<main><div class="trivia">Middlesbrough's gleaming new stadium opened in August 1995, replacing the ageing Ayresome Park. One of the first post-Taylor Report football-specific stadiums in England.</div><div class="highlights" style="margin-bottom:1rem">
+          <div class="hl"><div class="hl-val">30,000</div><div class="hl-lbl">Capacity</div></div>
+          <div class="hl"><div class="hl-val">Cleveland</div><div class="hl-lbl">City</div></div>
+          <div class='hl'><div class='hl-val' style='font-size:1rem'>Middlesbrough</div><div class='hl-lbl'>Address</div></div>
+        </div>
+        <h2>Club</h2>
+        <div class="cards"><a href="../teams/middlesbrough.html" style="text-decoration:none">
+              <div class="card">
+                <h3>Middlesbrough</h3>
+                <div class="label"><a href="../leagues/english-premier-league.html">English Premier League</a></div>
+                <div class="label">Squad avg: <span class="rat-gold">70.2</span></div>
+              </div></a></div></main>
+<footer>FIFA Soccer Manager 97 · Data extracted from SM97.DAT</footer>
+<script>
+document.querySelectorAll('input[data-filter]').forEach(function(inp){
+  var tbl = document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('thead th[data-sort]').forEach(function(th){
+  var asc = true;
+  th.addEventListener('click', function(){
+    var tbl = th.closest('table');
+    var idx = Array.from(th.parentElement.children).indexOf(th);
+    var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
+    rows.sort(function(a,b){
+      var ac = a.cells[idx], bc = b.cells[idx];
+      var av = ac ? ac.textContent.trim() : '';
+      var bv = bc ? bc.textContent.trim() : '';
+      var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
+          bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
+      if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(function(r){ tbl.tBodies[0].appendChild(r); });
+    tbl.querySelectorAll('thead th[data-sort]').forEach(function(t){
+      t.classList.remove('sort-asc','sort-desc');
+    });
+    th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+    asc = !asc;
+  });
+});
+</script>
+</body>
+</html>

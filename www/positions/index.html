@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Positions — FIFA Soccer Manager 97</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+<span class="nav-brand">⚽ FSM97</span>
+<a href="../index.html" class="">Home</a>
+<a href="../leagues/index.html" class="">Leagues</a>
+<a href="../teams/index.html" class="">Teams</a>
+<a href="../stadiums/index.html" class="">Stadiums</a>
+<a href="../positions/index.html" class="active">Positions</a>
+<a href="../nationalities/index.html" class="">Nationalities</a>
+<a href="../stats/index.html" class="">Stats</a>
+<a href="../trivia/index.html" class="">Trivia</a>
+</nav>
+<header><h1>Playing Positions</h1></header>
+<main><table><thead><tr><th>Code</th><th>Position</th><th>Zone</th><th class="num">Players</th><th class="num">Avg Rating</th></tr></thead>
+    <tbody><tr>
+          <td><a href="gk.html" class="pos">GK</a></td>
+          <td>Goalkeeper</td>
+          <td>Goalkeeper</td>
+          <td class="num">720</td>
+          <td class="num"><span class="rat-green">66.8</span></td>
+        </tr><tr>
+          <td><a href="rb.html" class="pos">RB</a></td>
+          <td>Right Back</td>
+          <td>Defender</td>
+          <td class="num">457</td>
+          <td class="num"><span class="rat-green">62.7</span></td>
+        </tr><tr>
+          <td><a href="lb.html" class="pos">LB</a></td>
+          <td>Left  Back</td>
+          <td>Defender</td>
+          <td class="num">397</td>
+          <td class="num"><span class="rat-green">62.8</span></td>
+        </tr><tr>
+          <td><a href="cd.html" class="pos">CD</a></td>
+          <td>Central Defence</td>
+          <td>Defender</td>
+          <td class="num">1250</td>
+          <td class="num"><span class="rat-green">64.3</span></td>
+        </tr><tr>
+          <td><a href="rwb.html" class="pos">RWB</a></td>
+          <td>Right Wing Back</td>
+          <td>Defender</td>
+          <td class="num">8</td>
+          <td class="num"><span class="rat-gold">72.0</span></td>
+        </tr><tr>
+          <td><a href="lwb.html" class="pos">LWB</a></td>
+          <td>Left Wing Back</td>
+          <td>Defender</td>
+          <td class="num">10</td>
+          <td class="num"><span class="rat-green">69.0</span></td>
+        </tr><tr>
+          <td><a href="sw.html" class="pos">SW</a></td>
+          <td>Sweeper</td>
+          <td>Defender</td>
+          <td class="num">70</td>
+          <td class="num"><span class="rat-green">62.6</span></td>
+        </tr><tr>
+          <td><a href="dm.html" class="pos">DM</a></td>
+          <td>Defensive Midfield</td>
+          <td>Midfielder</td>
+          <td class="num">1126</td>
+          <td class="num"><span class="rat-green">61.6</span></td>
+        </tr><tr>
+          <td><a href="rm.html" class="pos">RM</a></td>
+          <td>Right Midfield</td>
+          <td>Midfielder</td>
+          <td class="num">346</td>
+          <td class="num"><span class="rat-mid">53.7</span></td>
+        </tr><tr>
+          <td><a href="lm.html" class="pos">LM</a></td>
+          <td>Left Midfield</td>
+          <td>Midfielder</td>
+          <td class="num">346</td>
+          <td class="num"><span class="rat-mid">53.5</span></td>
+        </tr><tr>
+          <td><a href="am.html" class="pos">AM</a></td>
+          <td>Attacking Midfield</td>
+          <td>Midfielder</td>
+          <td class="num">412</td>
+          <td class="num"><span class="rat-green">63.9</span></td>
+        </tr><tr>
+          <td><a href="rw.html" class="pos">RW</a></td>
+          <td>Right Winger</td>
+          <td>Attacker</td>
+          <td class="num">67</td>
+          <td class="num"><span class="rat-green">67.2</span></td>
+        </tr><tr>
+          <td><a href="lw.html" class="pos">LW</a></td>
+          <td>Left Winger</td>
+          <td>Attacker</td>
+          <td class="num">63</td>
+          <td class="num"><span class="rat-green">65.8</span></td>
+        </tr><tr>
+          <td><a href="fr.html" class="pos">FR</a></td>
+          <td>Free Role</td>
+          <td>Attacker</td>
+          <td class="num">11</td>
+          <td class="num"><span class="rat-green">62.8</span></td>
+        </tr><tr>
+          <td><a href="fwd.html" class="pos">FWD</a></td>
+          <td></td>
+          <td></td>
+          <td class="num">1426</td>
+          <td class="num"><span class="rat-green">65.6</span></td>
+        </tr><tr>
+          <td><a href="ss.html" class="pos">SS</a></td>
+          <td>Support Striker</td>
+          <td>Attacker</td>
+          <td class="num">3</td>
+          <td class="num"><span class="rat-mid">52.2</span></td>
+        </tr></tbody></table></main>
+<footer>FIFA Soccer Manager 97 · Data extracted from SM97.DAT</footer>
+<script>
+document.querySelectorAll('input[data-filter]').forEach(function(inp){
+  var tbl = document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('thead th[data-sort]').forEach(function(th){
+  var asc = true;
+  th.addEventListener('click', function(){
+    var tbl = th.closest('table');
+    var idx = Array.from(th.parentElement.children).indexOf(th);
+    var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
+    rows.sort(function(a,b){
+      var ac = a.cells[idx], bc = b.cells[idx];
+      var av = ac ? ac.textContent.trim() : '';
+      var bv = bc ? bc.textContent.trim() : '';
+      var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
+          bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
+      if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(function(r){ tbl.tBodies[0].appendChild(r); });
+    tbl.querySelectorAll('thead th[data-sort]').forEach(function(t){
+      t.classList.remove('sort-asc','sort-desc');
+    });
+    th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+    asc = !asc;
+  });
+});
+</script>
+</body>
+</html>
