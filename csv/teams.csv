@@ -1,163 +1,71 @@
-team,nickname,abbreviation,league,stadium,stadium_address,city,capacity,manager,is_player_manager
+team,nickname,abbreviation,league,stadium,stadium_address,area,capacity,manager,is_player_manager
 Arsenal,The Gunners,ARS,English Premier League,Highbury,Avenell Road,London,38500,Bruce Rioch,False
-Aston Villa,The Villa,AST,English Premier League,Villa Park,Trinity Road,-,39500,Brian Little,False
-Blackburn,The Rovers,BLK,English Premier League,Ewood Park,Nuttall Street,-,31800,Ray Harford,False
+Aston Villa,The Villa,AST,English Premier League,Villa Park,Trinity Road,,39500,Brian Little,False
+Blackburn,The Rovers,BLK,English Premier League,Ewood Park,Nuttall Street,,31800,Ray Harford,False
+Bolton,The Trotters,BOL,English First Division,Burnden Park,Bolton,,22616,Colin Todd,True
 Chelsea,The Blues,CHE,English Premier League,Stamford Bridge,Fulham Road,London,31500,Ruud Gullit,True
-Coventry,The Sky Blues,COV,English Premier League,Highfield Road,King Richard Street,-,23000,Ron Atkinson,False
+Coventry,The Sky Blues,COV,English Premier League,Highfield Road,King Richard Street,,23000,Ron Atkinson,False
 Everton,The Toffeemen,EVE,English Premier League,Goodison Park,Liverpool,Merseyside,40000,Joe Royle,False
 Leeds,The Whites,LEE,English Premier League,Elland Road,West Yorkshire,Yorkshire,40000,Howard Wilkinson,False
 Liverpool,The Reds,LIV,English Premier League,Anfield,Liverpool,Merseyside,40500,Roy Evans,False
+Manchester C,The Blues,MNC,English First Division,Maine Road,Moss Side,Lancashire,32000,Alan Ball,False
 Manchester U,The Red Devils,MNU,English Premier League,Old Trafford,Sir Matt Busby Way - Old Trafford,Lancashire,55000,Alex Ferguson,False
-Middlesbrough,The Boro,MID,English Premier League,The Cellnet Riverside Stadiu,Middlesbrough,Cleveland,30000,Bryan Robson,True
-Newcastle,The Magpies,NEW,English Premier League,St James` Park,Newcastle-Upon-Tyne,-,36518,Kevin Keegan,False
+Middlesbrough,The Boro,MID,English Premier League,The Cellnet Riverside Stadium,Middlesbrough,Cleveland,30000,Bryan Robson,True
+Newcastle,The Magpies,NEW,English Premier League,St James' Park,Newcastle-Upon-Tyne,,36518,Kevin Keegan,False
 Nottingham F,The Reds,NTF,English Premier League,The City Ground,Nottingham,Nottinghamshire,30557,Frank Clark,False
-Sheffield W,The Owls,SHW,English Premier League,Hillsborough,Sheffield,-,36020,David Pleat,False
-Southampton,The Saints,SOU,English Premier League,The Dell,Milton Road,-,15000,Graeme Souness,False
+QPR,The Rangers,QPR,English First Division,Loftus Road,South Africa Road,London,19000,Ray Wilkins,False
+Sheffield W,The Owls,SHW,English Premier League,Hillsborough,Sheffield,,36020,David Pleat,False
+Southampton,The Saints,SOU,English Premier League,The Dell,Milton Road,,15000,Graeme Souness,False
 Tottenham,The Spurs,TOT,English Premier League,White Hart Lane,748 High Road,London,33000,Gerry Francis,False
 West Ham,The Hammers,WHU,English Premier League,Upton Park,Boleyn Ground - Green Street,London,26014,Harry Redknapp,False
 Wimbledon,The Dons,WIM,English Premier League,Selhurst Park,Selhurst Park,London,26000,Joe Kinnear,False
-Derby,The Rams,DER,English Premier League,Baseball Ground,Shaftesbury Crescent,-,25000,Jim Smith,False
-Leicester,The Foxes,LEI,English Premier League,Filbert Street,Leicester,-,22517,Martin O`Neill,False
-Sunderland,The Rokerites,SUN,English Premier League,Roker Park,Sunderland,Tyne & Wear,22657,Peter Reid,False
-Bolton,The Trotters,BOL,English Division 1,Burnden Park,Bolton,-,22616,Colin Todd,True
-Manchester C,The Blues,MNC,English Division 1,Maine Road,Moss Side,Lancashire,32000,Alan Ball,False
-QPR,The Rangers,QPR,English Division 1,Loftus Road,South Africa Road,London,19000,Ray Wilkins,False
-Barnsley,The Tykes,BSY,English Division 1,Oakwell Ground,Grove Street,Yorkshire,27310,Danny Wilson,False
-Birmingham,The Blues,BIR,English Division 1,Saint Andrews,Birmingham,-,28235,Trevor Francis,True
-Charlton,The Addicks,CHA,English Division 1,The Valley,Floyd Road,London,15000,Alan Curbishley,False
-Crystal Palace,The Eagles,CPA,English Division 1,Selhurst Park,Selhurst Park,London,26000,Dave Bassett,False
-Grimsby,The Mariners,GRI,English Division 1,Blundell Park,Cleethorpe,-,8607,Brian Laws,False
-Huddersfield,The Terriers,HUD,English Division 1,The Alfred McAlpine Stadium,Huddersfield,West Yorkshire,20000,Brian Horton,False
-Ipswich,The Blues,IPS,English Division 1,Portman Road,Ipswich,Suffolk,22500,George Burley,False
-Norwich,The Canaries,NRW,English Division 1,Carrow Road,Norwich,Norfolk,21909,Mike Walker,False
-Oldham,The Latics,OLD,English Division 1,Boundary Park,Oldham,Lancashire,13599,Graeme Sharp,False
-Port Vale,The Valiants,PTV,English Division 1,Vale Park,Burslem,-,23000,John Rudge,False
-Portsmouth,The Pompey,PTM,English Division 1,Fratton Road,Frogmore Road,-,26452,Terry Fenwick,False
-Reading,The Royals,REA,English Division 1,Elm Park,Norfolk Road,Berkshire,14058,Mick Gooding,True
-Sheffield U,The Blades,SHU,English Division 1,Bramall Lane Ground,Sheffield,-,23327,Howard Kendall,False
-Southend,The Shrimpers,SOT,English Division 1,Roots Hall,Victoria Avenue,-,13000,Ronnie Whelan,True
-Stoke,The Potters,STK,English Division 1,Victoria Ground,Stoke-on-Trent,Staffordshire,25409,Lou Macari,True
-Tranmere,The Rovers,TRA,English Division 1,Prenton Park,Prenton Road West,Merseyside,16789,John Aldridge,True
-West Brom,The Throstles,WSB,English Division 1,The Hawthorns,West Bromich,West Midlands,25117,Alan Buckley,True
-Wolves,The Wolves,WOL,English Division 1,Molineux Ground,Waterloo Road,-,28500,Mark McGhee,False
-Bradford,The Bantams,BRA,English Division 1,The Pulse Stadium,Valley Parade,West Yorkshire,14539,Chris Kamara,True
-Oxford,The U's,OXF,English Division 1,Manor Ground,London Road,Oxford,9572,Denis Smith,True
-Swindon,The Robins,SWI,English Division 1,County Gorund,Swindon,-,15341,Steve McMahon,False
-Luton,The Hatters,LUT,English Division 2,Kenilworth Road,1 Maple Road,Bedfordshire,13410,Lennie Lawrence,False
-Millwall,The Lions,MLW,English Division 2,The New Den,-,London,20146,Jimmy Nicholl,True
-Watford,The Hornets,WAT,English Division 2,Vicarage Road Stadium,Watford,-,22000,Glenn Roeder,False
-Blackpool,The Seasiders,BLA,English Division 2,Bloomfield Road,Blackpool,Lancashire,9654,Gary Megson,False
-Bournemouth,The Cherries,BOU,English Division 2,Dean Court Ground,Bournemouth,Dorset,11880,Mel Machin,False
-Brentford,The Bees,BRE,English Division 2,Griffin Park,Braemer Road,Middlessex,13800,David Webb,False
-Bristol C,The Robins,BRC,English Division 2,Ashton Gate,Bristol,Avon,20832,Joe Jordan,False
-Bristol R,The Pirates,BRR,English Division 2,Twerton Park,Bath,Avon,8730,Ian Holloway,True
-Burnley,The Clarets,BLY,English Division 2,Turf Moor,Brunshaw Road,Lancashire,20912,Adrian Heath,False
-Chesterfield,The Spireites,CST,English Division 2,Recreation Ground,Chesterfield,Nottinghamshire,11308,John Duncan,False
-Crewe,The Railwaymen,CRW,English Division 2,Gresty Road,Crewe,Cheshire,6000,Dario Gradi,False
-Nottingham C,The Magpies,NTC,English Division 2,Meadow Lane,Nottingham,Nottinghamshire,20300,Colin Murphy,False
-Peterborough,The Posh,PET,English Division 2,London Road Ground,Peterborough,,10675,Barry Fry,False
-Rotherham,The Merry Millers,ROT,English Division 2,Millmoor Ground,Rotherham,South Yorkshire,11533,Archie Gemmill,False
-Shrewsbury,The Blues,SHR,English Division 2,Gay Meadow,Shrewsbury,Shropshire,8000,Fred Davies,False
-Stockport,The Hatters,STO,English Division 2,Edgeley Park,Hardcastle Road - Edgeley,Cheshire,16419,David Jones,True
-Walsall,The Saddlers,WAL,English Division 2,Bescot Stadium,Bescot Crescent,West Midlands,10400,Chris Nicholl,False
-Wrexham,The Robins,WRE,English Division 2,Racecourse Ground,Mold Road,Clwyd,11500,Brian Flynn,False
-Wycombe,The Chairboys,WYC,English Division 2,Adams Park,Hillbottom Road,Buckinghamshire,9649,Alan Smith,False
-York,The Minster Men,YOR,English Division 2,Bootham Crescent,York,Yorkshire,9534,Brian Little,False
-Bury,The Shakers,BUR,English Division 2,Gigg Lane,Bury,Lancashire,11614,Stan Ternent,False
-Gillingham,The Gills,GIL,English Division 2,Priestfield Stadium,Redern Avenue,Kent,10422,Tony Pulis,False
-Plymouth,The Pilgrims,PLY,English Division 2,Home Park,Plymouth,Devon,19700,Neil Warnock,False
-Preston,The Lilywhites,PSN,English Division 2,Deepdale,Preston,-,10173,Gary Peters,False
-Brighton,The Seagulls,BRI,English Division 3,The Goldstone Ground,Newton Road,East Sussex,18203,Jimmy Case,False
-Carlisle,The Cumbrians,CLS,English Division 3,Brunton Park,Warwick Road,Cumbria,17300,Mervyn Day,False
-Hull,The Tigers,HUL,English Division 3,Boothferry Park,Boothferry Road,North Humberside,15828,Terry Duncan,False
-Swansea,The Swans,SWA,English Division 3,Vetch Field,Swansea,-,16550,Jan Molby,True
-Barnet,The Bees,BRN,English Division 3,Underhill Stadium,Barnet Lane,Hertfordshire,3887,Ray Clemence,False
-Cambridge,The U's,CAM,English Division 3,Abbey Stadium,Newmarket Road,Cambridgeshire,9667,Tommy Taylor,False
-Cardiff,The Bluebirds,CAR,English Division 3,Ninian Park,Sloper Road,-,21000,Phil Neal,False
-Chester,The Blues,CHC,English Division 3,Deva Stadium,Bumpers Lane,Cheshire,6000,Kevin Ratcliffe,False
-Colchester,The U's,COL,English Division 3,Layer Road Ground,Colchester,Essex,7944,Steve Wignall,False
-Darlington,The Quakers,DAR,English Division 3,Feethams,Darlington,Durham,9984,Roy Hodgson,False
-Doncaster,The Rovers,DON,English Division 3,Belle Vue Ground,Doncaster,South Yorkshire,7794,Sammy Chung,False
-Exeter,The Grecians,EXE,English Division 3,St James Park,Well Street,Devon,8960,Peter Fox,True
-Fulham,The Cottagers,FUL,English Division 3,Craven Cottage,Stevenage Road,London,11600,Micky Adams,True
-Hartlepool,The Pool,HAR,English Division 3,The Victoria Park,Hartlepool,Cleveland,7229,Keith Houchen,True
-Hereford,United,HER,English Division 3,Edgar Street,Hereford,-,13752,Dick Bate,False
-Orient,The O's,ORI,English Division 3,Brisbane Road,Leyton,London,18869,Pat Holland,False
-Lincoln,The Red Imps,LIN,English Division 3,Sincil Bank,Lincoln,-,10898,John Beck,False
-Mansfield,The Stags,MAN,English Division 3,Field Mill Ground,Quarry Lane,Nottingham,10315,Andy King,False
-Northampton,The Cobblers,NOR,English Division 3,Sixfields,Upton Way,-,7673,Ian Atkins,False
-Rochdale,The Dale,ROC,English Division 3,Spotland,Willbutts Lane,-,5800,Graham Barrow,False
-Scarborough,The Boro,SCA,English Division 3,The McCain Stadium,Seamer Road,-,6899,Mick Wadsworth,False
-Scunthorpe,The Iron,SCU,English Division 3,Glanford Park,Doncaster Road,-,9200,Mick Buxton,False
-Torquay,The Gulls,TQY,English Division 3,Plainmoor Ground,Torquay,Devon,6490,Kevin Hodge,False
-Wigan,The Latics,WIG,English Division 3,Springfield Park,Wigan,Lancashire,8666,John Deehan,False
-Aberdeen,,ABE,Scottish Premier,Pittodrie Stadium,Pittodrie Street,-,21634,,False
-Celtic,,CEL,Scottish Premier,Celtic Park,95 Kerrydale Street,-,34000,,False
-Hearts,,HEA,Scottish Premier,Tynecastle Park,Gorgie Road,-,13500,,False
-Hibernian,,HIB,Scottish Premier,Easter Road Park,Albion Road,-,21889,,False
-Kilmarnock,,KIL,Scottish Premier,Rugby Park,Rugby Road,Ayrshire,12991,,False
-Motherwell,,MOT,Scottish Premier,Fir Park,Fir Park Street,-,15500,,False
-Raith,,RAI,Scottish Premier,Starks Park,Pratt Street,-,8159,,False
-Rangers,,RAN,Scottish Premier,Ibrox Stadium,150 Edminston Drive,-,45407,,False
-Dundee U,,DNU,Scottish Premier,Tannadice Park,Tannadice Street,-,16868,,False
-Dunfermline,,DNF,Scottish Premier,East End Park,Halbeath Road,Fife,18328,,False
-Falkirk,,FAL,Scottish Division 1,Brockville Park,Hope Street,-,13840,,False
-Partick,,PRT,Scottish Division 1,Firhill,90 Firhill Road,-,19243,,False
-Airdrie,,AIR,Scottish Division 1,Broomfield Park,Gartlea Road,-,6300,,False
-Clydebank,,CLY,Scottish Division 1,Kilbowie Park,Arran Place,-,5503,,False
-Dumbarton,,DUM,Scottish Division 1,Boghead Park,Miller Street,-,5503,,False
-Dundee,,DUN,Scottish Division 1,Dens Park,Dens Road,-,16276,,False
-Morton,,MOR,Scottish Division 1,Cappielow Park,Sinclair Street,-,14267,,False
-Hamilton,,HMN,Scottish Division 1,Douglas Park,Douglas Park Lane,-,1238,,False
-St Johnstone,,STJ,Scottish Division 1,McDairmid Park,Crieff Road,-,10721,,False
-St Mirren,,STM,Scottish Division 1,St Mirren Park,Love Street,-,15410,,False
-East Fife,,FIF,Scottish Division 1,Bayview Park,-,Fife,5385,,False
-Stirling,,STR,Scottish Division 1,Forthbank Stadium,-,-,3808,,False
-Bayern München,,BMU,German Bundesliga 1,Olympiastadion,81504 Munich,-,64000,Otto Rehhagel,False
-Bor. Dortmund,,DOR,German Bundesliga 1,Westfalsenstadion,Strobelallee,-,42800,Ottmar Hitzfeld,False
-Bor. M'gladbach,,BMG,German Bundesliga 1,Bokelberg,41063 Munchengladbach,-,34500,Bernd Krauss,False
-SC Freiburg,,FRE,German Bundesliga 1,Dreisamstadion,Schwarzwaldstrasse 193,-,18000,Volker Finke,False
-Fortuna D'dorf,,FRD,German Bundesliga 1,Parkstadion,45891 Gelsenkirchen,-,70600,Aleksander Ristic,False
-Hansa Rostock,,HAN,German Bundesliga 1,Ostseestadion,-,-,25600,Frank Pagelsdorf,False
-Hamburger SV,,HAM,German Bundesliga 1,Volksparkstadion,Rothenbaumchaussee 125,-,61234,Benno Mohlmann,False
-Karlsruher SC,,KAR,German Bundesliga 1,Wildparkstadion,Adenauering 17,-,42642,Winfried Schafer,False
-1. FC Köln,,KLN,German Bundesliga 1,Mungersdorfer Stadion,50893 Cologne,-,60398,Stephan Engles,False
-Leverkusen,,LVR,German Bundesliga 1,Ulrich-Haberland Stadion,51349 LeverKusen,-,26000,Erich Ribbeck,False
-1860 München,,MUN,German Bundesliga 1,Wilhelm-Koch-Stadion,Auf Den Heiligengeisfeld,-,20551,Werner Lorant,False
-FC Schalke 04,,SCH,German Bundesliga 1,Parkstadion,Geschaffsstelle,-,70600,Jorg Berger,False
-FC St. Pauli,,STP,German Bundesliga 1,Wilhelm-Koch-Stadion,Auf Den Heiligengeisfeld,-,20551,Uli Maslo,False
-VfB Stuttgart,,STG,German Bundesliga 1,Gottlieb-Daimler Stadion,Mercedesstrasse 109,-,53700,Rolf Fringer,False
-Werder Bremen,,WBR,German Bundesliga 1,Weserstadion,28205 Bremen,-,40640,Aad De Mos,False
-Arm. Bielefeld,,ARM,German Bundesliga 1,Alm,-,-,22000,,False
-VfL Bochum,,BOC,German Bundesliga 1,Ruhrstadion,-,-,42000,,False
-MSV Duisburg,,DUI,German Bundesliga 1,Wedaustadion,-,-,30128,,False
-Frankfurt,,ENF,German Bundesliga 2,Ostseestadion,Kopernikusstrasse 17a,-,25600,Karl-Hienz Korbel,False
-1. FC K'lautern,,KAI,German Bundesliga 2,Fritz Walter Stadion,-,-,38500,Friedel Rausch,False
-KFC Uerdingen,,UER,German Bundesliga 2,Grotenburg,47829 Krefeld,-,34500,Friedhelm Funkel,False
-FC C. Z. Jena,,CZJ,German Bundesliga 2,Ernst-Abbe Sports Field,-,-,9380,,False
-Fortuna Köln,,FTK,German Bundesliga 2,XX185,-,-,15000,,False
-Hertha BSC,,HRB,German Bundesliga 2,Berliner Olympiastadion,-,-,76243,,False
-VfB Leipzig,,LEZ,German Bundesliga 2,Bruno-Plache Stadion,-,-,15000,,False
-VfB Lübeck,,LUB,German Bundesliga 2,Lomuhle,-,-,19200,,False
-1. FSV Mainz 05,,MAI,German Bundesliga 2,Bruchwegstadion,-,-,13000,,False
-SV Meppen,,MEP,German Bundesliga 2,Emslandstadion,-,-,17500,,False
-Unterhaching,,UNT,German Bundesliga 2,Sports Park Stadium,-,-,10000,,False
-SV. W. Mannheim,,WDM,German Bundesliga 2,Carl-Benz Stadion,-,-,27000,,False
-VfL Wolfsburg,,WOL,German Bundesliga 2,VfL Stadion,-,-,15272,,False
-FSV Zwickau,,ZWI,German Bundesliga 2,Westsachsenstadion,-,-,11200,,False
-VfB Oldenburg,,ODG,German Bundesliga 2,Marschweg Stadion,-,-,15000,,False
-FC Gütersloh,,GUT,German Bundesliga 2,Heidewaldstadion,-,-,12500,,False
-Rot-Weiß Essen,,RWE,German Bundesliga 2,Georg-Melches Stadion,-,-,25600,,False
-Stuttgarter K.,,STK,German Bundesliga 2,Waldaustadion (SK),-,-,9400,,False
+Bayern München,,BMU,German Bundesliga 1,Olympiastadion,81504 Munich,,64000,Otto Rehhagel,False
+Bor. Dortmund,,DOR,German Bundesliga 1,Westfalsenstadion,Strobelallee,,42800,Ottmar Hitzfeld,False
+Bor. M'gladbach,,BMG,German Bundesliga 1,Bokelberg,41063 Munchengladbach,,34500,Bernd Krauss,False
+Frankfurt,,ENF,German Bundesliga 2,Ostseestadion,Kopernikusstrasse 17a,,25600,Karl-Hienz Korbel,False
+SC Freiburg,,FRE,German Bundesliga 1,Dreisamstadion,Schwarzwaldstrasse 193,,18000,Volker Finke,False
+Fortuna D'dorf,,FRD,German Bundesliga 1,Parkstadion,45891 Gelsenkirchen,,70600,Aleksander Ristic,False
+Hansa Rostock,,HAN,German Bundesliga 1,Ostseestadion,,,25600,Frank Pagelsdorf,False
+Hamburger SV,,HAM,German Bundesliga 1,Volksparkstadion,Rothenbaumchaussee 125,,61234,Benno Mohlmann,False
+1. FC K'lautern,,KAI,German Bundesliga 2,Fritz Walter Stadion,,,38500,Friedel Rausch,False
+Karlsruher SC,,KAR,German Bundesliga 1,Wildparkstadion,Adenauering 17,,42642,Winfried Schafer,False
+1. FC Köln,,KLN,German Bundesliga 1,Mungersdorfer Stadion,50893 Cologne,,60398,Stephan Engles,False
+Leverkusen,,LVR,German Bundesliga 1,Ulrich-Haberland Stadion,51349 LeverKusen,,26000,Erich Ribbeck,False
+1860 München,,MUN,German Bundesliga 1,Wilhelm-Koch-Stadion,Auf Den Heiligengeisfeld,,20551,Werner Lorant,False
+FC Schalke 04,,SCH,German Bundesliga 1,Parkstadion,Geschaffsstelle,,70600,Jorg Berger,False
+FC St. Pauli,,STP,German Bundesliga 1,Wilhelm-Koch-Stadion,Auf Den Heiligengeisfeld,,20551,Uli Maslo,False
+VfB Stuttgart,,STG,German Bundesliga 1,Gottlieb-Daimler Stadion,Mercedesstrasse 109,,53700,Rolf Fringer,False
+KFC Uerdingen,,UER,German Bundesliga 2,Grotenburg,47829 Krefeld,,34500,Friedhelm Funkel,False
+Werder Bremen,,WBR,German Bundesliga 1,Weserstadion,28205 Bremen,,40640,Aad De Mos,False
+Atalanta,,ATA,Italian Serie A,Comunale,,,33100,Emiliano Mondonico,False
+Bari,,BAR,Italian Serie B,San Nicola,,,58270,Giuseppe Materazzi,False
+Cagliari,,CAG,Italian Serie A,Saint' Ella,,,41885,Giovanni Trapatoni,False
+Cremonese,,CRE,Italian Serie B,Giovanni Zini,,,20000,Luigi Simoni,False
+Fiorentina,,FIO,Italian Serie A,Artemio Franchi,,,47495,Claudio Ranieri,False
+Inter,,INT,Italian Serie A,San Siro,,,85847,Roy Hodgson,False
+Juventus,,JUV,Italian Serie A,Delle Alpi,,,71012,Marcello Lippi,False
+Lazio,,LAZ,Italian Serie A,Olimpico,,,82922,Zdenek Zeman,False
+Milan,,MIL,Italian Serie A,San Siro,,,85847,Fabio Capello,False
+Napoli,,NAP,Italian Serie A,San Paolo,,,72810,Vujadin Boskov,False
+Padova,,PAD,Italian Serie B,Euganeo,Via Sorio 43,,25000,Mauro Sandreani,False
+Parma,,PAR,Italian Serie A,Ennio Tardini,,,27500,Nevio Scala,False
+Piacenza,,PIA,Italian Serie A,Galleana,,,22000,Luigi Cagni,False
+Roma,,ROM,Italian Serie A,Olimpico,,,82922,Carlo Mazzone,False
+Sampdoria,,SAM,Italian Serie A,Luigi Ferraris,,,41917,Sven Goran Eriksson,False
+Torino,,TOR,Italian Serie B,Delle Alpi (TO),,,71012,Nedo Sonetti,False
+Udinese,,UDI,Italian Serie A,Fruili,,,42976,Alberto Zaccheroni,False
+Vicenza,,VIC,Italian Serie A,Romeo Menti,Via Schio 26,,28000,Francesco Guidolin,False
 Auxerre,,AUX,French Division 1,Abbe-Deschamps,,,22000,,False
-Bastia,,BAS,French Division 1,Armand-Cesari,BP 640,-,7800,,False
+Bastia,,BAS,French Division 1,Armand-Cesari,BP 640,,7800,,False
 Bordeaux,,BOR,French Division 1,Parc Lescure,,,40000,,False
 Cannes,,CAN,French Division 1,Pierre de Coubertin,,,20000,,False
-Guingamp,,GUI,French Division 1,Roudourou,Rue du Manoir,-,16000,,False
+Gueugnon,,GUE,French Division 2,Jean Laville,,,15000,,False
+Guingamp,,GUI,French Division 1,Roudourou,Rue du Manoir,,16000,,False
 Le Havre,,LEH,French Division 1,Jules-Deschaseaux,,,20536,,False
 RC Lens,,LEN,French Division 1,Felix-Bollaert,,,49580,,False
 Lille,,LIL,French Division 1,Grimonprez-Jooris,,,24393,,False
 Lyon,,LYO,French Division 1,Gerland,,,45000,,False
+Martigues,,MRT,French Division 2,Francis-Turcan,,,15000,,False
 FC Metz,,MET,French Division 1,Stadium Municipal,,,35200,,False
 Monaco,,MON,French Division 1,Loius II,,,18500,,False
 Montpellier,,MTP,French Division 1,La Mosson,,,25000,,False
@@ -165,181 +73,277 @@ Nantes,,NAN,French Division 1,La Beaujoire,,,34034,,False
 Nice,,NIC,French Division 1,Ray,,,12500,,False
 Paris SG,,PSG,French Division 1,Parc Des Princes,,,48725,,False
 Rennes,,REN,French Division 1,Route de Lorient,,,21000,,False
-Strasbourg,,STR,French Division 1,Stade de la Meinau,12 Rue de l'Extenwoerth,-,41223,,False
-Caen,,CAE,French Division 1,Michel D`Ornano,,,21500,,False
-Marseille,,MAR,French Division 1,Velodrome,3 boulevard Michelet,-,46000,,False
-Nancy,,NCY,French Division 1,Marcel Picot,90 boulevard Jean-Laures,-,34595,,False
-Gueugnon,,GUE,French Division 2,Jean Laville,-,-,15000,,False
-Martigues,,MRT,French Division 2,Francis-Turcan,,,15000,,False
 St Etienne,,STE,French Division 2,Geoffroy-Guichard,,,47000,,False
-Amiens,,AMI,French Division 2,Moulonguet,-,-,9000,,False
-Charleville,,CHR,French Division 2,Stade Petit Bois,rue delvincourt,-,8400,,False
-Chateauroux,,CHT,French Division 2,Gaston-Petit,avenue Pierre de Coubertin,-,10000,,False
-Epinal,,EPI,French Division 2,Stade de la Combiene,rue de Chaperon-Rouge,-,12000,,False
-Laval,,LAV,French Division 2,Francis Le Basser,130 ave Pierre de Coubertin,-,19000,,False
-Le Mans,,LEM,French Division 2,Leon-Bollee,rue Claircigny,-,12000,,False
-Lorient,,LOR,French Division 2,Le Moustoir,rue Jean-Le Coutaller,-,11000,,False
-Louhans-C,,LOU,French Division 2,Parc Des Sports Du Bram,rue de Bram,-,7000,,False
-Mulhouse,,MUL,French Division 2,De L'ill,45 boulevard Stoeseel,-,10440,,False
-Niort,,NIO,French Division 2,Rene Gaillard,ave de la Vinese-Verte,-,12395,,False
-Perpignan,,PPG,French Division 2,Jean-Laffon,avenue des Sports,-,8000,,False
-Red Star,,RED,French Division 2,Municipal - Red Star93,rue de Docteur-Bauer,-,18000,,False
+Strasbourg,,STR,French Division 1,Stade de la Meinau,12 Rue de l'Extenwoerth,,41223,,False
+Aberdeen,,ABE,Scottish Premier League,Pittodrie Stadium,Pittodrie Street,,21634,,False
+Celtic,,CEL,Scottish Premier League,Celtic Park,95 Kerrydale Street,,34000,,False
+Falkirk,,FAL,Scottish First Division,Brockville Park,Hope Street,,13840,,False
+Hearts,,HEA,Scottish Premier League,Tynecastle Park,Gorgie Road,,13500,,False
+Hibernian,,HIB,Scottish Premier League,Easter Road Park,Albion Road,,21889,,False
+Kilmarnock,,KIL,Scottish Premier League,Rugby Park,Rugby Road,Ayrshire,12991,,False
+Motherwell,,MOT,Scottish Premier League,Fir Park,Fir Park Street,,15500,,False
+Partick,,PRT,Scottish First Division,Firhill,90 Firhill Road,,19243,,False
+Raith,,RAI,Scottish Premier League,Starks Park,Pratt Street,,8159,,False
+Rangers,,RAN,Scottish Premier League,Ibrox Stadium,150 Edminston Drive,,45407,,False
+Barnsley,The Tykes,BSY,English First Division,Oakwell Ground,Grove Street,Yorkshire,27310,Danny Wilson,False
+Birmingham,The Blues,BIR,English First Division,Saint Andrews,Birmingham,,28235,Trevor Francis,True
+Charlton,The Addicks,CHA,English First Division,The Valley,Floyd Road,London,15000,Alan Curbishley,False
+Crystal Palace,The Eagles,CPA,English First Division,Selhurst Park,Selhurst Park,London,26000,Dave Bassett,False
+Derby,The Rams,DER,English Premier League,Baseball Ground,Shaftesbury Crescent,,25000,Jim Smith,False
+Grimsby,The Mariners,GRI,English First Division,Blundell Park,Cleethorpe,,8607,Brian Laws,False
+Huddersfield,The Terriers,HUD,English First Division,The Alfred McAlpine Stadium,Huddersfield,West Yorkshire,20000,Brian Horton,False
+Ipswich,The Blues,IPS,English First Division,Portman Road,Ipswich,Suffolk,22500,George Burley,False
+Leicester,The Foxes,LEI,English Premier League,Filbert Street,Leicester,,22517,Martin O'Neill,False
+Luton,The Hatters,LUT,English Second Division,Kenilworth Road,1 Maple Road,Bedfordshire,13410,Lennie Lawrence,False
+Millwall,The Lions,MLW,English Second Division,The New Den,,London,20146,Jimmy Nicholl,True
+Norwich,The Canaries,NRW,English First Division,Carrow Road,Norwich,Norfolk,21909,Mike Walker,False
+Oldham,The Latics,OLD,English First Division,Boundary Park,Oldham,Lancashire,13599,Graeme Sharp,False
+Port Vale,The Valiants,PTV,English First Division,Vale Park,Burslem,,23000,John Rudge,False
+Portsmouth,The Pompey,PTM,English First Division,Fratton Road,Frogmore Road,,26452,Terry Fenwick,False
+Reading,The Royals,REA,English First Division,Elm Park,Norfolk Road,Berkshire,14058,Mick Gooding,True
+Sheffield U,The Blades,SHU,English First Division,Bramall Lane Ground,Sheffield,,23327,Howard Kendall,False
+Southend,The Shrimpers,SOT,English First Division,Roots Hall,Victoria Avenue,,13000,Ronnie Whelan,True
+Stoke,The Potters,STK,English First Division,Victoria Ground,Stoke-on-Trent,Staffordshire,25409,Lou Macari,True
+Sunderland,The Rokerites,SUN,English Premier League,Roker Park,Sunderland,Tyne & Wear,22657,Peter Reid,False
+Tranmere,The Rovers,TRA,English First Division,Prenton Park,Prenton Road West,Merseyside,16789,John Aldridge,True
+Watford,The Hornets,WAT,English Second Division,Vicarage Road Stadium,Watford,,22000,Glenn Roeder,False
+West Brom,The Throstles,WSB,English First Division,The Hawthorns,West Bromich,West Midlands,25117,Alan Buckley,True
+Wolves,The Wolves,WOL,English First Division,Molineux Ground,Waterloo Road,,28500,Mark McGhee,False
+Blackpool,The Seasiders,BLA,English Second Division,Bloomfield Road,Blackpool,Lancashire,9654,Gary Megson,False
+Bournemouth,The Cherries,BOU,English Second Division,Dean Court Ground,Bournemouth,Dorset,11880,Mel Machin,False
+Bradford,The Bantams,BRA,English First Division,The Pulse Stadium,Valley Parade,West Yorkshire,14539,Chris Kamara,True
+Brentford,The Bees,BRE,English Second Division,Griffin Park,Braemer Road,Middlessex,13800,David Webb,False
+Brighton,The Seagulls,BRI,English Third Division,The Goldstone Ground,Newton Road,East Sussex,18203,Jimmy Case,False
+Bristol C,The Robins,BRC,English Second Division,Ashton Gate,Bristol,Avon,20832,Joe Jordan,False
+Bristol R,The Pirates,BRR,English Second Division,Twerton Park,Bath,Avon,8730,Ian Holloway,True
+Burnley,The Clarets,BLY,English Second Division,Turf Moor,Brunshaw Road,Lancashire,20912,Adrian Heath,False
+Carlisle,The Cumbrians,CLS,English Third Division,Brunton Park,Warwick Road,Cumbria,17300,Mervyn Day,False
+Chesterfield,The Spireites,CST,English Second Division,Recreation Ground,Chesterfield,Nottinghamshire,11308,John Duncan,False
+Crewe,The Railwaymen,CRW,English Second Division,Gresty Road,Crewe,Cheshire,6000,Dario Gradi,False
+Hull,The Tigers,HUL,English Third Division,Boothferry Park,Boothferry Road,North Humberside,15828,Terry Duncan,False
+Nottingham C,The Magpies,NTC,English Second Division,Meadow Lane,Nottingham,Nottinghamshire,20300,Colin Murphy,False
+Oxford,The U's,OXF,English First Division,Manor Ground,London Road,Oxford,9572,Denis Smith,True
+Peterborough,The Posh,PET,English Second Division,London Road Ground,Peterborough,,10675,Barry Fry,False
+Rotherham,The Merry Millers,ROT,English Second Division,Millmoor Ground,Rotherham,South Yorkshire,11533,Archie Gemmill,False
+Shrewsbury,The Blues,SHR,English Second Division,Gay Meadow,Shrewsbury,Shropshire,8000,Fred Davies,False
+Stockport,The Hatters,STO,English Second Division,Edgeley Park,Hardcastle Road - Edgeley,Cheshire,16419,David Jones,True
+Swansea,The Swans,SWA,English Third Division,Vetch Field,Swansea,,16550,Jan Molby,True
+Swindon,The Robins,SWI,English First Division,County Gorund,Swindon,,15341,Steve McMahon,False
+Walsall,The Saddlers,WAL,English Second Division,Bescot Stadium,Bescot Crescent,West Midlands,10400,Chris Nicholl,False
+Wrexham,The Robins,WRE,English Second Division,Racecourse Ground,Mold Road,Clwyd,11500,Brian Flynn,False
+Wycombe,The Chairboys,WYC,English Second Division,Adams Park,Hillbottom Road,Buckinghamshire,9649,Alan Smith,False
+York,The Minster Men,YOR,English Second Division,Bootham Crescent,York,Yorkshire,9534,Brian Little,False
+Barnet,The Bees,BRN,English Third Division,Underhill Stadium,Barnet Lane,Hertfordshire,3887,Ray Clemence,False
+Bury,The Shakers,BUR,English Second Division,Gigg Lane,Bury,Lancashire,11614,Stan Ternent,False
+Cambridge,The U's,CAM,English Third Division,Abbey Stadium,Newmarket Road,Cambridgeshire,9667,Tommy Taylor,False
+Cardiff,The Bluebirds,CAR,English Third Division,Ninian Park,Sloper Road,,21000,Phil Neal,False
+Chester,The Blues,CHC,English Third Division,Deva Stadium,Bumpers Lane,Cheshire,6000,Kevin Ratcliffe,False
+Colchester,The U's,COL,English Third Division,Layer Road Ground,Colchester,Essex,7944,Steve Wignall,False
+Darlington,The Quakers,DAR,English Third Division,Feethams,Darlington,Durham,9984,Roy Hodgson,False
+Doncaster,The Rovers,DON,English Third Division,Belle Vue Ground,Doncaster,South Yorkshire,7794,Sammy Chung,False
+Exeter,The Grecians,EXE,English Third Division,St James Park,Well Street,Devon,8960,Peter Fox,True
+Fulham,The Cottagers,FUL,English Third Division,Craven Cottage,Stevenage Road,London,11600,Micky Adams,True
+Gillingham,The Gills,GIL,English Second Division,Priestfield Stadium,Redern Avenue,Kent,10422,Tony Pulis,False
+Hartlepool,The Pool,HAR,English Third Division,The Victoria Park,Hartlepool,Cleveland,7229,Keith Houchen,True
+Hereford,United,HER,English Third Division,Edgar Street,Hereford,,13752,Dick Bate,False
+Orient,The O's,ORI,English Third Division,Brisbane Road,Leyton,London,18869,Pat Holland,False
+Lincoln,The Red Imps,LIN,English Third Division,Sincil Bank,Lincoln,,10898,John Beck,False
+Mansfield,The Stags,MAN,English Third Division,Field Mill Ground,Quarry Lane,Nottingham,10315,Andy King,False
+Northampton,The Cobblers,NOR,English Third Division,Sixfields,Upton Way,,7673,Ian Atkins,False
+Plymouth,The Pilgrims,PLY,English Second Division,Home Park,Plymouth,Devon,19700,Neil Warnock,False
+Preston,The Lilywhites,PSN,English Second Division,Deepdale,Preston,,10173,Gary Peters,False
+Rochdale,The Dale,ROC,English Third Division,Spotland,Willbutts Lane,,5800,Graham Barrow,False
+Scarborough,The Boro,SCA,English Third Division,The McCain Stadium,Seamer Road,,6899,Mick Wadsworth,False
+Scunthorpe,The Iron,SCU,English Third Division,Glanford Park,Doncaster Road,,9200,Mick Buxton,False
+Torquay,The Gulls,TQY,English Third Division,Plainmoor Ground,Torquay,Devon,6490,Kevin Hodge,False
+Wigan,The Latics,WIG,English Third Division,Springfield Park,Wigan,Lancashire,8666,John Deehan,False
+Arm. Bielefeld,,ARM,German Bundesliga 1,Alm,,,22000,,False
+VfL Bochum,,BOC,German Bundesliga 1,Ruhrstadion,,,42000,,False
+FC C. Z. Jena,,CZJ,German Bundesliga 2,Ernst-Abbe Sports Field,,,9380,,False
+Chemnitz,,CHM,Others,Stair Park,,,6100,,False
+MSV Duisburg,,DUI,German Bundesliga 1,Wedaustadion,,,30128,,False
+Fortuna Köln,,FTK,German Bundesliga 2,XX185,,,15000,,False
+Hannover 96,,HNN,Others,XX186,,,10000,,False
+Hertha BSC,,HRB,German Bundesliga 2,Berliner Olympiastadion,,,76243,,False
+VfB Leipzig,,LEZ,German Bundesliga 2,Bruno-Plache Stadion,,,15000,,False
+VfB Lübeck,,LUB,German Bundesliga 2,Lomuhle,,,19200,,False
+1. FSV Mainz 05,,MAI,German Bundesliga 2,Bruchwegstadion,,,13000,,False
+SV Meppen,,MEP,German Bundesliga 2,Emslandstadion,,,17500,,False
+1. FC Nürnberg,,NUR,Others,XX192,,,10000,,False
+Unterhaching,,UNT,German Bundesliga 2,Sports Park Stadium,,,10000,,False
+SV. W. Mannheim,,WDM,German Bundesliga 2,Carl-Benz Stadion,,,27000,,False
+Wattenscheid,,WTT,Others,XX195,,,10000,,False
+VfL Wolfsburg,,WOL,German Bundesliga 2,VfL Stadion,,,15272,,False
+FSV Zwickau,,ZWI,German Bundesliga 2,Westsachsenstadion,,,11200,,False
+Airdrie,,AIR,Scottish First Division,Broomfield Park,Gartlea Road,,6300,,False
+Clydebank,,CLY,Scottish First Division,Kilbowie Park,Arran Place,,5503,,False
+Dumbarton,,DUM,Scottish First Division,Boghead Park,Miller Street,,5503,,False
+Dundee,,DUN,Scottish First Division,Dens Park,Dens Road,,16276,,False
+Dundee U,,DNU,Scottish Premier League,Tannadice Park,Tannadice Street,,16868,,False
+Dunfermline,,DNF,Scottish Premier League,East End Park,Halbeath Road,Fife,18328,,False
+Morton,,MOR,Scottish First Division,Cappielow Park,Sinclair Street,,14267,,False
+Hamilton,,HMN,Scottish First Division,Douglas Park,Douglas Park Lane,,1238,,False
+St Johnstone,,STJ,Scottish First Division,McDairmid Park,Crieff Road,,10721,,False
+St Mirren,,STM,Scottish First Division,St Mirren Park,Love Street,,15410,,False
+Ancona,,ANC,Others,XX198,,,10000,,False
+Avellino,,AVE,Others,XX199,,,15000,,False
+Bologna,,BLG,Italian Serie A,XX200,,,39603,,False
+Brescia,,BRS,Italian Serie B,Mario Rigamonti,,,25000,,False
+Cesena,,CES,Italian Serie B,XX201,,,27000,,False
+Chievo,,CHI,Italian Serie B,XX202,,,44500,,False
+Cosenza,,COS,Italian Serie B,XX203,,,22000,,False
+Fidelis Andria,,FID,Others,XX204,,,10000,,False
+Foggia,,FOG,Italian Serie B,Pino Zaccheria,,,25000,,False
+Genoa,,GEN,Italian Serie B,Luigi Ferraris,,,41917,,False
+Lucchese,,LUC,Italian Serie B,XX205,,,10721,,False
+Palermo,,PAL,Italian Serie B,XX206,,,37500,,False
+Perugia,,PER,Italian Serie A,XX207,,,37000,,False
+Pescara,,PES,Italian Serie B,XX208,,,18000,,False
+Pistoiese,,PIS,Others,XX209,,,10000,,False
+Reggiana,,RGA,Italian Serie A,Giglio,,,29650,,False
+Reggina,,RGI,Italian Serie B,XX210,,,12300,,False
+Salernitana,,SAL,Italian Serie B,XX211,,,40000,,False
+Venezia,,VEN,Italian Serie B,XX212,,,15000,,False
+Verona,,VER,Italian Serie A,XX213,,,44500,,False
+Ales,,ALE,Others,Pierre Pibarot,,,10000,,False
+Amiens,,AMI,French Division 2,Moulonguet,,,9000,,False
+Angers,,ANG,Others,Jean-Bouin,Boulevard Pierre de Coubertin,,21706,,False
+Caen,,CAE,French Division 1,Michel D'Ornano,,,21500,,False
+Charleville,,CHR,French Division 2,Stade Petit Bois,rue delvincourt,,8400,,False
+Chateauroux,,CHT,French Division 2,Gaston-Petit,avenue Pierre de Coubertin,,10000,,False
+Dunkerque,,DNK,Others,Tribut,ave de Rosedael,,7000,,False
+Epinal,,EPI,French Division 2,Stade de la Combiene,rue de Chaperon-Rouge,,12000,,False
+Laval,,LAV,French Division 2,Francis Le Basser,130 ave Pierre de Coubertin,,19000,,False
+Le Mans,,LEM,French Division 2,Leon-Bollee,rue Claircigny,,12000,,False
+Lorient,,LOR,French Division 2,Le Moustoir,rue Jean-Le Coutaller,,11000,,False
+Louhans-C,,LOU,French Division 2,Parc Des Sports Du Bram,rue de Bram,,7000,,False
+Marseille,,MAR,French Division 1,Velodrome,3 boulevard Michelet,,46000,,False
+Mulhouse,,MUL,French Division 2,De L'ill,45 boulevard Stoeseel,,10440,,False
+Nancy,,NCY,French Division 1,Marcel Picot,90 boulevard Jean-Laures,,34595,,False
+Niort,,NIO,French Division 2,Rene Gaillard,ave de la Vinese-Verte,,12395,,False
+Perpignan,,PPG,French Division 2,Jean-Laffon,avenue des Sports,,8000,,False
+Poitiers,,POI,Others,La Pepiniere,rue des Deux-Communes,,11000,,False
+Red Star,,RED,French Division 2,Municipal - Red Star93,rue de Docteur-Bauer,,18000,,False
 Sochaux,,SOC,French Division 2,Auguste-Bonal,,,15056,,False
-Toulouse,,TLE,French Division 2,Municipal Toulose,1 allee Gabriel-Bienes,-,35200,,False
-Valence,,VAL,French Division 2,Georges Pompidou,route de Romans,-,15000,,False
-Toulon,,TOU,French Division 2,Mayol,Avenue de Republique,-,13000,,False
-Troyes,,TRO,French Division 2,Stade de L'Aube,-,-,10000,,False
-Saint-Brieuc,,SAI,French Division 2,Parc Fraud-Albert,31 rue Joseph-Le-Brix,-,10400,,False
-Beauvais,,BEA,French Division 2,Pierre-Brison,239 Rue de Clermont,-,7000,,False
-Atalanta,,ATA,Italian Serie A,Comunale,-,-,33100,Emiliano Mondonico,False
-Cagliari,,CAG,Italian Serie A,Saint` Ella,-,-,41885,Giovanni Trapatoni,False
-Fiorentina,,FIO,Italian Serie A,Artemio Franchi,,,47495,Claudio Ranieri,False
-Inter,,INT,Italian Serie A,San Siro,-,-,85847,Roy Hodgson,False
-Juventus,,JUV,Italian Serie A,Delle Alpi,,,71012,Marcello Lippi,False
-Lazio,,LAZ,Italian Serie A,Olimpico,,,82922,Zdenek Zeman,False
-Milan,,MIL,Italian Serie A,San Siro,,,85847,Fabio Capello,False
-Napoli,,NAP,Italian Serie A,San Paolo,,,72810,Vujadin Boskov,False
-Parma,,PAR,Italian Serie A,Ennio Tardini,,,27500,Nevio Scala,False
-Piacenza,,PIA,Italian Serie A,Galleana,,,22000,Luigi Cagni,False
-Roma,,ROM,Italian Serie A,Olimpico,-,-,82922,Carlo Mazzone,False
-Sampdoria,,SAM,Italian Serie A,Luigi Ferraris,,,41917,Sven Goran Eriksson,False
-Udinese,,UDI,Italian Serie A,Fruili,,,42976,Alberto Zaccheroni,False
-Vicenza,,VIC,Italian Serie A,Romeo Menti,Via Schio 26,-,28000,Francesco Guidolin,False
-Bologna,,BLG,Italian Serie A,XX200,-,-,39603,,False
-Perugia,,PER,Italian Serie A,XX207,-,-,37000,,False
-Reggiana,,RGA,Italian Serie A,Giglio,-,-,29650,,False
-Verona,,VER,Italian Serie A,XX213,-,-,44500,,False
-Bari,,BAR,Italian Serie B,San Nicola,,,58270,Giuseppe Materazzi,False
-Cremonese,,CRE,Italian Serie B,Giovanni Zini,,,20000,Luigi Simoni,False
-Padova,,PAD,Italian Serie B,Euganeo,Via Sorio 43,-,25000,Mauro Sandreani,False
-Torino,,TOR,Italian Serie B,Delle Alpi (TO),-,-,71012,Nedo Sonetti,False
-Brescia,,BRS,Italian Serie B,Mario Rigamonti,-,-,25000,,False
-Cesena,,CES,Italian Serie B,XX201,-,-,27000,,False
-Chievo,,CHI,Italian Serie B,XX202,-,-,44500,,False
-Cosenza,,COS,Italian Serie B,XX203,-,-,22000,,False
-Foggia,,FOG,Italian Serie B,Pino Zaccheria,-,-,25000,,False
-Genoa,,GEN,Italian Serie B,Luigi Ferraris,-,-,41917,,False
-Lucchese,,LUC,Italian Serie B,XX205,-,-,10721,,False
-Palermo,,PAL,Italian Serie B,XX206,-,-,37500,,False
-Pescara,,PES,Italian Serie B,XX208,-,-,18000,,False
-Reggina,,RGI,Italian Serie B,XX210,-,-,12300,,False
-Salernitana,,SAL,Italian Serie B,XX211,-,-,40000,,False
-Venezia,,VEN,Italian Serie B,XX212,-,-,15000,,False
-Ravenna,,RAV,Italian Serie B,Bruno Binelli,-,-,12500,,False
-Lecce,,LEC,Italian Serie B,Via Del Mare,-,-,55000,,False
-Empoli,,EMP,Italian Serie B,Carlo Castellani,-,-,12826,,False
-Castel Di Sangro,,CAS,Italian Serie B,Teofilo Patini,-,-,4000,,False
-Chemnitz,,CHM,Other,Stair Park,-,-,6100,,False
-Hannover 96,,HNN,Other,XX186,-,-,10000,,False
-1. FC Nürnberg,,NUR,Other,XX192,-,-,10000,,False
-Wattenscheid,,WTT,Other,XX195,-,-,10000,,False
-Ancona,,ANC,Other,XX198,-,-,10000,,False
-Avellino,,AVE,Other,XX199,-,-,15000,,False
-Fidelis Andria,,FID,Other,XX204,-,-,10000,,False
-Pistoiese,,PIS,Other,XX209,-,-,10000,,False
-Ales,,ALE,Other,Pierre Pibarot,-,-,10000,,False
-Angers,,ANG,Other,Jean-Bouin,Boulevard Pierre de Coubertin,-,21706,,False
-Dunkerque,,DNK,Other,Tribut,ave de Rosedael,-,7000,,False
-Poitiers,,POI,Other,La Pepiniere,rue des Deux-Communes,-,11000,,False
-Anderlecht,,AND,Other,Constant Vanden Stock,-,-,28063,,False
-Antwerp,,ANT,Other,Bosuil,-,-,20000,,False
-Club Brugge,,CBR,Other,Olypiastadion,-,-,18091,,False
-Standard Liege,,STA,Other,Sclessin,-,-,25998,,False
-Rushden & D,,RUS,Other,XX214,-,-,5000,,False
-Benfica,,BEN,Other,Stadium of Light,-,-,92385,,False
-Boavista,,BOA,Other,Bessa,-,-,26000,,False
-Porto,,POR,Other,Das Antas,-,-,76000,,False
-Sporting Lisbon,,SPO,Other,Jose Alvalade,-,-,52411,,False
-Belenenses,,BEL,Other,Restelo,-,-,42000,,False
-Lierse,,LIE,Other,Herman V,-,-,14000,,False
-Atl. Madrid,,ATL,Other,Vicente Calderon,-,-,62000,,False
-Barcelona,,BCE,Other,Nou Camp,-,-,115000,,False
-Deportivo,,DEP,Other,Riazor,-,-,28956,,False
-Real Madrid,,RLM,Other,Bernabeu,-,-,95000,,False
-Real Zaragoza,,RLZ,Other,La Romareda,-,-,43554,,False
-Ajax,,AJA,Other,XX215,-,-,35000,,False
-Feyenoord,,FEY,Other,Feyenord St,-,-,52000,,False
-PSV Eindhoven,,PSV,Other,Phillips St,-,-,30000,,False
-Vitesse,,VIT,Other,Monnikenhuize,-,-,12000,,False
-Twente,,TWE,Other,Het Diekman,-,-,18000,,False
-Partizan,,PTZ,Other,Qemal Stafa,-,-,20000,,False
-Teuta Durres,,TEU,Other,Teuta St,-,-,10000,,False
-Shirak Gyumri,,SHI,Other,XX216,-,-,10000,,False
-Kapaz Ganja,,KZG,Other,XX217,-,-,10000,,False
-Rapid Vienna,,RPV,Other,Gerhard Hanappi,-,-,10000,,False
-Admira Wacker,,ADW,Other,Bundesstadion,-,-,10000,,False
-Austria Vienna,,AUV,Other,Horr,-,-,105000,,False
-Din. Minsk,,DIN,Other,Dinamo (DM),-,-,50000,,False
-Slavia Sofia,,SLA,Other,Slavia,-,-,32000,,False
-Leveski Sofia,,LEV,Other,Georgi Asparuchov,-,-,60000,,False
-Neftochimik,,NEF,Other,Neftochimik St,-,-,22000,,False
-CSKA Sofia,,CSS,Other,Bulgarska Armia,-,-,30000,,False
-Hadjuk Split,,HAD,Other,Foljud,-,-,50000,,False
-Omonia Nicosia,,OMO,Other,Makarion (ON),5 Papanicoli Street,-,20000,,False
-APOEL Nicosia,,APO,Other,Makarion (APOEL),-,-,20000,,False
-Slavia Prague,,SLP,Other,Dr. Vacka,-,-,16320,,False
-Sparta Prague,,SPP,Other,Letna,-,-,22239,,False
-Banik Ostrava,,BAN,Other,Bazaly,-,-,19500,,False
-Brondby,,BRO,Other,Brondby St,-,-,22600,,False
-Silkeborg,,SIL,Other,Silkeborg,-,-,12000,,False
-Aarhus,,AAR,Other,Aarhus St,-,-,20000,,False
-Odense,,ODE,Other,Odense,-,-,20400,,False
-Flora,,FLO,Other,Kadriorg,-,-,6000,,False
-Itrottarfelag,,ITR,Other,Gotu,-,-,3000,,False
-MYPA,,MYP,Other,Saviniemi,-,-,8000,,False
-Samtredia,,SMT,Other,Erosi Manjgaladze,-,-,15000,,False
-Din. Tibilisi,,DNT,Other,Boris Paichadze,-,-,75000,,False
-Athens,,ATH,Other,Nikos Goumas,-,-,33494,,False
-Panathinaikos,,PAN,Other,Oaka,-,-,74433,,False
-Olympiakos,,OLY,Other,Karaiskakis,-,-,34023,,False
-Ferencvaros,,FER,Other,Ulloiut,-,-,18000,,False
-Budapest,,BUP,Other,Hungariauti,-,-,24000,,False
-Hafnarfjardar,,HAF,Other,Kaplakriki,-,-,3000,,False
-Betar Jerusalem,,JER,Other,Malcha,-,-,13000,,False
-Skonto Riga,,SKO,Other,Daugava,-,-,5000,,False
-Vaduz,,VAD,Other,XX219,-,-,10000,,False
-Inkaraz Grifas,,INK,Other,Inkaras,-,-,2000,,False
-Jeunesse,,JEU,Other,Dela Fontiere,-,-,7000,,False
-Spora,,LUX,Other,Municipal (SL),-,-,9200,,False
-Sliema,,SLI,Other,Ta Qali (SW),-,-,18000,,False
-Hibernians,,HBS,Other,Ta Qali (HIBS),-,-,18000,,False
-Tiligul Tiraspol,,TIL,Other,XX220,-,-,5000,,False
-Glenavon,,GLE,Other,Mourneview Park,-,-,15000,,False
-Crusaders,,CRU,Other,Seaview,-,-,9000,,False
-Linfield,,LNF,Other,Windsor Park,-,-,28500,,False
-Rosenborg,,ROS,Other,Lerkendal,-,-,28455,,False
-Lillestrom,,LLM,Other,Arasen,-,-,12000,,False
-Stravanger,,STV,Other,XX222,-,-,5000,,False
-Widzew Lodz,,WID,Other,Widzew St,-,-,22000,,False
-Katowice,,KAT,Other,GKS St,-,-,14000,,False
-Legia Warsaw,,LEG,Other,Wojska Polskiego,-,-,21940,,False
-Derry,,DYC,Other,The Brandywell,-,-,11500,,False
-Bohemians,,BOH,Other,Dalymount Park,-,-,25000,,False
-Shamrock,,SHA,Other,RDS Showgrounds,-,-,22000,,False
-Din. Bucharest,,DNB,Other,Dinamo (DB),-,-,18000,,False
-Uni Craiova,,UNI,Other,Central UC,-,-,35000,,False
-Steaua Bucharest,,STB,Other,Steaua,-,-,30000,,False
-Rapid Bucharest,,RPB,Other,Rapid,-,-,1500,,False
-Spartak Moscow,,SPM,Other,Luzniki,-,-,96000,,False
-Dinamo Moscow,,DNM,Other,Dinamo (DM),-,-,50000,,False
-Rotor Volvograd,,RTV,Other,Central RV,-,-,30000,,False
-Alania V'kavkaz,,ALA,Other,Alania St,-,-,30000,,False
-CSKA Moscow,,CSM,Other,CSKA St,-,-,7000,,False
-Tre Fiori,,TRE,Other,Fiorentino,-,-,2000,,False
-Slovan Bratislava,,SLO,Other,Tehelne Pole,-,-,32000,,False
-O. Ljubljana,,OLI,Other,Bezigrad,-,-,18000,,False
-Gothenburg,,GOT,Other,Galim Ullevi,-,-,12000,,False
-Malmo,,MAL,Other,Malmo St,-,-,30058,,False
-Halmstads,,HAL,Other,Organsvall,-,-,19125,,False
-Grasshoppers,,GRA,Other,Hardfurm,-,-,30000,,False
-Sion,,SIO,Other,Tourbillon,-,-,19200,,False
-Servette,,SER,Other,Charmilles,-,-,30000,,False
-Galatasaray,,GAL,Other,Ali Sami Yen,-,-,40000,,False
-Fenerbache,Yellow Canaries,FEN,Other,Fenerbache St,-,-,30000,,False
-Besiktas,,BES,Other,Inonu,-,-,45000,,False
-Dinamo Kiev,,DYN,Other,Republican,-,-,100000,,False
-Karpaty Lviv,,KPY,Other,Ukraina,-,-,40000,,False
-RS Belgrade,,RDB,Other,Rad,-,-,13000,,False
-Par. Belgrade,,PNB,Other,Partisan St,-,-,50819,,False
-Aberystwyth,,VAL,Other,Aberystwyth T,Park Avenue,Dyfed,5000,,False
-Kidderminster,,RJC,Other,XX226,-,-,9000,,False
+Toulouse,,TLE,French Division 2,Municipal Toulose,1 allee Gabriel-Bienes,,35200,,False
+Valence,,VAL,French Division 2,Georges Pompidou,route de Romans,,15000,,False
+Anderlecht,,AND,Others,Constant Vanden Stock,,,28063,,False
+Antwerp,,ANT,Others,Bosuil,,,20000,,False
+Club Brugge,,CBR,Others,Olypiastadion,,,18091,,False
+Standard Liege,,STA,Others,Sclessin,,,25998,,False
+Rushden & D,,RUS,Others,XX214,,,5000,,False
+Benfica,,BEN,Others,Stadium of Light,,,92385,,False
+Boavista,,BOA,Others,Bessa,,,26000,,False
+Porto,,POR,Others,Das Antas,,,76000,,False
+Sporting Lisbon,,SPO,Others,Jose Alvalade,,,52411,,False
+Belenenses,,BEL,Others,Restelo,,,42000,,False
+Lierse,,LIE,Others,Herman V,,,14000,,False
+Atl. Madrid,,ATL,Others,Vicente Calderon,,,62000,,False
+Barcelona,,BCE,Others,Nou Camp,,,115000,,False
+Deportivo,,DEP,Others,Riazor,,,28956,,False
+Real Madrid,,RLM,Others,Bernabeu,,,95000,,False
+Real Zaragoza,,RLZ,Others,La Romareda,,,43554,,False
+Ajax,,AJA,Others,XX215,,,35000,,False
+Feyenoord,,FEY,Others,Feyenord St,,,52000,,False
+PSV Eindhoven,,PSV,Others,Phillips St,,,30000,,False
+Vitesse,,VIT,Others,Monnikenhuize,,,12000,,False
+Twente,,TWE,Others,Het Diekman,,,18000,,False
+Partizan,,PTZ,Others,Qemal Stafa,,,20000,,False
+Teuta Durres,,TEU,Others,Teuta St,,,10000,,False
+Shirak Gyumri,,SHI,Others,XX216,,,10000,,False
+Kapaz Ganja,,KZG,Others,XX217,,,10000,,False
+Rapid Vienna,,RPV,Others,Gerhard Hanappi,,,10000,,False
+Admira Wacker,,ADW,Others,Bundesstadion,,,10000,,False
+Austria Vienna,,AUV,Others,Horr,,,105000,,False
+Din. Minsk,,DIN,Others,Dinamo (DM),,,50000,,False
+Slavia Sofia,,SLA,Others,Slavia,,,32000,,False
+Leveski Sofia,,LEV,Others,Georgi Asparuchov,,,60000,,False
+Neftochimik,,NEF,Others,Neftochimik St,,,22000,,False
+CSKA Sofia,,CSS,Others,Bulgarska Armia,,,30000,,False
+Toulon,,TOU,French Division 2,Mayol,Avenue de Republique,,13000,,False
+Hadjuk Split,,HAD,Others,Foljud,,,50000,,False
+Omonia Nicosia,,OMO,Others,Makarion (ON),5 Papanicoli Street,,20000,,False
+APOEL Nicosia,,APO,Others,Makarion (APOEL),,,20000,,False
+Slavia Prague,,SLP,Others,Dr. Vacka,,,16320,,False
+Sparta Prague,,SPP,Others,Letna,,,22239,,False
+Banik Ostrava,,BAN,Others,Bazaly,,,19500,,False
+Brondby,,BRO,Others,Brondby St,,,22600,,False
+Silkeborg,,SIL,Others,Silkeborg,,,12000,,False
+Aarhus,,AAR,Others,Aarhus St,,,20000,,False
+Odense,,ODE,Others,Odense,,,20400,,False
+Flora,,FLO,Others,Kadriorg,,,6000,,False
+Itrottarfelag,,ITR,Others,Gotu,,,3000,,False
+MYPA,,MYP,Others,Saviniemi,,,8000,,False
+Samtredia,,SMT,Others,Erosi Manjgaladze,,,15000,,False
+Din. Tibilisi,,DNT,Others,Boris Paichadze,,,75000,,False
+Athens,,ATH,Others,Nikos Goumas,,,33494,,False
+Panathinaikos,,PAN,Others,Oaka,,,74433,,False
+Olympiakos,,OLY,Others,Karaiskakis,,,34023,,False
+Ferencvaros,,FER,Others,Ulloiut,,,18000,,False
+Budapest,,BUP,Others,Hungariauti,,,24000,,False
+Hafnarfjardar,,HAF,Others,Kaplakriki,,,3000,,False
+Betar Jerusalem,,JER,Others,Malcha,,,13000,,False
+Skonto Riga,,SKO,Others,Daugava,,,5000,,False
+Vaduz,,VAD,Others,XX219,,,10000,,False
+Inkaraz Grifas,,INK,Others,Inkaras,,,2000,,False
+Jeunesse,,JEU,Others,Dela Fontiere,,,7000,,False
+Spora,,LUX,Others,Municipal (SL),,,9200,,False
+Sliema,,SLI,Others,Ta Qali (SW),,,18000,,False
+Hibernians,,HBS,Others,Ta Qali (HIBS),,,18000,,False
+Tiligul Tiraspol,,TIL,Others,XX220,,,5000,,False
+Troyes,,TRO,French Division 2,Stade de L'Aube,,,10000,,False
+Glenavon,,GLE,Others,Mourneview Park,,,15000,,False
+Crusaders,,CRU,Others,Seaview,,,9000,,False
+Linfield,,LNF,Others,Windsor Park,,,28500,,False
+Rosenborg,,ROS,Others,Lerkendal,,,28455,,False
+Lillestrom,,LLM,Others,Arasen,,,12000,,False
+Stravanger,,STV,Others,XX222,,,5000,,False
+Widzew Lodz,,WID,Others,Widzew St,,,22000,,False
+Katowice,,KAT,Others,GKS St,,,14000,,False
+Legia Warsaw,,LEG,Others,Wojska Polskiego,,,21940,,False
+Derry,,DYC,Others,The Brandywell,,,11500,,False
+Bohemians,,BOH,Others,Dalymount Park,,,25000,,False
+Shamrock,,SHA,Others,RDS Showgrounds,,,22000,,False
+Din. Bucharest,,DNB,Others,Dinamo (DB),,,18000,,False
+Uni Craiova,,UNI,Others,Central UC,,,35000,,False
+Steaua Bucharest,,STB,Others,Steaua,,,30000,,False
+Rapid Bucharest,,RPB,Others,Rapid,,,1500,,False
+Spartak Moscow,,SPM,Others,Luzniki,,,96000,,False
+Dinamo Moscow,,DNM,Others,Dinamo (DM),,,50000,,False
+Rotor Volvograd,,RTV,Others,Central RV,,,30000,,False
+Alania V'kavkaz,,ALA,Others,Alania St,,,30000,,False
+CSKA Moscow,,CSM,Others,CSKA St,,,7000,,False
+Tre Fiori,,TRE,Others,Fiorentino,,,2000,,False
+Slovan Bratislava,,SLO,Others,Tehelne Pole,,,32000,,False
+O. Ljubljana,,OLI,Others,Bezigrad,,,18000,,False
+Gothenburg,,GOT,Others,Galim Ullevi,,,12000,,False
+Malmo,,MAL,Others,Malmo St,,,30058,,False
+Halmstads,,HAL,Others,Organsvall,,,19125,,False
+Grasshoppers,,GRA,Others,Hardfurm,,,30000,,False
+Sion,,SIO,Others,Tourbillon,,,19200,,False
+Servette,,SER,Others,Charmilles,,,30000,,False
+Galatasaray,,GAL,Others,Ali Sami Yen,,,40000,,False
+Fenerbache,Yellow Canaries,FEN,Others,Fenerbache St,,,30000,,False
+Besiktas,,BES,Others,Inonu,,,45000,,False
+Dinamo Kiev,,DYN,Others,Republican,,,100000,,False
+Karpaty Lviv,,KPY,Others,Ukraina,,,40000,,False
+Saint-Brieuc,,SAI,French Division 2,Parc Fraud-Albert,31 rue Joseph-Le-Brix,,10400,,False
+RS Belgrade,,RDB,Others,Rad,,,13000,,False
+Par. Belgrade,,PNB,Others,Partisan St,,,50819,,False
+Aberystwyth,,VAL,Others,Aberystwyth T,Park Avenue,Dyfed,5000,,False
+Other,,OTH,Others,XX225,,,5000,,False
+Kidderminster,,RJC,Others,XX226,,,9000,,False
+Spare,,SPA,Others,XX227,,,8000,,False
+EA All Stars,The FSM Crew,EAA,Others,Electronic Arts Vellodrome,Meadfield Road,Berkshire,90000,,False
+EA Select XI,The Best of Dev,EAX,Others,Electronic Arts Vellodrome,Meadfield Road,Berkshire,90000,,False
+Beauvais,,BEA,French Division 2,Pierre-Brison,239 Rue de Clermont,,7000,,False
+VfB Oldenburg,,ODG,German Bundesliga 2,Marschweg Stadion,,,15000,,False
+FC Gütersloh,,GUT,German Bundesliga 2,Heidewaldstadion,,,12500,,False
+Rot-Weiß Essen,,RWE,German Bundesliga 2,Georg-Melches Stadion,,,25600,,False
+Stuttgarter K.,,STK,German Bundesliga 2,Waldaustadion (SK),,,9400,,False
+East Fife,,FIF,Scottish First Division,Bayview Park,,Fife,5385,,False
+Stirling,,STR,Scottish First Division,Forthbank Stadium,,,3808,,False
+Ravenna,,RAV,Italian Serie B,Bruno Binelli,,,12500,,False
+Lecce,,LEC,Italian Serie B,Via Del Mare,,,55000,,False
+Empoli,,EMP,Italian Serie B,Carlo Castellani,,,12826,,False
+Castel Di Sangro,,CAS,Italian Serie B,Teofilo Patini,,,4000,,False
