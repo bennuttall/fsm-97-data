@@ -33,7 +33,7 @@ SKILL_LABELS = {
     'flair':       'Flair',
     'gk_kick':     'GK Kick',
     'gk_thrw':     'GK Throw',
-    'gk_hand':     'Handling',
+    'gk_hand':     'GK Handling',
     'thrw':        'Throw-in',
     'lead':        'Leadership',
     'cons':        'Consistency',

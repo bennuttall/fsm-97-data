@@ -13,7 +13,7 @@ Paths are configured at the top of this file.
 import csv
 import os
 
-from fsm97.constants import POSITIONS, SKILL_COLS, pos_rating
+from fsm97.constants import POSITIONS, SKILL_COLS, POS_ORDER, pos_rating
 from fsm97.parser import load_countries, load_divisions, parse_game_data
 
 GAME_DIR = "/home/ben/.wine/drive_c/FIFA Soccer Manager"
@@ -111,6 +111,22 @@ def write_player_skills(players):
     write_csv('player_skills.csv', fieldnames, rows)
 
 
+def write_player_position_ratings(players):
+    fieldnames = ['first_name', 'last_name', 'team'] + POS_ORDER
+    rows = []
+    for p in players:
+        skill_row = dict(zip(SKILL_COLS, p['skills']))
+        row = {
+            'first_name': p['first_name'],
+            'last_name':  p['last_name'],
+            'team':       p['team'],
+        }
+        for pos in POS_ORDER:
+            row[pos] = pos_rating(skill_row, pos)
+        rows.append(row)
+    write_csv('player_position_ratings.csv', fieldnames, rows)
+
+
 def main():
     os.makedirs(CSV_DIR, exist_ok=True)
 
@@ -131,6 +147,7 @@ def main():
     write_teams(teams)
     write_players(players)
     write_player_skills(players)
+    write_player_position_ratings(players)
 
     print("Done.")
 

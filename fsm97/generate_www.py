@@ -33,6 +33,7 @@ players_by_position    = ds.players_by_position
 positions_info         = ds.positions_info
 stadium_to_teams       = ds.stadium_to_teams
 prating                = ds.prating
+pos_ratings_by_player  = ds.pos_ratings_by_player
 max_cap                = ds.max_cap
 pos_order              = POS_ORDER
 
@@ -666,7 +667,7 @@ def squad_table(team_name, prefix, show_league=False):
         </tr>''')
     league_header = '<th data-sort>League</th>' if show_league else ''
     return f'''<table id="squad-{slug(team_name)}">
-      <thead><tr><th class="num" data-sort>#</th><th data-sort>Pos</th><th data-sort>Player</th><th data-sort>Nationality</th>{league_header}<th class="num" data-sort>Rating</th></tr></thead>
+      <thead><tr><th class="num" data-sort>#</th><th data-sort>Position</th><th data-sort>Player</th><th data-sort>Nationality</th>{league_header}<th class="num" data-sort>Rating</th></tr></thead>
       <tbody>{"".join(rows)}</tbody>
     </table>'''
 
@@ -800,7 +801,7 @@ def make_leagues():
           <tbody>{team_rows}</tbody>
         </table>
         <h2>Top 15 Players</h2>
-        <table><thead><tr><th>Player</th><th>Club</th><th>Pos</th><th>Nationality</th><th class="num">Rating</th></tr></thead>
+        <table><thead><tr><th>Player</th><th>Club</th><th>Position</th><th>Nationality</th><th class="num">Rating</th></tr></thead>
         <tbody>{player_rows}</tbody></table>'''
 
         write(f"{OUT_DIR}/leagues/{slug(lg)}.html",
@@ -954,11 +955,12 @@ def make_stadiums():
 
     # Index
     rows = ''
-    for sname, ts in all_sorted:
+    for i, (sname, ts) in enumerate(all_sorted, 1):
         cap = int(ts[0]['capacity'] or 0)
         cities = ', '.join(set(t['area'] for t in ts if t['area']))
         club_links = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
         rows += f'''<tr>
+          <td class="num">{i}</td>
           <td><a href="{slug(sname)}.html">{h(sname)}</a></td>
           <td>{cities}</td>
           <td>{club_links}</td>
@@ -966,7 +968,7 @@ def make_stadiums():
         </tr>'''
     body = f'''<div class="filter-bar"><input data-filter="stad-idx" placeholder="Filter stadiums…"></div>
     <table id="stad-idx">
-      <thead><tr><th>Stadium</th><th>Area</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
+      <thead><tr><th class="num">#</th><th>Stadium</th><th>Area</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/stadiums/index.html",
@@ -1035,28 +1037,60 @@ def make_positions():
           page("Positions", body, depth=1, active='Positions',
                header_title="Playing Positions"))
 
+    zone_of = {p_info['abbreviation']: p_info['zone'] for p_info in positions_info.values()}
+
     for pos in pos_order:
-        pp = sorted(players_by_position.get(pos, []),
-                    key=lambda p: pr(p), reverse=True)
-        if not pp: continue
+        pp_nat = sorted(players_by_position.get(pos, []), key=lambda p: pr(p), reverse=True)
+        if not pp_nat: continue
         info = positions_info.get(pos, {})
+        zone = info.get('zone', '')
+
+        def pos_rat(p, pos=pos):
+            key = (p['first_name'], p['last_name'], p['team'])
+            r = pos_ratings_by_player.get(key)
+            return int(r[pos]) if r else 0
+
+        # Main table — natural position players only
         prows = ''
-        for p in pp:
+        for i, p in enumerate(pp_nat, 1):
             prows += f'''<tr>
+              <td class="num">{i}</td>
               <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
               <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
               <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
               <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
               <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
             </tr>'''
-        body = f'''<p class="muted">Zone: <strong>{h(info.get("zone",""))}</strong> · {len(pp):,} players</p>
+
+        # Out-of-position section — top 10 players from outside this zone
+        outside = [p for p in players_raw if zone_of.get(p['position']) != zone]
+        top_outside = sorted(outside, key=pos_rat, reverse=True)[:10]
+        oop_rows = ''
+        for i, p in enumerate(top_outside, 1):
+            nat_pos = p['position']
+            rating = pos_rat(p)
+            oop_rows += f'''<tr>
+              <td class="num">{i}</td>
+              <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
+              <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
+              <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
+              <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
+              <td><a href="../positions/{slug(nat_pos)}.html" class="pos">{h(nat_pos)}</a></td>
+              <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
+            </tr>'''
+
+        body = f'''<p class="muted">Zone: <strong>{h(zone)}</strong> · {len(pp_nat):,} players</p>
         <div class="filter-bar"><input data-filter="pos-{slug(pos)}" placeholder="Filter players…"></div>
-        <table id="pos-{slug(pos)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th class="num" data-sort>Rating</th></tr></thead>
-        <tbody>{prows}</tbody></table>'''
+        <table id="pos-{slug(pos)}"><thead><tr><th class="num">#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th class="num" data-sort>Rating</th></tr></thead>
+        <tbody>{prows}</tbody></table>
+        <h2>Surprising performers</h2>
+        <p class="muted">Top 10 players from outside the {h(zone)} zone, ranked by their {h(pos)} rating.</p>
+        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>League</th><th>Nationality</th><th>Natural Position</th><th class="num">Rating</th></tr></thead>
+        <tbody>{oop_rows}</tbody></table>'''
         write(f"{OUT_DIR}/positions/{slug(pos)}.html",
               page(f"{pos} — {info.get('position','')}", body, depth=1, active='Positions',
                    header_title=info.get('position', pos),
-                   header_sub=f"{pos} · {info.get('zone','')} · {len(pp):,} players",
+                   header_sub=f"{pos} · {zone} · {len(pp_nat):,} players",
                    breadcrumb=bc([('Positions','index.html'),(pos,None)])))
 
 # ── NATIONALITY PAGES ─────────────────────────────────────────────────────────
@@ -1097,7 +1131,7 @@ def make_nationalities():
             </tr>'''
         body = f'''<p class="muted">{len(pp):,} players across {len(by_league):,} leagues</p>
         <div class="filter-bar"><input data-filter="nat-{slug(nat)}" placeholder="Filter…"></div>
-        <table id="nat-{slug(nat)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Pos</th><th class="num" data-sort>Rating</th></tr></thead>
+        <table id="nat-{slug(nat)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Position</th><th class="num" data-sort>Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>'''
         write(f"{OUT_DIR}/nationalities/{slug(nat)}.html",
               page(nat, body, depth=1, active='Nationalities',
@@ -1136,25 +1170,33 @@ def make_stats_top_players():
 
     by_pos_html = ''
     for pos in pos_order:
-        pp = sorted(players_by_position.get(pos, []),
-                    key=lambda p: pr(p), reverse=True)[:10]
+        def pos_rat(p, pos=pos):
+            key = (p['first_name'], p['last_name'], p['team'])
+            r = pos_ratings_by_player.get(key)
+            return int(r[pos]) if r else 0
+
+        pp = sorted(players_raw, key=pos_rat, reverse=True)[:10]
         if not pp: continue
         info = positions_info.get(pos, {})
         prows = ''
         for i, p in enumerate(pp, 1):
+            rating = pos_rat(p)
+            nat_pos = p['position']
+            nat_pos_cell = f'<td><a href="../positions/{slug(nat_pos)}.html" class="pos">{h(nat_pos)}</a></td>'
             prows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
               <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
               <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
-              <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
+              {nat_pos_cell}
+              <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
             </tr>'''
         by_pos_html += f'''<h3><a href="../positions/{slug(pos)}.html" class="pos">{pos}</a> {h(info.get("position",""))}</h3>
-        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Nationality</th><th class="num">Rating</th></tr></thead>
+        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Nationality</th><th>Natural Position</th><th class="num">Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>'''
 
     body = f'''<h2>Top 50 Players Overall</h2>
-    <table><thead><tr><th class="num" data-sort>#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Pos</th><th data-sort>Nat</th><th class="num" data-sort>Rating</th></tr></thead>
+    <table><thead><tr><th class="num" data-sort>#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Position</th><th data-sort>Nat</th><th class="num" data-sort>Rating</th></tr></thead>
     <tbody>{rows}</tbody></table>
     <h2>Top 10 by Position</h2>
     {by_pos_html}'''
@@ -1180,7 +1222,7 @@ def make_stats_skill_leaders():
               <td class="num">{skill_bar(v)}</td>
             </tr>'''
         sections += f'''<h3>{h(label)}</h3>
-        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Pos</th><th class="num">Value</th></tr></thead>
+        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>
         <tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/stats/skill-leaders.html",
           page("Skill Leaders", sections, depth=1, active='Stats',
@@ -1288,23 +1330,33 @@ def make_stats_nationalities():
 def make_stats_best_of():
     sections = ''
 
-    # Best per position
+    def pos_rat(p, pos):
+        key = (p['first_name'], p['last_name'], p['team'])
+        r = pos_ratings_by_player.get(key)
+        return int(r[pos]) if r else 0
+
+    def nat_pos_rat(p):
+        return pos_rat(p, p['position'])
+
+    # Best per position — all players ranked by position-specific rating
     pos_rows = ''
     for pos in pos_order:
-        pp = players_by_position.get(pos, [])
-        if not pp: continue
-        best = max(pp, key=lambda p: pr(p))
+        best = max(players_raw, key=lambda p: pos_rat(p, pos))
+        rating = pos_rat(best, pos)
         info = positions_info.get(pos, {})
+        nat_pos = best['position']
+        nat_pos_cell = f'<td><a href="../positions/{slug(nat_pos)}.html" class="pos">{h(nat_pos)}</a></td>' if nat_pos != pos else '<td></td>'
         pos_rows += f'''<tr>
           <td><a href="../positions/{slug(pos)}.html" class="pos">{pos}</a></td>
           <td>{h(info.get("position",""))}</td>
           <td><a href="../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
           <td><a href="../teams/{slug(best["team"])}.html">{h(best["team"])}</a></td>
           <td class="nat">{tlink(best["nationality"], f'../nationalities/{slug(best["nationality"])}.html')}</td>
-          <td class="num"><span class="{rating_class(pr(best))}">{pr(best)}</span></td>
+          {nat_pos_cell}
+          <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
         </tr>'''
     sections += f'''<h2>Best Player by Position</h2>
-    <table><thead><tr><th>Pos</th><th>Name</th><th>Best Player</th><th>Club</th><th>Nationality</th><th class="num">Rating</th></tr></thead>
+    <table><thead><tr><th>Position</th><th>Name</th><th>Best Player</th><th>Club</th><th>Nationality</th><th>Natural Position</th><th class="num">Rating</th></tr></thead>
     <tbody>{pos_rows}</tbody></table>'''
 
     # Best per skill
@@ -1320,7 +1372,7 @@ def make_stats_best_of():
           <td class="num">{skill_bar(v)}</td>
         </tr>'''
     sections += f'''<h2>Leader in Every Skill</h2>
-    <table><thead><tr><th>Skill</th><th>Player</th><th>Club</th><th>Pos</th><th class="num">Value</th></tr></thead>
+    <table><thead><tr><th>Skill</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>
     <tbody>{sk_rows}</tbody></table>'''
 
     # Best per league
@@ -1328,63 +1380,39 @@ def make_stats_best_of():
     for lg in league_names:
         pp = [p for p in players_raw if p['league'] == lg]
         if not pp: continue
-        best = max(pp, key=lambda p: pr(p))
+        best = max(pp, key=nat_pos_rat)
+        rating = nat_pos_rat(best)
         lg_rows += f'''<tr>
           <td><a href="../leagues/{slug(lg)}.html">{h(lg)}</a></td>
           <td><a href="../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
           <td><a href="../teams/{slug(best["team"])}.html">{h(best["team"])}</a></td>
           <td><a href="../positions/{slug(best["position"])}.html" class="pos">{h(best["position"])}</a></td>
-          <td class="num"><span class="{rating_class(pr(best))}">{pr(best)}</span></td>
+          <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
         </tr>'''
     sections += f'''<h2>Best Player by League</h2>
-    <table><thead><tr><th>League</th><th>Player</th><th>Club</th><th>Pos</th><th class="num">Rating</th></tr></thead>
+    <table><thead><tr><th>League</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Rating</th></tr></thead>
     <tbody>{lg_rows}</tbody></table>'''
 
     # Best per nationality
     nat_rows = ''
     for nat, pp in sorted(players_by_nationality.items(), key=lambda x: x[0]):
         if not nat or len(pp) < 3: continue
-        best = max(pp, key=lambda p: pr(p))
+        best = max(pp, key=nat_pos_rat)
+        rating = nat_pos_rat(best)
         nat_rows += f'''<tr>
           <td><a href="../nationalities/{slug(nat)}.html">{h(nat)}</a></td>
           <td class="num">{len(pp):,}</td>
           <td><a href="../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
           <td><a href="../teams/{slug(best["team"])}.html">{h(best["team"])}</a></td>
-          <td class="num"><span class="{rating_class(pr(best))}">{pr(best)}</span></td>
+          <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
         </tr>'''
     sections += f'''<h2>Best Player by Nationality</h2>
     <table><thead><tr><th>Nationality</th><th class="num">Players</th><th>Best Player</th><th>Club</th><th class="num">Rating</th></tr></thead>
     <tbody>{nat_rows}</tbody></table>'''
 
-    # Team superlatives
-    squad_list = []
-    for t in teams_raw:
-        pp = players_by_team[t['team']]
-        if len(pp) < 5: continue
-        avg  = sum(pr(p) for p in pp) / len(pp)
-        nats = len(set(p['nationality'] for p in pp if p['nationality']))
-        squad_list.append((t, pp, avg, nats))
-
-    best_squad  = max(squad_list, key=lambda x: x[2])
-    worst_squad = min(squad_list, key=lambda x: x[2])
-    most_intl   = max(squad_list, key=lambda x: x[3])
-    biggest_sq  = max(squad_list, key=lambda x: len(x[1]))
-
-    def tm(t): return f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>'
-
-    sup_rows = f'''
-    <tr><td>Highest average squad rating</td><td>{tm(best_squad[0])}</td><td class="num"><span class="{rating_class(best_squad[2])}">{best_squad[2]:.1f}</span></td></tr>
-    <tr><td>Lowest average squad rating</td><td>{tm(worst_squad[0])}</td><td class="num"><span class="{rating_class(worst_squad[2])}">{worst_squad[2]:.1f}</span></td></tr>
-    <tr><td>Most international squad</td><td>{tm(most_intl[0])}</td><td class="num">{most_intl[3]} nationalities</td></tr>
-    <tr><td>Largest squad</td><td>{tm(biggest_sq[0])}</td><td class="num">{len(biggest_sq[1]):,} players</td></tr>
-    '''
-    sections += f'''<h2>Team Superlatives</h2>
-    <table><thead><tr><th>Category</th><th>Club</th><th class="num">Value</th></tr></thead>
-    <tbody>{sup_rows}</tbody></table>'''
-
     write(f"{OUT_DIR}/stats/best-of.html",
           page("Best Of All", sections, depth=1, active='Stats',
-               header_title="Best Of All — Records & Superlatives",
+               header_title="Best Of All",
                breadcrumb=bc([('Stats','index.html'),('Best Of All',None)])))
 
 # ── TRIVIA PAGES ──────────────────────────────────────────────────────────────
@@ -1495,7 +1523,7 @@ def make_players():
         <th data-sort>Player</th>
         <th data-sort>Team</th>
         <th data-sort>League</th>
-        <th data-sort>Pos</th>
+        <th data-sort>Position</th>
         <th data-sort>Nationality</th>
         <th class="num" data-sort>Rating</th>
       </tr></thead>

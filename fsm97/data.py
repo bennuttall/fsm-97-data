@@ -51,13 +51,14 @@ class Dataset:
     """All game data loaded from CSV files with pre-built indexes."""
 
     def __init__(self, csv_dir):
-        self.teams     = _load(csv_dir, 'teams.csv')
-        self.players   = _load(csv_dir, 'players.csv')
-        self.skills    = _load(csv_dir, 'player_skills.csv')
-        self.positions = _load(csv_dir, 'positions.csv')
-        self.countries = _load(csv_dir, 'countries.csv')
+        self.teams          = _load(csv_dir, 'teams.csv')
+        self.players        = _load(csv_dir, 'players.csv')
+        self.skills         = _load(csv_dir, 'player_skills.csv')
+        self.pos_ratings    = _load(csv_dir, 'player_position_ratings.csv')
+        self.positions      = _load(csv_dir, 'positions.csv')
+        self.countries      = _load(csv_dir, 'countries.csv')
 
-        for row in self.teams + self.players + self.skills:
+        for row in self.teams + self.players + self.skills + self.pos_ratings:
             if row['team'] in TEAM_NAMES:
                 row['team'] = TEAM_NAMES[row['team']]
 
@@ -103,6 +104,12 @@ class Dataset:
         for p, s in zip(self.players, self.skills):
             key = (p['first_name'], p['last_name'], p['team'])
             self.prating[key] = int(s['pos_avg'])
+
+        # Per-position ratings for every player, keyed by (first, last, team)
+        self.pos_ratings_by_player = {
+            (r['first_name'], r['last_name'], r['team']): r
+            for r in self.pos_ratings
+        }
 
         self.max_cap = max(
             (int(t['capacity']) for t in self.teams if t['capacity']),
