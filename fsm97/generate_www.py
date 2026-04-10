@@ -710,7 +710,7 @@ def make_home():
           <div class="card">
             <h3>{h(lg)}</h3>
             <div class="stat">{count}</div>
-            <div class="label">clubs · {players} players</div>
+            <div class="label">clubs · {players:,} players</div>
           </div></a>'''
 
     body = f'''
