@@ -6,7 +6,7 @@ from collections import defaultdict
 
 from fsm97.constants import (
     SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, POS_ORDER,
-    pos_rating, LEAGUE_GROUPS,
+    pos_rating, LEAGUE_GROUPS, TEAM_NAMES,
 )
 from fsm97.data import Dataset
 
@@ -36,7 +36,6 @@ prating                = ds.prating
 pos_ratings_by_player  = ds.pos_ratings_by_player
 max_cap                = ds.max_cap
 pos_order              = POS_ORDER
-
 
 def pr(p):
     """Return position rating for a player dict."""
@@ -1475,11 +1474,16 @@ def make_trivia():
                breadcrumb=bc([('Trivia','index.html'),('Stadiums',None)])))
 
     # Clubs trivia
+    # Build alias map: old game-name slug → corrected slug (e.g. 'leeds' → 'leeds-united')
+    slug_aliases = {slug(old): slug(new) for old, new in TEAM_NAMES.items()}
+
     sections = '<p class="muted" style="margin-bottom:1rem">Club stories from the 1996/97 season.</p>'
     for cslug, text in CLUB_TRIVIA.items():
-        match_team = next((t for t in teams_raw if slug(t['team']) == cslug), None)
+        resolved = slug_aliases.get(cslug, cslug)
+        match_team = next((t for t in teams_raw if slug(t['team']) == resolved), None)
         if match_team:
-            team_link = f'<a href="../teams/{cslug}.html">{h(match_team["team"])}</a>'
+            tslug = slug(match_team['team'])
+            team_link = f'<a href="../teams/{tslug}.html">{h(match_team["team"])}</a>'
             lg_link   = f'<a href="../leagues/{slug(match_team["league"])}.html">{h(match_team["league"])}</a>'
             header    = f'{team_link} · {lg_link}'
         else:
