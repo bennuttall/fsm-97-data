@@ -2,7 +2,6 @@
 """FIFA Soccer Manager 97 — Static Site Generator"""
 
 import os, re, unicodedata
-from datetime import datetime, timezone
 from collections import defaultdict
 
 from fsm97.constants import (
@@ -13,7 +12,6 @@ from fsm97.data import Dataset
 
 CSV_DIR = "/home/ben/Projects/bennuttall/fsm-97-data/csv"
 OUT_DIR = "/home/ben/Projects/bennuttall/fsm-97-data/www"
-UTC = timezone.utc
 
 # ── Load data ──────────────────────────────────────────────────────────────────
 
@@ -438,7 +436,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
 </nav>
 {hdr}
 <main>{body}</main>
-<footer>FIFA Soccer Manager 97 · Data extracted from <code>SM97.DAT</code> · A project by <a href="https://bennuttall.com/">Ben Nuttall</a> · See the project on <a href="https://github.com/bennuttall/fsm-97-data">GitHub</a><br>Site built {datetime.now(UTC).isoformat(timespec='seconds')}</footer>
+<footer>FIFA Soccer Manager 97 · Data extracted from <code>SM97.DAT</code> · A project by <a href="https://bennuttall.com/">Ben Nuttall</a> · See the project on <a href="https://github.com/bennuttall/fsm-97-data">GitHub</a></footer>
 <script>
 document.querySelectorAll('input[data-filter]').forEach(function(inp){{
   var tbl = document.getElementById(inp.dataset.filter);
