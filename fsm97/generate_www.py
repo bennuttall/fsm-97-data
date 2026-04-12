@@ -655,6 +655,13 @@ def squad_table(team_name, prefix, show_league=False):
                     skill_cells += f'<div class="skill-row"><span class="sk-label">{SKILL_LABELS[c]}</span>{skill_bar(v)}</div>'
                 skill_cells += '</div>'
             skill_cells += '</div></details>'
+        pr_row = pos_ratings_by_player.get(key, {})
+        if pr_row:
+            skill_cells += '<details><summary>Position ratings</summary><div class="skill-grid"><div>'
+            for pos_code in pos_order:
+                v = int(pr_row.get(pos_code, 0) or 0)
+                skill_cells += f'<div class="skill-row"><span class="sk-label"><a href="{pos_url(pos_code, prefix)}" class="pos">{h(pos_code)}</a></span>{skill_bar(v)}</div>'
+            skill_cells += '</div></div></details>'
         league_col = f'<td>{tlink(p["league"], league_url(p["league"], prefix))}</td>' if show_league else ''
         rows.append(f'''<tr id="{pid}">
           <td class="num">{h(p["shirt"])}</td>
