@@ -161,7 +161,9 @@ def parse_game_data(dat_file, countries):
             last  = record[24:42].split(b'\x00')[0].decode('latin-1', errors='replace').strip().replace('`', "'")
             if first == '-':
                 first = ''
-            if not first or not last:
+            if last == '-':
+                last = ''
+            if not first and not last:
                 continue
 
             stats   = record[42:87]

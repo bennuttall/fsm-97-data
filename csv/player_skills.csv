@@ -274,6 +274,7 @@ John,O'Kane,Manchester U,English Premier League,Irish,RB,24,61,71,60,63,68,72,63
 Paul,Scholes,Manchester U,English Premier League,English,FOR,18,77,76,78,82,82,80,80,76,70,73,77,81,68,87,38,42,85,17,12,37,34,38,36,46
 Simon,Davies,Manchester U,English Premier League,English,LW,22,66,77,67,71,72,65,75,62,62,47,64,69,70,74,39,37,68,21,17,21,42,41,40,50
 Mikkel,Beck,Middlesbrough,English Premier League,Danish,FOR,9,75,74,68,74,62,62,67,84,57,71,71,61,71,47,36,29,78,31,22,15,39,47,41,56
+,Emerson,Middlesbrough,English Premier League,Brazilian,DM,6,74,73,55,64,69,85,89,62,73,69,66,65,78,80,76,74,75,22,26,23,53,53,75,74
 Oswaldo,Juninho,Middlesbrough,English Premier League,Brazilian,AM,10,80,82,69,75,68,52,81,90,87,60,83,85,75,90,44,48,88,11,25,20,40,57,75,67
 Fabrizio,Ravanelli,Middlesbrough,English Premier League,Italian,FOR,11,83,75,83,81,81,71,83,88,68,88,86,79,72,88,50,55,81,7,17,29,29,47,79,47
 Marc,Schwarzer,Middlesbrough,English Premier League,Australian,GK,19,72,51,80,54,67,66,65,13,59,35,54,22,70,70,34,17,26,70,73,81,25,33,38,55
@@ -4436,6 +4437,7 @@ Jason,Mayele,Chateauroux,French Division 2,Zarian,FOR,10,67,65,57,66,56,56,55,80
 Nicolas,Weber,Chateauroux,French Division 2,French,RB,2,68,61,50,60,70,82,60,23,54,57,50,59,67,71,77,71,34,29,24,21,50,45,63,75
 Joel,Bossis,Chateauroux,French Division 2,French,DM,6,55,46,41,44,57,63,77,43,49,50,50,45,56,62,46,63,26,10,20,21,35,55,64,70
 Aziz,El Ouali,Chateauroux,French Division 2,Moroccan,RM,7,56,60,46,45,67,80,61,44,59,63,49,46,70,67,53,60,33,29,19,19,47,55,63,66
+,Le Frapper,Chateauroux,French Division 2,French,AM,8,61,67,47,60,74,59,77,73,68,47,61,58,65,59,35,38,62,21,20,23,41,46,63,48
 Frederic,Gueguen,Chateauroux,French Division 2,French,GK,1,72,63,75,71,68,72,72,18,65,34,73,19,60,65,43,28,30,67,71,78,23,43,71,52
 Kari,Ukkonen,Chateauroux,French Division 2,Finnish,CD,12,66,56,49,56,65,81,57,28,34,59,47,38,67,58,66,73,19,18,19,12,41,50,63,59
 Didier,Martel,Chateauroux,French Division 2,French,FOR,15,68,67,62,70,65,60,63,77,54,55,54,63,64,74,34,32,69,10,18,18,41,36,47,47
@@ -4808,6 +4810,7 @@ Nick,Ashby,Rushden & D,Others,English,RB,40,63,60,50,60,60,70,60,25,44,50,50,50,
 Brendan,Hackett,Rushden & D,Others,English,RW,40,66,70,60,60,70,60,70,50,80,40,60,60,60,70,30,30,60,40,20,15,40,40,60,50
 Jorge,Bermudez,Benfica,Others,Colombian,RB,2,71,65,63,68,65,83,68,27,56,54,55,53,63,74,77,78,41,25,27,19,46,48,69,60
 Tahar,El Kalej,Benfica,Others,Moroccan,CD,6,70,57,51,56,63,84,63,26,40,64,52,37,70,51,81,78,19,20,22,13,50,49,71,62
+,Jamir,Benfica,Others,Brazilian,CD,5,71,54,58,51,69,86,61,28,41,64,53,31,63,51,84,80,27,25,19,20,42,59,64,67
 Michel,Preud'homme,Benfica,Others,Belgian,GK,1,79,62,83,67,68,61,65,19,74,36,73,24,79,75,34,21,25,72,74,86,21,56,63,49
 Jose,Calado,Benfica,Others,Portuguese,DM,7,62,59,51,51,61,73,82,43,55,55,52,46,69,74,54,67,29,10,26,24,40,57,60,65
 Bruno,Caires,Benfica,Others,Portuguese,RM,8,64,73,60,58,63,81,71,45,70,60,65,40,68,79,58,61,34,11,29,24,49,51,60,76
@@ -4817,38 +4820,59 @@ Luis,Gustavo,Benfica,Others,Brazilian,LM,12,67,69,57,58,67,69,66,42,75,60,51,60,
 Nader,Hassan,Benfica,Others,Moroccan,FOR,9,69,76,69,71,68,62,64,74,53,62,65,65,69,71,35,30,62,17,29,22,39,46,64,54
 Pedro,Henriques,Benfica,Others,Portuguese,LB,3,61,67,51,61,58,70,61,29,41,57,54,57,57,42,73,68,29,22,24,22,46,44,67,70
 Fernado,Brassard,Benfica,Others,Portuguese,GK,24,72,53,75,61,64,61,66,14,62,32,59,17,71,73,32,17,25,71,68,78,26,39,64,43
+,Donizete,Benfica,Others,Brazilian,FOR,17,69,75,65,71,57,64,67,80,52,57,63,57,66,77,29,32,57,27,20,23,38,41,64,58
 Nica,Panduru,Benfica,Others,Romanian,DM,11,58,75,66,65,63,67,76,45,58,58,48,40,55,61,50,57,25,23,20,21,37,54,57,59
 Alves,Paulao,Benfica,Others,Angolan,DM,23,60,70,67,65,60,63,76,37,61,52,55,37,55,65,45,59,26,21,27,21,44,47,59,63
 Mario,Marinho,Benfica,Others,Portuguese,CD,14,70,52,50,48,56,80,61,23,39,55,56,25,65,61,82,80,23,13,27,20,43,46,63,78
 Gabriel,Mauro Airez,Benfica,Others,Argentinian,FOR,16,69,77,61,74,68,57,64,77,50,63,57,59,61,68,31,32,67,13,26,19,43,40,65,52
 Iljan,Iliev,Benfica,Others,Bulgarian,DM,20,57,65,52,53,56,62,79,37,58,54,49,37,58,63,52,54,29,12,20,18,36,48,54,64
 Sergio,Duarte,Boavista,Others,Brazilian,LB,3,69,63,49,60,70,80,67,24,49,50,58,49,64,63,79,77,32,15,24,13,41,48,66,76
+,Helder,Boavista,Others,Portuguese,DM,6,60,50,50,50,66,81,85,47,55,57,56,41,63,72,60,63,30,15,27,23,44,49,63,67
 Paulo F.,De Sousa,Boavista,Others,Portuguese,CD,20,64,68,53,54,70,78,70,20,30,54,50,25,61,52,72,71,20,27,20,16,38,46,59,76
+,To Luis,Boavista,Others,Portuguese,GK,1,67,66,57,51,71,68,66,17,72,37,67,25,74,62,34,25,25,71,75,80,29,47,43,47
 Erwin,Sanchez,Boavista,Others,Bolivian,LM,11,61,60,45,45,71,82,62,39,65,56,56,44,71,76,57,71,38,29,28,15,44,54,66,72
+,Tavares,Boavista,Others,Portuguese,RM,7,52,54,38,40,67,70,66,38,52,54,50,41,59,62,52,63,31,13,23,17,39,53,63,72
 Miguel,Serodio,Boavista,Others,Portuguese,RB,2,67,63,56,63,68,77,71,26,47,57,58,59,66,65,69,76,34,14,24,22,45,41,50,50
 Nuno,Gomes,Boavista,Others,Portuguese,FOR,10,72,78,69,62,71,64,71,78,51,71,62,63,67,81,30,30,79,10,24,14,50,43,64,49
 Rui,Bento,Boavista,Others,Portuguese,CD,5,73,53,55,56,58,79,63,32,41,59,47,37,61,63,79,85,18,10,24,20,48,49,59,57
 Ion,Timofte,Boavista,Others,Romanian,DM,8,66,55,48,51,72,81,88,51,61,67,57,44,66,79,56,70,38,28,30,16,45,58,73,40
 Jimmy,Hasselbaink,Boavista,Others,Surinamese,FOR,9,70,72,64,71,66,64,58,75,58,65,65,67,66,77,30,32,69,17,19,14,44,45,62,54
+,Ricardo,Boavista,Others,Portuguese,DM,13,62,67,56,55,64,77,68,45,62,59,47,45,63,70,54,58,38,12,27,20,38,57,65,46
+,Alfredo,Boavista,Others,Portuguese,GK,15,70,70,67,60,64,63,62,10,64,34,57,18,70,66,38,21,23,73,76,79,22,42,60,41
+,Nelo,Boavista,Others,Portuguese,CD,16,68,74,56,57,64,79,61,23,38,61,53,29,62,70,74,73,17,29,17,21,44,48,60,72
 Sacha,Simic,Boavista,Others,Yugoslavian,FOR,12,65,73,63,72,57,68,63,63,49,61,63,58,61,75,32,30,77,24,20,18,48,47,68,53
+,Jorge Couto,Boavista,Others,Portuguese,DM,14,59,49,42,40,58,78,63,37,55,55,48,48,67,69,49,64,34,31,23,19,42,50,58,66
 Russel,Latapy,Boavista,Others,Trinidadian,DM,21,55,46,44,46,56,65,60,40,53,53,56,42,58,64,52,56,35,27,21,21,44,49,58,67
+,Rául,Boavista,Others,Portuguese,DM,22,61,54,45,38,67,72,88,44,61,60,58,46,57,63,52,62,36,16,23,19,42,48,46,62
 Jaime,Alves,Boavista,Others,Portuguese,DM,17,64,50,44,40,61,77,87,41,63,64,58,39,62,66,55,69,38,18,20,23,45,60,64,66
+,Litos,Boavista,Others,Portuguese,RB,18,66,59,55,60,55,69,60,21,40,54,56,52,64,63,72,73,33,22,21,18,46,39,64,73
+,Mario Silva,Boavista,Others,Portuguese,LB,19,63,55,52,63,61,66,59,30,44,53,49,47,61,54,68,73,33,25,19,18,37,39,58,63
+,Martelinho,Boavista,Others,Portuguese,LM,24,51,52,44,41,65,69,62,42,55,57,45,36,64,61,51,59,26,13,18,22,37,56,64,60
+,Emmanuel,Boavista,Others,Angolan,RM,23,53,56,41,36,58,71,65,42,59,56,45,37,59,65,47,56,28,25,18,16,36,51,57,59
 Silva Aragao,Isaias,Boavista,Others,Brazilian,CD,26,70,58,49,54,57,83,68,27,34,60,47,36,66,60,82,79,17,22,24,12,48,47,61,81
 Fernando,Mendes,Porto,Others,Portuguese,LB,5,71,71,60,70,68,77,64,31,49,63,54,62,67,68,82,76,38,24,20,15,52,46,67,84
 Ljubimko,Drulovic,Porto,Others,Portuguese,AM,11,81,76,62,74,87,77,84,84,93,60,75,81,77,86,47,51,73,26,26,29,50,53,71,66
 Rui,Barros,Porto,Others,Portuguese,RM,8,73,79,67,60,84,86,73,68,77,78,66,57,76,80,75,79,44,24,34,31,58,70,53,60
+,Bino,Porto,Others,Portuguese,AM,18,73,68,58,72,75,68,85,73,83,60,68,70,68,79,30,48,64,17,26,16,45,45,63,57
 Paulinho,Santos,Porto,Others,Portuguese,DM,20,72,61,57,59,79,89,99,59,67,71,62,58,76,86,69,73,46,26,30,24,59,66,52,66
 Jorge,Costa,Porto,Others,Portuguese,CD,22,78,78,63,65,65,86,70,35,46,71,59,37,64,70,95,85,29,28,20,15,50,63,67,86
+,Aloisio,Porto,Others,Brazilian,CD,4,80,76,68,69,70,85,66,33,54,64,58,30,70,80,84,90,22,26,21,14,48,52,65,87
 Andrzej,Wozniak,Porto,Others,Polish,GK,1,82,44,91,62,71,73,74,15,48,36,52,31,83,80,36,31,31,80,82,87,25,46,75,48
 Sergio,Conceicao,Porto,Others,Portuguese,RB,7,74,76,62,67,68,74,72,33,57,60,62,53,64,66,80,85,37,23,21,17,41,41,63,75
 Zlatko,Zahovic,Porto,Others,Yugoslavian,LM,25,70,73,55,59,84,87,86,55,70,81,69,57,82,80,75,84,41,26,35,29,54,67,84,89
 Mario,Jardel,Porto,Others,Portuguese,FOR,16,81,83,69,78,66,72,67,93,57,75,72,70,75,78,38,38,79,11,25,14,50,45,72,55
 Antonio,Folha,Porto,Others,Portuguese,FOR,10,73,78,64,83,71,66,67,82,55,64,70,63,68,75,30,32,51,13,19,17,47,49,51,58
 Rui,Jorge,Porto,Others,Portuguese,CD,3,75,71,68,65,65,91,66,36,46,74,54,30,65,69,88,80,29,29,19,23,44,53,54,67
+,Barroso,Porto,Others,Portuguese,DM,17,75,71,55,60,78,83,80,55,71,74,69,54,78,79,70,81,50,31,36,33,51,63,59,66
 Costas,Costa,Porto,Others,Cypriot,DM,23,72,63,50,53,78,87,72,56,69,74,68,49,73,77,62,78,45,33,37,25,56,68,76,54
 Lars,Eriksson,Porto,Others,Swedish,GK,12,70,40,78,51,69,64,70,11,43,30,41,20,70,62,35,26,22,73,70,78,28,39,60,41
+,Artur,Porto,Others,Brazilian,FOR,14,77,77,69,72,62,73,63,88,61,73,62,68,63,79,34,43,78,29,29,17,48,44,68,61
+,Domingos,Porto,Others,Portuguese,FOR,9,72,72,73,79,74,66,72,70,62,72,67,68,75,82,36,45,82,31,14,24,47,50,72,59
+,Silvino,Porto,Others,Portuguese,GK,30,71,50,76,62,63,66,66,7,65,37,61,26,60,72,34,29,26,77,77,72,23,41,65,49
 Joao Silva,Pinto,Porto,Others,Portuguese,CD,2,82,70,66,69,68,86,69,26,36,69,60,30,75,79,90,91,27,20,23,22,44,61,74,61
+,Lula,Porto,Others,Brazilian,CD,13,78,50,55,51,67,91,67,33,34,63,51,38,67,65,89,91,26,29,21,13,50,53,62,84
 Joao Manuel,Pinto,Porto,Others,Portuguese,CD,19,75,63,67,57,73,86,76,36,50,71,63,39,68,73,77,82,29,20,28,31,52,57,60,52
+,Edmilson,Porto,Others,Portuguese,FOR,21,74,78,72,80,65,68,71,80,61,63,64,65,65,78,36,34,76,20,24,24,44,47,63,56
 Darko,Butorovic,Porto,Others,Croatian,CD,24,67,55,54,46,64,77,61,27,36,56,47,28,62,63,76,74,24,25,27,12,38,48,61,69
 Afonso,Martins,Sporting Lisbon,Others,Portuguese,LM,21,53,58,40,47,62,72,62,46,54,56,52,44,64,56,58,64,27,28,17,12,41,55,58,65
 Luis,Andrade,Sporting Lisbon,Others,Portuguese,CD,15,74,77,64,65,68,78,67,24,36,63,58,33,70,78,77,81,22,15,29,22,47,51,69,79
@@ -4870,13 +4894,25 @@ Ahmed,Ouattara,Sporting Lisbon,Others,Portuguese,FOR,25,56,67,68,78,59,60,64,38,
 Artur,Jorge,Sporting Lisbon,Others,Portuguese,FOR,24,67,66,61,70,57,57,56,78,47,60,54,58,52,66,28,35,70,21,18,12,41,36,57,43
 Marco,Aurelio,Sporting Lisbon,Others,Portuguese,CD,5,68,50,52,50,54,65,60,25,36,56,54,32,58,64,84,76,23,22,19,14,35,55,60,78
 Emilio,Peixe,Sporting Lisbon,Others,Portuguese,DM,3,53,42,39,44,52,67,53,36,52,48,50,35,53,58,43,56,29,26,16,17,40,42,59,57
+,Caetano,Belenenses,Others,Portuguese,RB,2,67,63,57,62,62,77,61,33,52,55,60,59,70,60,75,73,36,20,25,21,42,45,55,72
+,Calila,Belenenses,Others,Portuguese,FOR,9,67,72,64,80,68,68,64,69,53,71,66,67,69,51,30,37,52,15,28,16,45,45,60,51
 Yousef,Fertout,Belenenses,Others,Moroccan,FOR,10,70,74,62,67,63,65,66,79,47,60,65,63,61,72,30,37,67,16,17,21,39,38,58,58
+,Filgueira,Belenenses,Others,Brazilian,CD,4,65,59,55,58,66,76,64,23,40,60,60,30,71,62,64,69,27,12,27,23,42,58,64,78
+,Tonanha,Belenenses,Others,Portuguese,DM,6,63,52,46,42,66,76,72,40,56,65,59,47,62,73,50,70,39,18,26,24,47,56,70,66
+,Mauro Silva,Belenenses,Others,Portuguese,CD,5,67,48,49,50,64,83,60,33,42,58,57,35,60,45,79,75,22,17,17,12,41,57,67,74
+,Amarildo,Belenenses,Others,Portuguese,LB,3,67,59,58,63,67,69,59,27,49,50,55,47,58,64,76,77,30,15,23,15,37,46,60,58
 Luis,Ferreira,Belenenses,Others,Portuguese,GK,1,74,59,78,61,70,60,69,18,62,34,61,23,75,79,39,21,28,67,71,79,25,44,66,45
 Rachid,Daoudi,Belenenses,Others,Moroccan,RM,7,54,47,40,48,61,68,57,40,56,60,48,46,65,62,58,66,34,29,17,14,41,55,64,64
+,Rui Esteves,Belenenses,Others,Portuguese,DM,11,62,49,47,45,61,80,62,49,59,63,49,48,62,68,50,68,31,29,28,22,41,54,70,68
+,Zito,Belenenses,Others,Portuguese,LM,8,58,63,43,51,65,79,74,42,59,68,58,44,70,51,57,70,34,32,28,20,45,56,73,72
 Paulo,Madeira,Belenenses,Others,Portuguese,RB,15,61,60,53,55,64,68,60,29,40,55,54,47,54,62,64,66,34,20,20,11,38,43,65,51
 Pedro,Barny,Belenenses,Others,Portuguese,CD,14,66,47,48,53,63,74,61,23,36,58,50,27,56,56,78,73,22,28,20,15,35,52,60,71
+,Valente,Belenenses,Others,Portuguese,GK,13,67,54,71,55,60,66,63,16,60,25,65,21,62,66,28,15,17,64,70,73,26,41,45,46
 Jose Luis,Villareal,Belenenses,Others,Argentinian,AM,22,60,58,51,55,64,72,70,47,64,55,61,59,63,64,52,67,41,14,22,15,47,56,60,51
+,Quinzinho,Belenenses,Others,Portuguese,FOR,12,68,72,63,68,64,57,63,77,47,64,61,56,60,66,29,28,66,11,23,11,39,37,56,47
 Adbel,M'Jid,Belenenses,Others,Moroccan,FOR,19,69,74,54,71,60,65,56,76,53,62,58,62,56,71,36,32,73,18,25,19,35,41,58,49
+,Fonseca,Belenenses,Others,Portuguese,LB,18,60,53,53,53,56,70,61,29,46,46,51,49,55,56,60,69,33,12,24,21,41,40,53,63
+,Lito,Belenenses,Others,Portuguese,CD,17,63,50,43,47,55,78,52,26,34,57,48,29,59,55,73,70,24,21,21,13,33,47,52,56
 Eddy,Snelders,Lierse,Others,Belgian,CD,5,70,66,73,76,78,69,85,46,63,73,68,42,83,86,66,69,29,12,34,31,68,70,48,59
 Yves,Serneels,Lierse,Others,Belgian,LB,3,68,63,57,69,70,79,63,24,48,52,51,60,61,71,81,72,36,24,18,22,49,43,71,62
 Pascal,Bovri,Lierse,Others,Belgian,DM,6,65,51,44,57,81,89,78,49,60,61,50,50,66,75,60,70,49,15,16,22,51,58,74,60
@@ -4929,6 +4965,7 @@ Miguel Angel,Nadal,Barcelona,Others,Spanish,CD,20,88,75,69,60,75,89,68,35,44,93,
 Gheorghe,Popescu,Barcelona,Others,Romanian,DM,5,80,70,70,62,67,85,66,35,80,75,78,31,76,80,81,85,23,26,25,13,43,53,67,61
 Luiz Nazario De Lima,Ronaldo,Barcelona,Others,Brazilian,FOR,9,88,90,82,79,79,80,77,96,65,75,92,89,90,93,31,32,90,27,25,25,46,49,76,64
 Laurent,Blanc,Barcelona,Others,French,SW,15,79,82,70,77,79,79,77,50,80,87,83,50,78,85,85,90,35,12,22,22,36,67,63,65
+,Celades,Barcelona,Others,Spanish,RB,23,73,72,63,75,71,78,76,38,53,70,61,59,68,74,77,78,35,29,23,14,45,46,68,67
 Hristo,Stoïchkov,Barcelona,Others,Bulgarian,FOR,8,83,80,77,77,81,86,79,92,82,80,75,82,86,90,53,61,77,18,17,20,44,45,46,63
 Angel,Cuellar,Barcelona,Others,Spanish,FOR,11,68,73,57,67,57,67,65,77,53,58,58,57,59,74,36,27,67,26,27,12,41,43,62,50
 Carlos,Busquets,Barcelona,Others,Spanish,GK,13,75,52,78,70,69,66,65,12,62,40,60,29,79,72,39,29,29,74,79,79,26,41,63,43
@@ -4942,6 +4979,7 @@ Silva de Oliveira,Giovanni,Barcelona,Others,Spanish,FOR,10,76,76,60,72,65,59,61,
 Albert,Ferrer,Barcelona,Others,Spanish,RB,2,69,63,54,64,68,76,66,34,50,52,59,57,63,66,76,77,33,27,20,18,46,40,60,77
 Alvarez,Armando,Deportivo,Others,Spanish,RB,2,72,69,59,65,64,76,62,23,55,50,56,51,66,66,77,81,40,20,23,13,43,44,71,71
 Javier,Manjarin,Deportivo,Others,Spanish,FOR,7,74,79,62,79,69,65,66,80,54,71,60,67,68,77,35,35,74,14,25,16,40,48,66,51
+,Paco,Deportivo,Others,Spanish,CD,14,77,59,59,57,61,80,60,29,40,71,56,34,67,70,87,85,18,19,24,16,42,56,70,78
 Aitor,Beguiristain,Deportivo,Others,Spanish,FOR,18,75,78,70,74,71,60,62,86,56,60,65,69,69,72,32,35,79,11,23,24,50,49,71,51
 Santaelena,Alfredo,Deportivo,Others,Spanish,LM,15,55,55,45,45,64,62,60,41,58,64,56,40,64,65,53,62,37,21,23,18,40,51,70,65
 Slavador Gonzalez,Voro,Deportivo,Others,Spanish,LB,16,67,62,48,58,66,73,68,28,46,52,50,51,65,59,78,75,36,20,17,12,46,41,68,67
@@ -4975,6 +5013,7 @@ Pedrag,Mijatovic,Real Madrid,Others,Yugoslavian,FOR,8,80,84,74,75,68,69,68,90,55
 Rafael,Alkorta,Real Madrid,Others,Spanish,CD,18,67,56,55,55,55,78,64,27,36,57,53,28,65,65,76,73,22,18,18,11,39,48,58,79
 Carlos,Secretario,Real Madrid,Others,Portuguese,RB,25,67,63,55,61,67,80,69,29,49,53,56,53,70,70,73,71,37,27,27,20,48,44,62,72
 Jose,Amavisca,Real Madrid,Others,Spanish,FOR,11,69,71,60,71,58,64,54,78,51,59,62,62,62,67,33,35,74,22,26,15,36,38,62,51
+,Guti,Real Madrid,Others,Spanish,DM,23,60,59,56,58,63,72,60,37,52,60,67,42,54,66,58,68,32,28,17,16,41,52,62,69
 Miguel,Soler,Real Madrid,Others,Spanish,CD,22,68,70,63,59,60,69,58,20,36,59,46,31,53,57,72,77,25,11,26,22,35,48,61,68
 Raúl,Gonzalez,Real Madrid,Others,Spanish,FOR,7,82,85,77,70,79,69,79,90,70,76,83,83,75,86,46,45,80,24,17,16,46,43,70,69
 Fernando,Hierro,Real Madrid,Others,Spanish,DM,4,82,77,64,65,70,85,78,67,82,75,68,45,76,83,80,85,60,24,21,23,43,57,66,70
@@ -5011,6 +5050,7 @@ Tijani,Babangida,Ajax,Others,Nigerian,RW,7,77,77,72,72,74,67,75,75,88,52,73,77,6
 Richard,Witschge,Ajax,Others,Dutch,LM,8,62,77,52,52,84,76,70,43,62,62,55,52,69,71,58,71,38,18,24,19,48,56,63,78
 John,Veldman,Ajax,Others,Dutch,RB,2,73,73,53,71,63,83,64,32,53,52,57,53,74,67,80,82,38,15,19,20,45,43,69,74
 Kizito,Musampa,Ajax,Others,Dutch,DM,18,71,79,51,49,67,85,90,47,67,63,56,46,73,79,60,73,36,15,20,24,53,66,75,77
+,Dani,Ajax,Others,Portuguese,AM,21,72,77,86,74,88,72,81,69,75,70,80,82,71,76,48,52,79,22,16,19,43,35,55,64
 Arnold,Scholten,Ajax,Others,Dutch,DM,19,68,60,44,48,64,77,95,51,65,67,57,47,70,71,52,74,31,23,22,16,47,57,74,73
 Fred,Grim,Ajax,Others,Dutch,GK,12,78,59,80,69,64,72,61,18,71,35,73,26,77,85,32,26,22,72,79,82,19,45,70,45
 Peter,Hoekstra,Ajax,Others,Dutch,FOR,15,82,86,72,77,72,69,68,95,60,66,67,77,74,80,38,35,83,17,24,18,51,50,76,66
@@ -5653,6 +5693,8 @@ William,De Andrade,Panathinaikos,Others,Brazilian,CD,21,75,60,60,57,68,72,84,43,
 Nikos,Lymperopoulos,Panathinaikos,Others,Greek,DM,19,61,60,50,40,61,75,60,44,56,57,55,50,65,71,59,64,39,27,18,16,43,49,70,71
 Remy,Loret,Panathinaikos,Others,French,RB,18,59,63,59,55,53,79,57,27,43,55,53,36,60,61,60,65,26,27,26,14,46,34,42,52
 George,Nassiopoulos,Panathinaikos,Others,Greek,FOR,20,62,66,57,66,57,57,57,66,48,57,57,57,57,66,28,28,66,19,19,14,38,38,57,48
+,Georgevic,Olympiakos,Others,Yugoslavian,FR,10,66,76,57,61,69,59,72,48,85,41,64,63,65,67,27,31,61,22,22,20,39,37,68,56
+,Gewrgatos,Olympiakos,Others,Greek,RM,7,52,48,48,38,57,78,58,48,59,52,51,42,60,51,49,57,29,25,24,22,47,50,67,62
 Dimitris,Eleytheropoulos,Olympiakos,Others,Greek,GK,1,73,37,78,48,68,65,64,16,46,38,45,17,69,77,29,19,28,71,70,79,28,49,66,45
 Mirca,Varesanovic,Olympiakos,Others,Serbian,RB,2,67,58,47,65,66,67,60,28,46,47,51,49,58,59,72,78,28,26,18,18,39,41,63,76
 Yiorgos,Skartados,Olympiakos,Others,Greek,LB,3,68,68,55,69,63,80,67,24,53,49,50,51,71,63,73,76,32,23,27,17,40,44,66,51
@@ -5667,6 +5709,7 @@ Foto,Strakosha,Olympiakos,Others,Albanian,GK,13,74,54,81,56,64,66,68,16,62,28,62
 Vassilis,Ioannidis,Olympiakos,Others,Greek,CD,12,71,45,46,50,56,81,63,30,35,60,45,26,57,56,73,84,16,13,26,22,46,53,60,72
 Petros,Passalis,Olympiakos,Others,Greek,DM,14,58,48,45,37,62,63,76,37,55,54,55,40,63,69,55,59,35,14,24,17,46,53,56,64
 Panagiotis,Gonias,Olympiakos,Others,Greek,DM,15,52,53,43,33,53,69,62,38,48,47,49,35,58,59,49,57,30,20,24,13,43,42,60,64
+,Sapanis,Olympiakos,Others,Greek,FOR,18,67,73,63,65,63,58,61,73,47,60,57,58,62,73,25,36,69,28,18,22,38,39,64,51
 Kiriakos,Karataidis,Olympiakos,Others,Greek,CD,17,63,43,42,49,58,77,52,23,36,60,44,35,51,54,70,70,23,17,22,14,44,51,59,74
 Hristos,Kallatzis,Olympiakos,Others,Greek,CD,19,67,65,60,61,70,88,63,33,37,68,52,41,71,72,70,69,24,23,25,20,42,52,70,82
 Imre,Aranyos,Ferencvaros,Others,Hungarian,LM,11,55,51,45,45,59,78,66,39,62,57,55,43,64,72,52,57,29,12,17,21,41,52,59,66
@@ -5802,6 +5845,7 @@ Valery,Masalitin,Spora,Others,Russian,DM,14,51,44,37,37,53,58,53,36,50,41,48,31,
 Didier,Chaillou,Spora,Others,French,FOR,20,66,66,65,73,60,68,60,67,51,64,68,64,59,60,31,35,69,28,23,19,42,41,64,57
 Christian,Straus,Spora,Others,Luxembourgen,CD,18,59,49,50,55,64,85,61,24,38,64,58,35,50,64,54,62,27,24,27,22,43,51,51,59
 Vicky,Da Rocha,Spora,Others,Luxembourgen,DM,19,55,58,49,50,63,82,69,53,50,64,50,43,69,56,58,62,34,25,21,23,46,56,63,73
+ke Ndija,,Spora,Others,Swedish,GK,54,2,116,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Sergio,Battistini,Sliema,Others,Italian,RB,2,59,51,53,57,53,64,54,26,45,50,49,44,61,56,61,64,28,14,18,16,42,39,62,69
 Ettienne,Mercieca,Sliema,Others,Maltese,GK,1,70,41,76,56,60,67,61,19,57,29,65,24,63,67,25,30,23,69,66,77,28,65,57,45
 Mark,Miller,Sliema,Others,English,LM,8,53,47,43,43,60,67,55,43,57,55,45,38,56,68,52,64,26,29,22,18,35,45,58,64
@@ -6388,18 +6432,27 @@ Luca,Ippoliti,Servette,Others,Swiss,DM,15,52,45,41,42,56,68,57,38,48,54,52,44,62
 Olivier,Biaggi,Servette,Others,Swiss,CD,12,60,42,53,52,58,73,58,25,30,54,51,35,60,52,70,66,19,18,17,13,33,51,53,67
 Jean-Michael,Aeby,Servette,Others,Swiss,DM,14,52,45,41,37,56,69,73,44,47,53,49,36,58,56,51,59,30,26,18,15,40,52,51,63
 Pascal,Marguerat,Servette,Others,Swiss,GK,13,66,46,74,53,66,67,66,18,38,25,37,26,68,69,28,15,18,60,64,70,25,47,62,37
+,Anderson,Servette,Others,Swiss,FOR,16,66,66,59,66,55,58,57,74,48,58,64,56,64,69,32,28,64,28,27,18,43,43,59,54
 Jean-Michel,Aeby,Servette,Others,Swiss,CD,19,56,52,51,46,58,78,62,26,39,56,47,33,63,61,65,54,24,19,24,14,39,53,63,78
 Samuel,Margarini,Servette,Others,Swiss,DM,18,56,45,43,37,54,63,61,35,56,54,43,35,52,57,51,59,27,26,26,19,43,42,61,61
 Hakan,Sukur,Galatasaray,Others,Turkish,FOR,9,80,85,87,80,79,71,73,79,64,69,81,84,81,97,43,51,93,27,21,21,52,46,66,66
+,Tugay,Galatasaray,Others,Turkish,DM,23,62,57,41,49,60,81,89,42,59,63,52,49,66,66,52,67,43,14,24,21,41,53,71,63
 Brad,Friedel,Galatasaray,Others,American,GK,1,73,51,79,70,60,73,64,16,45,49,59,27,70,70,54,28,28,60,79,79,32,37,71,45
 Mert,Korkmaz,Galatasaray,Others,Turkish,CD,19,71,54,44,57,64,83,57,35,35,62,57,45,57,73,73,79,28,22,20,16,50,57,72,75
 Bulent,Korkmaz,Galatasaray,Others,Turkish,RB,2,69,70,52,61,70,73,71,32,52,54,49,58,68,63,82,75,30,28,21,14,43,45,60,73
+,Suat,Galatasaray,Others,Turkish,RM,7,59,63,52,47,69,78,64,49,57,62,63,51,67,79,60,68,37,10,22,13,48,53,64,72
 Vedat,Inceefe,Galatasaray,Others,Turkish,LB,3,69,66,49,69,71,71,61,30,49,51,57,51,61,63,75,79,32,25,27,14,41,50,62,60
+,Ergun,Galatasaray,Others,Turkish,LM,8,55,59,42,39,69,75,61,42,57,55,55,40,63,72,50,64,31,11,18,20,50,59,71,73
 Feti,Okuroglu,Galatasaray,Others,Turkish,CD,5,68,55,65,66,73,80,73,28,38,71,53,32,66,75,75,71,27,65,17,22,48,55,42,62
+,Arif,Galatasaray,Others,Turkish,FOR,10,76,75,76,70,84,75,82,76,66,70,80,87,81,68,44,37,91,24,27,22,58,55,77,47
 Ufuk,Talay,Galatasaray,Others,Australian,DM,6,71,59,44,51,70,82,66,45,69,73,62,47,73,76,69,73,36,19,23,24,46,64,74,68
+,Ilyas,Galatasaray,Others,Turkish,DM,14,64,63,46,55,67,79,65,53,62,58,55,35,70,69,52,67,32,29,31,14,38,58,59,72
 Hayrettin,Demirbas,Galatasaray,Others,Turkish,GK,12,72,44,77,54,71,62,68,14,44,35,53,28,66,72,32,33,24,69,76,77,32,48,68,49
+,Okan,Galatasaray,Others,Turkish,DM,15,66,52,53,45,69,71,88,47,64,59,51,48,66,77,52,67,38,20,23,16,47,45,72,71
+,Bekir,Galatasaray,Others,Turkish,CD,13,66,62,51,54,55,83,58,29,32,62,57,39,65,67,76,70,28,18,28,14,50,57,46,70
 Adrian Bucurel,Ilie,Galatasaray,Others,Romanian,FOR,26,69,75,70,77,74,69,65,69,53,70,69,65,66,53,34,33,77,23,27,18,43,47,68,52
 Umit,Davala,Galatasaray,Others,Turkish,DM,22,64,52,48,45,70,76,74,49,59,68,66,55,78,72,60,71,35,29,26,13,48,56,75,73
+,Ceyhun,Galatasaray,Others,Turkish,AM,20,67,69,60,66,81,63,79,72,73,60,61,64,62,74,39,49,64,18,24,23,48,39,45,60
 Evren,Turan,Galatasaray,Others,Turkish,DM,21,64,53,40,35,67,67,72,44,64,69,52,50,64,69,47,65,36,21,30,19,45,63,73,73
 Alp,Kucukvardar,Galatasaray,Others,Turkish,FOR,24,71,66,57,76,57,67,70,79,55,72,60,63,65,50,31,33,78,22,22,21,41,46,59,49
 Uche,Ogechukwu,Fenerbache,Others,Nigerian,CD,3,73,49,56,55,63,85,67,30,39,66,59,29,71,69,82,81,28,23,29,24,40,51,63,79
@@ -6429,8 +6482,25 @@ Cuhador,Eyup,Fenerbache,Others,Turkish,DM,29,63,51,48,42,61,72,68,42,65,55,58,42
 Dasgon,Tarik,Fenerbache,Others,Turkish,FOR,19,70,72,64,63,62,56,64,81,49,58,65,65,58,68,36,26,73,25,24,17,37,43,64,47
 Con Polat,Oner,Fenerbache,Others,Turkish,DM,30,61,47,47,43,61,78,57,44,59,62,50,40,63,64,48,67,29,28,20,13,42,57,57,70
 Habipoglu,Ahmet,Fenerbache,Others,Turkish,DM,8,60,69,64,65,64,67,58,41,59,61,50,45,61,66,48,57,27,20,20,16,43,49,57,66
+,Alpay,Besiktas,Others,Turkish,CD,5,68,54,55,60,69,88,64,29,33,65,52,29,63,66,77,72,23,27,22,18,41,54,67,59
+,Mutlu,Besiktas,Others,Turkish,LM,11,55,49,41,40,70,77,61,50,58,61,51,49,71,71,59,62,30,17,28,16,49,56,64,42
+,Erkan,Besiktas,Others,Turkish,LB,3,65,57,58,66,65,71,57,23,47,53,51,52,61,57,76,72,34,18,19,20,42,43,65,75
+,Mrmic,Besiktas,Others,Croatian,GK,1,70,42,75,50,65,67,69,19,47,31,40,20,78,73,30,21,22,69,69,76,23,42,60,39
+,Iankov,Besiktas,Others,Bulgarian,DM,7,63,60,41,39,60,75,60,45,58,64,54,48,65,72,60,68,30,34,20,19,45,59,62,72
+,Ali,Besiktas,Others,Turkish,CD,4,70,50,50,50,60,80,60,25,34,60,50,30,60,60,80,80,20,20,20,15,40,50,60,75
+,Mehmet,Besiktas,Others,Turkish,DM,6,60,47,37,38,61,68,78,41,59,56,49,46,63,66,57,62,30,24,21,14,43,56,63,63
+,Sergen,Besiktas,Others,Turkish,RM,8,55,58,49,44,68,75,67,41,55,55,59,45,50,66,59,65,38,16,23,18,48,54,65,71
+,Recep,Besiktas,Others,Turkish,RB,2,65,65,55,66,62,82,68,33,45,51,56,54,63,61,72,72,37,17,24,19,46,42,48,73
 B,Metin,Besiktas,Others,Turkish,FOR,10,71,82,68,75,63,63,62,72,50,71,64,68,70,57,37,39,79,23,23,20,46,47,64,49
 Daniel,Amokachi,Besiktas,Others,Nigerian,FOR,9,74,75,78,73,83,80,76,78,64,81,71,62,68,64,43,43,70,18,10,30,47,37,56,55
+,Oktay,Besiktas,Others,Turkish,FOR,12,71,69,68,71,68,60,65,80,51,68,58,67,65,74,36,27,68,12,25,16,43,37,61,55
+,Sinan,Besiktas,Others,Turkish,CD,15,66,51,52,50,58,73,59,23,40,60,50,26,62,54,80,73,16,17,23,14,35,48,56,74
+,Ertugrul,Besiktas,Others,Turkish,AM,16,62,60,49,56,64,56,68,69,69,52,57,63,58,71,26,42,55,20,19,12,35,39,58,50
+,Fevzi,Besiktas,Others,Turkish,GK,13,68,42,80,47,61,67,61,12,45,30,40,17,74,65,28,19,22,12,69,83,23,72,58,44
+,Rahim,Besiktas,Others,Turkish,CD,14,71,49,47,47,63,76,62,30,33,57,56,30,62,56,83,83,26,27,18,22,38,49,65,50
+,Ufuk,Besiktas,Others,Turkish,DM,17,59,50,39,40,58,63,64,42,57,49,56,44,57,64,48,63,25,22,25,14,45,48,54,68
+,Orhan,Besiktas,Others,Turkish,FOR,20,64,63,60,60,57,58,57,77,43,54,52,51,56,62,32,29,67,24,18,13,37,34,57,45
+,Mustafa,Besiktas,Others,Turkish,AM,18,57,51,43,57,68,58,63,59,65,44,55,60,58,63,24,37,54,29,15,15,33,34,59,49
 Olexandr,Shovkovsky,Dinamo Kiev,Others,Ukranian,GK,1,74,60,78,61,68,67,62,14,66,30,57,22,70,72,35,29,17,64,71,82,24,45,62,44
 Vladimir,Semyonov,Dinamo Kiev,Others,Russian,DM,6,58,51,41,37,49,73,80,39,54,55,50,47,55,66,51,64,25,23,19,13,42,53,63,63
 Vladyslav,Vashchuk,Dinamo Kiev,Others,Ukranian,CD,5,70,50,61,45,55,78,58,27,34,67,52,27,57,64,83,77,21,14,29,26,41,51,58,48
@@ -6609,6 +6679,7 @@ David,Barnhouse,Spare,Others,Welsh,RB,15,70,70,55,65,68,79,63,24,54,53,54,52,67,
 Finidi,George,Spare,Others,Nigerian,FOR,10,79,81,69,81,77,70,74,83,63,76,70,74,74,86,39,42,83,15,31,18,47,45,78,58
 Harry,Decheiver,Spare,Others,Dutch,FOR,27,67,72,66,74,66,65,64,73,54,67,66,74,51,61,32,31,45,26,27,21,42,48,54,57
 Carlo,Lavigne,Spare,Others,Belgian,DM,11,63,49,50,41,60,75,89,41,58,62,51,50,68,71,57,68,31,23,21,18,45,55,70,73
+,Edgar,Spare,Others,Portuguese,FOR,14,74,78,72,68,66,72,75,76,65,68,68,75,66,81,36,35,87,17,30,15,52,52,76,59
 Armin,Eck,Spare,Others,German,DM,20,63,57,55,44,65,76,71,52,67,65,52,52,64,47,57,72,37,20,21,19,52,60,54,68
 Jerry,De Jong,Spare,Others,Surinamese,CD,4,72,59,58,62,67,77,71,33,43,73,56,36,66,66,70,78,22,21,26,14,52,59,68,65
 Cedric,Duchesne,Spare,Others,French,GK,1,69,49,73,59,62,61,68,12,67,31,67,19,65,70,27,21,28,68,68,72,18,53,63,46
@@ -6637,6 +6708,7 @@ Nelson,Bertollazzi,Spare,Others,Brazilian,FOR,14,73,72,69,74,68,62,61,82,57,66,6
 Michael,Laudrup,Spare,Others,Danish,AM,10,79,83,65,65,83,80,79,87,87,71,80,64,83,85,78,68,56,24,26,25,63,46,64,79
 Luis,Vasco,Spare,Others,Portuguese,GK,13,73,59,78,64,67,69,69,7,63,37,61,23,73,73,39,20,25,72,71,78,19,63,63,43
 Peter,Quallo,Spare,Others,German,RB,15,68,68,51,65,61,73,61,34,51,49,50,51,69,62,75,77,29,17,27,22,47,46,62,54
+,Bebeto,Spare,Others,Brazilian,FOR,11,80,83,72,81,75,67,69,88,56,66,67,69,77,88,32,36,90,36,28,22,50,46,66,61
 Andrea,Giordano,Spare,Others,Italian,FOR,10,73,83,72,87,77,69,71,75,65,66,67,73,66,49,41,36,78,16,25,16,52,52,75,55
 Jorge,Couto,Spare,Others,Portuguese,DM,11,62,57,39,47,59,68,86,45,57,61,51,39,66,67,58,68,30,27,19,13,44,52,62,72
 Mauro,Antonioli,Spare,Others,Italian,DM,8,67,62,49,41,72,76,83,42,67,64,61,52,71,79,53,64,37,17,20,15,52,62,68,70
@@ -6729,12 +6801,14 @@ Andrew,Ansah,Spare,Others,English,FOR,24,65,79,63,75,62,63,69,55,53,62,71,68,67,
 Brendan,Augustine,Spare,Others,South African,FOR,10,76,87,77,80,66,77,74,79,64,66,74,75,70,78,33,37,78,27,22,14,49,49,71,56
 David,Preece,Spare,Others,English,DM,29,64,66,46,46,70,72,69,45,60,62,57,49,62,68,49,71,32,35,24,23,45,58,66,72
 Percy,Olivares,Spare,Others,Peruvian,CD,6,66,56,59,57,66,86,72,30,38,65,58,33,74,71,70,67,25,28,24,17,45,53,66,80
+,Romario,Spare,Others,Brazilian,FOR,9,89,92,69,90,75,80,73,95,87,70,91,93,90,85,43,38,91,20,21,23,46,48,85,74
 Alexei,Mikhailichenko,Spare,Others,Ukranian,DM,19,82,67,55,57,73,88,75,59,88,75,67,58,80,87,72,78,50,18,30,27,52,68,63,70
 Gary,Lund,Spare,Others,English,FOR,16,72,76,63,80,72,70,66,76,56,64,73,64,41,70,39,36,85,28,19,23,51,46,42,61
 Ian,Asbee,Spare,Others,English,CD,5,67,60,60,52,64,76,67,29,36,65,58,36,67,63,68,73,26,30,25,24,43,54,49,53
 Andreas,Schiemann,Spare,Others,German,FOR,24,62,65,53,63,58,52,62,70,46,53,60,58,61,68,33,28,46,25,17,18,40,33,61,53
 Claudio,Taffarel,Spare,Others,Brazilian,GK,1,80,63,80,77,68,68,63,14,74,37,68,25,77,78,46,29,27,78,80,88,25,60,74,51
 Igor,Cvitanovic,Spare,Others,Croatian,AM,18,64,60,52,62,73,58,71,71,73,52,58,67,60,76,35,39,62,14,17,16,48,47,27,38
+,Edmundo,Spare,Others,Brazilian,FOR,10,84,85,73,89,79,75,72,90,65,76,80,80,83,87,33,37,86,25,22,20,51,49,71,58
 Chris,Adams,EA All Stars,Others,English,RB,2,76,73,66,61,76,78,78,40,54,61,66,60,77,71,82,84,26,29,39,17,61,54,73,81
 Justin,Rae,EA All Stars,Others,English,CD,6,73,51,57,62,65,77,62,26,45,66,56,36,65,72,80,80,25,16,26,25,47,62,62,65
 Dave,Burton,EA All Stars,Others,English,SW,4,76,78,65,69,81,74,83,81,62,71,74,83,83,89,81,73,77,29,17,29,54,63,60,82

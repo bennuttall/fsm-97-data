@@ -274,6 +274,7 @@ John,O'Kane,Manchester U,English Premier League,Irish,RB,24,50.83
 Paul,Scholes,Manchester U,English Premier League,English,FOR,18,60.65
 Simon,Davies,Manchester U,English Premier League,English,LW,22,54.39
 Mikkel,Beck,Middlesbrough,English Premier League,Danish,FOR,9,54.91
+,Emerson,Middlesbrough,English Premier League,Brazilian,DM,6,64.3
 Oswaldo,Juninho,Middlesbrough,English Premier League,Brazilian,AM,10,64.0
 Fabrizio,Ravanelli,Middlesbrough,English Premier League,Italian,FOR,11,64.52
 Marc,Schwarzer,Middlesbrough,English Premier League,Australian,GK,19,50.35
@@ -4436,6 +4437,7 @@ Jason,Mayele,Chateauroux,French Division 2,Zarian,FOR,10,49.65
 Nicolas,Weber,Chateauroux,French Division 2,French,RB,2,54.48
 Joel,Bossis,Chateauroux,French Division 2,French,DM,6,47.52
 Aziz,El Ouali,Chateauroux,French Division 2,Moroccan,RM,7,52.22
+,Le Frapper,Chateauroux,French Division 2,French,AM,8,52.7
 Frederic,Gueguen,Chateauroux,French Division 2,French,GK,1,54.83
 Kari,Ukkonen,Chateauroux,French Division 2,Finnish,CD,12,48.48
 Didier,Martel,Chateauroux,French Division 2,French,FOR,15,51.3
@@ -4808,6 +4810,7 @@ Nick,Ashby,Rushden & D,Others,English,RB,40,50.61
 Brendan,Hackett,Rushden & D,Others,English,RW,40,51.96
 Jorge,Bermudez,Benfica,Others,Colombian,RB,2,55.83
 Tahar,El Kalej,Benfica,Others,Moroccan,CD,6,51.26
+,Jamir,Benfica,Others,Brazilian,CD,5,52.04
 Michel,Preud'homme,Benfica,Others,Belgian,GK,1,55.96
 Jose,Calado,Benfica,Others,Portuguese,DM,7,52.3
 Bruno,Caires,Benfica,Others,Portuguese,RM,8,55.91
@@ -4817,38 +4820,59 @@ Luis,Gustavo,Benfica,Others,Brazilian,LM,12,55.91
 Nader,Hassan,Benfica,Others,Moroccan,FOR,9,55.09
 Pedro,Henriques,Benfica,Others,Portuguese,LB,3,50.87
 Fernado,Brassard,Benfica,Others,Portuguese,GK,24,50.91
+,Donizete,Benfica,Others,Brazilian,FOR,17,53.91
 Nica,Panduru,Benfica,Others,Romanian,DM,11,51.3
 Alves,Paulao,Benfica,Others,Angolan,DM,23,51.09
 Mario,Marinho,Benfica,Others,Portuguese,CD,14,49.83
 Gabriel,Mauro Airez,Benfica,Others,Argentinian,FOR,16,53.22
 Iljan,Iliev,Benfica,Others,Bulgarian,DM,20,48.26
 Sergio,Duarte,Boavista,Others,Brazilian,LB,3,52.91
+,Helder,Boavista,Others,Portuguese,DM,6,52.78
 Paulo F.,De Sousa,Boavista,Others,Portuguese,CD,20,49.13
+,To Luis,Boavista,Others,Portuguese,GK,1,52.57
 Erwin,Sanchez,Boavista,Others,Bolivian,LM,11,54.17
+,Tavares,Boavista,Others,Portuguese,RM,7,48.57
 Miguel,Serodio,Boavista,Others,Portuguese,RB,2,52.22
 Nuno,Gomes,Boavista,Others,Portuguese,FOR,10,55.7
 Rui,Bento,Boavista,Others,Portuguese,CD,5,50.13
 Ion,Timofte,Boavista,Others,Romanian,DM,8,55.39
 Jimmy,Hasselbaink,Boavista,Others,Surinamese,FOR,9,54.52
+,Ricardo,Boavista,Others,Portuguese,DM,13,51.87
+,Alfredo,Boavista,Others,Portuguese,GK,15,51.3
+,Nelo,Boavista,Others,Portuguese,CD,16,51.39
 Sacha,Simic,Boavista,Others,Yugoslavian,FOR,12,54.04
+,Jorge Couto,Boavista,Others,Portuguese,DM,14,49.78
 Russel,Latapy,Boavista,Others,Trinidadian,DM,21,48.39
+,Rául,Boavista,Others,Portuguese,DM,22,50.39
 Jaime,Alves,Boavista,Others,Portuguese,DM,17,52.61
+,Litos,Boavista,Others,Portuguese,RB,18,50.83
+,Mario Silva,Boavista,Others,Portuguese,LB,19,49.0
+,Martelinho,Boavista,Others,Portuguese,LM,24,47.78
+,Emmanuel,Boavista,Others,Angolan,RM,23,47.09
 Silva Aragao,Isaias,Boavista,Others,Brazilian,CD,26,50.96
 Fernando,Mendes,Porto,Others,Portuguese,LB,5,56.87
 Ljubimko,Drulovic,Porto,Others,Portuguese,AM,11,65.57
 Rui,Barros,Porto,Others,Portuguese,RM,8,64.3
+,Bino,Porto,Others,Portuguese,AM,18,58.17
 Paulinho,Santos,Porto,Others,Portuguese,DM,20,62.35
 Jorge,Costa,Porto,Others,Portuguese,CD,22,58.57
+,Aloisio,Porto,Others,Brazilian,CD,4,57.91
 Andrzej,Wozniak,Porto,Others,Polish,GK,1,56.57
 Sergio,Conceicao,Porto,Others,Portuguese,RB,7,56.39
 Zlatko,Zahovic,Porto,Others,Yugoslavian,LM,25,66.17
 Mario,Jardel,Porto,Others,Portuguese,FOR,16,60.09
 Antonio,Folha,Porto,Others,Portuguese,FOR,10,55.35
 Rui,Jorge,Porto,Others,Portuguese,CD,3,55.91
+,Barroso,Porto,Others,Portuguese,DM,17,62.91
 Costas,Costa,Porto,Others,Cypriot,DM,23,61.0
 Lars,Eriksson,Porto,Others,Swedish,GK,12,48.74
+,Artur,Porto,Others,Brazilian,FOR,14,59.17
+,Domingos,Porto,Others,Portuguese,FOR,9,60.52
+,Silvino,Porto,Others,Portuguese,GK,30,52.35
 Joao Silva,Pinto,Porto,Others,Portuguese,CD,2,57.22
+,Lula,Porto,Others,Brazilian,CD,13,54.35
 Joao Manuel,Pinto,Porto,Others,Portuguese,CD,19,56.96
+,Edmilson,Porto,Others,Portuguese,FOR,21,58.0
 Darko,Butorovic,Porto,Others,Croatian,CD,24,49.13
 Afonso,Martins,Sporting Lisbon,Others,Portuguese,LM,21,49.48
 Luis,Andrade,Sporting Lisbon,Others,Portuguese,CD,15,55.35
@@ -4870,13 +4894,25 @@ Ahmed,Ouattara,Sporting Lisbon,Others,Portuguese,FOR,25,51.83
 Artur,Jorge,Sporting Lisbon,Others,Portuguese,FOR,24,49.7
 Marco,Aurelio,Sporting Lisbon,Others,Portuguese,CD,5,48.78
 Emilio,Peixe,Sporting Lisbon,Others,Portuguese,DM,3,44.09
+,Caetano,Belenenses,Others,Portuguese,RB,2,53.7
+,Calila,Belenenses,Others,Portuguese,FOR,9,53.96
 Yousef,Fertout,Belenenses,Others,Moroccan,FOR,10,53.26
+,Filgueira,Belenenses,Others,Brazilian,CD,4,51.65
+,Tonanha,Belenenses,Others,Portuguese,DM,6,53.13
+,Mauro Silva,Belenenses,Others,Portuguese,CD,5,49.78
+,Amarildo,Belenenses,Others,Portuguese,LB,3,50.52
 Luis,Ferreira,Belenenses,Others,Portuguese,GK,1,53.65
 Rachid,Daoudi,Belenenses,Others,Moroccan,RM,7,49.57
+,Rui Esteves,Belenenses,Others,Portuguese,DM,11,52.3
+,Zito,Belenenses,Others,Portuguese,LM,8,54.52
 Paulo,Madeira,Belenenses,Others,Portuguese,RB,15,48.39
 Pedro,Barny,Belenenses,Others,Portuguese,CD,14,48.09
+,Valente,Belenenses,Others,Portuguese,GK,13,48.22
 Jose Luis,Villareal,Belenenses,Others,Argentinian,AM,22,52.52
+,Quinzinho,Belenenses,Others,Portuguese,FOR,12,50.65
 Adbel,M'Jid,Belenenses,Others,Moroccan,FOR,19,52.35
+,Fonseca,Belenenses,Others,Portuguese,LB,18,47.57
+,Lito,Belenenses,Others,Portuguese,CD,17,45.35
 Eddy,Snelders,Lierse,Others,Belgian,CD,5,60.61
 Yves,Serneels,Lierse,Others,Belgian,LB,3,54.17
 Pascal,Bovri,Lierse,Others,Belgian,DM,6,55.91
@@ -4929,6 +4965,7 @@ Miguel Angel,Nadal,Barcelona,Others,Spanish,CD,20,59.96
 Gheorghe,Popescu,Barcelona,Others,Romanian,DM,5,58.78
 Luiz Nazario De Lima,Ronaldo,Barcelona,Others,Brazilian,FOR,9,67.48
 Laurent,Blanc,Barcelona,Others,French,SW,15,64.09
+,Celades,Barcelona,Others,Spanish,RB,23,58.26
 Hristo,Stoïchkov,Barcelona,Others,Bulgarian,FOR,8,65.7
 Angel,Cuellar,Barcelona,Others,Spanish,FOR,11,52.74
 Carlos,Busquets,Barcelona,Others,Spanish,GK,13,54.61
@@ -4942,6 +4979,7 @@ Silva de Oliveira,Giovanni,Barcelona,Others,Spanish,FOR,10,57.83
 Albert,Ferrer,Barcelona,Others,Spanish,RB,2,54.17
 Alvarez,Armando,Deportivo,Others,Spanish,RB,2,54.13
 Javier,Manjarin,Deportivo,Others,Spanish,FOR,7,56.57
+,Paco,Deportivo,Others,Spanish,CD,14,53.83
 Aitor,Beguiristain,Deportivo,Others,Spanish,FOR,18,57.26
 Santaelena,Alfredo,Deportivo,Others,Spanish,LM,15,50.39
 Slavador Gonzalez,Voro,Deportivo,Others,Spanish,LB,16,51.57
@@ -4975,6 +5013,7 @@ Pedrag,Mijatovic,Real Madrid,Others,Yugoslavian,FOR,8,60.65
 Rafael,Alkorta,Real Madrid,Others,Spanish,CD,18,49.39
 Carlos,Secretario,Real Madrid,Others,Portuguese,RB,25,54.61
 Jose,Amavisca,Real Madrid,Others,Spanish,FOR,11,52.65
+,Guti,Real Madrid,Others,Spanish,DM,23,51.7
 Miguel,Soler,Real Madrid,Others,Spanish,CD,22,48.96
 Raúl,Gonzalez,Real Madrid,Others,Spanish,FOR,7,64.26
 Fernando,Hierro,Real Madrid,Others,Spanish,DM,4,63.65
@@ -5011,6 +5050,7 @@ Tijani,Babangida,Ajax,Others,Nigerian,RW,7,59.13
 Richard,Witschge,Ajax,Others,Dutch,LM,8,56.43
 John,Veldman,Ajax,Others,Dutch,RB,2,55.65
 Kizito,Musampa,Ajax,Others,Dutch,DM,18,58.74
+,Dani,Ajax,Others,Portuguese,AM,21,62.35
 Arnold,Scholten,Ajax,Others,Dutch,DM,19,55.87
 Fred,Grim,Ajax,Others,Dutch,GK,12,55.74
 Peter,Hoekstra,Ajax,Others,Dutch,FOR,15,61.78
@@ -5653,6 +5693,8 @@ William,De Andrade,Panathinaikos,Others,Brazilian,CD,21,52.61
 Nikos,Lymperopoulos,Panathinaikos,Others,Greek,DM,19,52.17
 Remy,Loret,Panathinaikos,Others,French,RB,18,47.52
 George,Nassiopoulos,Panathinaikos,Others,Greek,FOR,20,48.83
+,Georgevic,Olympiakos,Others,Yugoslavian,FR,10,52.61
+,Gewrgatos,Olympiakos,Others,Greek,RM,7,48.78
 Dimitris,Eleytheropoulos,Olympiakos,Others,Greek,GK,1,50.09
 Mirca,Varesanovic,Olympiakos,Others,Serbian,RB,2,50.43
 Yiorgos,Skartados,Olympiakos,Others,Greek,LB,3,52.7
@@ -5667,6 +5709,7 @@ Foto,Strakosha,Olympiakos,Others,Albanian,GK,13,51.7
 Vassilis,Ioannidis,Olympiakos,Others,Greek,CD,12,48.48
 Petros,Passalis,Olympiakos,Others,Greek,DM,14,49.0
 Panagiotis,Gonias,Olympiakos,Others,Greek,DM,15,45.61
+,Sapanis,Olympiakos,Others,Greek,FOR,18,52.3
 Kiriakos,Karataidis,Olympiakos,Others,Greek,CD,17,46.43
 Hristos,Kallatzis,Olympiakos,Others,Greek,CD,19,54.7
 Imre,Aranyos,Ferencvaros,Others,Hungarian,LM,11,49.65
@@ -5802,6 +5845,7 @@ Valery,Masalitin,Spora,Others,Russian,DM,14,43.78
 Didier,Chaillou,Spora,Others,French,FOR,20,53.65
 Christian,Straus,Spora,Others,Luxembourgen,CD,18,48.57
 Vicky,Da Rocha,Spora,Others,Luxembourgen,DM,19,52.91
+ke Ndija,,Spora,Others,Swedish,GK,54,5.04
 Sergio,Battistini,Sliema,Others,Italian,RB,2,46.78
 Ettienne,Mercieca,Sliema,Others,Maltese,GK,1,50.87
 Mark,Miller,Sliema,Others,English,LM,8,47.39
@@ -6388,18 +6432,27 @@ Luca,Ippoliti,Servette,Others,Swiss,DM,15,45.61
 Olivier,Biaggi,Servette,Others,Swiss,CD,12,45.65
 Jean-Michael,Aeby,Servette,Others,Swiss,DM,14,46.48
 Pascal,Marguerat,Servette,Others,Swiss,GK,13,46.91
+,Anderson,Servette,Others,Swiss,FOR,16,51.74
 Jean-Michel,Aeby,Servette,Others,Swiss,CD,19,48.04
 Samuel,Margarini,Servette,Others,Swiss,DM,18,45.65
 Hakan,Sukur,Galatasaray,Others,Turkish,FOR,9,65.91
+,Tugay,Galatasaray,Others,Turkish,DM,23,53.17
 Brad,Friedel,Galatasaray,Others,American,GK,1,54.17
 Mert,Korkmaz,Galatasaray,Others,Turkish,CD,19,52.83
 Bulent,Korkmaz,Galatasaray,Others,Turkish,RB,2,54.09
+,Suat,Galatasaray,Others,Turkish,RM,7,54.26
 Vedat,Inceefe,Galatasaray,Others,Turkish,LB,3,52.78
+,Ergun,Galatasaray,Others,Turkish,LM,8,51.13
 Feti,Okuroglu,Galatasaray,Others,Turkish,CD,5,54.74
+,Arif,Galatasaray,Others,Turkish,FOR,10,64.0
 Ufuk,Talay,Galatasaray,Others,Australian,DM,6,57.09
+,Ilyas,Galatasaray,Others,Turkish,DM,14,53.43
 Hayrettin,Demirbas,Galatasaray,Others,Turkish,GK,12,52.0
+,Okan,Galatasaray,Others,Turkish,DM,15,53.96
+,Bekir,Galatasaray,Others,Turkish,CD,13,50.91
 Adrian Bucurel,Ilie,Galatasaray,Others,Romanian,FOR,26,56.39
 Umit,Davala,Galatasaray,Others,Turkish,DM,22,56.43
+,Ceyhun,Galatasaray,Others,Turkish,AM,20,56.22
 Evren,Turan,Galatasaray,Others,Turkish,DM,21,52.96
 Alp,Kucukvardar,Galatasaray,Others,Turkish,FOR,24,53.87
 Uche,Ogechukwu,Fenerbache,Others,Nigerian,CD,3,53.83
@@ -6429,8 +6482,25 @@ Cuhador,Eyup,Fenerbache,Others,Turkish,DM,29,51.52
 Dasgon,Tarik,Fenerbache,Others,Turkish,FOR,19,52.91
 Con Polat,Oner,Fenerbache,Others,Turkish,DM,30,49.83
 Habipoglu,Ahmet,Fenerbache,Others,Turkish,DM,8,51.0
+,Alpay,Besiktas,Others,Turkish,CD,5,51.61
+,Mutlu,Besiktas,Others,Turkish,LM,11,50.96
+,Erkan,Besiktas,Others,Turkish,LB,3,51.39
+,Mrmic,Besiktas,Others,Croatian,GK,1,49.0
+,Iankov,Besiktas,Others,Bulgarian,DM,7,52.61
+,Ali,Besiktas,Others,Turkish,CD,4,49.09
+,Mehmet,Besiktas,Others,Turkish,DM,6,49.65
+,Sergen,Besiktas,Others,Turkish,RM,8,51.7
+,Recep,Besiktas,Others,Turkish,RB,2,52.65
 B,Metin,Besiktas,Others,Turkish,FOR,10,56.17
 Daniel,Amokachi,Besiktas,Others,Nigerian,FOR,9,59.22
+,Oktay,Besiktas,Others,Turkish,FOR,12,54.09
+,Sinan,Besiktas,Others,Turkish,CD,15,47.57
+,Ertugrul,Besiktas,Others,Turkish,AM,16,49.91
+,Fevzi,Besiktas,Others,Turkish,GK,13,46.57
+,Rahim,Besiktas,Others,Turkish,CD,14,49.09
+,Ufuk,Besiktas,Others,Turkish,DM,17,47.61
+,Orhan,Besiktas,Others,Turkish,FOR,20,48.09
+,Mustafa,Besiktas,Others,Turkish,AM,18,47.52
 Olexandr,Shovkovsky,Dinamo Kiev,Others,Ukranian,GK,1,52.17
 Vladimir,Semyonov,Dinamo Kiev,Others,Russian,DM,6,48.39
 Vladyslav,Vashchuk,Dinamo Kiev,Others,Ukranian,CD,5,48.83
@@ -6609,6 +6679,7 @@ David,Barnhouse,Spare,Others,Welsh,RB,15,53.3
 Finidi,George,Spare,Others,Nigerian,FOR,10,62.35
 Harry,Decheiver,Spare,Others,Dutch,FOR,27,53.74
 Carlo,Lavigne,Spare,Others,Belgian,DM,11,53.3
+,Edgar,Spare,Others,Portuguese,FOR,14,60.39
 Armin,Eck,Spare,Others,German,DM,20,53.35
 Jerry,De Jong,Spare,Others,Surinamese,CD,4,54.0
 Cedric,Duchesne,Spare,Others,French,GK,1,50.74
@@ -6637,6 +6708,7 @@ Nelson,Bertollazzi,Spare,Others,Brazilian,FOR,14,56.39
 Michael,Laudrup,Spare,Others,Danish,AM,10,67.0
 Luis,Vasco,Spare,Others,Portuguese,GK,13,53.74
 Peter,Quallo,Spare,Others,German,RB,15,52.22
+,Bebeto,Spare,Others,Brazilian,FOR,11,61.96
 Andrea,Giordano,Spare,Others,Italian,FOR,10,59.39
 Jorge,Couto,Spare,Others,Portuguese,DM,11,51.61
 Mauro,Antonioli,Spare,Others,Italian,DM,8,55.52
@@ -6729,12 +6801,14 @@ Andrew,Ansah,Spare,Others,English,FOR,24,54.83
 Brendan,Augustine,Spare,Others,South African,FOR,10,61.0
 David,Preece,Spare,Others,English,DM,29,54.22
 Percy,Olivares,Spare,Others,Peruvian,CD,6,53.91
+,Romario,Spare,Others,Brazilian,FOR,9,68.65
 Alexei,Mikhailichenko,Spare,Others,Ukranian,DM,19,63.35
 Gary,Lund,Spare,Others,English,FOR,16,56.57
 Ian,Asbee,Spare,Others,English,CD,5,51.22
 Andreas,Schiemann,Spare,Others,German,FOR,24,48.83
 Claudio,Taffarel,Spare,Others,Brazilian,GK,1,58.7
 Igor,Cvitanovic,Spare,Others,Croatian,AM,18,51.13
+,Edmundo,Spare,Others,Brazilian,FOR,10,64.61
 Chris,Adams,EA All Stars,Others,English,RB,2,61.17
 Justin,Rae,EA All Stars,Others,English,CD,6,53.39
 Dave,Burton,EA All Stars,Others,English,SW,4,67.74
