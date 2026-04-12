@@ -1019,17 +1019,25 @@ def make_stadiums():
 # ── POSITION PAGES ────────────────────────────────────────────────────────────
 
 def make_positions():
+    zone_of = {p_info['abbreviation']: p_info['zone'] for p_info in positions_info.values()}
+
+    def pos_rat(p, pos):
+        key = (p['first_name'], p['last_name'], p['team'])
+        r = pos_ratings_by_player.get(key)
+        return int(r[pos]) if r else 0
+
     rows = ''
     for pos in pos_order:
-        pp = players_by_position.get(pos, [])
-        if not pp: continue
-        avg = sum(pr(p) for p in pp) / len(pp)
         info = positions_info.get(pos, {})
+        zone = info.get('zone', '')
+        pp_zone = [p for p in players_raw if zone_of.get(p['position']) == zone]
+        if not pp_zone: continue
+        avg = sum(pos_rat(p, pos) for p in pp_zone) / len(pp_zone)
         rows += f'''<tr>
           <td><a href="{slug(pos)}.html" class="pos">{h(pos)}</a></td>
           <td>{h(info.get("position",""))}</td>
           <td>{h(info.get("zone",""))}</td>
-          <td class="num">{len(pp):,}</td>
+          <td class="num">{len(pp_zone):,}</td>
           <td class="num"><span class="{rating_class(avg)}">{avg:.1f}</span></td>
         </tr>'''
     body = f'''<table><thead><tr><th>Code</th><th>Position</th><th>Zone</th><th class="num">Players</th><th class="num">Avg Rating</th></tr></thead>
@@ -1038,38 +1046,36 @@ def make_positions():
           page("Positions", body, depth=1, active='Positions',
                header_title="Playing Positions"))
 
-    zone_of = {p_info['abbreviation']: p_info['zone'] for p_info in positions_info.values()}
-
     for pos in pos_order:
-        pp_nat = sorted(players_by_position.get(pos, []), key=lambda p: pr(p), reverse=True)
-        if not pp_nat: continue
+        if not players_by_position.get(pos): continue
         info = positions_info.get(pos, {})
         zone = info.get('zone', '')
 
-        def pos_rat(p, pos=pos):
-            key = (p['first_name'], p['last_name'], p['team'])
-            r = pos_ratings_by_player.get(key)
-            return int(r[pos]) if r else 0
-
-        # Main table — natural position players only
+        # Main table — all players in the same zone, ranked by position-specific rating
+        pp_zone = [p for p in players_raw if zone_of.get(p['position']) == zone]
+        pp_zone_sorted = sorted(pp_zone, key=lambda p: pos_rat(p, pos), reverse=True)
         prows = ''
-        for i, p in enumerate(pp_nat, 1):
+        for i, p in enumerate(pp_zone_sorted, 1):
+            nat_pos = p['position']
+            rating  = pos_rat(p, pos)
+            pos_cell = '' if nat_pos == pos else f'<a href="../positions/{slug(nat_pos)}.html" class="pos">{h(nat_pos)}</a>'
             prows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
               <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
               <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
               <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
-              <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
+              <td>{pos_cell}</td>
+              <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
             </tr>'''
 
         # Out-of-position section — top 10 players from outside this zone
         outside = [p for p in players_raw if zone_of.get(p['position']) != zone]
-        top_outside = sorted(outside, key=pos_rat, reverse=True)[:10]
+        top_outside = sorted(outside, key=lambda p: pos_rat(p, pos), reverse=True)[:10]
         oop_rows = ''
         for i, p in enumerate(top_outside, 1):
             nat_pos = p['position']
-            rating = pos_rat(p)
+            rating = pos_rat(p, pos)
             oop_rows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
@@ -1080,9 +1086,9 @@ def make_positions():
               <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
             </tr>'''
 
-        body = f'''<p class="muted">Zone: <strong>{h(zone)}</strong> · {len(pp_nat):,} players</p>
+        body = f'''<p class="muted">Zone: <strong>{h(zone)}</strong> · {len(pp_zone_sorted):,} players</p>
         <div class="filter-bar"><input data-filter="pos-{slug(pos)}" placeholder="Filter players…"></div>
-        <table id="pos-{slug(pos)}"><thead><tr><th class="num">#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th class="num" data-sort>Rating</th></tr></thead>
+        <table id="pos-{slug(pos)}"><thead><tr><th class="num">#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th data-sort>Natural Position</th><th class="num" data-sort>Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>
         <h2>Surprising performers</h2>
         <p class="muted">Top 10 players from outside the {h(zone)} zone, ranked by their {h(pos)} rating.</p>
@@ -1091,7 +1097,7 @@ def make_positions():
         write(f"{OUT_DIR}/positions/{slug(pos)}.html",
               page(f"{pos} — {info.get('position','')}", body, depth=1, active='Positions',
                    header_title=info.get('position', pos),
-                   header_sub=f"{pos} · {zone} · {len(pp_nat):,} players",
+                   header_sub=f"{pos} · {zone} · {len(pp_zone_sorted):,} players",
                    breadcrumb=bc([('Positions','index.html'),(pos,None)])))
 
 # ── NATIONALITY PAGES ─────────────────────────────────────────────────────────
