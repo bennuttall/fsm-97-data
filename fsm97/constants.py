@@ -134,6 +134,14 @@ LEAGUE_GROUPS = [
     ('Others',  ['Others']),
 ]
 
+# ── Per-team league overrides ────────────────────────────────────────────────
+# Maps corrected team name → correct league (applied after TEAM_NAMES).
+# Use for teams the game placed in the wrong division.
+TEAM_LEAGUES = {
+    'Hamilton Academical': 'Others',
+    'Dumbarton':           'Others',
+}
+
 # ── Full team name mappings ──────────────────────────────────────────────────
 # Maps abbreviated team names (as stored in SM97.DAT) to their full display names.
 
@@ -275,6 +283,7 @@ STADIUM_NAMES = {
     'Plainmoor Ground':   'Plainmoor',
     'Molineux Ground':    'Molineux',
     'Vicarage Road Stadium': 'Vicarage Road',
+    'The Cellnet Riverside Stadium': 'Riverside Stadium',
 }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────

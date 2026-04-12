@@ -29,7 +29,7 @@ import re
 import unicodedata
 from collections import defaultdict
 
-from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES
+from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES
 
 
 def _slug(s):
@@ -65,6 +65,12 @@ class Dataset:
         for row in self.teams:
             if row['stadium'] in STADIUM_NAMES:
                 row['stadium'] = STADIUM_NAMES[row['stadium']]
+            if row['team'] in TEAM_LEAGUES:
+                row['league'] = TEAM_LEAGUES[row['team']]
+
+        for row in self.players + self.skills + self.pos_ratings:
+            if row['team'] in TEAM_LEAGUES:
+                row['league'] = TEAM_LEAGUES[row['team']]
 
         self._build_indexes()
 

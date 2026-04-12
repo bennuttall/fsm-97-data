@@ -371,7 +371,9 @@ thead th[data-sort].sort-desc::after { content: ' ▼'; opacity: 1; }
 /* Pitch / formation */
 .pitch { background: linear-gradient(to bottom, #1a5c2a 0%, #236b33 40%, #1e6330 60%, #1a5c2a 100%);
          border: 2px solid #2d8a45; border-radius: 8px; padding: 1.2rem 0.5rem;
-         margin: 0.5rem 0 1.5rem; position: relative; overflow: hidden; }
+         margin: 0.5rem 0 1.5rem; position: relative; overflow: hidden;
+         max-width: 50%; }
+@media (max-width: 700px) { .pitch { max-width: 100%; } }
 .pitch::before { content: ''; position: absolute; top: 50%; left: 0; right: 0;
                  height: 1px; background: rgba(255,255,255,0.15); }
 .pitch::after  { content: ''; position: absolute; left: 50%; top: 50%;
@@ -436,6 +438,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{h(title)} — FIFA Soccer Manager 97</title>
 <link rel="stylesheet" href="{prefix}style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='1em' font-size='16'>⚽</text></svg>">
 </head>
 <body>
 <nav>
@@ -531,7 +534,7 @@ STADIUM_TRIVIA = {
     'highfield-road': "Coventry City's home from 1899 to 2005. Became the first all-seater top-flight ground in England when it was converted in 1981, ahead of the Taylor Report's requirements. Coventry left for the Ricoh Arena in 2005.",
     'elland-road': "Leeds United's home since 1919, with a capacity of 40,000 in 1996–97. One of the great English football grounds, with a passionate atmosphere — particularly the Kop end. The ground saw major redevelopment in the early 1990s following the title win.",
     'the-city-ground': "Nottingham Forest's home since 1898, situated on the banks of the River Trent directly opposite Notts County's Meadow Lane. Hosted some of Brian Clough's greatest European nights; capacity stood at around 30,000 in 1996–97.",
-    'the-cellnet-riverside-stadium': "Middlesbrough's gleaming new stadium opened in August 1995, replacing the ageing Ayresome Park. One of the first post-Taylor Report football-specific stadiums in England.",
+    'riverside-stadium': "Middlesbrough's gleaming new stadium opened in August 1995, replacing the ageing Ayresome Park. One of the first post-Taylor Report football-specific stadiums in England.",
     'hillsborough': "Sheffield Wednesday's imposing home, capacity 36,020 in 1996–97. Forever associated with the disaster of 15 April 1989, when 97 Liverpool supporters lost their lives during an FA Cup semi-final. The ground has since been significantly redeveloped.",
     'white-hart-lane': "Tottenham Hotspur's home from 1899 to 2017, with a capacity around 33,000 in 1996–97. Famous for its intimidating atmosphere and the iconic 'cockerel' atop the main stand. Spurs moved to their new 62,000-capacity stadium on the same site in 2019.",
     'upton-park': "West Ham United's home — officially the Boleyn Ground — from 1904 to 2016. The Bobby Moore Stand and intimate terracing gave the ground a distinctive character. West Ham United relocated to the London Stadium (former Olympic venue) in 2016.",
@@ -584,8 +587,10 @@ CLUB_TRIVIA = {
     'fc-barcelona': "Johan Cruyff's long managerial reign had just ended (1996) and Bobby Robson was appointed. Despite the transition, FC Barcelona's squad included Ronaldo, Figo, and Giovanni van Bronckhorst.",
     'real-madrid': "Under Fabio Capello, Real Madrid won La Liga in 1996–97 but were still building towards the Galácticos era. The squad included Roberto Carlos, Seedorf, Raúl and Míchel.",
     'rosenborg': "Norway's dominant club force. Regularly reached the Champions League group stage, famously beating AC Milan 2–1 in the 1996–97 edition.",
+    'ea-all-stars': "A hidden team of EA Sports developers who worked on FIFA Soccer Manager 97, inserted into the game as an easter egg. Their fictional home — the Electronic Arts Vellodrome in Berkshire — boasts a tongue-in-cheek capacity of 90,000. The players are real staff members, each assigned positions and ratings.",
+    'ea-select-xi': "A second developer easter egg team alongside EA All Stars, representing a curated selection from the EA Sports team. Like their counterparts, they play out of the Electronic Arts Vellodrome. The Select XI carries no squad in the game data — presumably the devs couldn't agree on the starting eleven.",
     'dumbarton': "One of the oldest clubs in the world and a founder member of the Scottish Football League in 1890. Dumbarton were relegated from the Scottish First Division at the end of the 1995–96 season and appear in the game database without a squad as a result.",
-    'hamilton': "Hamilton Academical were relegated from the Scottish First Division at the end of the 1995–96 season. They appear in the game database without a squad as a result. The club are named after the local academy school, making them one of the few clubs in world football with an educational institution in their name.",
+    'hamilton-academical': "Hamilton Academical were relegated from the Scottish First Division at the end of the 1995–96 season. They appear in the game database without a squad as a result. The club are named after the local academy school, making them one of the few clubs in world football with an educational institution in their name.",
 }
 
 # ── Links helpers ──────────────────────────────────────────────────────────────
@@ -835,7 +840,7 @@ def best_xi(team_name, prefix):
     GK_POS  = {'GK'}
     DEF_POS = {'RB','CD','LB','RWB','LWB','SW'}
     MID_POS = {'DM','RM','LM','AM','RW','LW','FR'}
-    ATT_POS = {'FWD','SS'}
+    ATT_POS = {'FOR','SS'}
 
     by_skill = sorted(players, key=lambda p: pr(p), reverse=True)
     used = set()
@@ -885,6 +890,70 @@ def best_xi(team_name, prefix):
 
     def row(players, gk=False):
         return '<div class="formation-row">' + ''.join(bubble(p, gk) for p in players) + '</div>'
+
+    return f'''<h2>Best XI — 4-4-2</h2>
+    <div class="pitch">
+      {row(atts)}
+      {row(mids)}
+      {row(defs)}
+      {row(gks, gk=True)}
+    </div>'''
+
+def best_xi_nat(players, prefix):
+    """Return a Best XI — 4-4-2 HTML block for an arbitrary player list.
+
+    Only rendered if there are enough players in each zone for a full 4-4-2
+    (1 GK, 4 DEF, 4 MID, 2 ATT). No cross-zone fallback.
+    """
+    GK_POS  = {'GK'}
+    DEF_POS = {'RB','CD','LB','RWB','LWB','SW'}
+    MID_POS = {'DM','RM','LM','AM','RW','LW','FR'}
+    ATT_POS = {'FOR','SS'}
+
+    def in_zone(pos_set):
+        return [p for p in players if p['position'] in pos_set]
+
+    if not (len(in_zone(GK_POS)) >= 1 and len(in_zone(DEF_POS)) >= 4 and
+            len(in_zone(MID_POS)) >= 4 and len(in_zone(ATT_POS)) >= 2):
+        return ''
+
+    by_skill = sorted(players, key=lambda p: pr(p), reverse=True)
+    used = set()
+
+    def pick(wanted_pos, count):
+        chosen = []
+        for p in by_skill:
+            if len(chosen) >= count: break
+            if p['first_name']+p['last_name'] not in used and p['position'] in wanted_pos:
+                chosen.append(p)
+                used.add(p['first_name']+p['last_name'])
+        return chosen
+
+    def order_defs(ds):
+        order = {'LB':0,'LWB':0,'SW':1,'CD':1,'RWB':3,'RB':3}
+        return sorted(ds, key=lambda p: order.get(p['position'], 2))
+
+    def order_mids(ms):
+        order = {'LW':0,'LM':0,'DM':1,'RM':2,'AM':2,'RW':3,'FR':2}
+        return sorted(ms, key=lambda p: order.get(p['position'], 1))
+
+    gks  = pick(GK_POS,  1)
+    defs = order_defs(pick(DEF_POS, 4))
+    mids = order_mids(pick(MID_POS, 4))
+    atts = pick(ATT_POS, 2)
+
+    def bubble(p, gk=False):
+        avg   = pr(p)
+        circ  = 'gk-circle' if gk else ''
+        lname = p['last_name'] or p['first_name']
+        return f'''<div class="p-bubble">
+          <div class="p-circle {circ}">{h(p["position"])}</div>
+          <div class="p-name"><a href="{prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(lname)}</a></div>
+          <div class="p-avg">{avg}</div>
+        </div>'''
+
+    def row(ps, gk=False):
+        return '<div class="formation-row">' + ''.join(bubble(p, gk) for p in ps) + '</div>'
 
     return f'''<h2>Best XI — 4-4-2</h2>
     <div class="pitch">
@@ -952,7 +1021,7 @@ def make_teams():
           <div class="card"><div class="stat">{stad_html}</div><div class="label">Stadium · {int(t["capacity"]):,} capacity</div></div>
           {area_card}
           {mgr_card}
-          <div class="card"><div class="stat"><span class="{rating_class(avg)}">{avg:.1f}</span></div><div class="label">Squad avg · {pc:,} players</div></div>
+          {f'<div class="card"><div class="stat"><span class="{rating_class(avg)}">{avg:.1f}</span></div><div class="label">Squad avg · {pc:,} players</div></div>' if pc else ''}
         </div>'''
 
         body = f'''{trivia_html}{meta}
@@ -1139,7 +1208,7 @@ def make_nationalities():
           <td class="num"><span class="{rating_class(avg)}">{avg:.1f}</span></td>
         </tr>'''
     body = f'''<div class="filter-bar"><input data-filter="nat-idx" placeholder="Filter nationalities…"></div>
-    <table id="nat-idx"><thead><tr><th>Nationality</th><th class="num">Players</th><th class="num">Avg Rating</th></tr></thead>
+    <table id="nat-idx"><thead><tr><th data-sort>Nationality</th><th class="num" data-sort>Players</th><th class="num" data-sort>Avg Rating</th></tr></thead>
     <tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/nationalities/index.html",
           page("Nationalities", body, depth=1, active='Nationalities',
@@ -1160,7 +1229,9 @@ def make_nationalities():
               <td><a href="../positions/{slug(p["position"])}.html" class="pos">{h(p["position"])}</a></td>
               <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
             </tr>'''
-        body = f'''<p class="muted">{len(pp):,} players across {len(by_league):,} leagues</p>
+        xi_html = best_xi_nat(pp, prefix='../')
+        body = f'''{xi_html}
+        <p class="muted">{len(pp):,} {h(nat)} players across {len(by_league):,} leagues</p>
         <div class="filter-bar"><input data-filter="nat-{slug(nat)}" placeholder="Filter…"></div>
         <table id="nat-{slug(nat)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Position</th><th class="num" data-sort>Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>'''
