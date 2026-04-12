@@ -171,6 +171,8 @@ def parse_game_data(dat_file, countries):
             pos_idx = stats[2]
             shirt   = stats[4]
             skills  = list(stats[5:28])
+            if any(s > 100 for s in skills):
+                continue
 
             nat = countries[nat_idx]['demonym'] if nat_idx < len(countries) else ''
             pos = POS_ABBR[pos_idx] if pos_idx < len(POS_ABBR) else ''
