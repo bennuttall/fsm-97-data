@@ -497,22 +497,22 @@ def bc(parts, prefix=''):
 PLAYER_TRIVIA = {
     ('Peter','Shilton'): "England's most capped player with 125 international appearances. At 47, Shilton was still playing professionally in 1996–97, making him likely the oldest outfield player in this database.",
     ('Eric','Cantona'): "The mercurial French captain inspired Manchester United to the 1995–96 Premier League and FA Cup double, returning from his infamous 8-month ban for the kung-fu kick at Selhurst Park. Retired suddenly in May 1997, aged 30.",
-    ('Alan','Shearer'): "Signed by hometown club Newcastle United from Blackburn Rovers in summer 1996 for a then-world-record £15 million fee, rejecting Manchester United to do so. Newcastle's record goalscorer.",
-    ('Dennis','Bergkamp'): "Joined Arsenal from Inter Milan for £7.5m in June 1995. His well-documented fear of flying meant he travelled to away fixtures by car and rail, missing European away legs entirely — but his performances at home made him worth it.",
+    ('Alan','Shearer'): "Signed by hometown club Newcastle United from Blackburn Rovers in summer 1996 for a then-world-record £15 million fee, rejecting Manchester United to do so. Newcastle United's record goalscorer.",
+    ('Dennis','Bergkamp'): "Joined Arsenal from Internazionale for £7.5m in June 1995. His well-documented fear of flying meant he travelled to away fixtures by car and rail, missing European away legs entirely — but his performances at home made him worth it.",
     ('Patrick','Vieira'): "Arsène Wenger's first signing as Arsenal manager in summer 1996, purchased from AC Milan's reserves for £3.5m. The 20-year-old Frenchman would go on to captain Arsenal's Invincibles.",
     ('Ruud','Gullit'): "Appointed Chelsea player-manager in 1996, becoming the first continental European to manage a top-flight English club. Led Chelsea to FA Cup glory in 1997.",
     ('Zinedine','Zidane'): "In his second season at Juventus having moved from Bordeaux in 1996 for £3m. Two years later he scored twice in the World Cup final as France beat Brazil 3–0.",
     ('Ryan','Giggs'): "Despite representing England at schoolboy level, Giggs chose to play internationally for Wales — the country of his birth. A United stalwart since age 13.",
     ('Peter','Schmeichel'): "The commanding Danish goalkeeper was the cornerstone of United's success under Sir Alex Ferguson, winning five Premier League titles. His son Kasper would later follow him into professional football.",
     ('Lilian','Thuram'): "The composed Parma right back scored both goals in France's 1998 World Cup semi-final win over Croatia — the only international goals in his record-breaking 142-cap career.",
-    ('David','Ginola'): "The charismatic French winger thrilled Premier League fans at Newcastle and later Spurs. Widely blamed for France's failure to qualify for USA 94 after a misplaced pass in the final qualifier against Bulgaria.",
+    ('David','Ginola'): "The charismatic French winger thrilled Premier League fans at Newcastle United and later Tottenham Hotspur. Widely blamed for France's failure to qualify for USA 94 after a misplaced pass in the final qualifier against Bulgaria.",
     ('Paolo','Maldini'): "AC Milan's legendary left back, widely considered one of the greatest defenders of all time. Spent his entire 25-year career at the club. Son of former Milan captain Cesare Maldini.",
     ('Da Silva','Roberto Carlos'): "Real Madrid's marauding left back, famous for the seemingly impossible free-kick against France in 1997 — struck with such swerve that the ball appeared to curve around the wall before bending back.",
-    ('Luiz Nazario De Lima','Ronaldo'): "The Brazilian phenomenon joined FC Barcelona from PSV in 1996 and won FIFA World Player of the Year in his debut season. Moved to Inter Milan at the end of 1996–97.",
+    ('Luiz Nazario De Lima','Ronaldo'): "The Brazilian phenomenon joined FC Barcelona from PSV in 1996 and won FIFA World Player of the Year in his debut season. Moved to Internazionale at the end of 1996–97.",
     ('George','Weah'): "The Liberian striker at AC Milan was the reigning FIFA World Player of the Year (1995) and African, European and World Player of the Year simultaneously — the only African player to win the Ballon d'Or.",
     ('Roy','Keane'): "Manchester United's combative Irish captain. One of the most influential midfielders of his era; his famous Juventus performance in the 1999 Champions League semi-final — despite knowing he'd miss the final — is the stuff of legend.",
     ('Steve','Bruce'): "Joined Birmingham City as player-manager in 1996 after 11 trophy-laden years at Manchester United, where he never received an international cap despite being one of the best centre-backs in the country.",
-    ('Gianluca','Pagliuca'): "Inter Milan's veteran goalkeeper who famously became the first goalkeeper sent off in World Cup history, against Norway at USA 94.",
+    ('Gianluca','Pagliuca'): "Internazionale's veteran goalkeeper who famously became the first goalkeeper sent off in World Cup history, against Norway at USA 94.",
 }
 
 # Override display names for players whose stored name differs from their known name
@@ -533,12 +533,12 @@ STADIUM_TRIVIA = {
     'the-city-ground': "Nottingham Forest's home since 1898, situated on the banks of the River Trent directly opposite Notts County's Meadow Lane. Hosted some of Brian Clough's greatest European nights; capacity stood at around 30,000 in 1996–97.",
     'the-cellnet-riverside-stadium': "Middlesbrough's gleaming new stadium opened in August 1995, replacing the ageing Ayresome Park. One of the first post-Taylor Report football-specific stadiums in England.",
     'hillsborough': "Sheffield Wednesday's imposing home, capacity 36,020 in 1996–97. Forever associated with the disaster of 15 April 1989, when 97 Liverpool supporters lost their lives during an FA Cup semi-final. The ground has since been significantly redeveloped.",
-    'white-hart-lane': "Tottenham's home from 1899 to 2017, with a capacity around 33,000 in 1996–97. Famous for its intimidating atmosphere and the iconic 'cockerel' atop the main stand. Spurs moved to their new 62,000-capacity stadium on the same site in 2019.",
-    'upton-park': "West Ham's home — officially the Boleyn Ground — from 1904 to 2016. The Bobby Moore Stand and intimate terracing gave the ground a distinctive character. West Ham relocated to the London Stadium (former Olympic venue) in 2016.",
+    'white-hart-lane': "Tottenham Hotspur's home from 1899 to 2017, with a capacity around 33,000 in 1996–97. Famous for its intimidating atmosphere and the iconic 'cockerel' atop the main stand. Spurs moved to their new 62,000-capacity stadium on the same site in 2019.",
+    'upton-park': "West Ham United's home — officially the Boleyn Ground — from 1904 to 2016. The Bobby Moore Stand and intimate terracing gave the ground a distinctive character. West Ham United relocated to the London Stadium (former Olympic venue) in 2016.",
     'filbert-street': "Leicester City's home from 1891 to 2002. A compact ground with a capacity of around 22,500, it witnessed Leicester's remarkable run of near-misses and promotions. The club moved to the Walkers Stadium (now King Power Stadium) in 2002.",
     'roker-park': "Sunderland's home from 1898 to 1997 — the 1996–97 season was the last played here before the move to the Stadium of Light. Roker Park hosted three matches in the 1966 World Cup. At its peak it held over 75,000; by 1997 capacity was 22,657.",
     'racecourse-ground': "One of the oldest international football venues in the world — Wales played their first-ever home international here in 1877. Wrexham's home throughout their long Football League history, it remains a well-maintained non-league ground today.",
-    'san-siro': "The Stadio Giuseppe Meazza — San Siro to everyone — has been shared by AC Milan and Inter since 1947. At 85,847 it is the largest stadium in this database. The iconic cylindrical staircase towers were added for the 1990 World Cup.",
+    'san-siro': "The Stadio Giuseppe Meazza — San Siro to everyone — has been shared by AC Milan and Internazionale since 1947. At 85,847 it is the largest stadium in this database. The iconic cylindrical staircase towers were added for the 1990 World Cup.",
     'olimpico': "Rome's Olympic Stadium, shared by Lazio and Roma since 1953. Designed for the 1960 Summer Olympics, it later hosted the 1990 World Cup Final.",
     'delle-alpi': "Opened for the 1990 World Cup and shared by Juventus and Torino, the Delle Alpi was almost immediately unpopular for its poor sightlines. It was demolished in 2008 and replaced by the current Juventus Stadium.",
     'nou-camp': "Camp Nou is the largest football stadium in Europe with a capacity of 115,000 — the biggest in this entire database. Built in 1957, it has hosted World Cup matches, European Cup finals, and an Olympic final.",
@@ -547,7 +547,7 @@ STADIUM_TRIVIA = {
     'celtic-park': "Known as 'Paradise', Celtic Park was comprehensively rebuilt in the mid-1990s as an all-seater stadium. The atmosphere on European nights is considered among the most intense in world football.",
     'anfield': "Liverpool's home since 1892. The famous Spion Kop terrace — once holding 28,000 standing fans — was converted to all-seater in 1994 following the Taylor Report.",
     'villa-park': "Aston Villa's home since 1897, one of England's great football grounds. Hosted three matches at the 1966 World Cup and three at Euro 96.",
-    'st-james-park': "One of the most atmospheric stadiums in England. Newcastle's vast home dominates the city skyline; the Gallowgate and Leazes ends create a cauldron of noise on matchday.",
+    'st-james-park': "One of the most atmospheric stadiums in England. Newcastle United's vast home dominates the city skyline; the Gallowgate and Leazes ends create a cauldron of noise on matchday.",
     'goodison-park': "Everton's home since 1892, Goodison was the first purpose-built football ground in England. It hosted World Cup matches in 1966.",
     'bernabeu': "Real Madrid's iconic home, opened in 1947 and named after club president Santiago Bernabéu. The 95,000-capacity stadium is the jewel of the Santiago Bernabéu district of Madrid.",
     'das-antas': "Porto's compact, atmospheric home. The club would later move to the Estádio do Dragão, built for Euro 2004.",
@@ -557,21 +557,20 @@ STADIUM_TRIVIA = {
 
 CLUB_TRIVIA = {
     'aston-villa': "Under Brian Little, Villa were a solid top-half Premier League side in 1996–97. Won the League Cup in 1996 — their first major trophy since the 1982 European Cup. Dwight Yorke was emerging as one of the league's most exciting forwards.",
-    'blackburn-rovers': "Reigning Premier League champions (1994–95), Blackburn had a difficult title defence and finished 7th. The departure of Alan Shearer to Newcastle cast a long shadow over the 1996–97 campaign.",
-    'coventry': "Under Ron Atkinson, Coventry survived in the Premier League through a combination of resilience and late drama — a recurring pattern at Highfield Road. The Sky Blues had won the FA Cup in 1987, their only major honour.",
+    'blackburn-rovers': "Reigning Premier League champions (1994–95), Blackburn Rovers had a difficult title defence and finished 7th. The departure of Alan Shearer to Newcastle United cast a long shadow over the 1996–97 campaign.",
+    'coventry': "Under Ron Atkinson, Coventry City survived in the Premier League through a combination of resilience and late drama — a recurring pattern at Highfield Road. The Sky Blues had won the FA Cup in 1987, their only major honour.",
     'everton': "Joe Royle's Everton were FA Cup winners in 1995, beating Manchester United. In 1996–97 they finished mid-table with Duncan Ferguson as their talisman. The club had been one of the dominant forces of English football in the 1980s under Howard Kendall.",
     'leeds': "Howard Wilkinson's Leeds United were the last First Division champions before the Premier League era (1991–92). By 1996–97 they had declined from that peak; Tony Yeboah was the squad's standout attacker.",
-    'leicester': "Newly promoted to the Premier League under Martin O'Neill, Leicester were considered relegation candidates. Steve Claridge's controversial last-minute goal in the 1996 First Division play-off final had secured their place in the top flight.",
+    'leicester': "Newly promoted to the Premier League under Martin O'Neill, Leicester City were considered relegation candidates. Steve Claridge's controversial last-minute goal in the 1996 First Division play-off final had secured their place in the top flight.",
     'sheffield-wednesday': "One of the founding members of the Football League, Wednesday had won the league title four times, most recently in 1930. In 1996–97 they were a steady mid-table Premier League side with David Pleat as manager.",
     'southampton': "Matt Le Tissier's club. The Saints' mercurial playmaker was so loyal to Southampton that he repeatedly turned down bigger clubs. Graeme Souness was manager in 1996–97; the club were 16th in the league, narrowly avoiding relegation.",
     'sunderland': "Newly promoted under Peter Reid, Sunderland's 1996–97 campaign was their farewell to Roker Park before moving to the Stadium of Light. They were relegated at the end of the season, finishing bottom of the Premier League.",
     'tottenham': "Gerry Francis managed Spurs in 1996–97, with Teddy Sheringham leading the attack. The club had won the FA Cup twice in the early 1990s but were struggling to keep pace with the league's elite. Finished 10th.",
-    'west-ham': "Harry Redknapp's West Ham were known for producing young English talent — Rio Ferdinand and Frank Lampard Jr were both coming through the academy. Finished 8th in 1996–97, their best position for several years.",
+    'west-ham': "Harry Redknapp's West Ham United were known for producing young English talent — Rio Ferdinand and Frank Lampard Jr were both coming through the academy. Finished 8th in 1996–97, their best position for several years.",
     'wimbledon': "The 'Crazy Gang' — FA Cup winners in 1988 — spent the entire 1996–97 season as tenants at Selhurst Park, sharing with Crystal Palace. Despite finishing 8th in the Premier League, the club had no stadium of their own and regularly attracted fewer than 10,000 fans.",
-    'derby-county': "Newly promoted to the Premier League in 1996 under Jim Smith, Derby played their final season at the historic Baseball Ground before moving to the purpose-built Pride Park in 1997. Finished a respectable 12th in their first top-flight season for eight years.",
-    'middlesbrough': "Had a tumultuous 1996–97 season — deducted three points for failing to fulfil a fixture at Blackburn due to illness (a decision widely regarded as harsh), ultimately contributing to their relegation despite reaching both the League Cup and FA Cup finals.",
+    'derby-county': "Newly promoted to the Premier League in 1996 under Jim Smith, Derby County played their final season at the historic Baseball Ground before moving to the purpose-built Pride Park in 1997. Finished a respectable 12th in their first top-flight season for eight years.",
+    'middlesbrough': "Had a tumultuous 1996–97 season — deducted three points for failing to fulfil a fixture at Blackburn Rovers due to illness (a decision widely regarded as harsh), ultimately contributing to their relegation despite reaching both the League Cup and FA Cup finals.",
     'newcastle-united': "Finished runner-up in 1995–96 having led the league by 12 points at one stage. In summer 1996 Kevin Keegan resigned, Les Ferdinand was sold, and Alan Shearer arrived for a world-record fee. Finished second again in 1996–97 under Kenny Dalglish.",
-    'blackburn-rovers': "Reigning Premier League champions (1994–95), Blackburn had a difficult title defence and finished 7th. The departure of Alan Shearer to Newcastle cast a long shadow over the 1996–97 campaign.",
     'arsenal': "Arsenal appointed Arsène Wenger as manager in September 1996, after the season had started under Bruce Rioch. Wenger's arrival would transform the club, the league, and English football. The Frenchman introduced continental methods, diet, and a new philosophy.",
     'chelsea': "Under player-manager Ruud Gullit, Chelsea were becoming a cosmopolitan force with Italian, Dutch and French internationals. Won the FA Cup in 1997 — their first major trophy since 1971.",
     'manchester-united': "Reigning double-winners, Manchester United dominated the era under Sir Alex Ferguson. Eric Cantona retired unexpectedly in May 1997, but United still claimed the league title.",
@@ -582,9 +581,11 @@ CLUB_TRIVIA = {
     'ajax': "European Champions in 1995, Ajax's star-studded squad began to break up as players departed for Italy and Spain. Patrick Kluivert, Clarence Seedorf, Marc Overmars and Edgar Davids all left in this era.",
     'borussia-dortmund': "Bundesliga champions and on the brink of Champions League glory — they would beat Juventus in the 1997 Champions League Final, with Karl-Heinz Riedle scoring twice.",
     'juventus': "Italian champions with a formidable squad including Zidane, Del Piero, Vieri and the Frenchmen Deschamps, Thuram (at Parma), and Vieira (by now at Arsenal). Won the Champions League in 1996.",
-    'fc-barcelona': "Johan Cruyff's long managerial reign had just ended (1996) and Bobby Robson was appointed. Despite the transition, Barcelona's squad included Ronaldo, Figo, and Giovanni van Bronckhorst.",
+    'fc-barcelona': "Johan Cruyff's long managerial reign had just ended (1996) and Bobby Robson was appointed. Despite the transition, FC Barcelona's squad included Ronaldo, Figo, and Giovanni van Bronckhorst.",
     'real-madrid': "Under Fabio Capello, Real Madrid won La Liga in 1996–97 but were still building towards the Galácticos era. The squad included Roberto Carlos, Seedorf, Raúl and Míchel.",
     'rosenborg': "Norway's dominant club force. Regularly reached the Champions League group stage, famously beating AC Milan 2–1 in the 1996–97 edition.",
+    'dumbarton': "One of the oldest clubs in the world and a founder member of the Scottish Football League in 1890. Dumbarton were relegated from the Scottish First Division at the end of the 1995–96 season and appear in the game database without a squad as a result.",
+    'hamilton': "Hamilton Academical were relegated from the Scottish First Division at the end of the 1995–96 season. They appear in the game database without a squad as a result. The club are named after the local academy school, making them one of the few clubs in world football with an educational institution in their name.",
 }
 
 # ── Links helpers ──────────────────────────────────────────────────────────────
@@ -941,11 +942,16 @@ def make_teams():
         if ct:
             trivia_html = f'<div class="trivia">{linkify_trivia(ct, prefix)}</div>'
 
+        nick_card = f'<div class="card"><div class="stat">{h(t["nickname"])}</div><div class="label">Nickname</div></div>' if t['nickname'] else ''
+        area_card = f'<div class="card"><div class="stat">{h(t["area"])}</div><div class="label">Area</div></div>' if t['area'] else ''
+        pm_star = '&nbsp;⭐' if t['is_player_manager'] == 'True' else ''
+        mgr_card = f'<div class="card"><div class="stat">{h(t["manager"])}</div><div class="label">Manager{pm_star}</div></div>' if t['manager'] else ''
         meta = f'''<div class="cards" style="margin-bottom:1rem">
+          {nick_card}
           <div class="card"><div class="stat">{h(team_league_label(t))}</div><div class="label"><a href="../leagues/{slug(t["league"])}.html">View league</a></div></div>
-          <div class="card"><div class="stat">{stad_html}</div><div class="label">Stadium · {int(t["capacity"]):,} cap</div></div>
-          <div class="card"><div class="stat">{h(t["area"] or "—")}</div><div class="label">Area</div></div>
-          <div class="card"><div class="stat">{h(t["manager"] or "—")}</div><div class="label">Manager{"&nbsp;⭐" if t["is_player_manager"]=="True" else ""}</div></div>
+          <div class="card"><div class="stat">{stad_html}</div><div class="label">Stadium · {int(t["capacity"]):,} capacity</div></div>
+          {area_card}
+          {mgr_card}
           <div class="card"><div class="stat"><span class="{rating_class(avg)}">{avg:.1f}</span></div><div class="label">Squad avg · {pc:,} players</div></div>
         </div>'''
 
@@ -954,10 +960,9 @@ def make_teams():
         <h2>Full Squad</h2>
         {squad_table(t["team"], prefix)}'''
 
-        nicks = f' "{h(t["nickname"])}"' if t['nickname'] else ''
         write(f"{OUT_DIR}/teams/{tslug}.html",
               page(t['team'], body, depth=1, active='Teams',
-                   header_title=t['team'] + nicks,
+                   header_title=t['team'],
                    header_sub=h(team_league_label(t)),
                    breadcrumb=bc([('Teams','index.html'),(t['team'],None)])))
 
