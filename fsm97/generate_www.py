@@ -218,6 +218,14 @@ def team_league_label(t):
         return OTHERS_COUNTRIES.get(t['team'], 'Others')
     return t['league']
 
+_league_to_country = {lg: country for country, leagues in LEAGUE_GROUPS for lg in leagues}
+
+def team_country(t):
+    """Return the country a team is based in."""
+    if t['league'] == 'Others':
+        return OTHERS_COUNTRIES.get(t['team'], 'Others')
+    return _league_to_country.get(t['league'], '')
+
 # ── Utilities ──────────────────────────────────────────────────────────────────
 
 def slug(s):
@@ -903,14 +911,14 @@ def make_teams():
         rows += f'''<tr{anchor}>
           <td><a href="{slug(t["team"])}.html">{h(t["team"])}</a></td>
           <td><a href="../leagues/{slug(t["league"])}.html">{h(t["league"])}</a></td>
-          <td>{h(t["area"])}</td>
+          <td>{h(t["stadium"])}</td>
           <td class="num">{int(t["capacity"]):,}</td>
           <td class="num"><span class="{rating_class(avg)}">{avg:.1f}</span></td>
         </tr>'''
     body = f'''{alpha}
     <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter teams…"></div>
     <table id="all-teams">
-      <thead><tr><th>Team</th><th>League</th><th>Area</th><th class="num">Capacity</th><th class="num">Squad Rating</th></tr></thead>
+      <thead><tr><th data-sort>Team</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Squad Rating</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/teams/index.html",
@@ -963,18 +971,22 @@ def make_stadiums():
     rows = ''
     for i, (sname, ts) in enumerate(all_sorted, 1):
         cap = int(ts[0]['capacity'] or 0)
+        country = team_country(ts[0])
         cities = ', '.join(set(t['area'] for t in ts if t['area']))
+        addr = ts[0]['stadium_address'] or ''
         club_links = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="{slug(sname)}.html">{h(sname)}</a></td>
-          <td>{cities}</td>
+          <td>{h(addr)}</td>
+          <td>{h(cities)}</td>
+          <td>{h(country)}</td>
           <td>{club_links}</td>
           <td class="num">{cap:,}</td>
         </tr>'''
     body = f'''<div class="filter-bar"><input data-filter="stad-idx" placeholder="Filter stadiums…"></div>
     <table id="stad-idx">
-      <thead><tr><th class="num">#</th><th>Stadium</th><th>Area</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
+      <thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Address</th><th data-sort>Area</th><th data-sort>Country</th><th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/stadiums/index.html",
@@ -1004,10 +1016,12 @@ def make_stadiums():
                 <div class="label">Squad avg: <span class="{rating_class(avg)}">{avg:.1f}</span></div>
               </div></a>'''
 
+        country = team_country(ts[0])
         meta = f'''<div class="highlights" style="margin-bottom:1rem">
           <div class="hl"><div class="hl-val">{cap:,}</div><div class="hl-lbl">Capacity</div></div>
-          <div class="hl"><div class="hl-val">{h(cities or "—")}</div><div class="hl-lbl">Area</div></div>
           {"<div class='hl'><div class='hl-val' style='font-size:1rem'>"+h(addr)+"</div><div class='hl-lbl'>Address</div></div>" if addr else ""}
+          {"<div class='hl'><div class='hl-val'>"+h(cities)+"</div><div class='hl-lbl'>Area</div></div>" if cities else ""}
+          <div class="hl"><div class="hl-val">{h(country)}</div><div class="hl-lbl">Country</div></div>
         </div>'''
 
         shared = f'<p class="muted">Shared by {len(ts)} clubs.</p>' if len(ts) > 1 else ''
