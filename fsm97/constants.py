@@ -11,7 +11,7 @@ SKILL_COLS = [
     'move_fit',   'skill_shoot','skill_pass',  'skill_head','skill_ctrl',
     'skill_drib', 'cool',       'awar',        'tack_deter','tack_skill',
     'flair',      'gk_kick',    'gk_thrw',     'gk_hand',  'thrw',
-    'lead',       'cons',       'deter',
+    'lead',       'cons',       'deter',       'greed',
 ]
 
 SKILL_LABELS = {
@@ -38,6 +38,7 @@ SKILL_LABELS = {
     'lead':        'Leadership',
     'cons':        'Consistency',
     'deter':       'Determination',
+    'greed':       'Greed',
 }
 
 SKILL_GROUPS = {

@@ -80,17 +80,20 @@ def write_players(players):
             'nationality': p['nationality'],
             'position':    p['position'],
             'shirt':       p['shirt'],
+            'dob':         p['dob'],
+            'age':         p['age'],
             'skill_avg':   avg,
         })
     write_csv('players.csv',
               ['first_name', 'last_name', 'team', 'league',
-               'nationality', 'position', 'shirt', 'skill_avg'],
+               'nationality', 'position', 'shirt', 'dob', 'age', 'skill_avg'],
               rows)
 
 
 def write_player_skills(players):
     fieldnames = (
-        ['first_name', 'last_name', 'team', 'league', 'nationality', 'position', 'shirt', 'pos_avg']
+        ['first_name', 'last_name', 'team', 'league', 'nationality', 'position', 'shirt',
+         'dob', 'age', 'pos_avg']
         + SKILL_COLS
     )
     rows = []
@@ -104,6 +107,8 @@ def write_player_skills(players):
             'nationality': p['nationality'],
             'position':    p['position'],
             'shirt':       p['shirt'],
+            'dob':         p['dob'],
+            'age':         p['age'],
             'pos_avg':     pos_rating(skill_row, p['position']),
         }
         row.update(skill_row)
@@ -112,7 +117,7 @@ def write_player_skills(players):
 
 
 def write_player_position_ratings(players):
-    fieldnames = ['first_name', 'last_name', 'team'] + POS_ORDER
+    fieldnames = ['first_name', 'last_name', 'team', 'dob', 'age'] + POS_ORDER
     rows = []
     for p in players:
         skill_row = dict(zip(SKILL_COLS, p['skills']))
@@ -120,6 +125,8 @@ def write_player_position_ratings(players):
             'first_name': p['first_name'],
             'last_name':  p['last_name'],
             'team':       p['team'],
+            'dob':        p['dob'],
+            'age':        p['age'],
         }
         for pos in POS_ORDER:
             row[pos] = pos_rating(skill_row, pos)

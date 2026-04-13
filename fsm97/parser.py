@@ -18,15 +18,26 @@ Player record (87 bytes):
     [0:24]  first name  (null-padded)
     [24:42] last name   (null-padded)
     [42:87] stats block:
-        stats[0]    greed / personality (ignored)
+        stats[0]    unknown (always 0)
         stats[1]    nationality index   (0-based into COUNTRY.TXT list)
         stats[2]    position index      (0-based, 0=GK .. 15=SS)
         stats[3]    unknown
         stats[4]    shirt number
-        stats[5:28] 23 skill values (0-100 each)
+        stats[5:28] 23 skill values (Speed..Determination, 0-100 each)
+        stats[28]   greed / personality (0-100)
+        stats[29]   unknown
+        stats[30]   form
+        stats[31]   energy
+        stats[32:35] unknown
+        stats[35:37] date of birth (LE uint16, days since 1899-12-30)
+        stats[37:45] unknown
 """
 
 import struct
+from datetime import date, timedelta
+
+GAME_START = date(1996, 7, 29)
+_DOB_BASE  = date(1899, 12, 30)
 
 from .constants import LEAGUE_NAMES, POS_ABBR
 
@@ -170,9 +181,14 @@ def parse_game_data(dat_file, countries):
             nat_idx = stats[1]
             pos_idx = stats[2]
             shirt   = stats[4]
-            skills  = list(stats[5:28])
+            skills  = list(stats[5:28]) + [stats[28]]  # 23 skills + greed
             if any(s > 100 for s in skills):
                 continue
+
+            dob_offset = stats[35] + stats[36] * 256
+            dob = _DOB_BASE + timedelta(days=dob_offset)
+            age = (GAME_START.year - dob.year
+                   - (1 if (GAME_START.month, GAME_START.day) < (dob.month, dob.day) else 0))
 
             nat = countries[nat_idx]['demonym'] if nat_idx < len(countries) else ''
             pos = POS_ABBR[pos_idx] if pos_idx < len(POS_ABBR) else ''
@@ -185,6 +201,8 @@ def parse_game_data(dat_file, countries):
                 'nationality': nat,
                 'position':    pos,
                 'shirt':       shirt,
+                'dob':         dob.isoformat(),
+                'age':         age,
                 'skills':      skills,
             })
 
