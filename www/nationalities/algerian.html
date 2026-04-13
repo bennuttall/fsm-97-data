@@ -73,8 +73,8 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){
     var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
     rows.sort(function(a,b){
       var ac = a.cells[idx], bc = b.cells[idx];
-      var av = ac ? ac.textContent.trim() : '';
-      var bv = bc ? bc.textContent.trim() : '';
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
       var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
           bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
       if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;

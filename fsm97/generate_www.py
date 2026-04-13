@@ -36,6 +36,7 @@ prating                = ds.prating
 pos_ratings_by_player  = ds.pos_ratings_by_player
 max_cap                = ds.max_cap
 pos_order              = POS_ORDER
+team_by_name           = {t['team']: t for t in teams_raw}
 
 def pr(p):
     """Return position rating for a player dict."""
@@ -467,8 +468,8 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){{
     var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
     rows.sort(function(a,b){{
       var ac = a.cells[idx], bc = b.cells[idx];
-      var av = ac ? ac.textContent.trim() : '';
-      var bv = bc ? bc.textContent.trim() : '';
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
       var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
           bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
       if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;
@@ -643,6 +644,10 @@ def squad_table(team_name, prefix, show_league=False):
                      key=lambda p: int(p['shirt']) if p['shirt'] else 99)
     if not players:
         return '<p class="muted">No player data.</p>'
+    t = team_by_name.get(team_name, {})
+    is_pm = t.get('is_player_manager') == 'True'
+    mgr_last = t.get('manager', '').split()[-1] if is_pm and t.get('manager') else ''
+    pm_star = ' <span title="Player-Manager" style="cursor:default">⭐</span>'
     rows = []
     for p in players:
         pid = f"{slug(p['first_name'])}-{slug(p['last_name'])}"
@@ -678,10 +683,12 @@ def squad_table(team_name, prefix, show_league=False):
                 skill_cells += f'<div class="skill-row"><span class="sk-label"><a href="{pos_url(pos_code, prefix)}" class="pos">{h(pos_code)}</a></span>{skill_bar(v)}</div>'
             skill_cells += '</div></div></details>'
         league_col = f'<td>{tlink(p["league"], league_url(p["league"], prefix))}</td>' if show_league else ''
+        is_pm_player = is_pm and p['last_name'] == mgr_last
+        name_star = pm_star if is_pm_player else ''
         rows.append(f'''<tr id="{pid}">
           <td class="num">{h(p["shirt"])}</td>
           <td>{pos_link}</td>
-          <td><strong>{h(p["first_name"])} {h(p["last_name"])}</strong>{skill_cells}</td>
+          <td data-sort-value="{p["last_name"]} {p["first_name"]}"><strong>{h(p["first_name"])} {h(p["last_name"])}</strong>{name_star}{skill_cells}</td>
           <td class="nat">{nat_link}</td>
           {league_col}
           <td class="num" title="{p["dob"]}">{p["age"]}</td>
@@ -1018,8 +1025,9 @@ def make_teams():
 
         nick_card = f'<div class="card"><div class="stat">{h(t["nickname"])}</div><div class="label">Nickname</div></div>' if t['nickname'] else ''
         area_card = f'<div class="card"><div class="stat">{h(t["area"])}</div><div class="label">Area</div></div>' if t['area'] else ''
-        pm_star = '&nbsp;⭐' if t['is_player_manager'] == 'True' else ''
-        mgr_card = f'<div class="card"><div class="stat">{h(t["manager"])}</div><div class="label">Manager{pm_star}</div></div>' if t['manager'] else ''
+        pm_star = '&nbsp;<span title="Player-Manager" style="cursor:default">⭐</span>' if t['is_player_manager'] == 'True' else ''
+        mgr_label = 'Player-Manager' if t['is_player_manager'] == 'True' else 'Manager'
+        mgr_card = f'<div class="card"><div class="stat">{h(t["manager"])}{pm_star}</div><div class="label">{mgr_label}</div></div>' if t['manager'] else ''
         meta = f'''<div class="cards" style="margin-bottom:1rem">
           {nick_card}
           <div class="card"><div class="stat">{h(team_league_label(t))}</div><div class="label"><a href="../leagues/{slug(t["league"])}.html">View league</a></div></div>
@@ -1288,11 +1296,52 @@ def make_stats_age_groups():
                breadcrumb=bc([('Stats','index.html'),('Age Groups',None)])))
 
 
+def make_stats_player_managers():
+    # Find all player-managers: teams with is_player_manager=True, matched to their player record
+    pm_players = []
+    for t in teams_raw:
+        if t.get('is_player_manager') != 'True':
+            continue
+        mgr_last = t['manager'].split()[-1] if t['manager'] else ''
+        if not mgr_last:
+            continue
+        squad = players_by_team.get(t['team'], [])
+        match = next((p for p in squad if p['last_name'] == mgr_last), None)
+        if match:
+            pm_players.append((t, match))
+
+    pm_players.sort(key=lambda x: pr(x[1]), reverse=True)
+
+    rows = ''
+    for i, (t, p) in enumerate(pm_players, 1):
+        rows += f'''<tr>
+          <td class="num">{i}</td>
+          <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a> <span title="Player-Manager" style="cursor:default">⭐</span></td>
+          <td><a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a></td>
+          <td><a href="../leagues/{slug(t["league"])}.html">{h(t["league"])}</a></td>
+          <td><a href="../positions/{slug(p["position"])}.html" class="pos">{h(p["position"])}</a></td>
+          <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
+          <td class="num" title="{p["dob"]}">{p["age"]}</td>
+          <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
+        </tr>'''
+
+    body = f'''<p>{len(pm_players)} player-managers in the game.</p>
+    <table><thead><tr>
+      <th class="num">#</th><th>Player</th><th>Club</th><th>League</th>
+      <th>Position</th><th>Nat</th><th class="num">Age</th><th class="num">Rating</th>
+    </tr></thead><tbody>{rows}</tbody></table>'''
+    write(f"{OUT_DIR}/stats/player-managers.html",
+          page("Player-Managers", body, depth=1, active='Stats',
+               header_title="Player-Managers",
+               breadcrumb=bc([('Stats','index.html'),('Player-Managers',None)])))
+
+
 def make_stats_index():
     body = '''<div class="cards">
       <a href="top-players.html" style="text-decoration:none"><div class="card"><h3>🥇 Top Players</h3><div class="label">Top 50 overall and top 10 by position</div></div></a>
       <a href="skill-leaders.html" style="text-decoration:none"><div class="card"><h3>⚡ Skill Leaders</h3><div class="label">Best in each of the 23 individual skills</div></div></a>
       <a href="age-groups.html" style="text-decoration:none"><div class="card"><h3>🎂 Age Groups</h3><div class="label">Top 10 best players in each age group</div></div></a>
+      <a href="player-managers.html" style="text-decoration:none"><div class="card"><h3>⭐ Player-Managers</h3><div class="label">All player-managers ranked by rating</div></div></a>
       <a href="stadiums.html" style="text-decoration:none"><div class="card"><h3>🏟️ Stadium Rankings</h3><div class="label">Largest to smallest</div></div></a>
       <a href="squads.html" style="text-decoration:none"><div class="card"><h3>👥 Squad Rankings</h3><div class="label">Best and worst rated squads</div></div></a>
       <a href="nationalities.html" style="text-decoration:none"><div class="card"><h3>🌍 Nationality Stats</h3><div class="label">International representation by league</div></div></a>
@@ -1718,6 +1767,7 @@ def main():
     make_stats_top_players()
     make_stats_skill_leaders()
     make_stats_age_groups()
+    make_stats_player_managers()
     make_stats_stadiums()
     make_stats_squads()
     make_stats_nationalities()

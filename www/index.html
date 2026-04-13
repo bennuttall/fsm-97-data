@@ -114,7 +114,7 @@
     <div class="cards">
       <a href="stats/index.html" style="text-decoration:none"><div class="card"><h3>📊 Stats &amp; Records</h3><div class="label">Top players, skill leaders, squad rankings</div></div></a>
       <a href="stats/best-of.html" style="text-decoration:none"><div class="card"><h3>🏆 Best Of All</h3><div class="label">Records by position, skill and league</div></div></a>
-      <a href="trivia/index.html" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players and stadiums</div></div></a>
+      <a href="trivia/index.html" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players, clubs and stadiums</div></div></a>
       <a href="positions/index.html" style="text-decoration:none"><div class="card"><h3>🎯 Positions</h3><div class="label">Browse by playing position</div></div></a>
       <a href="nationalities/index.html" style="text-decoration:none"><div class="card"><h3>🌍 Nationalities</h3><div class="label">95 nationalities represented</div></div></a>
     </div></main>
@@ -137,8 +137,8 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){
     var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
     rows.sort(function(a,b){
       var ac = a.cells[idx], bc = b.cells[idx];
-      var av = ac ? ac.textContent.trim() : '';
-      var bv = bc ? bc.textContent.trim() : '';
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
       var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
           bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
       if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;

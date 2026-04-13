@@ -25,6 +25,7 @@
       <a href="top-players.html" style="text-decoration:none"><div class="card"><h3>🥇 Top Players</h3><div class="label">Top 50 overall and top 10 by position</div></div></a>
       <a href="skill-leaders.html" style="text-decoration:none"><div class="card"><h3>⚡ Skill Leaders</h3><div class="label">Best in each of the 23 individual skills</div></div></a>
       <a href="age-groups.html" style="text-decoration:none"><div class="card"><h3>🎂 Age Groups</h3><div class="label">Top 10 best players in each age group</div></div></a>
+      <a href="player-managers.html" style="text-decoration:none"><div class="card"><h3>⭐ Player-Managers</h3><div class="label">All player-managers ranked by rating</div></div></a>
       <a href="stadiums.html" style="text-decoration:none"><div class="card"><h3>🏟️ Stadium Rankings</h3><div class="label">Largest to smallest</div></div></a>
       <a href="squads.html" style="text-decoration:none"><div class="card"><h3>👥 Squad Rankings</h3><div class="label">Best and worst rated squads</div></div></a>
       <a href="nationalities.html" style="text-decoration:none"><div class="card"><h3>🌍 Nationality Stats</h3><div class="label">International representation by league</div></div></a>
@@ -49,8 +50,8 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){
     var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
     rows.sort(function(a,b){
       var ac = a.cells[idx], bc = b.cells[idx];
-      var av = ac ? ac.textContent.trim() : '';
-      var bv = bc ? bc.textContent.trim() : '';
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
       var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
           bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
       if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;
