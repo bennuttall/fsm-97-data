@@ -258,10 +258,6 @@ def skill_bar(v):
     cls = 'bar-gold' if v>=80 else 'bar-green' if v>=60 else 'bar-mid' if v>=40 else 'bar-low'
     return f'<div class="bar-wrap"><div class="bar {cls}" style="width:{v}%"></div><span>{v}</span></div>'
 
-def cap_bar(cap, max_cap):
-    pct = min(100, int(cap / max_cap * 100))
-    return f'<div class="bar-wrap"><div class="bar bar-green" style="width:{pct}%"></div><span>{cap:,}</span></div>'
-
 # ── CSS ────────────────────────────────────────────────────────────────────────
 
 CSS = """
@@ -483,6 +479,13 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){{
     asc = !asc;
   }});
 }});
+(function(){{
+  var h = window.location.hash;
+  if (!h) return;
+  var el = document.getElementById(h.slice(1));
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d){{ d.open = true; }});
+}})();
 </script>
 </body>
 </html>"""
@@ -1061,19 +1064,19 @@ def make_stadiums():
         country = team_country(ts[0])
         cities = ', '.join(set(t['area'] for t in ts if t['area']))
         addr = ts[0]['stadium_address'] or ''
+        location = ', '.join(x for x in [addr, cities] if x)
         club_links = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="{slug(sname)}.html">{h(sname)}</a></td>
-          <td>{h(addr)}</td>
-          <td>{h(cities)}</td>
+          <td>{h(location)}</td>
           <td>{h(country)}</td>
           <td>{club_links}</td>
           <td class="num">{cap:,}</td>
         </tr>'''
     body = f'''<div class="filter-bar"><input data-filter="stad-idx" placeholder="Filter stadiums…"></div>
     <table id="stad-idx">
-      <thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Address</th><th data-sort>Area</th><th data-sort>Country</th><th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
+      <thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Location</th><th data-sort>Country</th><th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/stadiums/index.html",
@@ -1416,7 +1419,7 @@ def make_stats_skill_leaders():
               <td><a href="../{player_anchor(s["first_name"],s["last_name"],s["team"])}">{h(s["first_name"])} {h(s["last_name"])}</a></td>
               <td><a href="../teams/{slug(s["team"])}.html">{h(s["team"])}</a></td>
               <td><a href="../positions/{slug(s["position"])}.html" class="pos">{h(s["position"])}</a></td>
-              <td class="num">{skill_bar(v)}</td>
+              <td class="num"><span class="{rating_class(v)}">{v}</span></td>
             </tr>'''
         sections += f'''<h3>{h(label)}</h3>
         <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>
@@ -1430,25 +1433,44 @@ def make_stats_stadiums():
     named = [(s, ts) for s, ts in stadium_to_teams.items()
              if not re.match(r'^XX\d+$', s.strip())]
     named.sort(key=lambda x: int(x[1][0]['capacity'] or 0), reverse=True)
-    mc = int(named[0][1][0]['capacity']) if named else 1
-    rows = ''
-    for i, (sname, ts) in enumerate(named, 1):
-        cap     = int(ts[0]['capacity'] or 0)
-        clubs   = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
-        addr    = ts[0]['stadium_address'] or ''
-        area    = ', '.join(set(t['area'] for t in ts if t['area']))
-        country = team_country(ts[0])
-        rows += f'''<tr>
-          <td class="num">{i}</td>
-          <td><a href="../stadiums/{slug(sname)}.html">{h(sname)}</a></td>
-          <td>{h(addr)}</td>
-          <td>{h(area)}</td>
-          <td>{h(country)}</td>
-          <td>{clubs}</td>
-          <td>{cap_bar(cap, mc)}</td>
+
+    def stad_row(i, sname, ts, show_country=True):
+        cap      = int(ts[0]['capacity'] or 0)
+        clubs    = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
+        addr     = ts[0]['stadium_address'] or ''
+        area     = ', '.join(set(t['area'] for t in ts if t['area']))
+        location = ', '.join(x for x in [addr, area] if x)
+        country  = team_country(ts[0])
+        country_td = f'<td data-sort>{h(country)}</td>' if show_country else ''
+        return f'''<tr>
+          <td class="num" data-sort>{i}</td>
+          <td data-sort><a href="../stadiums/{slug(sname)}.html">{h(sname)}</a></td>
+          <td data-sort>{h(location)}</td>
+          {country_td}
+          <td data-sort>{clubs}</td>
+          <td class="num" data-sort data-sort-value="{cap}">{cap:,}</td>
         </tr>'''
-    body = f'''<table><thead><tr><th class="num">#</th><th>Stadium</th><th>Address</th><th>Area</th><th>Country</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
-    <tbody>{rows}</tbody></table>'''
+
+    def stad_table(entries, show_country=True):
+        country_th = '<th data-sort>Country</th>' if show_country else ''
+        rows = ''.join(stad_row(i, sname, ts, show_country) for i, (sname, ts) in enumerate(entries, 1))
+        return f'''<table><thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Location</th>{country_th}<th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
+        <tbody>{rows}</tbody></table>'''
+
+    # Top 50 overall
+    body = '<h2>Top 50 Overall</h2>' + stad_table(named[:50])
+
+    # Top 10 per country (leagues only, not Others)
+    league_countries = [c for c, lgs in LEAGUE_GROUPS if c != 'Others']
+    by_country_html = ''
+    for country in league_countries:
+        country_stads = [(s, ts) for s, ts in named if team_country(ts[0]) == country]
+        if not country_stads:
+            continue
+        by_country_html += f'<h3>{h(country)}</h3>' + stad_table(country_stads[:10], show_country=False)
+
+    body += '<h2>Top 10 by Country</h2>' + by_country_html
+
     write(f"{OUT_DIR}/stats/stadiums.html",
           page("Stadium Rankings", body, depth=1, active='Stats',
                header_title="Stadiums by Capacity",
@@ -1500,8 +1522,8 @@ def make_stats_nationalities():
         n_nats   = len(nat_counts)
         rows += f'''<tr>
           <td><a href="../leagues/{slug(lg)}.html">{h(lg)}</a></td>
-          <td class="num">{total}</td>
-          <td class="num">{n_nats}</td>
+          <td class="num">{total:,}</td>
+          <td class="num">{n_nats:,}</td>
           <td>{top_str}</td>
         </tr>'''
 
@@ -1570,7 +1592,7 @@ def make_stats_best_of():
           <td><a href="../{player_anchor(best_s["first_name"],best_s["last_name"],best_s["team"])}">{h(best_s["first_name"])} {h(best_s["last_name"])}</a></td>
           <td><a href="../teams/{slug(best_s["team"])}.html">{h(best_s["team"])}</a></td>
           <td><a href="../positions/{slug(best_s["position"])}.html" class="pos">{h(best_s["position"])}</a></td>
-          <td class="num">{skill_bar(v)}</td>
+          <td class="num"><span class="{rating_class(v)}">{v}</span></td>
         </tr>'''
     sections += f'''<h2>Leader in Every Skill</h2>
     <table><thead><tr><th>Skill</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>

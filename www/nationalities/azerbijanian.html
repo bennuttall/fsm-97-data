@@ -236,6 +236,13 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){
     asc = !asc;
   });
 });
+(function(){
+  var h = window.location.hash;
+  if (!h) return;
+  var el = document.getElementById(h.slice(1));
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d){ d.open = true; });
+})();
 </script>
 </body>
 </html>

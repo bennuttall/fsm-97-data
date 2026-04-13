@@ -85,7 +85,7 @@
           <td>English (445), Welsh (22), Scottish (18), Irish (15), Spanish (2)</td>
         </tr><tr>
           <td><a href="../leagues/others.html">Others</a></td>
-          <td class="num">2058</td>
+          <td class="num">2,058</td>
           <td class="num">72</td>
           <td>Russian (112), Irish (90), Dutch (87), English (83), Danish (81)</td>
         </tr></tbody></table>
@@ -206,6 +206,13 @@ document.querySelectorAll('thead th[data-sort]').forEach(function(th){
     asc = !asc;
   });
 });
+(function(){
+  var h = window.location.hash;
+  if (!h) return;
+  var el = document.getElementById(h.slice(1));
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d){ d.open = true; });
+})();
 </script>
 </body>
 </html>
