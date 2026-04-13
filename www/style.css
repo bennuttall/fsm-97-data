@@ -81,6 +81,7 @@ details[open] summary { color: var(--accent); margin-bottom: 0.5rem; }
 /* Stat highlights */
 .highlights { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0; }
 .hl { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
+a:has(> .hl):hover .hl { border-color: var(--accent); }
 .hl .hl-val { font-size: 1.6rem; font-weight: 700; color: var(--gold); }
 .hl .hl-lbl { font-size: 0.78rem; color: var(--muted); }
 .hl .hl-sub { font-size: 0.85rem; color: var(--link); }

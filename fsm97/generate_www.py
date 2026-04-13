@@ -346,6 +346,7 @@ details[open] summary { color: var(--accent); margin-bottom: 0.5rem; }
 /* Stat highlights */
 .highlights { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0; }
 .hl { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
+a:has(> .hl):hover .hl { border-color: var(--accent); }
 .hl .hl-val { font-size: 1.6rem; font-weight: 700; color: var(--gold); }
 .hl .hl-lbl { font-size: 0.78rem; color: var(--muted); }
 .hl .hl-sub { font-size: 0.85rem; color: var(--link); }
@@ -704,11 +705,11 @@ def make_home():
     nats          = len(players_by_nationality)
 
     highlights = f'''<div class="highlights">
-      <div class="hl"><div class="hl-val">{total_leagues}</div><div class="hl-lbl">Leagues</div></div>
-      <div class="hl"><div class="hl-val">{total_teams:,}</div><div class="hl-lbl">Teams</div></div>
-      <div class="hl"><div class="hl-val">{total_players:,}</div><div class="hl-lbl">Players</div></div>
-      <div class="hl"><div class="hl-val">{total_stadiums:,}</div><div class="hl-lbl">Stadiums</div></div>
-      <div class="hl"><div class="hl-val">{nats:,}</div><div class="hl-lbl">Nationalities</div></div>
+      <a href="leagues/index.html" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_leagues}</div><div class="hl-lbl">Leagues</div></div></a>
+      <a href="teams/index.html" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_teams:,}</div><div class="hl-lbl">Teams</div></div></a>
+      <a href="players/index.html" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_players:,}</div><div class="hl-lbl">Players</div></div></a>
+      <a href="stadiums/index.html" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_stadiums:,}</div><div class="hl-lbl">Stadiums</div></div></a>
+      <a href="nationalities/index.html" style="text-decoration:none"><div class="hl"><div class="hl-val">{nats:,}</div><div class="hl-lbl">Nationalities</div></div></a>
       <div class="hl">
         <div class="hl-val">{pr(best_player)}</div>
         <div class="hl-lbl">Highest rated player</div>
@@ -746,7 +747,7 @@ def make_home():
     <div class="cards">
       <a href="stats/index.html" style="text-decoration:none"><div class="card"><h3>📊 Stats &amp; Records</h3><div class="label">Top players, skill leaders, squad rankings</div></div></a>
       <a href="stats/best-of.html" style="text-decoration:none"><div class="card"><h3>🏆 Best Of All</h3><div class="label">Records by position, skill and league</div></div></a>
-      <a href="trivia/index.html" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players and stadiums</div></div></a>
+      <a href="trivia/index.html" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players, clubs and stadiums</div></div></a>
       <a href="positions/index.html" style="text-decoration:none"><div class="card"><h3>🎯 Positions</h3><div class="label">Browse by playing position</div></div></a>
       <a href="nationalities/index.html" style="text-decoration:none"><div class="card"><h3>🌍 Nationalities</h3><div class="label">{nats} nationalities represented</div></div></a>
     </div>'''
@@ -1250,10 +1251,48 @@ def make_nationalities():
 
 # ── STATS PAGES ───────────────────────────────────────────────────────────────
 
+def make_stats_age_groups():
+    age_groups = [
+        ('15-19', 15, 19),
+        ('20-29', 20, 29),
+        ('30-39', 30, 39),
+        ('40+',   40, 999),
+    ]
+    sections = ''
+    for label, lo, hi in age_groups:
+        group = [p for p in players_raw if lo <= int(p['age']) <= hi]
+        top10 = sorted(group, key=lambda p: pr(p), reverse=True)[:10]
+        if not top10:
+            continue
+        rows = ''
+        for i, p in enumerate(top10, 1):
+            rows += f'''<tr>
+              <td class="num">{i}</td>
+              <td><a href="../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
+              <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
+              <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
+              <td><a href="../positions/{slug(p["position"])}.html" class="pos">{h(p["position"])}</a></td>
+              <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
+              <td class="num" title="{p["dob"]}">{p["age"]}</td>
+              <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
+            </tr>'''
+        sections += f'''<h2>Age {label}</h2>
+        <p>{len(group):,} players in this age group</p>
+        <table><thead><tr>
+          <th class="num">#</th><th>Player</th><th>Club</th><th>League</th>
+          <th>Position</th><th>Nat</th><th class="num">Age</th><th class="num">Rating</th>
+        </tr></thead><tbody>{rows}</tbody></table>'''
+    write(f"{OUT_DIR}/stats/age-groups.html",
+          page("Age Groups", sections, depth=1, active='Stats',
+               header_title="Top Players by Age Group",
+               breadcrumb=bc([('Stats','index.html'),('Age Groups',None)])))
+
+
 def make_stats_index():
     body = '''<div class="cards">
       <a href="top-players.html" style="text-decoration:none"><div class="card"><h3>🥇 Top Players</h3><div class="label">Top 50 overall and top 10 by position</div></div></a>
       <a href="skill-leaders.html" style="text-decoration:none"><div class="card"><h3>⚡ Skill Leaders</h3><div class="label">Best in each of the 23 individual skills</div></div></a>
+      <a href="age-groups.html" style="text-decoration:none"><div class="card"><h3>🎂 Age Groups</h3><div class="label">Top 10 best players in each age group</div></div></a>
       <a href="stadiums.html" style="text-decoration:none"><div class="card"><h3>🏟️ Stadium Rankings</h3><div class="label">Largest to smallest</div></div></a>
       <a href="squads.html" style="text-decoration:none"><div class="card"><h3>👥 Squad Rankings</h3><div class="label">Best and worst rated squads</div></div></a>
       <a href="nationalities.html" style="text-decoration:none"><div class="card"><h3>🌍 Nationality Stats</h3><div class="label">International representation by league</div></div></a>
@@ -1678,6 +1717,7 @@ def main():
     make_stats_index()
     make_stats_top_players()
     make_stats_skill_leaders()
+    make_stats_age_groups()
     make_stats_stadiums()
     make_stats_squads()
     make_stats_nationalities()
