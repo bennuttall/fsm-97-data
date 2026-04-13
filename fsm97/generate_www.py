@@ -1471,6 +1471,11 @@ def make_stats_stadiums():
 
     body += '<h2>Top 10 by Country</h2>' + by_country_html
 
+    # Top 10 Others
+    others_stads = [(s, ts) for s, ts in named if ts[0]['league'] == 'Others']
+    if others_stads:
+        body += '<h3>Others</h3>' + stad_table(others_stads[:10])
+
     write(f"{OUT_DIR}/stats/stadiums.html",
           page("Stadium Rankings", body, depth=1, active='Stats',
                header_title="Stadiums by Capacity",
