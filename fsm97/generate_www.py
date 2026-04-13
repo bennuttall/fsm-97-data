@@ -639,7 +639,7 @@ def tlink(name, url, cls=''):
 
 def squad_table(team_name, prefix, show_league=False):
     players = sorted(players_by_team[team_name],
-                     key=lambda p: pr(p), reverse=True)
+                     key=lambda p: int(p['shirt']) if p['shirt'] else 99)
     if not players:
         return '<p class="muted">No player data.</p>'
     rows = []
@@ -683,11 +683,12 @@ def squad_table(team_name, prefix, show_league=False):
           <td><strong>{h(p["first_name"])} {h(p["last_name"])}</strong>{skill_cells}</td>
           <td class="nat">{nat_link}</td>
           {league_col}
+          <td class="num" title="{p["dob"]}">{p["age"]}</td>
           <td class="num">{avg_cell}</td>
         </tr>''')
     league_header = '<th data-sort>League</th>' if show_league else ''
     return f'''<table id="squad-{slug(team_name)}">
-      <thead><tr><th class="num" data-sort>#</th><th data-sort>Position</th><th data-sort>Player</th><th data-sort>Nationality</th>{league_header}<th class="num" data-sort>Rating</th></tr></thead>
+      <thead><tr><th class="num" data-sort>#</th><th data-sort>Position</th><th data-sort>Player</th><th data-sort>Nationality</th>{league_header}<th class="num" data-sort>Age</th><th class="num" data-sort>Rating</th></tr></thead>
       <tbody>{"".join(rows)}</tbody>
     </table>'''
 
@@ -978,17 +979,20 @@ def make_teams():
         cur_letter = l
         pc  = len(players_by_team[t['team']])
         avg = (sum(pr(p) for p in players_by_team[t['team']]) / pc) if pc else 0
+        avg_cell = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '-'
         rows += f'''<tr{anchor}>
           <td><a href="{slug(t["team"])}.html">{h(t["team"])}</a></td>
+          <td>{h(team_country(t))}</td>
           <td><a href="../leagues/{slug(t["league"])}.html">{h(t["league"])}</a></td>
-          <td>{h(t["stadium"])}</td>
+          <td>{tlink(t["stadium"], f'../stadiums/{slug(t["stadium"])}.html') if stadium_url(t["stadium"]) else h(t["stadium"])}</td>
           <td class="num">{int(t["capacity"]):,}</td>
-          <td class="num"><span class="{rating_class(avg)}">{avg:.1f}</span></td>
+          <td class="num">{pc}</td>
+          <td class="num">{avg_cell}</td>
         </tr>'''
     body = f'''{alpha}
     <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter teams…"></div>
     <table id="all-teams">
-      <thead><tr><th data-sort>Team</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Squad Rating</th></tr></thead>
+      <thead><tr><th data-sort>Team</th><th data-sort>Country</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/teams/index.html",
@@ -1159,6 +1163,7 @@ def make_positions():
               <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
               <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
               <td>{pos_cell}</td>
+              <td class="num" title="{p["dob"]}">{p["age"]}</td>
               <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
             </tr>'''
 
@@ -1176,16 +1181,17 @@ def make_positions():
               <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
               <td class="nat">{tlink(p["nationality"], f'../nationalities/{slug(p["nationality"])}.html')}</td>
               <td><a href="../positions/{slug(nat_pos)}.html" class="pos">{h(nat_pos)}</a></td>
+              <td class="num" title="{p["dob"]}">{p["age"]}</td>
               <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
             </tr>'''
 
         body = f'''<p class="muted">Zone: <strong>{h(zone)}</strong> · {len(pp_zone_sorted):,} players</p>
         <div class="filter-bar"><input data-filter="pos-{slug(pos)}" placeholder="Filter players…"></div>
-        <table id="pos-{slug(pos)}"><thead><tr><th class="num">#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th data-sort>Natural Position</th><th class="num" data-sort>Rating</th></tr></thead>
+        <table id="pos-{slug(pos)}"><thead><tr><th class="num">#</th><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Nationality</th><th data-sort>Natural Position</th><th class="num" data-sort>Age</th><th class="num" data-sort>Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>
         <h2>Surprising performers</h2>
         <p class="muted">Top 10 players from outside the {h(zone)} zone, ranked by their {h(pos)} rating.</p>
-        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>League</th><th>Nationality</th><th>Natural Position</th><th class="num">Rating</th></tr></thead>
+        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>League</th><th>Nationality</th><th>Natural Position</th><th class="num">Age</th><th class="num">Rating</th></tr></thead>
         <tbody>{oop_rows}</tbody></table>'''
         write(f"{OUT_DIR}/positions/{slug(pos)}.html",
               page(f"{pos} — {info.get('position','')}", body, depth=1, active='Positions',
@@ -1227,13 +1233,14 @@ def make_nationalities():
               <td><a href="../teams/{slug(p["team"])}.html">{h(p["team"])}</a></td>
               <td><a href="../leagues/{slug(p["league"])}.html">{h(p["league"])}</a></td>
               <td><a href="../positions/{slug(p["position"])}.html" class="pos">{h(p["position"])}</a></td>
+              <td class="num" title="{p["dob"]}">{p["age"]}</td>
               <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
             </tr>'''
         xi_html = best_xi_nat(pp, prefix='../')
         body = f'''{xi_html}
         <p class="muted">{len(pp):,} {h(nat)} players across {len(by_league):,} leagues</p>
         <div class="filter-bar"><input data-filter="nat-{slug(nat)}" placeholder="Filter…"></div>
-        <table id="nat-{slug(nat)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Position</th><th class="num" data-sort>Rating</th></tr></thead>
+        <table id="nat-{slug(nat)}"><thead><tr><th data-sort>Player</th><th data-sort>Club</th><th data-sort>League</th><th data-sort>Position</th><th class="num" data-sort>Age</th><th class="num" data-sort>Rating</th></tr></thead>
         <tbody>{prows}</tbody></table>'''
         write(f"{OUT_DIR}/nationalities/{slug(nat)}.html",
               page(nat, body, depth=1, active='Nationalities',
@@ -1338,17 +1345,21 @@ def make_stats_stadiums():
     mc = int(named[0][1][0]['capacity']) if named else 1
     rows = ''
     for i, (sname, ts) in enumerate(named, 1):
-        cap = int(ts[0]['capacity'] or 0)
-        clubs = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
-        area  = ', '.join(set(t['area'] for t in ts if t['area']))
+        cap     = int(ts[0]['capacity'] or 0)
+        clubs   = ', '.join(f'<a href="../teams/{slug(t["team"])}.html">{h(t["team"])}</a>' for t in ts)
+        addr    = ts[0]['stadium_address'] or ''
+        area    = ', '.join(set(t['area'] for t in ts if t['area']))
+        country = team_country(ts[0])
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="../stadiums/{slug(sname)}.html">{h(sname)}</a></td>
-          <td>{area}</td>
+          <td>{h(addr)}</td>
+          <td>{h(area)}</td>
+          <td>{h(country)}</td>
           <td>{clubs}</td>
           <td>{cap_bar(cap, mc)}</td>
         </tr>'''
-    body = f'''<table><thead><tr><th class="num">#</th><th>Stadium</th><th>Area</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
+    body = f'''<table><thead><tr><th class="num">#</th><th>Stadium</th><th>Address</th><th>Area</th><th>Country</th><th>Club(s)</th><th class="num">Capacity</th></tr></thead>
     <tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/stats/stadiums.html",
           page("Stadium Rankings", body, depth=1, active='Stats',
@@ -1616,6 +1627,7 @@ def make_players():
         rows.append(
             f'<tr><td>{name_link}</td><td>{team_link}</td><td>{lg_link}</td>'
             f'<td>{pos_link}</td><td class="nat">{nat_link}</td>'
+            f'<td class="num" title="{p["dob"]}">{p["age"]}</td>'
             f'<td class="num">{avg_cell}</td></tr>'
         )
 
@@ -1632,6 +1644,7 @@ def make_players():
         <th data-sort>League</th>
         <th data-sort>Position</th>
         <th data-sort>Nationality</th>
+        <th class="num" data-sort>Age</th>
         <th class="num" data-sort>Rating</th>
       </tr></thead>
       <tbody>{"".join(rows)}</tbody>
