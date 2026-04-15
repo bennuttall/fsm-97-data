@@ -12,7 +12,7 @@ Team block structure (offsets from block start):
     +161 manager last    (null-terminated)
     +191 maps path       e.g. "maps\\engprem\\arsenal.map"
     +273 capacity        (4-byte little-endian int)
-    +283 players start   (87-byte records follow)
+    +283 players start   (87-byte records, last record is 83 bytes — stats[41:45] absent)
 
 Player record (87 bytes):
     [0:24]  first name  (null-padded)
@@ -157,16 +157,20 @@ def parse_game_data(dat_file, countries):
         # Capacity: 4-byte little-endian at block offset +273
         capacity = struct.unpack_from('<I', data, bstart + 273)[0]
 
-        # Players: 87-byte records starting at block offset +283
+        # Players: 87-byte records starting at block offset +283.
+        # Each team block ends with a partial 83-byte record; the missing 4 bytes
+        # are stats[41:45] (unknown fields). Pad to 87 so parsing is uniform.
         players_start = bstart + 283
-        max_players   = (next_bstart - players_start) // 87
+        gap           = next_bstart - players_start
+        max_slots     = gap // 87 + (1 if gap % 87 >= 83 else 0)
 
         team_players = []
-        for n in range(max_players):
+        for n in range(max_slots):
             offset = players_start + n * 87
-            record = data[offset:offset + 87]
-            if len(record) < 87:
+            raw    = data[offset:min(offset + 87, next_bstart)]
+            if len(raw) < 83:
                 break
+            record = raw + bytes(87 - len(raw))  # pad overflow record if needed
 
             first = record[0:24].split(b'\x00')[0].decode('latin-1', errors='replace').strip().replace('`', "'")
             last  = record[24:42].split(b'\x00')[0].decode('latin-1', errors='replace').strip().replace('`', "'")
