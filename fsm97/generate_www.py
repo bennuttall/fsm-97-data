@@ -1801,21 +1801,21 @@ def make_sitemap():
         '/trivia/clubs/',
     ]
 
-    for lg in league_names:
+    for lg in sorted(league_names):
         urls.append(f'/leagues/{slug(lg)}/')
 
-    named_stadiums = {s for s in stadium_to_teams if not re.match(r'^XX\d+$', s.strip())}
+    named_stadiums = sorted(s for s in stadium_to_teams if not re.match(r'^XX\d+$', s.strip()))
     for sname in named_stadiums:
         urls.append(f'/stadiums/{slug(sname)}/')
 
-    for t in teams_raw:
+    for t in sorted(teams_raw, key=lambda t: t["team"]):
         urls.append(f'/teams/{slug(t["team"])}/')
 
     for pos in pos_order:
         if players_by_position.get(pos):
             urls.append(f'/positions/{slug(pos)}/')
 
-    for nat in players_by_nationality:
+    for nat in sorted(players_by_nationality):
         if nat:
             urls.append(f'/nationalities/{slug(nat)}/')
 
