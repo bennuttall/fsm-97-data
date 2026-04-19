@@ -11,8 +11,9 @@ from fsm97.constants import (
 )
 from fsm97.data import Dataset
 
-CSV_DIR = None
-OUT_DIR = None
+CSV_DIR  = None
+OUT_DIR  = None
+BASE_URL = None
 
 ds                     = None
 teams_raw              = None
@@ -1768,10 +1769,67 @@ def make_players():
                header_sub=f"{len(players_raw):,} players — search by name, team, position or nationality"))
 
 
+# ── SITEMAP ───────────────────────────────────────────────────────────────────
+
+def make_sitemap():
+    if not BASE_URL:
+        return
+
+    urls = [
+        '/',
+        '/leagues/',
+        '/teams/',
+        '/stadiums/',
+        '/positions/',
+        '/nationalities/',
+        '/players/',
+        '/stats/',
+        '/stats/top-players.html',
+        '/stats/skill-leaders.html',
+        '/stats/age-groups.html',
+        '/stats/player-managers.html',
+        '/stats/stadiums.html',
+        '/stats/squads.html',
+        '/stats/nationalities.html',
+        '/stats/best-of.html',
+        '/trivia/',
+        '/trivia/players.html',
+        '/trivia/stadiums.html',
+        '/trivia/clubs.html',
+    ]
+
+    for lg in league_names:
+        urls.append(f'/leagues/{slug(lg)}.html')
+
+    named_stadiums = {s for s in stadium_to_teams if not re.match(r'^XX\d+$', s.strip())}
+    for sname in named_stadiums:
+        urls.append(f'/stadiums/{slug(sname)}.html')
+
+    for t in teams_raw:
+        urls.append(f'/teams/{slug(t["team"])}.html')
+
+    for pos in pos_order:
+        if players_by_position.get(pos):
+            urls.append(f'/positions/{slug(pos)}.html')
+
+    for nat in players_by_nationality:
+        if nat:
+            urls.append(f'/nationalities/{slug(nat)}.html')
+
+    loc_lines = '\n'.join(f'  <url><loc>{BASE_URL}{u}</loc></url>' for u in urls)
+    xml = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{loc_lines}
+</urlset>'''
+
+    write(f"{OUT_DIR}/sitemap.xml", xml)
+    print(f"  Written: sitemap.xml ({len(urls)} URLs)")
+
+
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 
 def main():
-    global CSV_DIR, OUT_DIR
+    global CSV_DIR, OUT_DIR, BASE_URL
     global ds, teams_raw, players_raw, skills_raw, positions_raw, countries_raw
     global teams_by_slug, league_names, teams_by_league, players_by_team
     global skills_by_player, players_by_nationality, players_by_position
@@ -1779,12 +1837,14 @@ def main():
     global max_cap, pos_order, team_by_name
 
     parser = argparse.ArgumentParser(description="Generate FIFA Soccer Manager 97 static site")
-    parser.add_argument('--csv-dir', default='csv', help="Input CSV directory (default: ./csv)")
-    parser.add_argument('--out-dir', default='www', help="Output directory (default: ./www)")
+    parser.add_argument('--csv-dir',  default='csv',  help="Input CSV directory (default: ./csv)")
+    parser.add_argument('--out-dir',  default='www',  help="Output directory (default: ./www)")
+    parser.add_argument('--base-url', default=None,   help="Base URL for sitemap (e.g. https://example.com)")
     args = parser.parse_args()
 
-    CSV_DIR = args.csv_dir
-    OUT_DIR = args.out_dir
+    CSV_DIR  = args.csv_dir
+    OUT_DIR  = args.out_dir
+    BASE_URL = args.base_url.rstrip('/') if args.base_url else None
 
     ds = Dataset(CSV_DIR)
     teams_raw              = ds.teams
@@ -1834,6 +1894,8 @@ def main():
     make_stats_best_of()
     print("Generating trivia…")
     make_trivia()
+    print("Generating sitemap…")
+    make_sitemap()
 
     # Count files
     total = sum(len(fs) for _, _, fs in os.walk(OUT_DIR))
