@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """FIFA Soccer Manager 97 — Static Site Generator"""
 
+import argparse
 import os, re, unicodedata
 from collections import defaultdict
 
@@ -10,33 +11,29 @@ from fsm97.constants import (
 )
 from fsm97.data import Dataset
 
-CSV_DIR = "/home/ben/Projects/bennuttall/fsm-97-data/csv"
-OUT_DIR = "/home/ben/Projects/bennuttall/fsm-97-data/www"
+CSV_DIR = None
+OUT_DIR = None
 
-# ── Load data ──────────────────────────────────────────────────────────────────
-
-ds = Dataset(CSV_DIR)
-
-# Aliases matching the names used throughout this file
-teams_raw              = ds.teams
-players_raw            = ds.players
-skills_raw             = ds.skills
-positions_raw          = ds.positions
-countries_raw          = ds.countries
-teams_by_slug          = ds.teams_by_slug
-league_names           = ds.league_names
-teams_by_league        = ds.teams_by_league
-players_by_team        = ds.players_by_team
-skills_by_player       = ds.skills_by_player
-players_by_nationality = ds.players_by_nationality
-players_by_position    = ds.players_by_position
-positions_info         = ds.positions_info
-stadium_to_teams       = ds.stadium_to_teams
-prating                = ds.prating
-pos_ratings_by_player  = ds.pos_ratings_by_player
-max_cap                = ds.max_cap
-pos_order              = POS_ORDER
-team_by_name           = {t['team']: t for t in teams_raw}
+ds                     = None
+teams_raw              = None
+players_raw            = None
+skills_raw             = None
+positions_raw          = None
+countries_raw          = None
+teams_by_slug          = None
+league_names           = None
+teams_by_league        = None
+players_by_team        = None
+skills_by_player       = None
+players_by_nationality = None
+players_by_position    = None
+positions_info         = None
+stadium_to_teams       = None
+prating                = None
+pos_ratings_by_player  = None
+max_cap                = None
+pos_order              = None
+team_by_name           = None
 
 def pr(p):
     """Return position rating for a player dict."""
@@ -1774,6 +1771,42 @@ def make_players():
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 
 def main():
+    global CSV_DIR, OUT_DIR
+    global ds, teams_raw, players_raw, skills_raw, positions_raw, countries_raw
+    global teams_by_slug, league_names, teams_by_league, players_by_team
+    global skills_by_player, players_by_nationality, players_by_position
+    global positions_info, stadium_to_teams, prating, pos_ratings_by_player
+    global max_cap, pos_order, team_by_name
+
+    parser = argparse.ArgumentParser(description="Generate FIFA Soccer Manager 97 static site")
+    parser.add_argument('--csv-dir', default='csv', help="Input CSV directory (default: ./csv)")
+    parser.add_argument('--out-dir', default='www', help="Output directory (default: ./www)")
+    args = parser.parse_args()
+
+    CSV_DIR = args.csv_dir
+    OUT_DIR = args.out_dir
+
+    ds = Dataset(CSV_DIR)
+    teams_raw              = ds.teams
+    players_raw            = ds.players
+    skills_raw             = ds.skills
+    positions_raw          = ds.positions
+    countries_raw          = ds.countries
+    teams_by_slug          = ds.teams_by_slug
+    league_names           = ds.league_names
+    teams_by_league        = ds.teams_by_league
+    players_by_team        = ds.players_by_team
+    skills_by_player       = ds.skills_by_player
+    players_by_nationality = ds.players_by_nationality
+    players_by_position    = ds.players_by_position
+    positions_info         = ds.positions_info
+    stadium_to_teams       = ds.stadium_to_teams
+    prating                = ds.prating
+    pos_ratings_by_player  = ds.pos_ratings_by_player
+    max_cap                = ds.max_cap
+    pos_order              = POS_ORDER
+    team_by_name           = {t['team']: t for t in teams_raw}
+
     write(f"{OUT_DIR}/style.css", CSS)
     print("Generating home…")
     make_home()
