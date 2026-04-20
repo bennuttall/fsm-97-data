@@ -458,12 +458,15 @@ def league_cell(league_name, prefix=''):
     flag_str = f'{flag} ' if flag else ''
     return f'{flag_str}{tlink(league_name, league_url(league_name, prefix))}'
 
-def country_display(name):
+def country_display(name, prefix=None):
     if not name:
         return ''
     flag     = country_name_to_flag.get(name, '')
     flag_str = f'{flag} ' if flag else ''
-    return f'{flag_str}{h(name)}'
+    label    = h(name)
+    if prefix is not None:
+        return f'{flag_str}<a href="{nation_url(name, prefix)}">{label}</a>'
+    return f'{flag_str}{label}'
 
 def linkify_trivia(text, prefix='../'):
     """HTML-escape trivia text and auto-link any team names mentioned."""
@@ -895,7 +898,7 @@ def make_teams():
         avg_cell = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '-'
         rows += f'''<tr{anchor}>
           <td><a href="{slug(t["team"])}/">{h(t["team"])}</a></td>
-          <td>{country_display(team_country(t))}</td>
+          <td>{country_display(team_country(t), '../')}</td>
           <td>{league_or_nation_cell(t, '../')}</td>
           <td>{tlink(t["stadium"], f'../stadiums/{slug(t["stadium"])}/' ) if stadium_url(t["stadium"]) else h(t["stadium"])}</td>
           <td class="num">{int(t["capacity"]):,}</td>
