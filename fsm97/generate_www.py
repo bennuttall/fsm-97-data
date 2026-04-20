@@ -896,7 +896,7 @@ def make_teams():
         rows += f'''<tr{anchor}>
           <td><a href="{slug(t["team"])}/">{h(t["team"])}</a></td>
           <td>{country_display(team_country(t))}</td>
-          <td>{league_cell(t["league"], '../')}</td>
+          <td>{league_or_nation_cell(t, '../')}</td>
           <td>{tlink(t["stadium"], f'../stadiums/{slug(t["stadium"])}/' ) if stadium_url(t["stadium"]) else h(t["stadium"])}</td>
           <td class="num">{int(t["capacity"]):,}</td>
           <td class="num">{pc}</td>
@@ -905,7 +905,7 @@ def make_teams():
     body = f'''{alpha}
     <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter clubs…"></div>
     <table id="all-teams">
-      <thead><tr><th data-sort>Club</th><th data-sort>Nation</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
+      <thead><tr><th data-sort>Club</th><th data-sort>Nation</th><th data-sort>League / Nation</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/clubs/index.html",
