@@ -18,7 +18,9 @@
 <div class="sub" tal:condition="header_sub">${header_sub}</div>
 <div class="breadcrumb" tal:condition="breadcrumb" tal:content="structure breadcrumb"></div>
 </header>
-<main metal:define-slot="content"></main>
+<main>
+<div metal:define-slot="content"></div>
+</main>
 <footer>FIFA Soccer Manager 97 · Data extracted from <code>SM97.DAT</code> · A project by <a href="https://bennuttall.com/">Ben Nuttall</a> · See the project on <a href="https://github.com/bennuttall/fsm-97-data">GitHub</a></footer>
 <script>
 document.querySelectorAll('input[data-filter]').forEach(function(inp) {
