@@ -58,7 +58,6 @@ class Dataset:
         self.positions      = _load(csv_dir, 'positions.csv')
         self.countries      = _load(csv_dir, 'countries.csv')
         self.strings        = _load(csv_dir, 'strings.csv')
-        self.facility_data  = _load(csv_dir, 'facility_data.csv')
 
         for row in self.countries:
             if row['country'] in COUNTRY_NAMES:

@@ -13,7 +13,7 @@ import csv
 import os
 
 from fsm97.constants import POSITIONS, SKILL_COLS, POS_ORDER, pos_rating
-from fsm97.parser import load_countries, load_divisions, parse_game_data, load_strings, load_facility_data
+from fsm97.parser import load_countries, load_divisions, parse_game_data, load_strings
 
 
 def write_csv(csv_dir, filename, fieldnames, rows):
@@ -130,10 +130,6 @@ def write_strings(csv_dir, strings):
     write_csv(csv_dir, 'strings.csv', ['title', 'category', 'text', 'recovery'], strings)
 
 
-def write_facility_data(csv_dir, facilities):
-    fieldnames = ['id'] + [f'f{i}' for i in range(10)]
-    write_csv(csv_dir, 'facility_data.csv', fieldnames, facilities)
-
 
 def main():
     parser = argparse.ArgumentParser(description="Extract data from FIFA Soccer Manager 97")
@@ -148,7 +144,6 @@ def main():
     country_file  = os.path.join(game_dir, 'COUNTRY.TXT')
     division_file = os.path.join(game_dir, 'DIVISION.TXT')
     strings_file  = os.path.join(game_dir, 'STRINGS.TXT')
-    data_file     = os.path.join(game_dir, 'THE_DATA.TXT')
 
     os.makedirs(csv_dir, exist_ok=True)
 
@@ -162,11 +157,9 @@ def main():
     teams, players = parse_game_data(dat_file, countries)
     print(f"  {len(teams)} teams, {len(players)} players")
 
-    print("Loading strings and facility data...")
-    strings   = load_strings(strings_file)
+    print("Loading strings...")
+    strings = load_strings(strings_file)
     print(f"  {len(strings)} event strings")
-    facilities = load_facility_data(data_file)
-    print(f"  {len(facilities)} facility entries")
 
     print("Writing CSV files...")
     write_countries(csv_dir, countries)
@@ -177,7 +170,6 @@ def main():
     write_player_skills(csv_dir, players)
     write_player_position_ratings(csv_dir, players)
     write_strings(csv_dir, strings)
-    write_facility_data(csv_dir, facilities)
 
     print("Done.")
 

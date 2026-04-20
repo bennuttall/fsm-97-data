@@ -208,32 +208,6 @@ def load_strings(strings_file):
     return results
 
 
-def load_facility_data(data_file):
-    """
-    Parse THE_DATA.TXT into a list of facility entry dicts.
-
-    Each entry has keys: id, f0..f9.
-    Rows where f0 == -1 (unused slot) are skipped.
-    """
-    with open(data_file, encoding='latin-1') as f:
-        lines = [ln.strip() for ln in f if ln.strip()]
-
-    num_cols = int(lines[0])
-    results = []
-    for line in lines[2:]:
-        parts = line.split()
-        if len(parts) < num_cols + 1:
-            continue
-        entry_id = int(parts[0])
-        fields = [int(p) for p in parts[1: num_cols + 1]]
-        if fields[0] == -1:
-            continue
-        row = {'id': entry_id}
-        for j, v in enumerate(fields):
-            row[f'f{j}'] = v
-        results.append(row)
-    return results
-
 
 def parse_game_data(dat_file, countries):
     """

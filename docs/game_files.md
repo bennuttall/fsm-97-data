@@ -140,3 +140,58 @@ hardcoded in `fsm97/constants.py` (sourced from the
 [fsm97trainer](https://github.com/jiangsheng/fsm97trainer) project, which also
 documents the position rating weight vectors used to compute the in-game Position
 Average score).
+
+---
+
+## THE_DATA.TXT
+
+**Type:** Whitespace-delimited numeric text  
+**Encoding:** Latin-1
+
+Stadium facility economics data. The file header gives the number of data columns
+(10) and total row count (720). Each data row has the form:
+
+```
+<id> <f0> <f1> <f2> <f3> <f4> <f5> <f6> <f7> <f8> <f9>
+```
+
+Rows where `f0 == -1` are unused slots and should be skipped. IDs are not
+contiguous — gaps exist throughout.
+
+### Structure
+
+The 602 valid rows fall into two distinct groups:
+
+**Stand/seating entries (IDs 29–86):** All 10 columns are populated and `f0` is
+always 0. These entries appear in groups of 3, each group representing three
+upgrade tiers (basic → improved → premium) of a single stand type. There are
+approximately 19 such groups. Inferred column meanings:
+
+| Column | Likely meaning |
+|--------|---------------|
+| f1 | Build / upgrade cost |
+| f2 | Build time (months) or staffing requirement |
+| f3 | Spectator capacity added |
+| f4 | Maintenance cost (type A) |
+| f5 | Maintenance cost (type B) |
+| f6 | Number of tiers |
+| f7 | Additional capacity at highest tier |
+| f8 | Prestige / rating contribution |
+| f9 | Match day revenue |
+
+**Facility entries (IDs 87+):** Only `f0`–`f2` are typically non-zero. `f0` is
+the build cost (ranging from 1,000 to over 1,000,000), `f1` is the monthly
+running cost, and `f2` appears to be a level or build-time indicator. Some
+entries also have a non-zero `f8` value (likely revenue). These represent
+non-seating facilities such as catering, medical, training, and administrative
+infrastructure.
+
+### Limitations
+
+Facility names are not stored in this file. They are also not present in any
+other readable text file in the game install — the `MFACILIT.FAT` file, which
+likely contains the in-game facility UI strings, is a compressed binary archive
+not decodable with standard tools. The `BUILDING.BLD` file contains 721 building
+records that reference these IDs (as an index in each record), but it too is
+binary. Without these names the data cannot be labelled reliably and is not
+currently extracted by this project.
