@@ -29,7 +29,7 @@ import re
 import unicodedata
 from collections import defaultdict
 
-from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES
+from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES, COUNTRY_NAMES
 
 
 def _slug(s):
@@ -57,6 +57,10 @@ class Dataset:
         self.pos_ratings    = _load(csv_dir, 'player_position_ratings.csv')
         self.positions      = _load(csv_dir, 'positions.csv')
         self.countries      = _load(csv_dir, 'countries.csv')
+
+        for row in self.countries:
+            if row['country'] in COUNTRY_NAMES:
+                row['country'] = COUNTRY_NAMES[row['country']]
 
         for row in self.teams + self.players + self.skills + self.pos_ratings:
             if row['team'] in TEAM_NAMES:

@@ -1998,9 +1998,6 @@ def main():
     country_name_to_flag   = {c['country']: country_flag(c['code']) for c in countries_raw}
     league_to_flag         = {lg: country_name_to_flag.get(cn, '')
                                for cn, lgs in LEAGUE_GROUPS for lg in lgs}
-    # Add Others-country names via OTHERS_COUNTRIES values
-    for cname in OTHERS_COUNTRIES.values():
-        country_name_to_flag.setdefault(cname, country_name_to_flag.get(cname, ''))
 
     write(f"{OUT_DIR}/style.css", CSS)
     print("Generating home…")

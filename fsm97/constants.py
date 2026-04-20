@@ -287,6 +287,16 @@ STADIUM_NAMES = {
     'The Cellnet Riverside Stadium': 'Riverside Stadium',
 }
 
+# ── Country name corrections ─────────────────────────────────────────────────
+# Fixes misspelled or non-standard country names as stored in COUNTRY.TXT.
+
+COUNTRY_NAMES = {
+    'Azerbijan':     'Azerbaijan',
+    'Eire':          'Republic of Ireland',
+    'Holland':       'Netherlands',
+    'Lietchenstein': 'Liechtenstein',
+}
+
 # ── Country ISO codes ────────────────────────────────────────────────────────
 # Maps the game's internal 3-letter country codes to ISO 3166-1 alpha-2 codes
 # for flag emoji generation.  Codes not present have no standard flag.
