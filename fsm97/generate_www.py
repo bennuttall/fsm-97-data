@@ -215,7 +215,7 @@ OTHERS_COUNTRIES = {
     'Dumbarton':           'Scotland',
     'Hamilton Academical': 'Scotland',
     # Wales
-    'Aberystwyth':         'Wales',
+    'Aberystwyth Town':    'Wales',
 }
 
 
@@ -802,19 +802,33 @@ def make_leagues():
     # Index — grouped by country
     body = ''
     for country, lgs in LEAGUE_GROUPS:
-        rows = ''
         cflag = league_to_flag.get(lgs[0], '')
         cflag_str = f'{cflag} ' if cflag else ''
-        for lg in lgs:
-            if lg not in teams_by_league:
-                continue
-            teams = teams_by_league[lg]
-            pc = sum(len(players_by_team[t['team']]) for t in teams)
-            lflag = league_to_flag.get(lg, '')
-            lflag_str = f'{lflag} ' if lflag else ''
-            rows += f'<tr><td><a href="{slug(lg)}/">{lflag_str}{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
-        if rows:
-            body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
+        if country == 'Others':
+            by_country = defaultdict(list)
+            for t in teams_by_league.get('Others', []):
+                by_country[OTHERS_COUNTRIES.get(t['team'], 'Others')].append(t)
+            rows = ''
+            for cn in sorted(by_country):
+                ts = by_country[cn]
+                pc = sum(len(players_by_team[t['team']]) for t in ts)
+                flag = country_name_to_flag.get(cn, '')
+                flag_str = f'{flag} ' if flag else ''
+                rows += f'<tr><td>{flag_str}{h(cn)}</td><td class="num">{len(ts):,}</td><td class="num">{pc:,}</td></tr>'
+            if rows:
+                body += f'<h2>Others</h2><p><a href="others/">View all Others clubs</a></p><table><thead><tr><th>Country</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
+        else:
+            rows = ''
+            for lg in lgs:
+                if lg not in teams_by_league:
+                    continue
+                teams = teams_by_league[lg]
+                pc = sum(len(players_by_team[t['team']]) for t in teams)
+                lflag = league_to_flag.get(lg, '')
+                lflag_str = f'{lflag} ' if lflag else ''
+                rows += f'<tr><td><a href="{slug(lg)}/">{lflag_str}{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
+            if rows:
+                body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
     write(f"{OUT_DIR}/leagues/index.html",
           page("Leagues", body, depth=1, active='Leagues',
                header_title="All Leagues", header_sub=f"{len(league_names)} competitions"))
