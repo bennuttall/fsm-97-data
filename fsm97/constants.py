@@ -221,6 +221,8 @@ TEAM_NAMES = {
     'Partick':       'Partick Thistle',
     'Raith':         'Raith Rovers',
     'Stirling':      'Stirling Albion',
+    # Welsh clubs
+    'Aberystwyth':   'Aberystwyth Town',
     # German clubs
     '1. FC K\'lautern': '1. FC Kaiserslautern',
     'Arm. Bielefeld':   'Arminia Bielefeld',
@@ -285,6 +287,8 @@ STADIUM_NAMES = {
     'Molineux Ground':    'Molineux',
     'Vicarage Road Stadium': 'Vicarage Road',
     'The Cellnet Riverside Stadium': 'Riverside Stadium',
+    # Welsh stadium corrections
+    'Aberystwyth T': 'Park Avenue',
 }
 
 # ── Country name corrections ─────────────────────────────────────────────────
