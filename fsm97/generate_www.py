@@ -211,6 +211,9 @@ OTHERS_COUNTRIES = {
     # Ukraine
     'Dinamo Kiev':         'Ukraine',
     'Karpaty Lviv':        'Ukraine',
+    # Scotland (relegated/promoted clubs moved to Others league)
+    'Dumbarton':           'Scotland',
+    'Hamilton Academical': 'Scotland',
     # Wales
     'Aberystwyth':         'Wales',
 }
