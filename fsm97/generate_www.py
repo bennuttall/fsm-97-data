@@ -185,6 +185,13 @@ a:has(> .hl):hover .hl { border-color: var(--accent); }
 .trivia { background: #0f2820; border-left: 3px solid var(--gold); padding: 0.8rem 1rem;
           margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text); }
 .trivia strong { color: var(--gold); }
+/* Video embeds */
+.video-section { margin-bottom: 2.5rem; }
+.video-section h2 { margin-bottom: 0.4rem; }
+.video-section .video-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.6rem; }
+.video-section p { color: var(--text); font-size: 0.9rem; margin-bottom: 0.8rem; }
+.video-embed { max-width: 560px; }
+.video-embed iframe { width: 100%; height: 315px; border: 0; border-radius: 6px; }
 /* Event cards */
 .event-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px;
               padding: 1rem 1.2rem; margin-bottom: 1rem; }
@@ -261,6 +268,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
         ('Stats',         f'{prefix}stats/'),
         ('Events',        f'{prefix}events/'),
         ('Trivia',        f'{prefix}trivia/'),
+        ('Videos',        f'{prefix}videos/'),
         ('Credits',       f'{prefix}credits/'),
     ]
     nav_html = '\n'.join(
@@ -1744,6 +1752,91 @@ def make_players():
                header_sub=f"{len(players_raw):,} players — search by name, club, position or nationality"))
 
 
+# ── VIDEOS ────────────────────────────────────────────────────────────────────
+
+VIDEOS = [
+    {
+        'file':        'FSMINTRO.TGQ',
+        'title':       'Title Intro',
+        'duration':    '36s',
+        'embed_url':   'https://www.youtube.com/embed/fa3vbcArl60?si=TF4Y4ReLO-WvDGAd',
+    },
+    {
+        'file':        'REL.TGQ',
+        'title':       'Relegation',
+        'duration':    '18s',
+        'embed_url':   'https://www.youtube.com/embed/6N0ety_YHqo?si=pytgx8q9hkh3qwv0',
+    },
+    {
+        'file':        'PROM.TGQ',
+        'title':       'Promotion',
+        'duration':    '21s',
+        'embed_url':   'https://www.youtube.com/embed/wqf3d65-8bA?si=AS4i07kp14bbM8E4',
+    },
+    {
+        'file':        'LWIN.TGQ',
+        'title':       'League Win',
+        'duration':    '20s',
+        'embed_url':   'https://www.youtube.com/embed/AgQDXbmpIKA?si=--aXB3G5KzVQX5Bc',
+    },
+    {
+        'file':        'CUPL.TGQ',
+        'title':       'Cup Runner-up',
+        'duration':    '14s',
+        'embed_url':   'https://www.youtube.com/embed/e5oLd88zdxs?si=hE8mvwIDSuU9WR0n',
+    },
+    {
+        'file':        'CUPW.TGQ',
+        'title':       'Cup Win',
+        'duration':    '15s',
+        'embed_url':   'https://www.youtube.com/embed/awDx_0camf4?si=eP8QmI41C71t7ET7',
+    },
+    {
+        'file':        'SACKED.TGQ',
+        'title':       'Sacked',
+        'duration':    '15s',
+        'embed_url':   'https://www.youtube.com/embed/eUBgtnFYJyU?si=-9qFG_K5cVqQhWDS',
+    },
+    {
+        'file':        'CREDITS.TGQ',
+        'title':       'End Credits',
+        'duration':    '~88s',
+        'embed_url':   'https://www.youtube.com/embed/S8Ir0qe_7p8?si=iEr-KD7r7NSXhC5z',
+    },
+]
+
+
+def make_videos():
+    sections = '<p style="color:var(--muted);margin-bottom:1.5rem">All 8 FMV cutscenes from ' \
+               'FIFA Soccer Manager 97, converted from the original TGQ format. ' \
+               'The game\'s videos use EA\'s proprietary TGQ codec at 320×208, 15fps.</p>\n'
+
+    for v in VIDEOS:
+        vid_id = v['file'].replace('.TGQ', '').lower()
+        embed_html = ''
+        if v['embed_url']:
+            embed_html = (
+                f'<div class="video-embed">'
+                f'<iframe src="{v["embed_url"]}" title="{h(v["title"])}" '
+                f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; '
+                f'gyroscope; picture-in-picture; web-share" '
+                f'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+                f'</div>'
+            )
+        sections += (
+            f'<div class="video-section" id="{vid_id}">'
+            f'<h2>{h(v["title"])}</h2>'
+            f'<div class="video-meta">{h(v["file"])} &middot; {h(v["duration"])}</div>'
+            f'{embed_html}'
+            f'</div>\n'
+        )
+
+    write(f"{OUT_DIR}/videos/index.html",
+          page("Videos", sections, depth=1, active='Videos',
+               header_title="Game Videos",
+               header_sub="FMV cutscenes from FIFA Soccer Manager 97"))
+
+
 # ── CREDITS ───────────────────────────────────────────────────────────────────
 
 def make_credits():
@@ -1949,6 +2042,7 @@ def make_sitemap():
         '/trivia/players/',
         '/trivia/stadiums/',
         '/trivia/clubs/',
+        '/videos/',
         '/credits/',
     ]
 
@@ -2065,6 +2159,8 @@ def main():
     make_strings()
     print("Generating trivia…")
     make_trivia()
+    print("Generating videos…")
+    make_videos()
     print("Generating credits…")
     make_credits()
     print("Generating sitemap…")

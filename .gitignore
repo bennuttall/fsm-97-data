@@ -2,6 +2,6 @@
 dist
 .env
 poetry.lock
-videos
 fsm97trainer
 claude
+*.mp4

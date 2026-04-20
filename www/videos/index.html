@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Videos — FIFA Soccer Manager 97</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='1em' font-size='16'>⚽</text></svg>">
+</head>
+<body>
+<nav>
+<span class="nav-brand">⚽ FSM97</span>
+<a href="../" class="">Home</a>
+<a href="../leagues/" class="">Leagues</a>
+<a href="../nations/" class="">Nations</a>
+<a href="../clubs/" class="">Clubs</a>
+<a href="../players/" class="">Players</a>
+<a href="../stadiums/" class="">Stadiums</a>
+<a href="../positions/" class="">Positions</a>
+<a href="../nationalities/" class="">Nationalities</a>
+<a href="../stats/" class="">Stats</a>
+<a href="../events/" class="">Events</a>
+<a href="../trivia/" class="">Trivia</a>
+<a href="../videos/" class="active">Videos</a>
+<a href="../credits/" class="">Credits</a>
+</nav>
+<header><h1>Game Videos</h1><div class="sub">FMV cutscenes from FIFA Soccer Manager 97</div></header>
+<main><p style="color:var(--muted);margin-bottom:1.5rem">All 8 FMV cutscenes from FIFA Soccer Manager 97, converted from the original TGQ format. The game's videos use EA's proprietary TGQ codec at 320×208, 15fps.</p>
+<div class="video-section" id="fsmintro"><h2>Title Intro</h2><div class="video-meta">FSMINTRO.TGQ &middot; 36s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/fa3vbcArl60?si=TF4Y4ReLO-WvDGAd" title="Title Intro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="rel"><h2>Relegation</h2><div class="video-meta">REL.TGQ &middot; 18s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/6N0ety_YHqo?si=pytgx8q9hkh3qwv0" title="Relegation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="prom"><h2>Promotion</h2><div class="video-meta">PROM.TGQ &middot; 21s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/wqf3d65-8bA?si=AS4i07kp14bbM8E4" title="Promotion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="lwin"><h2>League Win</h2><div class="video-meta">LWIN.TGQ &middot; 20s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/AgQDXbmpIKA?si=--aXB3G5KzVQX5Bc" title="League Win" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="cupl"><h2>Cup Runner-up</h2><div class="video-meta">CUPL.TGQ &middot; 14s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/e5oLd88zdxs?si=hE8mvwIDSuU9WR0n" title="Cup Runner-up" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="cupw"><h2>Cup Win</h2><div class="video-meta">CUPW.TGQ &middot; 15s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/awDx_0camf4?si=eP8QmI41C71t7ET7" title="Cup Win" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="sacked"><h2>Sacked</h2><div class="video-meta">SACKED.TGQ &middot; 15s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/eUBgtnFYJyU?si=-9qFG_K5cVqQhWDS" title="Sacked" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+<div class="video-section" id="credits"><h2>End Credits</h2><div class="video-meta">CREDITS.TGQ &middot; ~88s</div><div class="video-embed"><iframe src="https://www.youtube.com/embed/S8Ir0qe_7p8?si=iEr-KD7r7NSXhC5z" title="End Credits" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+</main>
+<footer>FIFA Soccer Manager 97 · Data extracted from <code>SM97.DAT</code> · A project by <a href="https://bennuttall.com/">Ben Nuttall</a> · See the project on <a href="https://github.com/bennuttall/fsm-97-data">GitHub</a></footer>
+<script>
+document.querySelectorAll('input[data-filter]').forEach(function(inp){
+  var tbl = document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('thead th[data-sort]').forEach(function(th){
+  var asc = true;
+  th.addEventListener('click', function(){
+    var tbl = th.closest('table');
+    var idx = Array.from(th.parentElement.children).indexOf(th);
+    var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
+    rows.sort(function(a,b){
+      var ac = a.cells[idx], bc = b.cells[idx];
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
+      var an = parseFloat(av.replace(/[^0-9.-]/g,'')),
+          bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
+      if(!isNaN(an)&&!isNaN(bn)) return asc ? an-bn : bn-an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(function(r){ tbl.tBodies[0].appendChild(r); });
+    tbl.querySelectorAll('thead th[data-sort]').forEach(function(t){
+      t.classList.remove('sort-asc','sort-desc');
+    });
+    th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+    asc = !asc;
+  });
+});
+(function(){
+  var h = window.location.hash;
+  if (!h) return;
+  var el = document.getElementById(h.slice(1));
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d){ d.open = true; });
+})();
+</script>
+</body>
+</html>
