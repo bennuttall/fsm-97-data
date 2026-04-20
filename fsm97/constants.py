@@ -127,230 +127,190 @@ LEAGUE_NAMES = {
 
 LEAGUE_GROUPS = [
     ('England',  ['English Premier League', 'English First Division',
-                  'English Second Division', 'English Third Division',
-                  'English Non-League']),
-    ('Scotland', ['Scottish Premier League', 'Scottish First Division',
-                  'Scottish League']),
-    ('Germany',  ['German Bundesliga 1', 'German Bundesliga 2',
-                  'German League']),
-    ('France',   ['French Division 1', 'French Division 2',
-                  'French League']),
-    ('Italy',    ['Italian Serie A', 'Italian Serie B',
-                  'Italian League']),
-    ('Albania',             ['Albanian League']),
-    ('Armenia',             ['Armenian League']),
-    ('Austria',             ['Austrian League']),
-    ('Azerbaijan',          ['Azerbaijani League']),
-    ('Belarus',             ['Belarusian League']),
-    ('Belgium',             ['Belgian League']),
-    ('Bulgaria',            ['Bulgarian League']),
-    ('Croatia',             ['Croatian League']),
-    ('Cyprus',              ['Cypriot League']),
-    ('Czech Republic',      ['Czech League']),
-    ('Denmark',             ['Danish League']),
-    ('Estonia',             ['Estonian League']),
-    ('Faroe Islands',       ['Faroese League']),
-    ('Finland',             ['Finnish League']),
-    ('Georgia',             ['Georgian League']),
-    ('Greece',              ['Greek League']),
-    ('Hungary',             ['Hungarian League']),
-    ('Iceland',             ['Icelandic League']),
-    ('Israel',              ['Israeli League']),
-    ('Latvia',              ['Latvian League']),
-    ('Liechtenstein',       ['Liechtenstein League']),
-    ('Lithuania',           ['Lithuanian League']),
-    ('Luxembourg',          ['Luxembourg League']),
-    ('Malta',               ['Maltese League']),
-    ('Moldova',             ['Moldovan League']),
-    ('Netherlands',         ['Dutch League']),
-    ('Northern Ireland',    ['Northern Irish League']),
-    ('Norway',              ['Norwegian League']),
-    ('Poland',              ['Polish League']),
-    ('Portugal',            ['Portuguese League']),
-    ('Republic of Ireland', ['Irish League']),
-    ('Romania',             ['Romanian League']),
-    ('Russia',              ['Russian League']),
-    ('San Marino',          ['San Marino League']),
-    ('Serbia',              ['Serbian League']),
-    ('Slovakia',            ['Slovak League']),
-    ('Slovenia',            ['Slovenian League']),
-    ('Spain',               ['Spanish League']),
-    ('Sweden',              ['Swedish League']),
-    ('Switzerland',         ['Swiss League']),
-    ('Turkey',              ['Turkish League']),
-    ('Ukraine',             ['Ukrainian League']),
-    ('Wales',               ['Welsh League']),
-    ('Others',              ['Others']),
+                  'English Second Division', 'English Third Division']),
+    ('Scotland', ['Scottish Premier League', 'Scottish First Division']),
+    ('Germany',  ['German Bundesliga 1', 'German Bundesliga 2']),
+    ('France',   ['French Division 1', 'French Division 2']),
+    ('Italy',    ['Italian Serie A', 'Italian Serie B']),
 ]
 
 # ── Per-team league overrides ────────────────────────────────────────────────
 # Maps corrected team name → correct league (applied after TEAM_NAMES).
-# Use for teams the game placed in the wrong division.
+# Only needed for clubs the game placed in the wrong division.
 TEAM_LEAGUES = {
-    # English non-league (Conference-era clubs not in the Football League)
-    'Kidderminster':       'English Non-League',
-    'Rushden & Diamonds':  'English Non-League',
-    # Scottish League (clubs relegated/promoted outside the main two divisions)
-    'Dumbarton':           'Scottish League',
-    'Hamilton Academical': 'Scottish League',
-    # German League
-    '1. FC Nürnberg':      'German League',
-    'Chemnitz':            'German League',
-    'Hannover 96':         'German League',
-    'Wattenscheid':        'German League',
-    # French League
-    'Ales':                'French League',
-    'Angers':              'French League',
-    'Dunkerque':           'French League',
-    'Poitiers':            'French League',
-    # Italian League
-    'Ancona':              'Italian League',
-    'Avellino':            'Italian League',
-    'Fidelis Andria':      'Italian League',
-    'Pistoiese':           'Italian League',
-    # Albanian League
-    'Teuta Durres':        'Albanian League',
-    # Armenian League
-    'Shirak Gyumri':       'Armenian League',
-    # Austrian League
-    'Admira Wacker':       'Austrian League',
-    'Austria Vienna':      'Austrian League',
-    'Rapid Vienna':        'Austrian League',
-    # Azerbaijani League
-    'Kapaz Ganja':         'Azerbaijani League',
-    # Belarusian League
-    'Dinamo Minsk':        'Belarusian League',
-    # Belgian League
-    'Anderlecht':          'Belgian League',
-    'Antwerp':             'Belgian League',
-    'Club Brugge':         'Belgian League',
-    'Lierse':              'Belgian League',
-    'Standard Liege':      'Belgian League',
-    # Bulgarian League
-    'CSKA Sofia':          'Bulgarian League',
-    'Leveski Sofia':       'Bulgarian League',
-    'Neftochimik':         'Bulgarian League',
-    'Slavia Sofia':        'Bulgarian League',
-    # Croatian League
-    'Hadjuk Split':        'Croatian League',
-    # Cypriot League
-    'APOEL Nicosia':       'Cypriot League',
-    'Omonia Nicosia':      'Cypriot League',
-    # Czech League
-    'Banik Ostrava':       'Czech League',
-    'Slavia Prague':       'Czech League',
-    'Sparta Prague':       'Czech League',
-    # Danish League
-    'Aarhus':              'Danish League',
-    'Brondby':             'Danish League',
-    'Odense':              'Danish League',
-    'Silkeborg':           'Danish League',
-    # Estonian League
-    'Flora':               'Estonian League',
-    # Faroese League
-    'Itrottarfelag':       'Faroese League',
-    # Finnish League
-    'MYPA':                'Finnish League',
-    # Georgian League
-    'Dinamo Tbilisi':      'Georgian League',
-    'Samtredia':           'Georgian League',
-    # Greek League
-    'Athens':              'Greek League',
-    'Olympiakos':          'Greek League',
-    'Panathinaikos':       'Greek League',
-    # Hungarian League
-    'Budapest':            'Hungarian League',
-    'Ferencvaros':         'Hungarian League',
-    # Icelandic League
-    'Hafnarfjardar':       'Icelandic League',
-    # Israeli League
-    'Betar Jerusalem':     'Israeli League',
-    # Latvian League
-    'Skonto Riga':         'Latvian League',
-    # Liechtenstein League
-    'Vaduz':               'Liechtenstein League',
-    # Lithuanian League
-    'Inkaraz Grifas':      'Lithuanian League',
-    # Luxembourg League
-    'Jeunesse':            'Luxembourg League',
-    'Spora':               'Luxembourg League',
-    # Maltese League
-    'Hibernians':          'Maltese League',
-    'Sliema':              'Maltese League',
-    # Moldovan League
-    'Tiligul Tiraspol':    'Moldovan League',
-    # Dutch League
-    'Ajax':                'Dutch League',
-    'Feyenoord':           'Dutch League',
-    'PSV Eindhoven':       'Dutch League',
-    'Twente':              'Dutch League',
-    'Vitesse':             'Dutch League',
-    # Northern Irish League
-    'Crusaders':           'Northern Irish League',
-    'Derry':               'Northern Irish League',
-    'Glenavon':            'Northern Irish League',
-    'Linfield':            'Northern Irish League',
-    # Norwegian League
-    'Lillestrom':          'Norwegian League',
-    'Rosenborg':           'Norwegian League',
-    'Stravanger':          'Norwegian League',
-    # Polish League
-    'Katowice':            'Polish League',
-    'Legia Warsaw':        'Polish League',
-    'Widzew Lodz':         'Polish League',
-    # Portuguese League
-    'Belenenses':          'Portuguese League',
-    'Benfica':             'Portuguese League',
-    'Boavista':            'Portuguese League',
-    'Porto':               'Portuguese League',
-    'Sporting Lisbon':     'Portuguese League',
-    # Irish League
-    'Bohemians':           'Irish League',
-    'Shamrock':            'Irish League',
-    # Romanian League
-    'Dinamo Bucharest':    'Romanian League',
-    'Rapid Bucharest':     'Romanian League',
-    'Steaua Bucharest':    'Romanian League',
-    'Uni Craiova':         'Romanian League',
-    # Russian League
-    'Alania Vladikavkaz':  'Russian League',
-    'CSKA Moscow':         'Russian League',
-    'Dinamo Moscow':       'Russian League',
-    'Rotor Volvograd':     'Russian League',
-    'Spartak Moscow':      'Russian League',
-    # San Marino League
-    'Tre Fiori':           'San Marino League',
-    # Serbian League
-    'Partizan':            'Serbian League',
-    'Partizan Belgrade':   'Serbian League',
-    'RS Belgrade':         'Serbian League',
-    # Slovak League
-    'Slovan Bratislava':   'Slovak League',
-    # Slovenian League
-    'Olimpija Ljubljana':  'Slovenian League',
-    # Spanish League
-    'Atlético Madrid':     'Spanish League',
-    'Deportivo La Coruña': 'Spanish League',
-    'FC Barcelona':        'Spanish League',
-    'Real Madrid':         'Spanish League',
-    'Real Zaragoza':       'Spanish League',
-    # Swedish League
-    'Gothenburg':          'Swedish League',
-    'Halmstads':           'Swedish League',
-    'Malmo':               'Swedish League',
-    # Swiss League
-    'Grasshoppers':        'Swiss League',
-    'Servette':            'Swiss League',
-    'Sion':                'Swiss League',
-    # Turkish League
-    'Besiktas':            'Turkish League',
-    'Fenerbache':          'Turkish League',
-    'Galatasaray':         'Turkish League',
-    # Ukrainian League
-    'Dinamo Kiev':         'Ukrainian League',
-    'Karpaty Lviv':        'Ukrainian League',
-    # Welsh League
-    'Aberystwyth Town':    'Welsh League',
+    'Hamilton Academical': 'Others',
+    'Dumbarton':           'Others',
+}
+
+# ── Club nation assignments ──────────────────────────────────────────────────
+# Maps club name → nation for clubs not assigned a nation via their league.
+# Clubs in LEAGUE_GROUPS-listed leagues derive their nation from that league.
+# Easter egg clubs (EA All Stars, EA Select XI, Other, Spare) have no nation.
+CLUB_NATIONS = {
+    # Albania
+    'Teuta Durres':        'Albania',
+    # Armenia
+    'Shirak Gyumri':       'Armenia',
+    # Austria
+    'Admira Wacker':       'Austria',
+    'Austria Vienna':      'Austria',
+    'Rapid Vienna':        'Austria',
+    # Azerbaijan
+    'Kapaz Ganja':         'Azerbaijan',
+    # Belarus
+    'Dinamo Minsk':        'Belarus',
+    # Belgium
+    'Anderlecht':          'Belgium',
+    'Antwerp':             'Belgium',
+    'Club Brugge':         'Belgium',
+    'Lierse':              'Belgium',
+    'Standard Liege':      'Belgium',
+    # Bulgaria
+    'CSKA Sofia':          'Bulgaria',
+    'Leveski Sofia':       'Bulgaria',
+    'Neftochimik':         'Bulgaria',
+    'Slavia Sofia':        'Bulgaria',
+    # Croatia
+    'Hadjuk Split':        'Croatia',
+    # Cyprus
+    'APOEL Nicosia':       'Cyprus',
+    'Omonia Nicosia':      'Cyprus',
+    # Czech Republic
+    'Banik Ostrava':       'Czech Republic',
+    'Slavia Prague':       'Czech Republic',
+    'Sparta Prague':       'Czech Republic',
+    # Denmark
+    'Aarhus':              'Denmark',
+    'Brondby':             'Denmark',
+    'Odense':              'Denmark',
+    'Silkeborg':           'Denmark',
+    # England (non-league clubs not in the Football League)
+    'Kidderminster':       'England',
+    'Rushden & Diamonds':  'England',
+    # Estonia
+    'Flora':               'Estonia',
+    # Faroe Islands
+    'Itrottarfelag':       'Faroe Islands',
+    # Finland
+    'MYPA':                'Finland',
+    # France
+    'Ales':                'France',
+    'Angers':              'France',
+    'Dunkerque':           'France',
+    'Poitiers':            'France',
+    # Georgia
+    'Dinamo Tbilisi':      'Georgia',
+    'Samtredia':           'Georgia',
+    # Germany
+    '1. FC Nürnberg':      'Germany',
+    'Chemnitz':            'Germany',
+    'Hannover 96':         'Germany',
+    'Wattenscheid':        'Germany',
+    # Greece
+    'Athens':              'Greece',
+    'Olympiakos':          'Greece',
+    'Panathinaikos':       'Greece',
+    # Hungary
+    'Budapest':            'Hungary',
+    'Ferencvaros':         'Hungary',
+    # Iceland
+    'Hafnarfjardar':       'Iceland',
+    # Israel
+    'Betar Jerusalem':     'Israel',
+    # Italy
+    'Ancona':              'Italy',
+    'Avellino':            'Italy',
+    'Fidelis Andria':      'Italy',
+    'Pistoiese':           'Italy',
+    # Latvia
+    'Skonto Riga':         'Latvia',
+    # Liechtenstein
+    'Vaduz':               'Liechtenstein',
+    # Lithuania
+    'Inkaraz Grifas':      'Lithuania',
+    # Luxembourg
+    'Jeunesse':            'Luxembourg',
+    'Spora':               'Luxembourg',
+    # Malta
+    'Hibernians':          'Malta',
+    'Sliema':              'Malta',
+    # Moldova
+    'Tiligul Tiraspol':    'Moldova',
+    # Netherlands
+    'Ajax':                'Netherlands',
+    'Feyenoord':           'Netherlands',
+    'PSV Eindhoven':       'Netherlands',
+    'Twente':              'Netherlands',
+    'Vitesse':             'Netherlands',
+    # Northern Ireland
+    'Crusaders':           'Northern Ireland',
+    'Derry':               'Northern Ireland',
+    'Glenavon':            'Northern Ireland',
+    'Linfield':            'Northern Ireland',
+    # Norway
+    'Lillestrom':          'Norway',
+    'Rosenborg':           'Norway',
+    'Stravanger':          'Norway',
+    # Poland
+    'Katowice':            'Poland',
+    'Legia Warsaw':        'Poland',
+    'Widzew Lodz':         'Poland',
+    # Portugal
+    'Belenenses':          'Portugal',
+    'Benfica':             'Portugal',
+    'Boavista':            'Portugal',
+    'Porto':               'Portugal',
+    'Sporting Lisbon':     'Portugal',
+    # Republic of Ireland
+    'Bohemians':           'Republic of Ireland',
+    'Shamrock':            'Republic of Ireland',
+    # Romania
+    'Dinamo Bucharest':    'Romania',
+    'Rapid Bucharest':     'Romania',
+    'Steaua Bucharest':    'Romania',
+    'Uni Craiova':         'Romania',
+    # Russia
+    'Alania Vladikavkaz':  'Russia',
+    'CSKA Moscow':         'Russia',
+    'Dinamo Moscow':       'Russia',
+    'Rotor Volvograd':     'Russia',
+    'Spartak Moscow':      'Russia',
+    # San Marino
+    'Tre Fiori':           'San Marino',
+    # Scotland (clubs not in the main two divisions)
+    'Dumbarton':           'Scotland',
+    'Hamilton Academical': 'Scotland',
+    # Serbia
+    'Partizan':            'Serbia',
+    'Partizan Belgrade':   'Serbia',
+    'RS Belgrade':         'Serbia',
+    # Slovakia
+    'Slovan Bratislava':   'Slovakia',
+    # Slovenia
+    'Olimpija Ljubljana':  'Slovenia',
+    # Spain
+    'Atlético Madrid':     'Spain',
+    'Deportivo La Coruña': 'Spain',
+    'FC Barcelona':        'Spain',
+    'Real Madrid':         'Spain',
+    'Real Zaragoza':       'Spain',
+    # Sweden
+    'Gothenburg':          'Sweden',
+    'Halmstads':           'Sweden',
+    'Malmo':               'Sweden',
+    # Switzerland
+    'Grasshoppers':        'Switzerland',
+    'Servette':            'Switzerland',
+    'Sion':                'Switzerland',
+    # Turkey
+    'Besiktas':            'Turkey',
+    'Fenerbache':          'Turkey',
+    'Galatasaray':         'Turkey',
+    # Ukraine
+    'Dinamo Kiev':         'Ukraine',
+    'Karpaty Lviv':        'Ukraine',
+    # Wales
+    'Aberystwyth Town':    'Wales',
 }
 
 # ── Full team name mappings ──────────────────────────────────────────────────

@@ -29,7 +29,7 @@ import re
 import unicodedata
 from collections import defaultdict
 
-from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES, COUNTRY_NAMES
+from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES, COUNTRY_NAMES, CLUB_NATIONS, LEAGUE_GROUPS
 
 
 def _slug(s):
@@ -125,6 +125,15 @@ class Dataset:
             (int(t['capacity']) for t in self.teams if t['capacity']),
             default=0,
         )
+
+        # Nation indexes
+        _league_to_nation = {lg: nation for nation, lgs in LEAGUE_GROUPS for lg in lgs}
+        self.clubs_by_nation = defaultdict(list)
+        for t in self.teams:
+            nation = _league_to_nation.get(t['league']) or CLUB_NATIONS.get(t['team'])
+            if nation:
+                self.clubs_by_nation[nation].append(t)
+        self.nation_names = sorted(self.clubs_by_nation)
 
     def get_rating(self, player):
         """Return the position-specific rating for a player dict."""

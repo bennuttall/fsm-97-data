@@ -7,7 +7,7 @@ from collections import defaultdict
 
 from fsm97.constants import (
     SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, POS_ORDER,
-    LEAGUE_GROUPS, TEAM_NAMES, country_flag,
+    CLUB_NATIONS, LEAGUE_GROUPS, TEAM_NAMES, country_flag,
 )
 from fsm97.credits import CREDITS, NO_PLAYER_MATCH
 from fsm97.data import Dataset
@@ -40,34 +40,25 @@ nat_to_country         = None
 nat_to_flag            = None
 league_to_flag         = None
 country_name_to_flag   = None
+clubs_by_nation        = None
+nation_names           = None
 
 def pr(p):
     """Return position rating for a player dict."""
     return ds.get_rating(p)
 
-# ── Country labels for "Others" teams ─────────────────────────────────────────
-# Maps full team names (post-TEAM_NAMES correction) to their home country.
-# Used to show a meaningful country label instead of "Others" on team pages.
-
-OTHERS_COUNTRIES = {
-    # England (easter egg / spare clubs kept in Others)
-    'EA All Stars': 'England',
-    'EA Select XI': 'England',
-}
-
+_league_to_country = {lg: country for country, leagues in LEAGUE_GROUPS for lg in leagues}
 
 def team_league_label(t):
-    """Return a display label for a team's league (country name for Others teams)."""
+    """Return a display label for a team's league (nation name for Others clubs)."""
     if t['league'] == 'Others':
-        return OTHERS_COUNTRIES.get(t['team'], 'Others')
+        return CLUB_NATIONS.get(t['team'], 'Others')
     return t['league']
-
-_league_to_country = {lg: country for country, leagues in LEAGUE_GROUPS for lg in leagues}
 
 def team_country(t):
     """Return the country a team is based in."""
     if t['league'] == 'Others':
-        return OTHERS_COUNTRIES.get(t['team'], 'Others')
+        return CLUB_NATIONS.get(t['team'], '')
     return _league_to_country.get(t['league'], '')
 
 # ── Utilities ──────────────────────────────────────────────────────────────────
@@ -253,6 +244,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
     nav_links = [
         ('Home',          f'{prefix}'),
         ('Leagues',       f'{prefix}leagues/'),
+        ('Nations',       f'{prefix}nations/'),
         ('Clubs',         f'{prefix}clubs/'),
         ('Players',       f'{prefix}players/'),
         ('Stadiums',      f'{prefix}stadiums/'),
@@ -482,6 +474,20 @@ def stadium_url(stadium_name, prefix=''):
         return None
     return f"{prefix}stadiums/{slug(stadium_name)}/"
 
+def nation_url(nation, prefix=''):
+    return f"{prefix}nations/{slug(nation)}/"
+
+def league_or_nation_cell(player, prefix=''):
+    """League link for leagued players; nation link for Others players."""
+    if player['league'] != 'Others':
+        return league_cell(player['league'], prefix)
+    nation = CLUB_NATIONS.get(player['team'])
+    if not nation:
+        return h(player['league'])
+    flag = country_name_to_flag.get(nation, '')
+    flag_str = f'{flag} ' if flag else ''
+    return f'{flag_str}<a href="{nation_url(nation, prefix)}">{h(nation)}</a>'
+
 def nat_url(nationality, prefix=''):
     if not nationality:
         return None
@@ -600,7 +606,7 @@ def make_home():
 
     league_cards = ''
     ordered_leagues = [lg for _, lgs in LEAGUE_GROUPS for lg in lgs
-                       if lg in teams_by_league and len(lgs) > 1 and lg not in OTHER_LEAGUE_OVERFLOW]
+                       if lg in teams_by_league and len(lgs) > 1]
     for lg in ordered_leagues:
         teams = teams_by_league[lg]
         count = len(teams)
@@ -622,6 +628,7 @@ def make_home():
     <div class="cards">{league_cards}</div>
     <h2>Browse</h2>
     <div class="cards">
+      <a href="nations/" style="text-decoration:none"><div class="card"><h3>🗺️ Nations</h3><div class="label">{len(nation_names)} nations with clubs in the database</div></div></a>
       <a href="stats/" style="text-decoration:none"><div class="card"><h3>📊 Stats &amp; Records</h3><div class="label">Top players, skill leaders, squad rankings</div></div></a>
       <a href="stats/best-of/" style="text-decoration:none"><div class="card"><h3>🏆 Best Of All</h3><div class="label">Records by position, skill and league</div></div></a>
       <a href="trivia/" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players, clubs and stadiums</div></div></a>
@@ -636,15 +643,10 @@ def make_home():
 
 # ── LEAGUE PAGES ──────────────────────────────────────────────────────────────
 
-OTHER_LEAGUE_OVERFLOW = {'English Non-League', 'Scottish League', 'German League', 'French League', 'Italian League'}
-
 def make_leagues():
     # Index — grouped by country
     body = ''
-    other_rows = ''
     for country, lgs in LEAGUE_GROUPS:
-        if country == 'Others':
-            continue
         cflag = league_to_flag.get(lgs[0], '')
         cflag_str = f'{cflag} ' if cflag else ''
         if len(lgs) == 1:
@@ -652,11 +654,10 @@ def make_leagues():
             if lg in teams_by_league:
                 teams = teams_by_league[lg]
                 pc = sum(len(players_by_team[t['team']]) for t in teams)
-                other_rows += f'<tr><td>{cflag_str}{h(country)}</td><td><a href="{slug(lg)}/">{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
+                body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody><tr><td><a href="{slug(lg)}/">{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr></tbody></table>'
         else:
-            main_lgs = [lg for lg in lgs if lg not in OTHER_LEAGUE_OVERFLOW]
             rows = ''
-            for lg in main_lgs:
+            for lg in lgs:
                 if lg not in teams_by_league:
                     continue
                 teams = teams_by_league[lg]
@@ -666,13 +667,10 @@ def make_leagues():
                 rows += f'<tr><td><a href="{slug(lg)}/">{lflag_str}{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
             if rows:
                 body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
-            for lg in lgs:
-                if lg in OTHER_LEAGUE_OVERFLOW and lg in teams_by_league:
-                    teams = teams_by_league[lg]
-                    pc = sum(len(players_by_team[t['team']]) for t in teams)
-                    other_rows += f'<tr><td>{cflag_str}{h(country)}</td><td><a href="{slug(lg)}/">{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
-    if other_rows:
-        body += f'<h2>Other Leagues</h2><table><thead><tr><th>Country</th><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{other_rows}</tbody></table>'
+    if 'Others' in teams_by_league:
+        others = teams_by_league['Others']
+        pc = sum(len(players_by_team[t['team']]) for t in others)
+        body += f'<h2>Other Clubs</h2><p class="muted" style="margin-bottom:0.5rem">Clubs not assigned to a named league — browse by <a href="../nations/">nation</a>.</p><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody><tr><td><a href="others/">Others</a></td><td class="num">{len(others):,}</td><td class="num">{pc:,}</td></tr></tbody></table>'
     write(f"{OUT_DIR}/leagues/index.html",
           page("Leagues", body, depth=1, active='Leagues',
                header_title="All Leagues", header_sub=f"{len(league_names)} leagues"))
@@ -696,7 +694,7 @@ def make_leagues():
             pc    = len(players_by_team[t['team']])
             avg   = (sum(pr(p) for p in players_by_team[t['team']]) / pc) if pc else 0
             avg_s = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '—'
-            extra = f'<td>{country_display(OTHERS_COUNTRIES.get(t["team"], ""))}</td>' if is_others else f'<td>{h(t["manager"])}</td>'
+            extra = f'<td>{country_display(CLUB_NATIONS.get(t["team"], ""))}</td>' if is_others else f'<td>{h(t["manager"])}</td>'
             team_rows += f'''<tr>
               <td><a href="{prefix}clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
               <td>{h(t["nickname"])}</td>
@@ -924,9 +922,16 @@ def make_teams():
         pm_star = '&nbsp;<span title="Player-Manager" style="cursor:default">⭐</span>' if t['is_player_manager'] == 'True' else ''
         mgr_label = 'Player-Manager' if t['is_player_manager'] == 'True' else 'Manager'
         mgr_card = f'<div class="card"><div class="stat">{h(t["manager"])}{pm_star}</div><div class="label">{mgr_label}</div></div>' if t['manager'] else ''
+        _nation = CLUB_NATIONS.get(t['team']) if t['league'] == 'Others' else None
+        if t['league'] != 'Others':
+            league_card = f'<div class="card"><div class="stat">{h(t["league"])}</div><div class="label"><a href="{prefix}leagues/{slug(t["league"])}/">View league</a></div></div>'
+        elif _nation:
+            league_card = f'<div class="card"><div class="stat">{country_display(_nation)}</div><div class="label"><a href="{prefix}nations/{slug(_nation)}/">View nation</a></div></div>'
+        else:
+            league_card = f'<div class="card"><div class="stat">Others</div><div class="label"><a href="{prefix}leagues/others/">View league</a></div></div>'
         meta = f'''<div class="cards" style="margin-bottom:1rem">
           {nick_card}
-          <div class="card"><div class="stat">{country_display(team_league_label(t))}</div><div class="label"><a href="{prefix}leagues/{slug(t["league"])}/">View league</a></div></div>
+          {league_card}
           <div class="card"><div class="stat">{stad_html}</div><div class="label">Stadium · {int(t["capacity"]):,} capacity</div></div>
           {area_card}
           {mgr_card}
@@ -1639,7 +1644,7 @@ def make_players():
         name = f'{h(p["first_name"])} {h(p["last_name"])}'
         name_link = f'<a href="../{player_anchor(p["first_name"], p["last_name"], p["team"])}">{name}</a>'
         team_link = f'<a href="../clubs/{slug(p["team"])}/">{h(p["team"])}</a>'
-        lg_link   = league_cell(p["league"], '../')
+        lg_link   = league_or_nation_cell(p, '../')
         pos_link  = f'<a href="../positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a>' if p['position'] else ''
         nat_link  = nat_cell(p['nationality'], '../')
         avg_cell  = f'<span class="{rating_class(avg)}">{avg}</span>'
@@ -1660,7 +1665,7 @@ def make_players():
       <thead><tr>
         <th data-sort>Player</th>
         <th data-sort>Club</th>
-        <th data-sort>League</th>
+        <th data-sort>League / Nation</th>
         <th data-sort>Position</th>
         <th data-sort>Nationality</th>
         <th class="num" data-sort>Age</th>
@@ -1752,6 +1757,105 @@ def make_credits():
                header_sub="The team behind FIFA Soccer Manager 97"))
 
 
+# ── NATION PAGES ─────────────────────────────────────────────────────────────
+
+def make_nations():
+    # Index
+    rows = ''
+    for nation in nation_names:
+        clubs = clubs_by_nation[nation]
+        nplayers = sum(len(players_by_team[t['team']]) for t in clubs)
+        flag = country_name_to_flag.get(nation, '')
+        flag_str = f'{flag} ' if flag else ''
+        rows += f'<tr><td>{flag_str}<a href="{slug(nation)}/">{h(nation)}</a></td><td class="num">{len(clubs):,}</td><td class="num">{nplayers:,}</td></tr>'
+    body = f'<table><thead><tr><th data-sort>Nation</th><th class="num" data-sort>Clubs</th><th class="num" data-sort>Players</th></tr></thead><tbody>{rows}</tbody></table>'
+    write(f"{OUT_DIR}/nations/index.html",
+          page("Nations", body, depth=1, active='Nations',
+               header_title="Nations", header_sub=f"{len(nation_names)} nations"))
+
+    # Per-nation pages
+    for nation in nation_names:
+        clubs = clubs_by_nation[nation]
+        prefix = '../../'
+        flag = country_name_to_flag.get(nation, '')
+        flag_str = f'{flag} ' if flag else ''
+
+        leagued = {}
+        unaffiliated = []
+        for t in sorted(clubs, key=lambda t: t['team']):
+            if t['league'] == 'Others':
+                unaffiliated.append(t)
+            else:
+                leagued.setdefault(t['league'], []).append(t)
+
+        body = ''
+        for lg, lg_clubs in sorted(leagued.items()):
+            rows = ''
+            for t in lg_clubs:
+                pc  = len(players_by_team[t['team']])
+                avg = (sum(pr(p) for p in players_by_team[t['team']]) / pc) if pc else 0
+                avg_s = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '—'
+                slink = stadium_url(t['stadium'])
+                stad  = tlink(t['stadium'], stadium_url(t['stadium'], prefix)) if slink else h(t['stadium'])
+                rows += f'''<tr>
+                  <td><a href="{prefix}clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
+                  <td>{h(t["nickname"])}</td>
+                  <td>{stad}</td>
+                  <td class="num">{int(t["capacity"]):,}</td>
+                  <td>{h(t["manager"])}</td>
+                  <td class="num">{avg_s}</td>
+                </tr>'''
+            lflag = league_to_flag.get(lg, '')
+            lflag_str = f'{lflag} ' if lflag else ''
+            body += f'<h2><a href="{prefix}leagues/{slug(lg)}/">{lflag_str}{h(lg)}</a></h2>'
+            body += f'<table><thead><tr><th>Club</th><th>Nickname</th><th>Stadium</th><th class="num">Capacity</th><th>Manager</th><th class="num">Squad Rating</th></tr></thead><tbody>{rows}</tbody></table>'
+
+        if unaffiliated:
+            rows = ''
+            for t in unaffiliated:
+                pc  = len(players_by_team[t['team']])
+                avg = (sum(pr(p) for p in players_by_team[t['team']]) / pc) if pc else 0
+                avg_s = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '—'
+                slink = stadium_url(t['stadium'])
+                stad  = tlink(t['stadium'], stadium_url(t['stadium'], prefix)) if slink else h(t['stadium'])
+                rows += f'''<tr>
+                  <td><a href="{prefix}clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
+                  <td>{h(t["nickname"])}</td>
+                  <td>{stad}</td>
+                  <td class="num">{int(t["capacity"]):,}</td>
+                  <td class="num">{avg_s}</td>
+                </tr>'''
+            h2 = 'Clubs' if not leagued else 'Other clubs'
+            body += f'<h2>{h2}</h2>'
+            body += f'<table><thead><tr><th>Club</th><th>Nickname</th><th>Stadium</th><th class="num">Capacity</th><th class="num">Squad Rating</th></tr></thead><tbody>{rows}</tbody></table>'
+
+        # Top players
+        club_names = {t['team'] for t in clubs}
+        top_players = sorted(
+            [p for p in players_raw if p['team'] in club_names],
+            key=lambda p: pr(p), reverse=True
+        )[:15]
+        if top_players:
+            player_rows = ''
+            for p in top_players:
+                player_rows += f'''<tr>
+                  <td><a href="{prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
+                  <td><a href="{prefix}clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
+                  <td><a href="{prefix}positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
+                  <td class="nat">{nat_cell(p["nationality"], prefix)}</td>
+                  <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
+                </tr>'''
+            body += f'''<h2>Top Players</h2>
+            <table><thead><tr><th>Player</th><th>Club</th><th>Position</th><th>Nationality</th><th class="num">Rating</th></tr></thead>
+            <tbody>{player_rows}</tbody></table>'''
+
+        write(f"{OUT_DIR}/nations/{slug(nation)}/index.html",
+              page(nation, body, depth=2, active='Nations',
+                   header_title=f"{flag_str}{nation}",
+                   header_sub=f"{len(clubs)} {'club' if len(clubs) == 1 else 'clubs'}",
+                   breadcrumb=bc([('Nations','../'), (nation,None)], prefix='../../')))
+
+
 # ── SITEMAP ───────────────────────────────────────────────────────────────────
 
 def make_sitemap():
@@ -1761,6 +1865,7 @@ def make_sitemap():
     urls = [
         '/',
         '/leagues/',
+        '/nations/',
         '/clubs/',
         '/stadiums/',
         '/positions/',
@@ -1784,6 +1889,9 @@ def make_sitemap():
 
     for lg in sorted(league_names):
         urls.append(f'/leagues/{slug(lg)}/')
+
+    for nation in nation_names:
+        urls.append(f'/nations/{slug(nation)}/')
 
     named_stadiums = sorted(s for s in stadium_to_teams if not re.match(r'^XX\d+$', s.strip()))
     for sname in named_stadiums:
@@ -1820,6 +1928,7 @@ def main():
     global positions_info, stadium_to_teams, prating, pos_ratings_by_player
     global max_cap, pos_order, team_by_name
     global nat_to_country, nat_to_flag, league_to_flag, country_name_to_flag
+    global clubs_by_nation, nation_names
 
     parser = argparse.ArgumentParser(description="Generate FIFA Soccer Manager 97 static site")
     parser.add_argument('--csv-dir',  default='csv',  help="Input CSV directory (default: ./csv)")
@@ -1856,12 +1965,16 @@ def main():
     country_name_to_flag   = {c['country']: country_flag(c['code']) for c in countries_raw}
     league_to_flag         = {lg: country_name_to_flag.get(cn, '')
                                for cn, lgs in LEAGUE_GROUPS for lg in lgs}
+    clubs_by_nation        = ds.clubs_by_nation
+    nation_names           = ds.nation_names
 
     write(f"{OUT_DIR}/style.css", CSS)
     print("Generating home…")
     make_home()
     print("Generating leagues…")
     make_leagues()
+    print("Generating nations…")
+    make_nations()
     print("Generating teams…")
     make_teams()
     print("Generating players…")

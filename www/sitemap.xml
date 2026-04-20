@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fsm.bennuttall.com/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/</loc></url>
   <url><loc>https://fsm.bennuttall.com/clubs/</loc></url>
   <url><loc>https://fsm.bennuttall.com/stadiums/</loc></url>
   <url><loc>https://fsm.bennuttall.com/positions/</loc></url>
@@ -21,67 +22,67 @@
   <url><loc>https://fsm.bennuttall.com/trivia/stadiums/</loc></url>
   <url><loc>https://fsm.bennuttall.com/trivia/clubs/</loc></url>
   <url><loc>https://fsm.bennuttall.com/credits/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/albanian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/armenian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/austrian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/azerbaijani-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/belarusian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/belgian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/bulgarian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/croatian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/cypriot-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/czech-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/danish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/dutch-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/english-first-division/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/english-non-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/english-premier-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/english-second-division/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/english-third-division/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/estonian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/faroese-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/finnish-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/french-division-1/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/french-division-2/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/french-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/georgian-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/german-bundesliga-1/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/german-bundesliga-2/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/german-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/greek-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/hungarian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/icelandic-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/irish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/israeli-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/italian-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/italian-serie-a/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/italian-serie-b/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/latvian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/liechtenstein-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/lithuanian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/luxembourg-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/maltese-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/moldovan-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/northern-irish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/norwegian-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/others/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/polish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/portuguese-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/romanian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/russian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/san-marino-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/scottish-first-division/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/scottish-league/</loc></url>
   <url><loc>https://fsm.bennuttall.com/leagues/scottish-premier-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/serbian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/slovak-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/slovenian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/spanish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/swedish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/swiss-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/turkish-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/ukrainian-league/</loc></url>
-  <url><loc>https://fsm.bennuttall.com/leagues/welsh-league/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/albania/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/armenia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/austria/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/azerbaijan/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/belarus/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/belgium/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/bulgaria/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/croatia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/cyprus/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/czech-republic/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/denmark/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/england/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/estonia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/faroe-islands/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/finland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/france/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/georgia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/germany/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/greece/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/hungary/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/iceland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/israel/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/italy/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/latvia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/liechtenstein/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/lithuania/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/luxembourg/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/malta/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/moldova/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/netherlands/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/northern-ireland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/norway/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/poland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/portugal/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/republic-of-ireland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/romania/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/russia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/san-marino/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/scotland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/serbia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/slovakia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/slovenia/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/spain/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/sweden/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/switzerland/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/turkey/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/ukraine/</loc></url>
+  <url><loc>https://fsm.bennuttall.com/nations/wales/</loc></url>
   <url><loc>https://fsm.bennuttall.com/stadiums/aarhus-st/</loc></url>
   <url><loc>https://fsm.bennuttall.com/stadiums/abbe-deschamps/</loc></url>
   <url><loc>https://fsm.bennuttall.com/stadiums/abbey-stadium/</loc></url>
