@@ -416,7 +416,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
     nav_links = [
         ('Home',          f'{prefix}'),
         ('Leagues',       f'{prefix}leagues/'),
-        ('Teams',         f'{prefix}teams/'),
+        ('Clubs',         f'{prefix}clubs/'),
         ('Players',       f'{prefix}players/'),
         ('Stadiums',      f'{prefix}stadiums/'),
         ('Positions',     f'{prefix}positions/'),
@@ -608,7 +608,7 @@ CLUB_TRIVIA = {
 # ── Links helpers ──────────────────────────────────────────────────────────────
 
 def team_url(team_name, prefix=''):
-    return f"{prefix}teams/{slug(team_name)}/"
+    return f"{prefix}clubs/{slug(team_name)}/"
 
 def league_url(league_name, prefix=''):
     return f"{prefix}leagues/{slug(league_name)}/"
@@ -632,7 +632,7 @@ def linkify_trivia(text, prefix='../'):
     escaped = h(text)
     for t in sorted(teams_raw, key=lambda t: -len(t['team'])):
         name = h(t['team'])
-        url  = f'{prefix}teams/{slug(t["team"])}/'
+        url  = f'{prefix}clubs/{slug(t["team"])}/'
         escaped = re.sub(
             r'\b' + re.escape(name) + r'\b',
             f'<a href="{url}">{name}</a>',
@@ -745,7 +745,7 @@ def make_home():
 
     highlights = f'''<div class="highlights">
       <a href="leagues/" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_leagues}</div><div class="hl-lbl">Leagues</div></div></a>
-      <a href="teams/" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_teams:,}</div><div class="hl-lbl">Teams</div></div></a>
+      <a href="clubs/" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_teams:,}</div><div class="hl-lbl">Clubs</div></div></a>
       <a href="players/" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_players:,}</div><div class="hl-lbl">Players</div></div></a>
       <a href="stadiums/" style="text-decoration:none"><div class="hl"><div class="hl-val">{total_stadiums:,}</div><div class="hl-lbl">Stadiums</div></div></a>
       <a href="nationalities/" style="text-decoration:none"><div class="hl"><div class="hl-val">{nats:,}</div><div class="hl-lbl">Nationalities</div></div></a>
@@ -814,7 +814,7 @@ def make_leagues():
             lflag_str = f'{lflag} ' if lflag else ''
             rows += f'<tr><td><a href="{slug(lg)}/">{lflag_str}{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
         if rows:
-            body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Teams</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
+            body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
     write(f"{OUT_DIR}/leagues/index.html",
           page("Leagues", body, depth=1, active='Leagues',
                header_title="All Leagues", header_sub=f"{len(league_names)} competitions"))
@@ -840,7 +840,7 @@ def make_leagues():
             avg_s = f'<span class="{rating_class(avg)}">{avg:.1f}</span>' if pc else '—'
             extra = f'<td>{country_display(OTHERS_COUNTRIES.get(t["team"], ""))}</td>' if is_others else f'<td>{h(t["manager"])}</td>'
             team_rows += f'''<tr>
-              <td><a href="{prefix}teams/{slug(t["team"])}/">{h(t["team"])}</a></td>
+              <td><a href="{prefix}clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
               <td>{h(t["nickname"])}</td>
               <td>{stad}</td>
               <td class="num">{cap}</td>
@@ -852,14 +852,14 @@ def make_leagues():
         for p in top_players:
             player_rows += f'''<tr>
               <td><a href="{prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="{prefix}teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="{prefix}clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td><a href="{prefix}positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
               <td class="nat">{nat_cell(p["nationality"], prefix)}</td>
               <td class="num"><span class="{rating_class(pr(p))}">{pr(p)}</span></td>
             </tr>'''
 
         body = f'''
-        <div class="filter-bar"><input data-filter="teams-{slug(lg)}" placeholder="Filter teams…"></div>
+        <div class="filter-bar"><input data-filter="teams-{slug(lg)}" placeholder="Filter clubs…"></div>
         <h2>Clubs</h2>
         <table id="teams-{slug(lg)}">
           <thead><tr><th data-sort>Club</th><th data-sort>Nickname</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th data-sort>{"Country" if is_others else "Manager"}</th><th class="num" data-sort>Squad Rating</th></tr></thead>
@@ -1036,14 +1036,14 @@ def make_teams():
           <td class="num">{avg_cell}</td>
         </tr>'''
     body = f'''{alpha}
-    <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter teams…"></div>
+    <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter clubs…"></div>
     <table id="all-teams">
-      <thead><tr><th data-sort>Team</th><th data-sort>Country</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
+      <thead><tr><th data-sort>Club</th><th data-sort>Country</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
-    write(f"{OUT_DIR}/teams/index.html",
-          page("All Teams", body, depth=1, active='Teams',
-               header_title="All Teams", header_sub=f"{len(teams_raw)} clubs"))
+    write(f"{OUT_DIR}/clubs/index.html",
+          page("All Clubs", body, depth=1, active='Clubs',
+               header_title="All Clubs", header_sub=f"{len(teams_raw)} clubs"))
 
     # Per-team
     for t in teams_raw:
@@ -1080,11 +1080,11 @@ def make_teams():
         <h2>Full Squad</h2>
         {squad_table(t["team"], prefix)}'''
 
-        write(f"{OUT_DIR}/teams/{tslug}/index.html",
-              page(t['team'], body, depth=2, active='Teams',
+        write(f"{OUT_DIR}/clubs/{tslug}/index.html",
+              page(t['team'], body, depth=2, active='Clubs',
                    header_title=t['team'],
                    header_sub=h(team_league_label(t)),
-                   breadcrumb=bc([('Teams','../'), (t['team'],None)], prefix='../../')))
+                   breadcrumb=bc([('Clubs','../'), (t['team'],None)], prefix='../../')))
 
 # ── STADIUM PAGES ─────────────────────────────────────────────────────────────
 
@@ -1100,7 +1100,7 @@ def make_stadiums():
         cities = ', '.join(set(t['area'] for t in ts if t['area']))
         addr = ts[0]['stadium_address'] or ''
         location = ', '.join(x for x in [addr, cities] if x)
-        club_links = ', '.join(f'<a href="../teams/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
+        club_links = ', '.join(f'<a href="../clubs/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="{slug(sname)}/">{h(sname)}</a></td>
@@ -1135,7 +1135,7 @@ def make_stadiums():
         for t in ts:
             pc  = len(players_by_team[t['team']])
             avg = (sum(pr(p) for p in players_by_team[t['team']]) / pc) if pc else 0
-            club_cards += f'''<a href="{prefix}teams/{slug(t["team"])}/" style="text-decoration:none">
+            club_cards += f'''<a href="{prefix}clubs/{slug(t["team"])}/" style="text-decoration:none">
               <div class="card">
                 <h3>{h(t["team"])}</h3>
                 <div class="label">{league_cell(t["league"], prefix)}</div>
@@ -1208,7 +1208,7 @@ def make_positions():
             prows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="{prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="{prefix}teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="{prefix}clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td>{league_cell(p["league"], prefix)}</td>
               <td class="nat">{nat_cell(p["nationality"], prefix)}</td>
               <td>{pos_cell}</td>
@@ -1226,7 +1226,7 @@ def make_positions():
             oop_rows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="{prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="{prefix}teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="{prefix}clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td>{league_cell(p["league"], prefix)}</td>
               <td class="nat">{nat_cell(p["nationality"], prefix)}</td>
               <td><a href="{prefix}positions/{slug(nat_pos)}/" class="pos">{h(nat_pos)}</a></td>
@@ -1280,7 +1280,7 @@ def make_nationalities():
         for p in pp_sorted:
             prows += f'''<tr>
               <td><a href="{nat_prefix}{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="{nat_prefix}teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="{nat_prefix}clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td>{league_cell(p["league"], nat_prefix)}</td>
               <td><a href="{nat_prefix}positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
               <td class="num" title="{p["dob"]}">{p["age"]}</td>
@@ -1320,7 +1320,7 @@ def make_stats_age_groups():
             rows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="../../teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="../../clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td>{league_cell(p["league"], '../../')}</td>
               <td><a href="../../positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
               <td class="nat">{nat_cell(p["nationality"], '../../')}</td>
@@ -1360,7 +1360,7 @@ def make_stats_player_managers():
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="../../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a> <span title="Player-Manager" style="cursor:default">⭐</span></td>
-          <td><a href="../../teams/{slug(t["team"])}/">{h(t["team"])}</a></td>
+          <td><a href="../../clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
           <td>{league_cell(t["league"], '../../')}</td>
           <td><a href="../../positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
           <td class="nat">{nat_cell(p["nationality"], '../../')}</td>
@@ -1401,7 +1401,7 @@ def make_stats_top_players():
         rows += f'''<tr>
           <td class="num">{i}</td>
           <td><a href="../../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-          <td><a href="../../teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+          <td><a href="../../clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
           <td>{league_cell(p["league"], '../../')}</td>
           <td><a href="../../positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a></td>
           <td class="nat">{nat_cell(p["nationality"], '../../')}</td>
@@ -1426,7 +1426,7 @@ def make_stats_top_players():
             prows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../../{player_anchor(p["first_name"],p["last_name"],p["team"])}">{h(p["first_name"])} {h(p["last_name"])}</a></td>
-              <td><a href="../../teams/{slug(p["team"])}/">{h(p["team"])}</a></td>
+              <td><a href="../../clubs/{slug(p["team"])}/">{h(p["team"])}</a></td>
               <td class="nat">{nat_cell(p["nationality"], '../../')}</td>
               {nat_pos_cell}
               <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
@@ -1457,7 +1457,7 @@ def make_stats_skill_leaders():
             rows += f'''<tr>
               <td class="num">{i}</td>
               <td><a href="../../{player_anchor(s["first_name"],s["last_name"],s["team"])}">{h(s["first_name"])} {h(s["last_name"])}</a></td>
-              <td><a href="../../teams/{slug(s["team"])}/">{h(s["team"])}</a></td>
+              <td><a href="../../clubs/{slug(s["team"])}/">{h(s["team"])}</a></td>
               <td class="nat">{nat_cell(s["nationality"], '../../')}</td>
               <td><a href="../../positions/{slug(s["position"])}/" class="pos">{h(s["position"])}</a></td>
               <td class="num"><span class="{rating_class(v)}">{v}</span></td>
@@ -1477,7 +1477,7 @@ def make_stats_stadiums():
 
     def stad_row(i, sname, ts, show_country=True):
         cap      = int(ts[0]['capacity'] or 0)
-        clubs    = ', '.join(f'<a href="../../teams/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
+        clubs    = ', '.join(f'<a href="../../clubs/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
         addr     = ts[0]['stadium_address'] or ''
         area     = ', '.join(set(t['area'] for t in ts if t['area']))
         location = ', '.join(x for x in [addr, area] if x)
@@ -1538,7 +1538,7 @@ def make_stats_squads():
     for i, (t, pp, avg, nats, home_pct) in enumerate(squad_stats, 1):
         rows += f'''<tr>
           <td class="num">{i}</td>
-          <td><a href="../../teams/{slug(t["team"])}/">{h(t["team"])}</a></td>
+          <td><a href="../../clubs/{slug(t["team"])}/">{h(t["team"])}</a></td>
           <td>{league_cell(t["league"], '../../')}</td>
           <td class="num">{len(pp):,}</td>
           <td class="num"><span class="{rating_class(avg)}">{avg:.1f}</span></td>
@@ -1622,7 +1622,7 @@ def make_stats_best_of():
           <td><a href="../../positions/{slug(pos)}/" class="pos">{pos}</a></td>
           <td>{h(info.get("position",""))}</td>
           <td><a href="../../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
-          <td><a href="../../teams/{slug(best["team"])}/">{h(best["team"])}</a></td>
+          <td><a href="../../clubs/{slug(best["team"])}/">{h(best["team"])}</a></td>
           <td class="nat">{nat_cell(best["nationality"], '../../')}</td>
           {nat_pos_cell}
           <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
@@ -1639,7 +1639,7 @@ def make_stats_best_of():
         sk_rows += f'''<tr>
           <td>{h(SKILL_LABELS[col])}</td>
           <td><a href="../../{player_anchor(best_s["first_name"],best_s["last_name"],best_s["team"])}">{h(best_s["first_name"])} {h(best_s["last_name"])}</a></td>
-          <td><a href="../../teams/{slug(best_s["team"])}/">{h(best_s["team"])}</a></td>
+          <td><a href="../../clubs/{slug(best_s["team"])}/">{h(best_s["team"])}</a></td>
           <td class="nat">{nat_cell(best_s["nationality"], '../../')}</td>
           <td><a href="../../positions/{slug(best_s["position"])}/" class="pos">{h(best_s["position"])}</a></td>
           <td class="num"><span class="{rating_class(v)}">{v}</span></td>
@@ -1658,7 +1658,7 @@ def make_stats_best_of():
         lg_rows += f'''<tr>
           <td>{league_cell(lg, '../../')}</td>
           <td><a href="../../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
-          <td><a href="../../teams/{slug(best["team"])}/">{h(best["team"])}</a></td>
+          <td><a href="../../clubs/{slug(best["team"])}/">{h(best["team"])}</a></td>
           <td class="nat">{nat_cell(best["nationality"], '../../')}</td>
           <td><a href="../../positions/{slug(best["position"])}/" class="pos">{h(best["position"])}</a></td>
           <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
@@ -1677,7 +1677,7 @@ def make_stats_best_of():
           <td>{nat_cell(nat, '../../')}</td>
           <td class="num">{len(pp):,}</td>
           <td><a href="../../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
-          <td><a href="../../teams/{slug(best["team"])}/">{h(best["team"])}</a></td>
+          <td><a href="../../clubs/{slug(best["team"])}/">{h(best["team"])}</a></td>
           <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
         </tr>'''
     sections += f'''<h2>Best Player by Nationality</h2>
@@ -1714,7 +1714,7 @@ def make_trivia():
             p = matches[0]
             display = PLAYER_DISPLAY_NAMES.get((first, last), f'{first} {last}')
             link = f'<a href="../../{player_anchor(first, last, p["team"])}">{h(display)}</a>'
-            team_link = f'<a href="../../teams/{slug(p["team"])}/">{h(p["team"])}</a>'
+            team_link = f'<a href="../../clubs/{slug(p["team"])}/">{h(p["team"])}</a>'
             nat_link  = nat_cell(p["nationality"], '../../')
             avg = pr(p)
             badge = f'<span class="{rating_class(avg)}">{avg:.1f}</span>'
@@ -1736,7 +1736,7 @@ def make_trivia():
         if match_name:
             ts = stadium_to_teams[match_name]
             cap = int(ts[0]['capacity'] or 0)
-            club_links = ', '.join(f'<a href="../../teams/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
+            club_links = ', '.join(f'<a href="../../clubs/{slug(t["team"])}/">{h(t["team"])}</a>' for t in ts)
             stad_link = f'<a href="../../stadiums/{sslug}/">{h(match_name)}</a>'
             header = f'{stad_link} · {club_links} · {cap:,} capacity'
         else:
@@ -1758,7 +1758,7 @@ def make_trivia():
         match_team = next((t for t in teams_raw if slug(t['team']) == resolved), None)
         if match_team:
             tslug = slug(match_team['team'])
-            team_link = f'<a href="../../teams/{tslug}/">{h(match_team["team"])}</a>'
+            team_link = f'<a href="../../clubs/{tslug}/">{h(match_team["team"])}</a>'
             lg_link   = f'<a href="../../leagues/{slug(match_team["league"])}/">{h(match_team["league"])}</a>'
             header    = f'{team_link} · {lg_link}'
         else:
@@ -1780,7 +1780,7 @@ def make_players():
         avg  = pr(p)
         name = f'{h(p["first_name"])} {h(p["last_name"])}'
         name_link = f'<a href="../{player_anchor(p["first_name"], p["last_name"], p["team"])}">{name}</a>'
-        team_link = f'<a href="../teams/{slug(p["team"])}/">{h(p["team"])}</a>'
+        team_link = f'<a href="../clubs/{slug(p["team"])}/">{h(p["team"])}</a>'
         lg_link   = league_cell(p["league"], '../')
         pos_link  = f'<a href="../positions/{slug(p["position"])}/" class="pos">{h(p["position"])}</a>' if p['position'] else ''
         nat_link  = nat_cell(p['nationality'], '../')
@@ -1794,14 +1794,14 @@ def make_players():
 
     body = f'''
     <p class="muted" style="margin-bottom:1rem">{len(players_raw):,} players across all leagues.
-    Search by name, team, league, position or nationality.</p>
+    Search by name, club, league, position or nationality.</p>
     <div class="filter-bar">
       <input data-filter="all-players" placeholder="Search players…" autofocus>
     </div>
     <table id="all-players">
       <thead><tr>
         <th data-sort>Player</th>
-        <th data-sort>Team</th>
+        <th data-sort>Club</th>
         <th data-sort>League</th>
         <th data-sort>Position</th>
         <th data-sort>Nationality</th>
@@ -1814,7 +1814,7 @@ def make_players():
     write(f"{OUT_DIR}/players/index.html",
           page("Players", body, depth=1, active='Players',
                header_title="All Players",
-               header_sub=f"{len(players_raw):,} players — search by name, team, position or nationality"))
+               header_sub=f"{len(players_raw):,} players — search by name, club, position or nationality"))
 
 
 # ── CREDITS ───────────────────────────────────────────────────────────────────
@@ -1903,7 +1903,7 @@ def make_sitemap():
     urls = [
         '/',
         '/leagues/',
-        '/teams/',
+        '/clubs/',
         '/stadiums/',
         '/positions/',
         '/nationalities/',
@@ -1932,7 +1932,7 @@ def make_sitemap():
         urls.append(f'/stadiums/{slug(sname)}/')
 
     for t in sorted(teams_raw, key=lambda t: t["team"]):
-        urls.append(f'/teams/{slug(t["team"])}/')
+        urls.append(f'/clubs/{slug(t["team"])}/')
 
     for pos in pos_order:
         if players_by_position.get(pos):

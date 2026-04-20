@@ -51,7 +51,7 @@ class Dataset:
     """All game data loaded from CSV files with pre-built indexes."""
 
     def __init__(self, csv_dir):
-        self.teams          = _load(csv_dir, 'teams.csv')
+        self.teams          = _load(csv_dir, 'clubs.csv')
         self.players        = _load(csv_dir, 'players.csv')
         self.skills         = _load(csv_dir, 'player_skills.csv')
         self.pos_ratings    = _load(csv_dir, 'player_position_ratings.csv')

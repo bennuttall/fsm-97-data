@@ -32,7 +32,7 @@ def write_countries(csv_dir, countries):
 
 def write_divisions(csv_dir, divisions):
     rows = [{'id': i + 1, **d} for i, d in enumerate(divisions)]
-    write_csv(csv_dir, 'divisions.csv',
+    write_csv(csv_dir, 'leagues.csv',
               ['id', 'division_name', 'country_id', 'tier', 'param3', 'param4'],
               rows)
 
@@ -56,7 +56,7 @@ def write_teams(csv_dir, teams):
         'stadium', 'stadium_address', 'area', 'capacity',
         'manager', 'is_player_manager',
     ]
-    write_csv(csv_dir, 'teams.csv', fieldnames, teams)
+    write_csv(csv_dir, 'clubs.csv', fieldnames, teams)
 
 
 def write_players(csv_dir, players):
