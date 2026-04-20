@@ -185,6 +185,14 @@ a:has(> .hl):hover .hl { border-color: var(--accent); }
 .trivia { background: #0f2820; border-left: 3px solid var(--gold); padding: 0.8rem 1rem;
           margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text); }
 .trivia strong { color: var(--gold); }
+/* Event cards */
+.event-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+              padding: 1rem 1.2rem; margin-bottom: 1rem; }
+.event-title { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.05em;
+               text-transform: uppercase; margin-bottom: 0.5rem; }
+.event-text { color: var(--text); font-size: 0.9rem; margin-bottom: 0; }
+.event-recovery { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem;
+                  border-top: 1px solid var(--border); padding-top: 0.5rem; font-style: italic; }
 /* Nationality flag-ish */
 .nat { font-size: 0.82rem; color: var(--muted); }
 footer { border-top: 1px solid var(--border); padding: 1rem 2rem; text-align: center;
@@ -251,6 +259,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
         ('Positions',     f'{prefix}positions/'),
         ('Nationalities', f'{prefix}nationalities/'),
         ('Stats',         f'{prefix}stats/'),
+        ('Events',        f'{prefix}events/'),
         ('Trivia',        f'{prefix}trivia/'),
         ('Credits',       f'{prefix}credits/'),
     ]
@@ -1556,6 +1565,56 @@ def make_stats_best_of():
 
 # ── TRIVIA PAGES ──────────────────────────────────────────────────────────────
 
+def make_strings():
+    CATEGORY_ORDER = [
+        ('windfall',          'Windfalls'),
+        ('financial_event',   'Financial Events'),
+        ('financial_warning', 'Financial Warnings'),
+        ('match_disruption',  'Match Disruptions'),
+        ('pitch_event',       'Pitch Events'),
+        ('pitch_warning',     'Pitch Warnings'),
+        ('general_event',     'General Events'),
+        ('player_event',      'Player Events'),
+        ('player_message',    'Player Messages'),
+        ('injury',            'Injuries'),
+        ('retirement',        'Retirements'),
+        ('dismissal',         'Dismissal'),
+        ('discipline',        'Discipline'),
+        ('season_result',     'Season Results'),
+        ('competition',       'Cup Competition'),
+        ('function_room',     'Function Room'),
+        ('facility',          'Stadium Facilities'),
+        ('misc',              'Miscellaneous'),
+    ]
+
+    from collections import defaultdict
+    by_cat = defaultdict(list)
+    for s in ds.strings:
+        by_cat[s['category']].append(s)
+
+    total = sum(len(v) for v in by_cat.values())
+    body = f'<p style="color:var(--muted);margin-bottom:1.5rem">{total} in-game event messages from the original game, grouped by type.</p>\n'
+
+    for cat_key, cat_label in CATEGORY_ORDER:
+        events = by_cat.get(cat_key, [])
+        if not events:
+            continue
+        body += f'<h2 id="{cat_key}" style="margin:2rem 0 1rem">{h(cat_label)}</h2>\n'
+        for ev in events:
+            title_id = re.sub(r'[^\w-]', '-', ev['title'].lower()).strip('-')
+            body += f'<div class="event-card" id="{title_id}">'
+            body += f'<h3 class="event-title">{h(ev["title"])}</h3>'
+            body += f'<p class="event-text">{h(ev["text"])}</p>'
+            if ev['recovery']:
+                body += f'<p class="event-recovery">{h(ev["recovery"])}</p>'
+            body += '</div>\n'
+
+    write(f"{OUT_DIR}/events/index.html",
+          page("Events", body, depth=1, active='Events',
+               header_title="In-Game Events",
+               header_sub="Random events and messages from FIFA Soccer Manager 97"))
+
+
 def make_trivia():
     # Index
     body = '''<p style="color:var(--muted);margin-bottom:1rem">Real-world context for the players, stadiums and clubs in the database — 1996/97 season.</p>
@@ -1882,6 +1941,7 @@ def make_sitemap():
         '/stats/squads/',
         '/stats/nationalities/',
         '/stats/best-of/',
+        '/events/',
         '/trivia/',
         '/trivia/players/',
         '/trivia/stadiums/',
@@ -1998,6 +2058,8 @@ def main():
     make_stats_squads()
     make_stats_nationalities()
     make_stats_best_of()
+    print("Generating events…")
+    make_strings()
     print("Generating trivia…")
     make_trivia()
     print("Generating credits…")
