@@ -1,0 +1,77 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div tal:condition="trivia" class="trivia" tal:content="structure trivia"></div>
+
+    <div class="cards" style="margin-bottom:1rem">
+      <div tal:condition="nickname" class="card">
+        <div class="stat">${nickname}</div>
+        <div class="label">Nickname</div>
+      </div>
+      <div class="card" tal:content="structure league_card"></div>
+      <div class="card">
+        <div class="stat" tal:content="structure stadium_html"></div>
+        <div class="label">Stadium · ${'{:,}'.format(capacity)} capacity</div>
+      </div>
+      <div tal:condition="area" class="card">
+        <div class="stat">${area}</div>
+        <div class="label">Area</div>
+      </div>
+      <div tal:condition="manager" class="card">
+        <div class="stat">${manager}<tal:block tal:condition="is_player_manager"> <span title="Player-Manager" style="cursor:default">&#x2B50;</span></tal:block></div>
+        <div class="label">${'Player-Manager' if is_player_manager else 'Manager'}</div>
+      </div>
+      <div tal:condition="player_count" class="card">
+        <div class="stat"><span class="${avg_class}">${avg}</span></div>
+        <div class="label">Squad avg · ${'{:,}'.format(player_count)} players</div>
+      </div>
+    </div>
+
+    <tal:block tal:condition="best_xi">
+      <h2>Best XI — 4-4-2</h2>
+      <div class="pitch">
+        <div tal:repeat="row best_xi" class="formation-row">
+          <div tal:repeat="p row" class="p-bubble">
+            <div class="p-circle ${p['circle_class']}">${p['position']}</div>
+            <div class="p-name"><a href="${p['url']}">${p['last_name']}</a></div>
+            <div class="p-avg">${p['rating']}</div>
+          </div>
+        </div>
+      </div>
+    </tal:block>
+
+    <h2>Full Squad</h2>
+    <tal:block tal:condition="not squad">
+      <p class="muted">No player data.</p>
+    </tal:block>
+    <table tal:condition="squad" id="squad-${team_slug}">
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Position</th>
+          <th data-sort="1">Player</th>
+          <th data-sort="1">Nationality</th>
+          <th class="num" data-sort="1">Age</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p squad" id="${p['id']}">
+          <td class="num">${p['shirt']}</td>
+          <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+          <td tal:attributes="data-sort-value '${p[\'last_name\']} ${p[\'first_name\']}'">
+            <strong>${p['first_name']} ${p['last_name']}</strong>
+            <tal:block tal:condition="p['is_pm']"> <span title="Player-Manager" style="cursor:default">&#x2B50;</span></tal:block>
+            <span tal:content="structure p['skills_html']"></span>
+          </td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a tal:condition="p['nat_url']" href="${p['nat_url']}">${p['nat_name']}</a><tal:block tal:condition="not p['nat_url']">${p['nat_name']}</tal:block>
+          </td>
+          <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

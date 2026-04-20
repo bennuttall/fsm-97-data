@@ -1,0 +1,41 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div class="alpha">
+      <a tal:repeat="letter letters" href="#${letter}">${letter}</a>
+    </div>
+
+    <div class="filter-bar">
+      <input data-filter="all-teams" placeholder="Filter clubs…">
+    </div>
+
+    <table id="all-teams">
+      <thead>
+        <tr>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">Nation</th>
+          <th data-sort="1">League / Nation</th>
+          <th data-sort="1">Stadium</th>
+          <th class="num" data-sort="1">Capacity</th>
+          <th class="num" data-sort="1">Players</th>
+          <th class="num" data-sort="1">Squad Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="t teams" tal:attributes="id t['letter_anchor']">
+          <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
+          <td tal:content="structure t['nation_html']"></td>
+          <td tal:content="structure t['league_html']"></td>
+          <td>
+            <a tal:condition="t['stadium_url']" href="${t['stadium_url']}">${t['stadium']}</a>
+            <tal:block tal:condition="not t['stadium_url']">${t['stadium']}</tal:block>
+          </td>
+          <td class="num">${'{:,}'.format(t['capacity'])}</td>
+          <td class="num">${t['player_count']}</td>
+          <td class="num"><span class="${t['avg_class']}">${t['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

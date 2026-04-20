@@ -25,6 +25,7 @@ lines_after_imports = 2
 [project.scripts]
 fsm-extract      = "fsm97.extract:main"
 fsm-generate-www = "fsm97.generate_www:main"
+fsm-scribe       = "fsm97.scribe:main"
 
 [build-system]
 requires = ["poetry-core"]
