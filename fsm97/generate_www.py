@@ -1328,7 +1328,7 @@ def make_stats_age_groups():
         <p>{len(group):,} players in this age group</p>
         <table><thead><tr>
           <th class="num">#</th><th>Player</th><th>Club</th><th>League</th>
-          <th>Position</th><th>Nat</th><th class="num">Age</th><th class="num">Rating</th>
+          <th>Position</th><th>Nationality</th><th class="num">Age</th><th class="num">Rating</th>
         </tr></thead><tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/stats/age-groups/index.html",
           page("Age Groups", sections, depth=2, active='Stats',
@@ -1368,7 +1368,7 @@ def make_stats_player_managers():
     body = f'''<p>{len(pm_players)} player-managers in the game.</p>
     <table><thead><tr>
       <th class="num">#</th><th>Player</th><th>Club</th><th>League</th>
-      <th>Position</th><th>Nat</th><th class="num">Age</th><th class="num">Rating</th>
+      <th>Position</th><th>Nationality</th><th class="num">Age</th><th class="num">Rating</th>
     </tr></thead><tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/stats/player-managers/index.html",
           page("Player-Managers", body, depth=2, active='Stats',
@@ -1455,11 +1455,12 @@ def make_stats_skill_leaders():
               <td class="num">{i}</td>
               <td><a href="../../{player_anchor(s["first_name"],s["last_name"],s["team"])}">{h(s["first_name"])} {h(s["last_name"])}</a></td>
               <td><a href="../../teams/{slug(s["team"])}/">{h(s["team"])}</a></td>
+              <td class="nat">{nat_cell(s["nationality"], '../../')}</td>
               <td><a href="../../positions/{slug(s["position"])}/" class="pos">{h(s["position"])}</a></td>
               <td class="num"><span class="{rating_class(v)}">{v}</span></td>
             </tr>'''
         sections += f'''<h3>{h(label)}</h3>
-        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>
+        <table><thead><tr><th class="num">#</th><th>Player</th><th>Club</th><th>Nationality</th><th>Position</th><th class="num">Value</th></tr></thead>
         <tbody>{rows}</tbody></table>'''
     write(f"{OUT_DIR}/stats/skill-leaders/index.html",
           page("Skill Leaders", sections, depth=2, active='Stats',
@@ -1636,11 +1637,12 @@ def make_stats_best_of():
           <td>{h(SKILL_LABELS[col])}</td>
           <td><a href="../../{player_anchor(best_s["first_name"],best_s["last_name"],best_s["team"])}">{h(best_s["first_name"])} {h(best_s["last_name"])}</a></td>
           <td><a href="../../teams/{slug(best_s["team"])}/">{h(best_s["team"])}</a></td>
+          <td class="nat">{nat_cell(best_s["nationality"], '../../')}</td>
           <td><a href="../../positions/{slug(best_s["position"])}/" class="pos">{h(best_s["position"])}</a></td>
           <td class="num"><span class="{rating_class(v)}">{v}</span></td>
         </tr>'''
     sections += f'''<h2>Leader in Every Skill</h2>
-    <table><thead><tr><th>Skill</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Value</th></tr></thead>
+    <table><thead><tr><th>Skill</th><th>Player</th><th>Club</th><th>Nationality</th><th>Position</th><th class="num">Value</th></tr></thead>
     <tbody>{sk_rows}</tbody></table>'''
 
     # Best per league
@@ -1654,11 +1656,12 @@ def make_stats_best_of():
           <td>{league_cell(lg, '../../')}</td>
           <td><a href="../../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
           <td><a href="../../teams/{slug(best["team"])}/">{h(best["team"])}</a></td>
+          <td class="nat">{nat_cell(best["nationality"], '../../')}</td>
           <td><a href="../../positions/{slug(best["position"])}/" class="pos">{h(best["position"])}</a></td>
           <td class="num"><span class="{rating_class(rating)}">{rating}</span></td>
         </tr>'''
     sections += f'''<h2>Best Player by League</h2>
-    <table><thead><tr><th>League</th><th>Player</th><th>Club</th><th>Position</th><th class="num">Rating</th></tr></thead>
+    <table><thead><tr><th>League</th><th>Player</th><th>Club</th><th>Nationality</th><th>Position</th><th class="num">Rating</th></tr></thead>
     <tbody>{lg_rows}</tbody></table>'''
 
     # Best per nationality
@@ -1668,7 +1671,7 @@ def make_stats_best_of():
         best = max(pp, key=nat_pos_rat)
         rating = nat_pos_rat(best)
         nat_rows += f'''<tr>
-          <td><a href="../../nationalities/{slug(nat)}/">{h(nat)}</a></td>
+          <td>{nat_cell(nat, '../../')}</td>
           <td class="num">{len(pp):,}</td>
           <td><a href="../../{player_anchor(best["first_name"],best["last_name"],best["team"])}">{h(best["first_name"])} {h(best["last_name"])}</a></td>
           <td><a href="../../teams/{slug(best["team"])}/">{h(best["team"])}</a></td>
