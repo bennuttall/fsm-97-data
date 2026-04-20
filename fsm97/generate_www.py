@@ -50,172 +50,9 @@ def pr(p):
 # Used to show a meaningful country label instead of "Others" on team pages.
 
 OTHERS_COUNTRIES = {
-    # Albania
-    'Teuta Durres':        'Albania',
-    # Armenia
-    'Shirak Gyumri':       'Armenia',
-    # Austria
-    'Admira Wacker':       'Austria',
-    'Austria Vienna':      'Austria',
-    'Rapid Vienna':        'Austria',
-    # Azerbaijan
-    'Kapaz Ganja':         'Azerbaijan',
-    # Belarus
-    'Dinamo Minsk':        'Belarus',
-    # Belgium
-    'Anderlecht':          'Belgium',
-    'Antwerp':             'Belgium',
-    'Club Brugge':         'Belgium',
-    'Lierse':              'Belgium',
-    'Standard Liege':      'Belgium',
-    # Bulgaria
-    'CSKA Sofia':          'Bulgaria',
-    'Leveski Sofia':       'Bulgaria',
-    'Neftochimik':         'Bulgaria',
-    'Slavia Sofia':        'Bulgaria',
-    # Croatia
-    'Hadjuk Split':        'Croatia',
-    # Cyprus
-    'APOEL Nicosia':       'Cyprus',
-    'Omonia Nicosia':      'Cyprus',
-    # Czech Republic
-    'Banik Ostrava':       'Czech Republic',
-    'Slavia Prague':       'Czech Republic',
-    'Sparta Prague':       'Czech Republic',
-    # Denmark
-    'Aarhus':              'Denmark',
-    'Brondby':             'Denmark',
-    'Odense':              'Denmark',
-    'Silkeborg':           'Denmark',
-    # England
-    'EA All Stars':        'England',
-    'EA Select XI':        'England',
-    'Kidderminster':       'England',
-    'Rushden & Diamonds':  'England',
-    # Estonia
-    'Flora':               'Estonia',
-    # Faroe Islands
-    'Itrottarfelag':       'Faroe Islands',
-    # Finland
-    'MYPA':                'Finland',
-    # France
-    'Ales':                'France',
-    'Angers':              'France',
-    'Dunkerque':           'France',
-    'Poitiers':            'France',
-    # Georgia
-    'Dinamo Tbilisi':      'Georgia',
-    'Samtredia':           'Georgia',
-    # Germany
-    '1. FC Nürnberg':      'Germany',
-    'Chemnitz':            'Germany',
-    'Hannover 96':         'Germany',
-    'Wattenscheid':        'Germany',
-    # Greece
-    'Athens':              'Greece',
-    'Olympiakos':          'Greece',
-    'Panathinaikos':       'Greece',
-    # Hungary
-    'Budapest':            'Hungary',
-    'Ferencvaros':         'Hungary',
-    # Iceland
-    'Hafnarfjardar':       'Iceland',
-    # Israel
-    'Betar Jerusalem':     'Israel',
-    # Italy
-    'Ancona':              'Italy',
-    'Avellino':            'Italy',
-    'Fidelis Andria':      'Italy',
-    'Pistoiese':           'Italy',
-    # Latvia
-    'Skonto Riga':         'Latvia',
-    # Liechtenstein
-    'Vaduz':               'Liechtenstein',
-    # Lithuania
-    'Inkaraz Grifas':      'Lithuania',
-    # Luxembourg
-    'Jeunesse':            'Luxembourg',
-    'Spora':               'Luxembourg',
-    # Malta
-    'Hibernians':          'Malta',
-    'Sliema':              'Malta',
-    # Moldova
-    'Tiligul Tiraspol':    'Moldova',
-    # Netherlands
-    'Ajax':                'Netherlands',
-    'Feyenoord':           'Netherlands',
-    'PSV Eindhoven':       'Netherlands',
-    'Twente':              'Netherlands',
-    'Vitesse':             'Netherlands',
-    # Northern Ireland
-    'Crusaders':           'Northern Ireland',
-    'Derry':               'Northern Ireland',
-    'Glenavon':            'Northern Ireland',
-    'Linfield':            'Northern Ireland',
-    # Norway
-    'Lillestrom':          'Norway',
-    'Rosenborg':           'Norway',
-    'Stravanger':          'Norway',
-    # Poland
-    'Katowice':            'Poland',
-    'Legia Warsaw':        'Poland',
-    'Widzew Lodz':         'Poland',
-    # Portugal
-    'Belenenses':          'Portugal',
-    'Benfica':             'Portugal',
-    'Boavista':            'Portugal',
-    'Porto':               'Portugal',
-    'Sporting Lisbon':     'Portugal',
-    # Republic of Ireland
-    'Bohemians':           'Republic of Ireland',
-    'Shamrock':            'Republic of Ireland',
-    # Romania
-    'Dinamo Bucharest':    'Romania',
-    'Rapid Bucharest':     'Romania',
-    'Steaua Bucharest':    'Romania',
-    'Uni Craiova':         'Romania',
-    # Russia
-    'Alania Vladikavkaz':  'Russia',
-    'CSKA Moscow':         'Russia',
-    'Dinamo Moscow':       'Russia',
-    'Rotor Volvograd':     'Russia',
-    'Spartak Moscow':      'Russia',
-    # San Marino
-    'Tre Fiori':           'San Marino',
-    # Serbia
-    'Partizan':            'Serbia',
-    'Partizan Belgrade':   'Serbia',
-    'RS Belgrade':         'Serbia',
-    # Slovakia
-    'Slovan Bratislava':   'Slovakia',
-    # Slovenia
-    'Olimpija Ljubljana':  'Slovenia',
-    # Spain
-    'Atlético Madrid':     'Spain',
-    'Deportivo La Coruña': 'Spain',
-    'FC Barcelona':        'Spain',
-    'Real Madrid':         'Spain',
-    'Real Zaragoza':       'Spain',
-    # Sweden
-    'Gothenburg':          'Sweden',
-    'Halmstads':           'Sweden',
-    'Malmo':               'Sweden',
-    # Switzerland
-    'Grasshoppers':        'Switzerland',
-    'Servette':            'Switzerland',
-    'Sion':                'Switzerland',
-    # Turkey
-    'Besiktas':            'Turkey',
-    'Fenerbache':          'Turkey',
-    'Galatasaray':         'Turkey',
-    # Ukraine
-    'Dinamo Kiev':         'Ukraine',
-    'Karpaty Lviv':        'Ukraine',
-    # Scotland (relegated/promoted clubs moved to Others league)
-    'Dumbarton':           'Scotland',
-    'Hamilton Academical': 'Scotland',
-    # Wales
-    'Aberystwyth Town':    'Wales',
+    # England (easter egg / spare clubs kept in Others)
+    'EA All Stars': 'England',
+    'EA Select XI': 'England',
 }
 
 
@@ -762,7 +599,8 @@ def make_home():
     </div>'''
 
     league_cards = ''
-    ordered_leagues = [lg for _, lgs in LEAGUE_GROUPS for lg in lgs if lg in teams_by_league]
+    ordered_leagues = [lg for _, lgs in LEAGUE_GROUPS for lg in lgs
+                       if lg in teams_by_league and len(lgs) > 1 and lg not in OTHER_LEAGUE_OVERFLOW]
     for lg in ordered_leagues:
         teams = teams_by_league[lg]
         count = len(teams)
@@ -798,28 +636,27 @@ def make_home():
 
 # ── LEAGUE PAGES ──────────────────────────────────────────────────────────────
 
+OTHER_LEAGUE_OVERFLOW = {'English Non-League', 'Scottish League', 'German League', 'French League', 'Italian League'}
+
 def make_leagues():
     # Index — grouped by country
     body = ''
+    other_rows = ''
     for country, lgs in LEAGUE_GROUPS:
+        if country == 'Others':
+            continue
         cflag = league_to_flag.get(lgs[0], '')
         cflag_str = f'{cflag} ' if cflag else ''
-        if country == 'Others':
-            by_country = defaultdict(list)
-            for t in teams_by_league.get('Others', []):
-                by_country[OTHERS_COUNTRIES.get(t['team'], 'Others')].append(t)
-            rows = ''
-            for cn in sorted(by_country):
-                ts = by_country[cn]
-                pc = sum(len(players_by_team[t['team']]) for t in ts)
-                flag = country_name_to_flag.get(cn, '')
-                flag_str = f'{flag} ' if flag else ''
-                rows += f'<tr><td>{flag_str}{h(cn)}</td><td class="num">{len(ts):,}</td><td class="num">{pc:,}</td></tr>'
-            if rows:
-                body += f'<h2>Others</h2><p><a href="others/">View all Others clubs</a></p><table><thead><tr><th>Country</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
+        if len(lgs) == 1:
+            lg = lgs[0]
+            if lg in teams_by_league:
+                teams = teams_by_league[lg]
+                pc = sum(len(players_by_team[t['team']]) for t in teams)
+                other_rows += f'<tr><td>{cflag_str}{h(country)}</td><td><a href="{slug(lg)}/">{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
         else:
+            main_lgs = [lg for lg in lgs if lg not in OTHER_LEAGUE_OVERFLOW]
             rows = ''
-            for lg in lgs:
+            for lg in main_lgs:
                 if lg not in teams_by_league:
                     continue
                 teams = teams_by_league[lg]
@@ -829,9 +666,16 @@ def make_leagues():
                 rows += f'<tr><td><a href="{slug(lg)}/">{lflag_str}{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
             if rows:
                 body += f'<h2>{cflag_str}{h(country)}</h2><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{rows}</tbody></table>'
+            for lg in lgs:
+                if lg in OTHER_LEAGUE_OVERFLOW and lg in teams_by_league:
+                    teams = teams_by_league[lg]
+                    pc = sum(len(players_by_team[t['team']]) for t in teams)
+                    other_rows += f'<tr><td>{cflag_str}{h(country)}</td><td><a href="{slug(lg)}/">{h(lg)}</a></td><td class="num">{len(teams):,}</td><td class="num">{pc:,}</td></tr>'
+    if other_rows:
+        body += f'<h2>Other Leagues</h2><table><thead><tr><th>Country</th><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody>{other_rows}</tbody></table>'
     write(f"{OUT_DIR}/leagues/index.html",
           page("Leagues", body, depth=1, active='Leagues',
-               header_title="All Leagues", header_sub=f"{len(league_names)} competitions"))
+               header_title="All Leagues", header_sub=f"{len(league_names)} leagues"))
 
     # Per-league
     for lg in league_names:
