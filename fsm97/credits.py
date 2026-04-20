@@ -1,5 +1,11 @@
 # Transcribed from fmv/CREDITS.TGQ (the end-credits video played on exit).
 # Roles shown without a label in the video are left blank.
+
+# Names that coincidentally match a player in the database but are not the same person.
+NO_PLAYER_MATCH = {
+    ("Martin", "Griffiths"),  # Video Programming — not the Aberystwyth player
+}
+
 CREDITS = [
     ("Bruce",     "McMillan",  "Executive Producer"),
     ("John",      "Mathieu",   "Associate Producer"),

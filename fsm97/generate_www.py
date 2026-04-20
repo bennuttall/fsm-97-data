@@ -9,6 +9,7 @@ from fsm97.constants import (
     SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, POS_ORDER,
     LEAGUE_GROUPS, TEAM_NAMES,
 )
+from fsm97.credits import CREDITS, NO_PLAYER_MATCH
 from fsm97.data import Dataset
 
 CSV_DIR  = None
@@ -415,6 +416,7 @@ def page(title, body, depth=1, active=None, breadcrumb='', header_title=None, he
         ('Nationalities', f'{prefix}nationalities/'),
         ('Stats',         f'{prefix}stats/'),
         ('Trivia',        f'{prefix}trivia/'),
+        ('Credits',       f'{prefix}credits/'),
     ]
     nav_html = '\n'.join(
         f'<a href="{url}" class="{"active" if active==label else ""}">{label}</a>'
@@ -1772,6 +1774,72 @@ def make_players():
                header_sub=f"{len(players_raw):,} players — search by name, team, position or nationality"))
 
 
+# ── CREDITS ───────────────────────────────────────────────────────────────────
+
+def make_credits():
+    prefix = '../'
+    players_by_name = defaultdict(list)
+    for p in players_raw:
+        players_by_name[(p['first_name'], p['last_name'])].append(p)
+
+    rows = []
+    for first, last, role in CREDITS:
+        matches = [] if (first, last) in NO_PLAYER_MATCH else players_by_name.get((first, last), [])
+        if matches:
+            p = matches[0]
+            avg = pr(p)
+            name_cell = f'<a href="../{player_anchor(first, last, p["team"])}">{h(first)} {h(last)}</a>'
+            pos_cell  = f'<a href="{pos_url(p["position"], prefix)}" class="pos">{h(p["position"])}</a>' if p['position'] else ''
+            nat_cell  = tlink(p['nationality'], nat_url(p['nationality'], prefix))
+            age_cell  = f'<span title="{p["dob"]}">{p["age"]}</span>'
+            avg_cell  = f'<span class="{rating_class(avg)}">{avg}</span>'
+            if len(matches) > 1:
+                extra = ', '.join(
+                    f'<a href="../{player_anchor(m["first_name"], m["last_name"], m["team"])}">{h(m["team"])}</a>'
+                    for m in matches[1:]
+                )
+                name_cell += f' <span class="muted" style="font-size:0.8rem">(also: {extra})</span>'
+        else:
+            name_cell = f'{h(first)} {h(last)}'
+            pos_cell = nat_cell = age_cell = avg_cell = ''
+
+        rows.append(
+            f'<tr>'
+            f'<td>{name_cell}</td>'
+            f'<td>{h(role)}</td>'
+            f'<td>{pos_cell}</td>'
+            f'<td class="nat">{nat_cell}</td>'
+            f'<td class="num">{age_cell}</td>'
+            f'<td class="num">{avg_cell}</td>'
+            f'</tr>'
+        )
+
+    matches_count = sum(1 for f, l, _ in CREDITS if (f, l) in players_by_name)
+    body = f'''
+    <p class="muted" style="margin-bottom:1rem">
+      The team who made FIFA Soccer Manager 97, as credited in the end-credits video.
+      {matches_count} of {len(CREDITS)} people also appear as players in the game database.
+    </p>
+    <table id="credits-table">
+      <thead><tr>
+        <th data-sort>Name</th>
+        <th data-sort>Role</th>
+        <th data-sort>Position</th>
+        <th data-sort>Nationality</th>
+        <th class="num" data-sort>Age</th>
+        <th class="num" data-sort>Rating</th>
+      </tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table>
+    <h2 style="margin:2rem 0 1rem">End credits video</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/S8Ir0qe_7p8?si=iEr-KD7r7NSXhC5z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'''
+
+    write(f"{OUT_DIR}/credits/index.html",
+          page("Game Credits", body, depth=1, active='Credits',
+               header_title="Game Credits",
+               header_sub="The team behind FIFA Soccer Manager 97"))
+
+
 # ── SITEMAP ───────────────────────────────────────────────────────────────────
 
 def make_sitemap():
@@ -1799,6 +1867,7 @@ def make_sitemap():
         '/trivia/players/',
         '/trivia/stadiums/',
         '/trivia/clubs/',
+        '/credits/',
     ]
 
     for lg in sorted(league_names):
@@ -1897,6 +1966,8 @@ def main():
     make_stats_best_of()
     print("Generating trivia…")
     make_trivia()
+    print("Generating credits…")
+    make_credits()
     print("Generating sitemap…")
     make_sitemap()
 
