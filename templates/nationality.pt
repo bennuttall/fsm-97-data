@@ -1,0 +1,47 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <tal:block tal:condition="best_xi">
+      <h2>Best XI — 4-4-2</h2>
+      <div class="pitch">
+        <div tal:repeat="row best_xi" class="formation-row">
+          <div tal:repeat="p row" class="p-bubble">
+            <div class="p-circle ${p['circle_class']}">${p['position']}</div>
+            <div class="p-name"><a href="${p['url']}">${p['last_name']}</a></div>
+            <div class="p-avg">${p['rating']}</div>
+          </div>
+        </div>
+      </div>
+    </tal:block>
+
+    <p class="muted">${'{:,}'.format(len(players))} ${nat} players across ${league_count} leagues</p>
+
+    <div class="filter-bar">
+      <input data-filter="nat-${nat_slug}" placeholder="Filter…" autofocus="">
+    </div>
+
+    <table id="nat-${nat_slug}">
+      <thead>
+        <tr>
+          <th data-sort="1">Player</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League / Nation</th>
+          <th data-sort="1">Position</th>
+          <th class="num" data-sort="1">Age</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p players">
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td tal:content="structure p['league_html']"></td>
+          <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+          <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

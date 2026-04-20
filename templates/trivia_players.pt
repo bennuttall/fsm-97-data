@@ -1,0 +1,25 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">Notable players in the database and their real-world stories.</p>
+
+    <tal:block tal:repeat="e entries">
+      <div style="margin-bottom:1.5rem">
+        <tal:block tal:condition="e['found']">
+          <h3>
+            <a href="${e['url']}">${e['name']}</a>
+            · <a href="/clubs/${e['team_slug']}/">${e['team']}</a>
+            · <tal:block tal:condition="e['nat_flag']">${e['nat_flag']} </tal:block><a href="/nationalities/${e['nat_slug']}/">${e['nat_name']}</a>
+            · <a href="/positions/${e['pos_slug']}/" class="pos">${e['position']}</a>
+            · <span class="${e['rating_class']}">${e['rating']}</span>
+          </h3>
+        </tal:block>
+        <tal:block tal:condition="not e['found']">
+          <h3>${e['name']}</h3>
+        </tal:block>
+        <div class="trivia" tal:content="structure e['trivia']"></div>
+      </div>
+    </tal:block>
+
+  </div>
+</div>

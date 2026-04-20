@@ -13,7 +13,6 @@
       <thead>
         <tr>
           <th data-sort="1">Club</th>
-          <th data-sort="1">Nation</th>
           <th data-sort="1">League / Nation</th>
           <th data-sort="1">Stadium</th>
           <th class="num" data-sort="1">Capacity</th>
@@ -24,7 +23,6 @@
       <tbody>
         <tr tal:repeat="t teams" tal:attributes="id t['letter_anchor']">
           <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
-          <td tal:content="structure t['nation_html']"></td>
           <td tal:content="structure t['league_html']"></td>
           <td>
             <a tal:condition="t['stadium_url']" href="${t['stadium_url']}">${t['stadium']}</a>

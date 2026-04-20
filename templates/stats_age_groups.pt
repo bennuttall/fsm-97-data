@@ -1,0 +1,38 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <tal:block tal:repeat="sec sections">
+      <h2>Age ${sec['label']}</h2>
+      <p class="muted">${'{:,}'.format(sec['group_count'])} players in this age group</p>
+      <table>
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Player</th>
+            <th>Club</th>
+            <th>League / Nation</th>
+            <th>Position</th>
+            <th>Nationality</th>
+            <th class="num">Age</th>
+            <th class="num">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="p sec['players']">
+            <td class="num">${repeat['p'].index + 1}</td>
+            <td><a href="${p['url']}">${p['name']}</a></td>
+            <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+            <td tal:content="structure p['league_html']"></td>
+            <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+            <td class="nat">
+              <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+            </td>
+            <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+            <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+  </div>
+</div>

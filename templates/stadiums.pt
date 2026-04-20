@@ -1,0 +1,36 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div class="filter-bar">
+      <input data-filter="stad-idx" placeholder="Filter stadiums…" autofocus="">
+    </div>
+
+    <table id="stad-idx">
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Stadium</th>
+          <th data-sort="1">Location</th>
+          <th data-sort="1">Nation</th>
+          <th data-sort="1">Club(s)</th>
+          <th class="num" data-sort="1">Capacity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="s stadiums">
+          <td class="num">${s['rank']}</td>
+          <td><a href="/stadiums/${s['slug']}/">${s['name']}</a></td>
+          <td>${s['location']}</td>
+          <td>
+            <tal:block tal:condition="s['country']">
+              <tal:block tal:condition="s['country_flag']">${s['country_flag']} </tal:block><a href="/nations/${s['country_slug']}/">${s['country']}</a>
+            </tal:block>
+          </td>
+          <td><tal:block tal:repeat="c s['clubs']"><tal:block tal:condition="repeat['c'].index > 0">, </tal:block><a href="/clubs/${c['slug']}/">${c['name']}</a></tal:block></td>
+          <td class="num">${'{:,}'.format(s['capacity'])}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

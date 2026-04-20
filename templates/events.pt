@@ -1,0 +1,18 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1.5rem">${'{:,}'.format(total)} in-game event messages from the original game, grouped by type.</p>
+
+    <tal:block tal:repeat="cat categories">
+      <h2 tal:attributes="id cat['key']" style="margin:2rem 0 1rem">${cat['label']}</h2>
+      <tal:block tal:repeat="ev cat['events']">
+        <div class="event-card" tal:attributes="id ev['id']">
+          <h3 class="event-title">${ev['title']}</h3>
+          <p class="event-text">${ev['text']}</p>
+          <p tal:condition="ev['recovery']" class="event-recovery">${ev['recovery']}</p>
+        </div>
+      </tal:block>
+    </tal:block>
+
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <h2>Top 50 Players Overall</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Player</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League / Nation</th>
+          <th data-sort="1">Position</th>
+          <th data-sort="1">Nationality</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p top50">
+          <td class="num">${repeat['p'].index + 1}</td>
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td tal:content="structure p['league_html']"></td>
+          <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+          </td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Top 10 by Position</h2>
+
+    <tal:block tal:repeat="pos by_pos">
+      <h3><a href="/positions/${pos['slug']}/" class="pos">${pos['code']}</a> ${pos['name']}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Player</th>
+            <th>Club</th>
+            <th>Nationality</th>
+            <th>Natural Position</th>
+            <th class="num">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="p pos['players']">
+            <td class="num">${repeat['p'].index + 1}</td>
+            <td><a href="${p['url']}">${p['name']}</a></td>
+            <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+            <td class="nat">
+              <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+            </td>
+            <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+            <td class="num"><span class="${p['pos_rating_class']}">${p['pos_rating']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+  </div>
+</div>

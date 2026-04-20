@@ -1,0 +1,13 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">Real-world context for the players, stadiums and clubs in the database — 1996/97 season.</p>
+
+    <div class="cards">
+      <a href="/trivia/players/" style="text-decoration:none"><div class="card"><h3>Players</h3><div class="label">Notable player stories</div></div></a>
+      <a href="/trivia/stadiums/" style="text-decoration:none"><div class="card"><h3>Stadiums</h3><div class="label">The grounds and their histories</div></div></a>
+      <a href="/trivia/clubs/" style="text-decoration:none"><div class="card"><h3>Clubs</h3><div class="label">Club stories from the era</div></div></a>
+    </div>
+
+  </div>
+</div>

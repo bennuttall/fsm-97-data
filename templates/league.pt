@@ -1,0 +1,60 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div class="filter-bar">
+      <input tal:attributes="data-filter 'teams-' + lg_slug" placeholder="Filter clubs…" autofocus="">
+    </div>
+
+    <h2>Clubs</h2>
+    <table tal:attributes="id 'teams-' + lg_slug">
+      <thead>
+        <tr>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">Nickname</th>
+          <th data-sort="1">Stadium</th>
+          <th class="num" data-sort="1">Capacity</th>
+          <th data-sort="1">Manager</th>
+          <th class="num" data-sort="1">Squad Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="t club_rows">
+          <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
+          <td>${t['nickname']}</td>
+          <td>
+            <a tal:condition="t['stadium_url']" href="${t['stadium_url']}">${t['stadium']}</a>
+            <tal:block tal:condition="not t['stadium_url']">${t['stadium']}</tal:block>
+          </td>
+          <td class="num">${t['capacity']}</td>
+          <td>${t['manager']}</td>
+          <td class="num"><span class="${t['avg_class']}">${t['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Top 15 Players</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Club</th>
+          <th>Position</th>
+          <th>Nationality</th>
+          <th class="num">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p player_rows">
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+          </td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

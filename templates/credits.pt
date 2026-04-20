@@ -1,0 +1,66 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">
+      The team who made FIFA Soccer Manager 97, as credited in the end-credits video.
+      ${matches_count} of ${total_people} people also appear as players in the game database.
+    </p>
+
+    <table id="credits-table">
+      <thead>
+        <tr>
+          <th data-sort="1">Name</th>
+          <th data-sort="1">Role</th>
+          <th data-sort="1">Position</th>
+          <th data-sort="1">Nationality</th>
+          <th class="num" data-sort="1">Age</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="r rows">
+          <td>
+            <tal:block tal:condition="r['found']">
+              <a href="${r['url']}">${r['name']}</a>
+              <tal:block tal:condition="r['also']">
+                <span class="muted" style="font-size:0.8rem">(also:
+                  <tal:block tal:repeat="a r['also']"><tal:block tal:condition="repeat['a'].index > 0">, </tal:block><a href="${a['url']}">${a['team']}</a></tal:block>)
+                </span>
+              </tal:block>
+            </tal:block>
+            <tal:block tal:condition="not r['found']">${r['name']}</tal:block>
+          </td>
+          <td>${r['role']}</td>
+          <td>
+            <tal:block tal:condition="r['found']">
+              <a href="/positions/${r['pos_slug']}/" class="pos">${r['position']}</a>
+            </tal:block>
+          </td>
+          <td class="nat">
+            <tal:block tal:condition="r['found']">
+              <tal:block tal:condition="r['nat_flag']">${r['nat_flag']} </tal:block><a href="/nationalities/${r['nat_slug']}/">${r['nat_name']}</a>
+            </tal:block>
+          </td>
+          <td class="num">
+            <tal:block tal:condition="r['found']">
+              <span tal:attributes="title r['dob']">${r['age']}</span>
+            </tal:block>
+          </td>
+          <td class="num">
+            <tal:block tal:condition="r['found']">
+              <span class="${r['rating_class']}">${r['rating']}</span>
+            </tal:block>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin:2rem 0 1rem">End credits video</h2>
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/S8Ir0qe_7p8?si=iEr-KD7r7NSXhC5z"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+  </div>
+</div>

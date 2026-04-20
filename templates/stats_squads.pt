@@ -1,0 +1,28 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <table>
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League / Nation</th>
+          <th class="num" data-sort="1">Players</th>
+          <th class="num" data-sort="1">Squad Rating</th>
+          <th class="num" data-sort="1">Nationalities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="s squads">
+          <td class="num">${s['rank']}</td>
+          <td><a href="/clubs/${s['team_slug']}/">${s['team']}</a></td>
+          <td tal:content="structure s['league_html']"></td>
+          <td class="num">${'{:,}'.format(s['player_count'])}</td>
+          <td class="num"><span class="${s['avg_class']}">${s['avg']}</span></td>
+          <td class="num">${s['nat_count']}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

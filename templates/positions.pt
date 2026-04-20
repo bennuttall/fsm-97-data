@@ -1,0 +1,26 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Position</th>
+          <th>Zone</th>
+          <th class="num">Players</th>
+          <th class="num">Avg Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p positions">
+          <td><a href="/positions/${p['slug']}/" class="pos">${p['code']}</a></td>
+          <td>${p['position']}</td>
+          <td>${p['zone']}</td>
+          <td class="num">${'{:,}'.format(p['player_count'])}</td>
+          <td class="num"><span class="${p['avg_class']}">${p['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

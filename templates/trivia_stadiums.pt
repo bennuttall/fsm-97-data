@@ -1,0 +1,23 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">The grounds behind the game data.</p>
+
+    <tal:block tal:repeat="e entries">
+      <div style="margin-bottom:1.5rem">
+        <tal:block tal:condition="e['found']">
+          <h3>
+            <a href="/stadiums/${e['slug']}/">${e['name']}</a>
+            · <tal:block tal:repeat="c e['clubs']"><tal:block tal:condition="repeat['c'].index > 0">, </tal:block><a href="/clubs/${c['slug']}/">${c['name']}</a></tal:block>
+            · ${'{:,}'.format(e['capacity'])} capacity
+          </h3>
+        </tal:block>
+        <tal:block tal:condition="not e['found']">
+          <h3>${e['name']}</h3>
+        </tal:block>
+        <div class="trivia" tal:content="structure e['trivia']"></div>
+      </div>
+    </tal:block>
+
+  </div>
+</div>

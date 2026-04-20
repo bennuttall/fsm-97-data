@@ -1,0 +1,22 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">Club stories from the 1996/97 season.</p>
+
+    <tal:block tal:repeat="e entries">
+      <div style="margin-bottom:1.5rem">
+        <tal:block tal:condition="e['found']">
+          <h3>
+            <a href="/clubs/${e['slug']}/">${e['name']}</a>
+            · <span tal:content="structure e['league_html']"></span>
+          </h3>
+        </tal:block>
+        <tal:block tal:condition="not e['found']">
+          <h3>${e['name']}</h3>
+        </tal:block>
+        <div class="trivia" tal:content="structure e['trivia']"></div>
+      </div>
+    </tal:block>
+
+  </div>
+</div>
