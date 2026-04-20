@@ -287,6 +287,155 @@ STADIUM_NAMES = {
     'The Cellnet Riverside Stadium': 'Riverside Stadium',
 }
 
+# ── Country ISO codes ────────────────────────────────────────────────────────
+# Maps the game's internal 3-letter country codes to ISO 3166-1 alpha-2 codes
+# for flag emoji generation.  Codes not present have no standard flag.
+# Note: the game swapped AUT (Australia) and AUS (Austria).
+# GB subdivision codes (ENG, SCO, WAL, NIR) are handled as special cases.
+
+COUNTRY_ISO = {
+    'ALB': 'AL',  # Albania
+    'ALG': 'DZ',  # Algeria
+    'USA': 'US',  # United States
+    'SAU': 'SA',  # Saudi Arabia
+    'ARG': 'AR',  # Argentina
+    'AUT': 'AU',  # Australia (game code swapped)
+    'AUS': 'AT',  # Austria (game code swapped)
+    'AZE': 'AZ',  # Azerbaijan
+    'BEG': 'BE',  # Belgium
+    'BOL': 'BO',  # Bolivia
+    'BRA': 'BR',  # Brazil
+    'BUL': 'BG',  # Bulgaria
+    'CAM': 'CM',  # Cameroon
+    'CAN': 'CA',  # Canada
+    'CHL': 'CL',  # Chile
+    'CHI': 'CN',  # China
+    'COL': 'CO',  # Colombia
+    'COS': 'CR',  # Costa Rica
+    'CRO': 'HR',  # Croatia
+    'CUB': 'CU',  # Cuba
+    'CYP': 'CY',  # Cyprus
+    'CZE': 'CZ',  # Czech Republic
+    'DEN': 'DK',  # Denmark
+    'HOL': 'NL',  # Netherlands
+    'EGY': 'EG',  # Egypt
+    'ENG': 'ENG', # England (GB subdivision)
+    'EST': 'EE',  # Estonia
+    'ETH': 'ET',  # Ethiopia
+    'FIJ': 'FJ',  # Fiji
+    'FIN': 'FI',  # Finland
+    'FRA': 'FR',  # France
+    'GEO': 'GE',  # Georgia
+    'GER': 'DE',  # Germany
+    'GHA': 'GH',  # Ghana
+    'GRC': 'GR',  # Greece
+    'HUN': 'HU',  # Hungary
+    'ICE': 'IS',  # Iceland
+    'IND': 'IN',  # India
+    'ISR': 'IL',  # Israel
+    'ITA': 'IT',  # Italy
+    'IVO': 'CI',  # Ivory Coast
+    'JAM': 'JM',  # Jamaica
+    'JAP': 'JP',  # Japan
+    'JOR': 'JO',  # Jordan
+    'LAT': 'LV',  # Latvia
+    'LIB': 'LR',  # Liberia
+    'LBY': 'LY',  # Libya
+    'LTS': 'LI',  # Liechtenstein
+    'LIT': 'LT',  # Lithuania
+    'LUX': 'LU',  # Luxembourg
+    'MAL': 'MT',  # Malta
+    'MEX': 'MX',  # Mexico
+    'MOL': 'MD',  # Moldova
+    'NIR': 'NIR', # Northern Ireland (GB subdivision)
+    'NWZ': 'NZ',  # New Zealand
+    'NIG': 'NG',  # Nigeria
+    'NKO': 'KP',  # North Korea
+    'NOR': 'NO',  # Norway
+    'PAK': 'PK',  # Pakistan
+    'PER': 'PE',  # Peru
+    'POL': 'PL',  # Poland
+    'POR': 'PT',  # Portugal
+    'ROM': 'RO',  # Romania
+    'RUS': 'RU',  # Russia
+    'EIR': 'IE',  # Ireland
+    'SCO': 'SCO', # Scotland (GB subdivision)
+    'SER': 'RS',  # Serbia
+    'SLO': 'SK',  # Slovakia
+    'SLV': 'SI',  # Slovenia
+    'WSO': 'WS',  # Samoa
+    'SAF': 'ZA',  # South Africa
+    'SKO': 'KR',  # South Korea
+    'SPA': 'ES',  # Spain
+    'SRI': 'LK',  # Sri Lanka
+    'SWE': 'SE',  # Sweden
+    'SWI': 'CH',  # Switzerland
+    'TRI': 'TT',  # Trinidad & Tobago
+    'TUR': 'TR',  # Turkey
+    'UGA': 'UG',  # Uganda
+    'UKR': 'UA',  # Ukraine
+    'URU': 'UY',  # Uruguay
+    'VEN': 'VE',  # Venezuela
+    'WAL': 'WAL', # Wales (GB subdivision)
+    'ZIM': 'ZW',  # Zimbabwe
+    'BOS': 'BA',  # Bosnia & Herzegovina
+    'MAC': 'MK',  # North Macedonia
+    'NEW': 'PG',  # Papua New Guinea
+    'GAM': 'GM',  # Gambia
+    'SEN': 'SN',  # Senegal
+    'MON': 'MN',  # Mongolia
+    'TON': 'TO',  # Tonga
+    'CHA': 'TD',  # Chad
+    'PAN': 'PA',  # Panama
+    'ZAM': 'ZM',  # Zambia
+    'BER': 'BM',  # Bermuda
+    'BAR': 'BB',  # Barbados
+    'SLE': 'SL',  # Sierra Leone
+    'MOR': 'MA',  # Morocco
+    'SUR': 'SR',  # Suriname
+    'GUA': 'GP',  # Guadeloupe
+    'TAH': 'PF',  # French Polynesia (Tahiti)
+    'MAR': 'MQ',  # Martinique
+    'BEN': 'BJ',  # Benin
+    'SAN': 'SM',  # San Marino
+    'CON': 'CG',  # Republic of Congo
+    'ARM': 'AM',  # Armenia
+    'HAI': 'HT',  # Haiti
+    'TUN': 'TN',  # Tunisia
+    'MAD': 'MG',  # Madagascar
+    'BEL': 'BY',  # Belarus
+    'FAR': 'FO',  # Faroe Islands
+    'PAR': 'PY',  # Paraguay
+    'ANG': 'AO',  # Angola
+    'KAZ': 'KZ',  # Kazakhstan
+    'MAU': 'MU',  # Mauritius
+    # No standard flag:
+    # ALA - Alaska (US state, not a country)
+    # WIN - West Indies (regional grouping)
+    # YUG - Yugoslavia (dissolved 1992)
+    # ZAI - Zaire (now Democratic Republic of Congo, dissolved 1997)
+    # OTH - Other
+}
+
+# GB subdivision flag emoji sequences
+_GB_FLAGS = {
+    'ENG': '\U0001F3F4\U000E0067\U000E0062\U000E0065\U000E006E\U000E0067\U000E007F',
+    'SCO': '\U0001F3F4\U000E0067\U000E0062\U000E0073\U000E0063\U000E0074\U000E007F',
+    'WAL': '\U0001F3F4\U000E0067\U000E0062\U000E0077\U000E006C\U000E0073\U000E007F',
+    'NIR': '\U0001F1EC\U0001F1E7',  # 🇬🇧 — no standard NI flag
+}
+
+
+def country_flag(game_code):
+    """Return flag emoji for a game country code, or empty string if unavailable."""
+    if game_code in _GB_FLAGS:
+        return _GB_FLAGS[game_code]
+    iso2 = COUNTRY_ISO.get(game_code, '')
+    if len(iso2) == 2:
+        return chr(0x1F1E6 + ord(iso2[0]) - 65) + chr(0x1F1E6 + ord(iso2[1]) - 65)
+    return ''
+
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def pos_rating(skill_row, position):
