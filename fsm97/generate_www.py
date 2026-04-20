@@ -1822,8 +1822,18 @@ def make_credits():
     for p in players_raw:
         players_by_name[(p['first_name'], p['last_name'])].append(p)
 
-    rows = []
+    # Deduplicate: preserve first-appearance order, combine roles
+    seen = {}
     for first, last, role in CREDITS:
+        key = (first, last)
+        if key not in seen:
+            seen[key] = []
+        if role:
+            seen[key].append(role)
+
+    rows = []
+    for (first, last), roles in seen.items():
+        role_str = ', '.join(roles)
         matches = [] if (first, last) in NO_PLAYER_MATCH else players_by_name.get((first, last), [])
         if matches:
             p = matches[0]
@@ -1846,7 +1856,7 @@ def make_credits():
         rows.append(
             f'<tr>'
             f'<td>{name_cell}</td>'
-            f'<td>{h(role)}</td>'
+            f'<td>{h(role_str)}</td>'
             f'<td>{pos_cell}</td>'
             f'<td class="nat">{nat_html}</td>'
             f'<td class="num">{age_cell}</td>'
@@ -1854,11 +1864,12 @@ def make_credits():
             f'</tr>'
         )
 
-    matches_count = sum(1 for f, l, _ in CREDITS if (f, l) in players_by_name)
+    unique_people = list(seen.keys())
+    matches_count = sum(1 for key in unique_people if key not in NO_PLAYER_MATCH and players_by_name.get(key))
     body = f'''
     <p class="muted" style="margin-bottom:1rem">
       The team who made FIFA Soccer Manager 97, as credited in the end-credits video.
-      {matches_count} of {len(CREDITS)} people also appear as players in the game database.
+      {matches_count} of {len(unique_people)} people also appear as players in the game database.
     </p>
     <table id="credits-table">
       <thead><tr>
