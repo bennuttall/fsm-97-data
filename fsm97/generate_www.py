@@ -670,13 +670,15 @@ def make_leagues():
     if 'Others' in teams_by_league:
         others = teams_by_league['Others']
         pc = sum(len(players_by_team[t['team']]) for t in others)
-        body += f'<h2>Other Clubs</h2><p class="muted" style="margin-bottom:0.5rem">Clubs not assigned to a named league — browse by <a href="../nations/">nation</a>.</p><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody><tr><td><a href="others/">Others</a></td><td class="num">{len(others):,}</td><td class="num">{pc:,}</td></tr></tbody></table>'
+        body += f'<h2>Other Clubs</h2><p class="muted" style="margin-bottom:0.5rem">Clubs not assigned to a named league — browse by <a href="../nations/">nation</a>.</p><table><thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead><tbody><tr><td><a href="../nations/">Others</a></td><td class="num">{len(others):,}</td><td class="num">{pc:,}</td></tr></tbody></table>'
     write(f"{OUT_DIR}/leagues/index.html",
           page("Leagues", body, depth=1, active='Leagues',
                header_title="All Leagues", header_sub=f"{len(league_names)} leagues"))
 
     # Per-league
     for lg in league_names:
+        if lg == 'Others':
+            continue
         teams = sorted(teams_by_league[lg], key=lambda t: t['team'])
         prefix = '../../'
 
@@ -718,7 +720,7 @@ def make_leagues():
         <div class="filter-bar"><input data-filter="teams-{slug(lg)}" placeholder="Filter clubs…"></div>
         <h2>Clubs</h2>
         <table id="teams-{slug(lg)}">
-          <thead><tr><th data-sort>Club</th><th data-sort>Nickname</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th data-sort>{"Country" if is_others else "Manager"}</th><th class="num" data-sort>Squad Rating</th></tr></thead>
+          <thead><tr><th data-sort>Club</th><th data-sort>Nickname</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th data-sort>{"Nation" if is_others else "Manager"}</th><th class="num" data-sort>Squad Rating</th></tr></thead>
           <tbody>{team_rows}</tbody>
         </table>
         <h2>Top 15 Players</h2>
@@ -894,7 +896,7 @@ def make_teams():
     body = f'''{alpha}
     <div class="filter-bar"><input data-filter="all-teams" placeholder="Filter clubs…"></div>
     <table id="all-teams">
-      <thead><tr><th data-sort>Club</th><th data-sort>Country</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
+      <thead><tr><th data-sort>Club</th><th data-sort>Nation</th><th data-sort>League</th><th data-sort>Stadium</th><th class="num" data-sort>Capacity</th><th class="num" data-sort>Players</th><th class="num" data-sort>Squad Rating</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/clubs/index.html",
@@ -928,7 +930,7 @@ def make_teams():
         elif _nation:
             league_card = f'<div class="card"><div class="stat">{country_display(_nation)}</div><div class="label"><a href="{prefix}nations/{slug(_nation)}/">View nation</a></div></div>'
         else:
-            league_card = f'<div class="card"><div class="stat">Others</div><div class="label"><a href="{prefix}leagues/others/">View league</a></div></div>'
+            league_card = f'<div class="card"><div class="stat">Others</div></div>'
         meta = f'''<div class="cards" style="margin-bottom:1rem">
           {nick_card}
           {league_card}
@@ -974,7 +976,7 @@ def make_stadiums():
         </tr>'''
     body = f'''<div class="filter-bar"><input data-filter="stad-idx" placeholder="Filter stadiums…"></div>
     <table id="stad-idx">
-      <thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Location</th><th data-sort>Country</th><th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
+      <thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Location</th><th data-sort>Nation</th><th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
       <tbody>{rows}</tbody>
     </table>'''
     write(f"{OUT_DIR}/stadiums/index.html",
@@ -1010,7 +1012,7 @@ def make_stadiums():
           <div class="hl"><div class="hl-val">{cap:,}</div><div class="hl-lbl">Capacity</div></div>
           {"<div class='hl'><div class='hl-val' style='font-size:1rem'>"+h(addr)+"</div><div class='hl-lbl'>Address</div></div>" if addr else ""}
           {"<div class='hl'><div class='hl-val'>"+h(cities)+"</div><div class='hl-lbl'>Area</div></div>" if cities else ""}
-          <div class="hl"><div class="hl-val">{country_display(country)}</div><div class="hl-lbl">Country</div></div>
+          <div class="hl"><div class="hl-val">{country_display(country)}</div><div class="hl-lbl">Nation</div></div>
         </div>'''
 
         shared = f'<p class="muted">Shared by {len(ts)} clubs.</p>' if len(ts) > 1 else ''
@@ -1356,7 +1358,7 @@ def make_stats_stadiums():
         </tr>'''
 
     def stad_table(entries, show_country=True):
-        country_th = '<th data-sort>Country</th>' if show_country else ''
+        country_th = '<th data-sort>Nation</th>' if show_country else ''
         rows = ''.join(stad_row(i, sname, ts, show_country) for i, (sname, ts) in enumerate(entries, 1))
         return f'''<table><thead><tr><th class="num" data-sort>#</th><th data-sort>Stadium</th><th data-sort>Location</th>{country_th}<th data-sort>Club(s)</th><th class="num" data-sort>Capacity</th></tr></thead>
         <tbody>{rows}</tbody></table>'''
@@ -1373,7 +1375,7 @@ def make_stats_stadiums():
             continue
         by_country_html += f'<h3>{country_display(country)}</h3>' + stad_table(country_stads[:10], show_country=False)
 
-    body += '<h2>Top 10 by Country</h2>' + by_country_html
+    body += '<h2>Top 10 by Nation</h2>' + by_country_html
 
     # Top 10 Others
     others_stads = [(s, ts) for s, ts in named if ts[0]['league'] == 'Others']
@@ -1888,7 +1890,8 @@ def make_sitemap():
     ]
 
     for lg in sorted(league_names):
-        urls.append(f'/leagues/{slug(lg)}/')
+        if lg != 'Others':
+            urls.append(f'/leagues/{slug(lg)}/')
 
     for nation in nation_names:
         urls.append(f'/nations/{slug(nation)}/')
