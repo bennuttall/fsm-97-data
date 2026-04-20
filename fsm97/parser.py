@@ -117,6 +117,124 @@ def _find_block_positions(data):
     return sorted(positions)
 
 
+def load_strings(strings_file):
+    """
+    Parse STRINGS.TXT into a list of named event dicts.
+
+    Returns list of {title, category, text, recovery} for all titled
+    in-game events (windfalls, injuries, player AOGs, etc.).
+    Short UI labels and untitled training-injury paragraphs are skipped.
+    """
+    SECTION_CATEGORIES = [
+        ('windfalls',           'windfall'),
+        ('relevant aog',        'match_disruption'),
+        ('player aog',          'player_event'),
+        ('player messages',     'player_message'),
+        ('promotion and rel',   'season_result'),
+        ('governing body',      'pitch_warning'),
+        ('pitch condition aog', 'pitch_event'),
+        ('general aog',         'general_event'),
+        ('financial aog',       'financial_event'),
+        ('financial',           'financial_warning'),
+        ('competition success',  'competition'),
+        ('function room aog',   'function_room'),
+        ('function room',       'function_room'),
+        ('level ',              'function_room'),
+        ('facilities',          'facility'),
+        ('red and yellow',      'discipline'),
+        ('training injur',      'training_injury'),
+        ('acts of god',         'injury'),
+        ('retirement',          'retirement'),
+        ('sacking',             'dismissal'),
+    ]
+
+    TITLE_OVERRIDES = {
+        'CHAMPIONS!':       'season_result',
+        'FIT TO DROP':      'match_disruption',
+        'RUNNING SCARED?':  'match_disruption',
+        'EXHAUST FUMES':    'general_event',
+        'OPEN FOR BUSINESS':'facility',
+        'LOW DISK SPACE':   'misc',
+    }
+
+    def _is_title(line):
+        alpha = [c for c in line if c.isalpha()]
+        return len(alpha) >= 4 and all(c.isupper() for c in alpha)
+
+    results = []
+    current_category = None
+
+    with open(strings_file, encoding='cp1252', errors='replace') as f:
+        lines = [ln.rstrip() for ln in f]
+
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+
+        if line.startswith('#'):
+            comment = line.lstrip('#').strip().lower()
+            for keyword, cat in SECTION_CATEGORIES:
+                if keyword in comment:
+                    current_category = cat
+                    break
+            i += 1
+            continue
+
+        if not line or current_category is None or current_category == 'training_injury':
+            i += 1
+            continue
+
+        if _is_title(line):
+            title = line
+            i += 1
+            parts = []
+            while i < len(lines):
+                nxt = lines[i].strip()
+                if not nxt or nxt.startswith('#') or _is_title(nxt):
+                    break
+                parts.append(nxt)
+                i += 1
+            if parts and len(parts[0]) >= 40:
+                cat = TITLE_OVERRIDES.get(title, current_category)
+                results.append({
+                    'title':    title,
+                    'category': cat,
+                    'text':     parts[0],
+                    'recovery': parts[1] if len(parts) > 1 else '',
+                })
+        else:
+            i += 1
+
+    return results
+
+
+def load_facility_data(data_file):
+    """
+    Parse THE_DATA.TXT into a list of facility entry dicts.
+
+    Each entry has keys: id, f0..f9.
+    Rows where f0 == -1 (unused slot) are skipped.
+    """
+    with open(data_file, encoding='latin-1') as f:
+        lines = [ln.strip() for ln in f if ln.strip()]
+
+    num_cols = int(lines[0])
+    results = []
+    for line in lines[2:]:
+        parts = line.split()
+        if len(parts) < num_cols + 1:
+            continue
+        entry_id = int(parts[0])
+        fields = [int(p) for p in parts[1: num_cols + 1]]
+        if fields[0] == -1:
+            continue
+        row = {'id': entry_id}
+        for j, v in enumerate(fields):
+            row[f'f{j}'] = v
+        results.append(row)
+    return results
+
+
 def parse_game_data(dat_file, countries):
     """
     Parse SM97.DAT and return (teams, players).
