@@ -8,7 +8,7 @@ from chameleon import PageTemplateLoader
 
 from fsm97.constants import LEAGUE_GROUPS, country_flag, CLUB_NATIONS, POS_ORDER, SKILL_COLS, SKILL_LABELS, SKILL_GROUPS
 from fsm97.data import Dataset
-from fsm97.generate_www import CLUB_TRIVIA, STADIUM_TRIVIA, PLAYER_TRIVIA, PLAYER_DISPLAY_NAMES, VIDEOS
+from fsm97.content import CLUB_TRIVIA, STADIUM_TRIVIA, PLAYER_TRIVIA, PLAYER_DISPLAY_NAMES, VIDEOS
 from fsm97.credits import CREDITS, NO_PLAYER_MATCH
 
 
@@ -1742,21 +1742,36 @@ def main():
 
     scribe = Scribe(csv_dir=args.csv_dir, output_dir=args.out_dir)
     scribe.setup_output_path()
+    print("Writing Home...")
     scribe.write_homepage()
+    print("Writing Leagues...")
     scribe.write_leagues_page()
+    print("Writing Nations...")
     scribe.write_nations_page()
+    print("Writing Clubs...")
     scribe.write_clubs_page()
+    print("Writing Players...")
     scribe.write_players_page()
+    print("Writing Positions...")
     scribe.write_positions_page()
+    print("Writing Nationalities...")
     scribe.write_nationalities_page()
+    print("Writing Stadiums...")
     scribe.write_stadiums_page()
+    print("Writing Stats...")
     scribe.write_stats_page()
+    print("Writing Events...")
     scribe.write_events_page()
+    print("Writing Trivia...")
     scribe.write_trivia_page()
+    print("Writing Videos...")
     scribe.write_videos_page()
+    print("Writing Credits...")
     scribe.write_credits_page()
     if args.base_url:
+        print("Writing Sitemap...")
         scribe.write_sitemap(args.base_url)
+    print("Done")
 
 
 if __name__ == "__main__":

@@ -16,8 +16,7 @@ clean-html:
 	rm -rf $(WWW)
 
 html: clean-html
-	$(POETRY) run fsm-generate-www --csv-dir ${CSV_DIR} --out-dir ${WWW} --base-url ${BASE_URL}
-	cp -r $(STATIC_DIR)/.htaccess $(WWW)/
+	$(POETRY) run fsm-scribe --csv-dir ${CSV_DIR} --out-dir ${WWW} --base-url ${BASE_URL}
 
 serve:
 	$(POETRY) run python -m http.server -d $(WWW) 8000
