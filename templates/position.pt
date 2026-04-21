@@ -1,0 +1,76 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted">Zone: <strong>${zone}</strong> · ${'{:,}'.format(player_count)} players</p>
+
+    <div class="filter-bar">
+      <input data-filter="pos-${pos_slug}" placeholder="Filter players…" autofocus="">
+    </div>
+
+    <table id="pos-${pos_slug}">
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Player</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League / Nation</th>
+          <th data-sort="1">Nationality</th>
+          <th data-sort="1">Natural Position</th>
+          <th class="num" data-sort="1">Age</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p players">
+          <td class="num">${repeat['p'].index + 1}</td>
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td tal:content="structure p['league_html']"></td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+          </td>
+          <td>
+            <tal:block tal:condition="not p['nat_pos_same']">
+              <a href="/positions/${p['nat_pos_slug']}/" class="pos">${p['nat_pos']}</a>
+            </tal:block>
+          </td>
+          <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Surprising performers</h2>
+    <p class="muted">Top 10 players from outside the ${zone} zone, ranked by their ${pos} rating.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th>Player</th>
+          <th>Club</th>
+          <th>League / Nation</th>
+          <th>Nationality</th>
+          <th>Natural Position</th>
+          <th class="num">Age</th>
+          <th class="num">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p surprising">
+          <td class="num">${repeat['p'].index + 1}</td>
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td tal:content="structure p['league_html']"></td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+          </td>
+          <td><a href="/positions/${p['nat_pos_slug']}/" class="pos">${p['nat_pos']}</a></td>
+          <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

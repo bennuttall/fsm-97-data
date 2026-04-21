@@ -1,0 +1,21 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1.5rem">All 8 FMV cutscenes from FIFA Soccer Manager 97, converted from the original TGQ format. The game's videos use EA's proprietary TGQ codec at 320×208, 15fps.</p>
+
+    <tal:block tal:repeat="v videos">
+      <div class="video-section" tal:attributes="id v['file'].replace('.TGQ', '').lower()">
+        <h2>${v['title']}</h2>
+        <div class="video-meta">${v['file']} &middot; ${v['duration']}</div>
+        <tal:block tal:condition="v['embed_url']">
+          <div class="video-embed">
+            <iframe tal:attributes="src v['embed_url']; title v['title']"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+          </div>
+        </tal:block>
+      </div>
+    </tal:block>
+
+  </div>
+</div>

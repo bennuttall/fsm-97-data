@@ -1,0 +1,34 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <tal:block tal:repeat="group league_groups">
+      <h2><tal:block tal:condition="group['flag']">${group['flag']} </tal:block>${group['country']}</h2>
+      <tal:block tal:condition="not group['has_others_note']">
+        <table>
+          <thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead>
+          <tbody>
+            <tr tal:repeat="row group['rows']">
+              <td><tal:block tal:condition="row['flag']">${row['flag']} </tal:block><a href="${row['url']}">${row['name']}</a></td>
+              <td class="num">${'{:,}'.format(row['clubs'])}</td>
+              <td class="num">${'{:,}'.format(row['players'])}</td>
+            </tr>
+          </tbody>
+        </table>
+      </tal:block>
+      <tal:block tal:condition="group['has_others_note']">
+        <p class="muted" style="margin-bottom:0.5rem">Clubs not assigned to a named league — browse by <a href="/nations/">nation</a>.</p>
+        <table>
+          <thead><tr><th>League</th><th class="num">Clubs</th><th class="num">Players</th></tr></thead>
+          <tbody>
+            <tr tal:repeat="row group['rows']">
+              <td><a href="${row['url']}">${row['name']}</a></td>
+              <td class="num">${'{:,}'.format(row['clubs'])}</td>
+              <td class="num">${'{:,}'.format(row['players'])}</td>
+            </tr>
+          </tbody>
+        </table>
+      </tal:block>
+    </tal:block>
+
+  </div>
+</div>

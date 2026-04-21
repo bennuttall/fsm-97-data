@@ -1,0 +1,39 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p class="muted" style="margin-bottom:1rem">${'{:,}'.format(total_players)} players across all leagues.
+    Search by name, club, league, position or nationality.</p>
+
+    <div class="filter-bar">
+      <input data-filter="all-players" placeholder="Search players…" autofocus="">
+    </div>
+
+    <table id="all-players">
+      <thead>
+        <tr>
+          <th data-sort="1">Player</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League / Nation</th>
+          <th data-sort="1">Position</th>
+          <th data-sort="1">Nationality</th>
+          <th class="num" data-sort="1">Age</th>
+          <th class="num" data-sort="1">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="p players">
+          <td><a href="${p['url']}">${p['name']}</a></td>
+          <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+          <td tal:content="structure p['league_html']"></td>
+          <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+          <td class="nat">
+            <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+          </td>
+          <td class="num" tal:attributes="title p['dob']">${p['age']}</td>
+          <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

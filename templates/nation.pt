@@ -1,0 +1,66 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <tal:block tal:repeat="league leagued">
+      <h2><a href="/leagues/${league['slug']}/">${league['flag_str']}${league['name']}</a></h2>
+      <table>
+        <thead>
+          <tr><th>Club</th><th>Nickname</th><th>Stadium</th><th class="num">Capacity</th><th>Manager</th><th class="num">Squad Rating</th></tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="t league['clubs']">
+            <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
+            <td>${t['nickname']}</td>
+            <td>
+              <a tal:condition="t['stadium_url']" href="${t['stadium_url']}">${t['stadium']}</a>
+              <tal:block tal:condition="not t['stadium_url']">${t['stadium']}</tal:block>
+            </td>
+            <td class="num">${'{:,}'.format(t['capacity'])}</td>
+            <td>${t['manager']}</td>
+            <td class="num"><span class="${t['avg_class']}">${t['avg']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+    <tal:block tal:condition="unaffiliated">
+      <h2>${unaffiliated_heading}</h2>
+      <table>
+        <thead>
+          <tr><th>Club</th><th>Nickname</th><th>Stadium</th><th class="num">Capacity</th><th class="num">Squad Rating</th></tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="t unaffiliated">
+            <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
+            <td>${t['nickname']}</td>
+            <td>
+              <a tal:condition="t['stadium_url']" href="${t['stadium_url']}">${t['stadium']}</a>
+              <tal:block tal:condition="not t['stadium_url']">${t['stadium']}</tal:block>
+            </td>
+            <td class="num">${'{:,}'.format(t['capacity'])}</td>
+            <td class="num"><span class="${t['avg_class']}">${t['avg']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+    <tal:block tal:condition="top_players">
+      <h2>Top Players</h2>
+      <table>
+        <thead>
+          <tr><th>Player</th><th>Club</th><th>Position</th><th>Nationality</th><th class="num">Rating</th></tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="p top_players">
+            <td><a href="${p['url']}">${p['name']}</a></td>
+            <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+            <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+            <td class="nat">${p['nat_flag_str']}${p['nationality']}</td>
+            <td class="num"><span class="${p['rating_class']}">${p['rating']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+  </div>
+</div>

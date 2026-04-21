@@ -1,0 +1,41 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div tal:condition="trivia" class="trivia" tal:content="structure trivia"></div>
+
+    <div class="highlights" style="margin-bottom:1rem">
+      <div class="hl">
+        <div class="stat">${'{:,}'.format(capacity)}</div>
+        <div class="label">Capacity</div>
+      </div>
+      <div tal:condition="address" class="hl">
+        <div class="stat" style="font-size:1rem">${address}</div>
+        <div class="label">Address</div>
+      </div>
+      <div tal:condition="area" class="hl">
+        <div class="stat">${area}</div>
+        <div class="label">Area</div>
+      </div>
+      <div tal:condition="country" class="hl">
+        <div class="stat">
+          <tal:block tal:condition="country_flag">${country_flag} </tal:block><a href="/nations/${country_slug}/">${country}</a>
+        </div>
+        <div class="label">Nation</div>
+      </div>
+    </div>
+
+    <p tal:condition="shared" class="muted">Shared by ${club_count} clubs.</p>
+
+    <h2>${'Clubs' if club_count > 1 else 'Club'}</h2>
+    <div class="cards">
+      <a tal:repeat="c club_cards" href="/clubs/${c['slug']}/" style="text-decoration:none">
+        <div class="card">
+          <h3>${c['name']}</h3>
+          <div class="label" tal:content="structure c['league_html']"></div>
+          <div class="label">Squad avg: <span class="${c['avg_class']}">${c['avg']}</span></div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>

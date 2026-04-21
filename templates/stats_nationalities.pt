@@ -1,0 +1,51 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <h2>By League</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>League</th>
+          <th class="num">Players</th>
+          <th class="num">Nationalities</th>
+          <th>Most represented</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="r by_league">
+          <td tal:content="structure r['league_html']"></td>
+          <td class="num">${'{:,}'.format(r['total'])}</td>
+          <td class="num">${r['nat_count']}</td>
+          <td>
+            <tal:block tal:repeat="n r['top_nats']">
+              <tal:block tal:condition="repeat['n'].index > 0">, </tal:block>${n['name']} (${n['count']})
+            </tal:block>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Top 20 Nationalities (All Leagues)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nationality</th>
+          <th class="num">Players</th>
+          <th class="num">Avg Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="r top20">
+          <td>
+            <span tal:attributes="title r['country']">
+              <tal:block tal:condition="r['flag']">${r['flag']} </tal:block><a href="/nationalities/${r['slug']}/">${r['nat']}</a>
+            </span>
+          </td>
+          <td class="num">${'{:,}'.format(r['player_count'])}</td>
+          <td class="num"><span class="${r['avg_class']}">${r['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

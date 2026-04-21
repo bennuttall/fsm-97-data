@@ -1,0 +1,33 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <tal:block tal:repeat="sec sections">
+      <h3>${sec['label']}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Player</th>
+            <th>Club</th>
+            <th>Nationality</th>
+            <th>Position</th>
+            <th class="num">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="p sec['rows']">
+            <td class="num">${repeat['p'].index + 1}</td>
+            <td><a href="${p['url']}">${p['name']}</a></td>
+            <td><a href="/clubs/${p['team_slug']}/">${p['team']}</a></td>
+            <td class="nat">
+              <tal:block tal:condition="p['nat_flag']">${p['nat_flag']} </tal:block><a href="/nationalities/${p['nat_slug']}/">${p['nat_name']}</a>
+            </td>
+            <td><a href="/positions/${p['pos_slug']}/" class="pos">${p['position']}</a></td>
+            <td class="num"><span class="${p['value_class']}">${p['value']}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+  </div>
+</div>

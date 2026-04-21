@@ -1,0 +1,24 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="1">Nation</th>
+          <th class="num" data-sort="1">Clubs</th>
+          <th class="num" data-sort="1">Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="row rows">
+          <td>
+            <tal:block tal:condition="row['flag']">${row['flag']} </tal:block><a href="${row['url']}">${row['name']}</a>
+          </td>
+          <td class="num">${'{:,}'.format(row['clubs'])}</td>
+          <td class="num">${'{:,}'.format(row['players'])}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

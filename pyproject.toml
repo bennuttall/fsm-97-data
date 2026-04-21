@@ -11,6 +11,9 @@ requires-python = ">=3.10"
 black = "^25.1.0"
 isort = "^6.0.1"
 
+[tool.poetry.dependencies]
+chameleon = "^4.6.0"
+
 [tool.black]
 line-length = 100
 target-version = ['py310']
@@ -20,8 +23,8 @@ profile = "black"
 lines_after_imports = 2
 
 [project.scripts]
-fsm-extract      = "fsm97.extract:main"
-fsm-generate-www = "fsm97.generate_www:main"
+fsm-extract = "fsm97.extract:main"
+fsm-scribe  = "fsm97.scribe:main"
 
 [build-system]
 requires = ["poetry-core"]

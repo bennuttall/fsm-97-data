@@ -1,0 +1,91 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <h2>Top 50 Overall</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="num" data-sort="1">#</th>
+          <th data-sort="1">Stadium</th>
+          <th data-sort="1">Location</th>
+          <th data-sort="1">Nation</th>
+          <th data-sort="1">Club(s)</th>
+          <th class="num" data-sort="1">Capacity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="s top50">
+          <td class="num">${s['rank']}</td>
+          <td><a href="/stadiums/${s['slug']}/">${s['name']}</a></td>
+          <td>${s['location']}</td>
+          <td>
+            <tal:block tal:condition="s['country']">
+              <tal:block tal:condition="s['country_flag']">${s['country_flag']} </tal:block><a href="/nations/${s['country_slug']}/">${s['country']}</a>
+            </tal:block>
+          </td>
+          <td><tal:block tal:repeat="c s['clubs']"><tal:block tal:condition="repeat['c'].index > 0">, </tal:block><a href="/clubs/${c['slug']}/">${c['name']}</a></tal:block></td>
+          <td class="num">${'{:,}'.format(s['capacity'])}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Top 10 by Nation</h2>
+
+    <tal:block tal:repeat="cn by_country">
+      <h3>
+        <tal:block tal:condition="cn['country_flag']">${cn['country_flag']} </tal:block><a href="/nations/${cn['country_slug']}/">${cn['country']}</a>
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Stadium</th>
+            <th>Location</th>
+            <th>Club(s)</th>
+            <th class="num">Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="s cn['rows']">
+            <td class="num">${s['rank']}</td>
+            <td><a href="/stadiums/${s['slug']}/">${s['name']}</a></td>
+            <td>${s['location']}</td>
+            <td><tal:block tal:repeat="c s['clubs']"><tal:block tal:condition="repeat['c'].index > 0">, </tal:block><a href="/clubs/${c['slug']}/">${c['name']}</a></tal:block></td>
+            <td class="num">${'{:,}'.format(s['capacity'])}</td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+    <tal:block tal:condition="others_rows">
+      <h3>Others</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Stadium</th>
+            <th>Location</th>
+            <th>Nation</th>
+            <th>Club(s)</th>
+            <th class="num">Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="s others_rows">
+            <td class="num">${s['rank']}</td>
+            <td><a href="/stadiums/${s['slug']}/">${s['name']}</a></td>
+            <td>${s['location']}</td>
+            <td>
+              <tal:block tal:condition="s['country']">
+                <tal:block tal:condition="s['country_flag']">${s['country_flag']} </tal:block><a href="/nations/${s['country_slug']}/">${s['country']}</a>
+              </tal:block>
+            </td>
+            <td><tal:block tal:repeat="c s['clubs']"><tal:block tal:condition="repeat['c'].index > 0">, </tal:block><a href="/clubs/${c['slug']}/">${c['name']}</a></tal:block></td>
+            <td class="num">${'{:,}'.format(s['capacity'])}</td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
+
+  </div>
+</div>

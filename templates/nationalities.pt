@@ -1,0 +1,30 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <div class="filter-bar">
+      <input data-filter="nat-idx" placeholder="Filter nationalities…" autofocus="">
+    </div>
+
+    <table id="nat-idx">
+      <thead>
+        <tr>
+          <th data-sort="1">Nationality</th>
+          <th class="num" data-sort="1">Players</th>
+          <th class="num" data-sort="1">Avg Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="r rows">
+          <td>
+            <span tal:attributes="title r['country']">
+              <tal:block tal:condition="r['flag']">${r['flag']} </tal:block><a href="/nationalities/${r['slug']}/">${r['nat']}</a>
+            </span>
+          </td>
+          <td class="num">${'{:,}'.format(r['player_count'])}</td>
+          <td class="num"><span class="${r['avg_class']}">${r['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
