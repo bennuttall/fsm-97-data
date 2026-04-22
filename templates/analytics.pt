@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics — ${period_label} — FSM 97</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f5f5f5; color: #222; padding: 2rem; }
+    .container { width: 680px; margin: 0 auto; }
+    h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .site-link { font-size: .85rem; color: #888; font-weight: 400; margin-left: .5rem; }
+    .site-link a { color: #4f81c7; text-decoration: none; }
+    .site-link a:hover { text-decoration: underline; }
+    .cards { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .card { background: #fff; border-radius: 8px; padding: 1.25rem 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    .card .value { font-size: 2rem; font-weight: 700; }
+    .card .label { font-size: .85rem; color: #666; margin-top: .2rem; }
+    .panel { background: #fff; border-radius: 8px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 1.5rem; }
+    .panel h2 { font-size: 1rem; margin-bottom: 1rem; color: #444; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th { text-align: left; padding: .4rem .6rem; border-bottom: 2px solid #eee; color: #666; font-weight: 600; }
+    th:last-child { width: 4rem; }
+    td { padding: .4rem .6rem; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+    td:last-child { color: #555; white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    .page-title { font-weight: 500; }
+    .page-path { font-size: .8rem; color: #888; }
+    tfoot td { border-bottom: none; padding: .5rem .6rem; }
+    .expand-btn { background: none; border: none; color: #4f81c7; cursor: pointer; font-size: .85rem; padding: 0; text-decoration: underline; }
+    .expand-btn:hover { color: #2a5a9f; }
+    .badge { display: inline-block; font-size: .7rem; color: #fff; border-radius: 3px; padding: .1rem .4rem; margin-left: .4rem; vertical-align: middle; }
+    .ext-link { color: #bbb; text-decoration: none; vertical-align: middle; margin-left: .2rem; }
+    .ext-link:hover { color: #4f81c7; }
+    .ref-link { color: #222; text-decoration: none; }
+    .ref-link:hover { text-decoration: underline; }
+    nav { margin-bottom: 1.5rem; }
+    .breadcrumbs { font-size: .85rem; color: #888; margin-bottom: .6rem; }
+    .breadcrumbs a { color: #4f81c7; text-decoration: none; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span + span::before { content: " / "; color: #ccc; }
+    .nav-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .nav-links a { background: #fff; border-radius: 6px; padding: .3rem .8rem; font-size: .85rem; color: #4f81c7; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    .nav-links a:hover { background: #4f81c7; color: #fff; }
+    .nav-links a.current { background: #4f81c7; color: #fff; pointer-events: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <div class="breadcrumbs" tal:condition="nav['breadcrumbs']">
+      <span tal:repeat="crumb nav['breadcrumbs']"><a tal:attributes="href crumb['url']">${crumb['label']}</a></span>
+    </div>
+    <div class="nav-links" tal:condition="nav.get('years')">
+      <a tal:repeat="item nav['years']"
+         tal:attributes="href item['url']; class python: 'current' if item.get('current') else None">${item['label']}</a>
+    </div>
+    <div class="nav-links" tal:condition="nav.get('months')"
+         tal:attributes="style python: 'margin-top: .5rem' if nav.get('years') else None">
+      <a tal:repeat="item nav['months']"
+         tal:attributes="href item['url']; class python: 'current' if item.get('current') else None">${item['label']}</a>
+    </div>
+  </nav>
+
+  <h1>
+    Analytics — ${period_label}
+    <span class="site-link">— <a href="${report['base_url']}" target="_blank" rel="noopener">fsm.bennuttall.com &#8599;</a></span>
+  </h1>
+
+  <tal:block tal:define="
+    fmt python: lambda d: datetime.strptime(d, '%Y-%m-%d').strftime('%-d %B %Y');
+    date_range python: fmt(report['date_from']) if report['date_from'] == report['date_to'] else fmt(report['date_from']) + ' \u2013 ' + fmt(report['date_to']);
+    base python: report['base_url'].rstrip('/')
+  ">
+  <div class="cards">
+    <div class="card">
+      <div class="value" tal:content="python: '{:,}'.format(report['total_hits'])">0</div>
+      <div class="label">Total hits</div>
+    </div>
+    <div class="card">
+      <div class="value" tal:content="python: '{:.1f}%'.format(report['bot_hits'])">0%</div>
+      <div class="label">Bot hits</div>
+    </div>
+    <div class="card">
+      <div class="value" tal:content="python: '{:,}'.format(report['unique_ips'])">0</div>
+      <div class="label">Unique IPs</div>
+    </div>
+    <div class="card">
+      <div class="value">${date_range}</div>
+      <div class="label">Date range</div>
+    </div>
+  </div>
+  </tal:block>
+
+  <div class="panel">
+    <h2>Hits by month</h2>
+    <canvas id="monthChart"></canvas>
+  </div>
+
+  <div class="panel">
+    <h2>Hits by day</h2>
+    <canvas id="dayChart"></canvas>
+  </div>
+
+  <!-- Top pages -->
+  <div class="panel" tal:condition="report['pages']"
+       tal:define="
+         entries report['pages']; top entries[:10]; rest entries[10:20];
+         badge_colours python: {
+           'home':          '#4f81c7',
+           'clubs':         '#c0504d',
+           'leagues':       '#d07840',
+           'nations':       '#5aaa72',
+           'players':       '#8060a8',
+           'stadiums':      '#40a090',
+           'positions':     '#4090c0',
+           'nationalities': '#60a890',
+           'stats':         '#b05090',
+           'events':        '#c8a030',
+           'trivia':        '#7070b8',
+           'videos':        '#c04060',
+           'credits':       '#888',
+           'about':         '#888',
+         }
+       ">
+    <h2>Top pages</h2>
+    <table>
+      <thead><tr><th>Page</th><th>Hits</th></tr></thead>
+      <tbody>
+        <tr tal:repeat="p top" tal:define="base report['base_url'].rstrip('/')">
+          <td>
+            <span class="page-title">${p['title']}</span>
+            <span class="badge"
+              tal:define="colour python: badge_colours.get(p['section'], '#888')"
+              tal:attributes="style python: 'background:' + colour"
+              tal:content="p['section']">section</span>
+            <a tal:condition="base" tal:attributes="href base + p['path']"
+               target="_blank" rel="noopener" class="ext-link">&#8599;</a>
+            <br /><span class="page-path">${p['path']}</span>
+          </td>
+          <td tal:content="python: '{:,}'.format(p['hits'])">0</td>
+        </tr>
+      </tbody>
+      <tbody class="more" hidden="hidden" tal:condition="rest">
+        <tr tal:repeat="p rest" tal:define="base report['base_url'].rstrip('/')">
+          <td>
+            <span class="page-title">${p['title']}</span>
+            <span class="badge"
+              tal:define="colour python: badge_colours.get(p['section'], '#888')"
+              tal:attributes="style python: 'background:' + colour"
+              tal:content="p['section']">section</span>
+            <a tal:condition="base" tal:attributes="href base + p['path']"
+               target="_blank" rel="noopener" class="ext-link">&#8599;</a>
+            <br /><span class="page-path">${p['path']}</span>
+          </td>
+          <td tal:content="python: '{:,}'.format(p['hits'])">0</td>
+        </tr>
+      </tbody>
+      <tfoot tal:condition="rest">
+        <tr><td colspan="2">
+          <button class="expand-btn" onclick="toggleMore(this)"
+                  tal:content="python: f'Show {len(rest)} more'">Show more</button>
+        </td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Per-section top pages -->
+  <tal:block tal:repeat="item python: [
+    ('clubs',    'Top clubs',    '#c0504d'),
+    ('stadiums', 'Top stadiums', '#40a090'),
+    ('leagues',  'Top leagues',  '#d07840'),
+  ]">
+  <tal:block tal:define="section python: item[0]; heading python: item[1]">
+  <div class="panel" tal:condition="python: bool(report['section_pages'].get(section))">
+    <h2>${heading}</h2>
+    <table>
+      <thead><tr><th>Page</th><th>Hits</th></tr></thead>
+      <tbody>
+        <tr tal:repeat="p python: report['section_pages'][section]"
+            tal:define="base report['base_url'].rstrip('/')">
+          <td>
+            <span class="page-title">${p['title']}</span>
+            <a tal:condition="base" tal:attributes="href base + p['path']"
+               target="_blank" rel="noopener" class="ext-link">&#8599;</a>
+            <br /><span class="page-path">${p['path']}</span>
+          </td>
+          <td tal:content="python: '{:,}'.format(p['hits'])">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </tal:block>
+  </tal:block>
+
+  <!-- Referring sites -->
+  <div class="panel" tal:condition="report['referer_counts']"
+       tal:define="counts report['referer_counts']; top counts[:10]; rest counts[10:]">
+    <h2>Referring sites</h2>
+    <table>
+      <thead><tr><th>Domain</th><th>Hits</th></tr></thead>
+      <tbody>
+        <tr tal:repeat="item top">
+          <td><a tal:attributes="href 'https://' + item[0]" target="_blank" rel="noopener" class="ref-link">${item[0]} &#8599;</a></td>
+          <td tal:content="python: '{:,}'.format(item[1])">0</td>
+        </tr>
+      </tbody>
+      <tbody class="more" hidden="hidden" tal:condition="rest">
+        <tr tal:repeat="item rest">
+          <td><a tal:attributes="href 'https://' + item[0]" target="_blank" rel="noopener" class="ref-link">${item[0]} &#8599;</a></td>
+          <td tal:content="python: '{:,}'.format(item[1])">0</td>
+        </tr>
+      </tbody>
+      <tfoot tal:condition="rest">
+        <tr><td colspan="2">
+          <button class="expand-btn" onclick="toggleMore(this)"
+                  tal:content="python: f'Show {len(rest)} more'">Show more</button>
+        </td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- User agents -->
+  <div class="panel">
+    <h2>User agents</h2>
+    <canvas id="uaChart"></canvas>
+  </div>
+
+</div>
+
+<script>
+new Chart(document.getElementById('monthChart'), {
+  type: 'bar',
+  data: {
+    labels: <tal:block replace="structure python: json.dumps([datetime.strptime(m, '%Y-%m').strftime('%B %Y') for m in report['months']])" />,
+    datasets: [{ data: <tal:block replace="structure json.dumps(report['hits_by_month'])" />, backgroundColor: '#4f81c7', borderRadius: 3 }]
+  },
+  options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+
+new Chart(document.getElementById('dayChart'), {
+  type: 'bar',
+  data: {
+    labels: <tal:block replace="structure python: json.dumps([datetime.strptime(d, '%Y-%m-%d').strftime('%-d %B') for d in report['dates']])" />,
+    datasets: [{ data: <tal:block replace="structure json.dumps(report['hits_by_day'])" />, backgroundColor: '#4f81c7', borderRadius: 3 }]
+  },
+  options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+
+new Chart(document.getElementById('uaChart'), {
+  type: 'bar',
+  data: {
+    labels: <tal:block replace="structure python: json.dumps([item['ua'] for item in report['ua_counts']])" />,
+    datasets: [{
+      data: <tal:block replace="structure python: json.dumps([item['hits'] for item in report['ua_counts']])" />,
+      backgroundColor: <tal:block replace="structure python: json.dumps(['#aaa' if item['is_bot'] else '#4f81c7' for item in report['ua_counts']])" />,
+      borderRadius: 3
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true } }
+  }
+});
+
+function toggleMore(btn) {
+  const more = btn.closest('table').querySelector('.more');
+  const hidden = more.hidden;
+  more.hidden = !hidden;
+  btn.textContent = hidden ? 'Show less' : 'Show ' + more.rows.length + ' more';
+}
+</script>
+</body>
+</html>

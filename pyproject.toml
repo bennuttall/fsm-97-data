@@ -13,6 +13,11 @@ isort = "^6.0.1"
 
 [tool.poetry.dependencies]
 chameleon = "^4.6.0"
+lars = {version = "*", optional = true}
+user-agents = {version = "*", optional = true}
+
+[tool.poetry.extras]
+logs = ["lars", "user-agents"]
 
 [tool.black]
 line-length = 100
@@ -23,8 +28,10 @@ profile = "black"
 lines_after_imports = 2
 
 [project.scripts]
-fsm-extract = "fsm97.extract:main"
-fsm-scribe  = "fsm97.scribe:main"
+fsm-extract    = "fsm97.extract:main"
+fsm-scribe     = "fsm97.scribe:main"
+fsm-logs       = "fsm97.logs.cli:main"
+fsm-analytics  = "fsm97.analytics.cli:main"
 
 [build-system]
 requires = ["poetry-core"]

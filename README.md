@@ -11,6 +11,7 @@ View the website at https://fsm.bennuttall.com/
 - Python library for extracting and processing game data, and building the static website
 - CSV files of data extracted from the game files
 - Extensive HTML static website built from the CSV data
+- Apache log processing and analytics site (see [docs/analytics.md](docs/analytics.md))
 
 ## Claude
 

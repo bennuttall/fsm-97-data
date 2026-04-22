@@ -1,4 +1,5 @@
 import argparse
+import json
 import re
 import shutil
 import unicodedata
@@ -1702,6 +1703,75 @@ class Scribe:
         )
         self.write_file("credits/index.html", content)
 
+    def get_manifest_entries(self) -> list[dict]:
+        ds = self.ds
+        entries = []
+
+        def e(url, title, type="page"):
+            entries.append({"url": url, "title": title, "type": type})
+
+        # Top-level static pages
+        e("/", "FIFA Soccer Manager 97")
+        e("/leagues/", "Leagues")
+        e("/nations/", "Nations")
+        e("/clubs/", "All Clubs")
+        e("/players/", "Players")
+        e("/stadiums/", "Stadiums")
+        e("/positions/", "Positions")
+        e("/nationalities/", "Nationalities")
+        e("/stats/", "Stats & Records")
+        e("/stats/top-players/", "Top Players")
+        e("/stats/skill-leaders/", "Skill Leaders")
+        e("/stats/age-groups/", "Age Groups")
+        e("/stats/player-managers/", "Player-Managers")
+        e("/stats/stadiums/", "Stadium Rankings")
+        e("/stats/squads/", "Squad Rankings")
+        e("/stats/nationalities/", "Nationality Stats")
+        e("/stats/best-of/", "Best Of All")
+        e("/events/", "In-Game Events")
+        e("/trivia/", "Trivia")
+        e("/trivia/players/", "Player Trivia")
+        e("/trivia/stadiums/", "Stadium Trivia")
+        e("/trivia/clubs/", "Club Trivia")
+        e("/videos/", "Videos")
+        e("/credits/", "Game Credits")
+        e("/about/", "About")
+
+        # Per-league pages
+        for lg in ds.league_names:
+            if lg != "Others":
+                e(f"/leagues/{slug(lg)}/", lg)
+
+        # Per-nation pages
+        for nation in ds.nation_names:
+            e(f"/nations/{slug(nation)}/", nation)
+
+        # Per-club pages
+        for t in ds.teams:
+            e(f"/clubs/{slug(t['team'])}/", t["team"])
+
+        # Per-stadium pages
+        for sname in ds.stadium_to_teams:
+            e(f"/stadiums/{slug(sname)}/", sname)
+
+        # Per-position pages
+        for pos in POS_ORDER:
+            if ds.players_by_position.get(pos):
+                info = ds.positions_info.get(pos, {})
+                title = f"{pos} — {info.get('position', '')}" if info.get("position") else pos
+                e(f"/positions/{slug(pos)}/", title)
+
+        # Per-nationality pages
+        for nat in ds.players_by_nationality:
+            if nat:
+                e(f"/nationalities/{slug(nat)}/", nat)
+
+        return entries
+
+    def write_manifest(self):
+        output_path = self.output_dir / "manifest.json"
+        output_path.write_text(json.dumps(self.get_manifest_entries(), indent=4))
+
     def write_sitemap(self, base_url):
         ds = self.ds
         urls = [
@@ -1787,6 +1857,8 @@ def main():
     if args.base_url:
         print("Writing Sitemap...")
         scribe.write_sitemap(args.base_url)
+    print("Writing Manifest...")
+    scribe.write_manifest()
     print("Done")
 
 

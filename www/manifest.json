@@ -1,0 +1,4252 @@
+[
+    {
+        "url": "/",
+        "title": "FIFA Soccer Manager 97",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/",
+        "title": "Leagues",
+        "type": "page"
+    },
+    {
+        "url": "/nations/",
+        "title": "Nations",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/",
+        "title": "All Clubs",
+        "type": "page"
+    },
+    {
+        "url": "/players/",
+        "title": "Players",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/",
+        "title": "Stadiums",
+        "type": "page"
+    },
+    {
+        "url": "/positions/",
+        "title": "Positions",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/",
+        "title": "Nationalities",
+        "type": "page"
+    },
+    {
+        "url": "/stats/",
+        "title": "Stats & Records",
+        "type": "page"
+    },
+    {
+        "url": "/stats/top-players/",
+        "title": "Top Players",
+        "type": "page"
+    },
+    {
+        "url": "/stats/skill-leaders/",
+        "title": "Skill Leaders",
+        "type": "page"
+    },
+    {
+        "url": "/stats/age-groups/",
+        "title": "Age Groups",
+        "type": "page"
+    },
+    {
+        "url": "/stats/player-managers/",
+        "title": "Player-Managers",
+        "type": "page"
+    },
+    {
+        "url": "/stats/stadiums/",
+        "title": "Stadium Rankings",
+        "type": "page"
+    },
+    {
+        "url": "/stats/squads/",
+        "title": "Squad Rankings",
+        "type": "page"
+    },
+    {
+        "url": "/stats/nationalities/",
+        "title": "Nationality Stats",
+        "type": "page"
+    },
+    {
+        "url": "/stats/best-of/",
+        "title": "Best Of All",
+        "type": "page"
+    },
+    {
+        "url": "/events/",
+        "title": "In-Game Events",
+        "type": "page"
+    },
+    {
+        "url": "/trivia/",
+        "title": "Trivia",
+        "type": "page"
+    },
+    {
+        "url": "/trivia/players/",
+        "title": "Player Trivia",
+        "type": "page"
+    },
+    {
+        "url": "/trivia/stadiums/",
+        "title": "Stadium Trivia",
+        "type": "page"
+    },
+    {
+        "url": "/trivia/clubs/",
+        "title": "Club Trivia",
+        "type": "page"
+    },
+    {
+        "url": "/videos/",
+        "title": "Videos",
+        "type": "page"
+    },
+    {
+        "url": "/credits/",
+        "title": "Game Credits",
+        "type": "page"
+    },
+    {
+        "url": "/about/",
+        "title": "About",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/english-premier-league/",
+        "title": "English Premier League",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/english-first-division/",
+        "title": "English First Division",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/german-bundesliga-1/",
+        "title": "German Bundesliga 1",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/german-bundesliga-2/",
+        "title": "German Bundesliga 2",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/italian-serie-a/",
+        "title": "Italian Serie A",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/italian-serie-b/",
+        "title": "Italian Serie B",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/french-division-1/",
+        "title": "French Division 1",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/french-division-2/",
+        "title": "French Division 2",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/scottish-premier-league/",
+        "title": "Scottish Premier League",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/scottish-first-division/",
+        "title": "Scottish First Division",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/english-second-division/",
+        "title": "English Second Division",
+        "type": "page"
+    },
+    {
+        "url": "/leagues/english-third-division/",
+        "title": "English Third Division",
+        "type": "page"
+    },
+    {
+        "url": "/nations/albania/",
+        "title": "Albania",
+        "type": "page"
+    },
+    {
+        "url": "/nations/armenia/",
+        "title": "Armenia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/austria/",
+        "title": "Austria",
+        "type": "page"
+    },
+    {
+        "url": "/nations/azerbaijan/",
+        "title": "Azerbaijan",
+        "type": "page"
+    },
+    {
+        "url": "/nations/belarus/",
+        "title": "Belarus",
+        "type": "page"
+    },
+    {
+        "url": "/nations/belgium/",
+        "title": "Belgium",
+        "type": "page"
+    },
+    {
+        "url": "/nations/bulgaria/",
+        "title": "Bulgaria",
+        "type": "page"
+    },
+    {
+        "url": "/nations/croatia/",
+        "title": "Croatia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/cyprus/",
+        "title": "Cyprus",
+        "type": "page"
+    },
+    {
+        "url": "/nations/czech-republic/",
+        "title": "Czech Republic",
+        "type": "page"
+    },
+    {
+        "url": "/nations/denmark/",
+        "title": "Denmark",
+        "type": "page"
+    },
+    {
+        "url": "/nations/england/",
+        "title": "England",
+        "type": "page"
+    },
+    {
+        "url": "/nations/estonia/",
+        "title": "Estonia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/faroe-islands/",
+        "title": "Faroe Islands",
+        "type": "page"
+    },
+    {
+        "url": "/nations/finland/",
+        "title": "Finland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/france/",
+        "title": "France",
+        "type": "page"
+    },
+    {
+        "url": "/nations/georgia/",
+        "title": "Georgia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/germany/",
+        "title": "Germany",
+        "type": "page"
+    },
+    {
+        "url": "/nations/greece/",
+        "title": "Greece",
+        "type": "page"
+    },
+    {
+        "url": "/nations/hungary/",
+        "title": "Hungary",
+        "type": "page"
+    },
+    {
+        "url": "/nations/iceland/",
+        "title": "Iceland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/israel/",
+        "title": "Israel",
+        "type": "page"
+    },
+    {
+        "url": "/nations/italy/",
+        "title": "Italy",
+        "type": "page"
+    },
+    {
+        "url": "/nations/latvia/",
+        "title": "Latvia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/liechtenstein/",
+        "title": "Liechtenstein",
+        "type": "page"
+    },
+    {
+        "url": "/nations/lithuania/",
+        "title": "Lithuania",
+        "type": "page"
+    },
+    {
+        "url": "/nations/luxembourg/",
+        "title": "Luxembourg",
+        "type": "page"
+    },
+    {
+        "url": "/nations/malta/",
+        "title": "Malta",
+        "type": "page"
+    },
+    {
+        "url": "/nations/moldova/",
+        "title": "Moldova",
+        "type": "page"
+    },
+    {
+        "url": "/nations/netherlands/",
+        "title": "Netherlands",
+        "type": "page"
+    },
+    {
+        "url": "/nations/northern-ireland/",
+        "title": "Northern Ireland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/norway/",
+        "title": "Norway",
+        "type": "page"
+    },
+    {
+        "url": "/nations/poland/",
+        "title": "Poland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/portugal/",
+        "title": "Portugal",
+        "type": "page"
+    },
+    {
+        "url": "/nations/republic-of-ireland/",
+        "title": "Republic of Ireland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/romania/",
+        "title": "Romania",
+        "type": "page"
+    },
+    {
+        "url": "/nations/russia/",
+        "title": "Russia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/san-marino/",
+        "title": "San Marino",
+        "type": "page"
+    },
+    {
+        "url": "/nations/scotland/",
+        "title": "Scotland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/serbia/",
+        "title": "Serbia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/slovakia/",
+        "title": "Slovakia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/slovenia/",
+        "title": "Slovenia",
+        "type": "page"
+    },
+    {
+        "url": "/nations/spain/",
+        "title": "Spain",
+        "type": "page"
+    },
+    {
+        "url": "/nations/sweden/",
+        "title": "Sweden",
+        "type": "page"
+    },
+    {
+        "url": "/nations/switzerland/",
+        "title": "Switzerland",
+        "type": "page"
+    },
+    {
+        "url": "/nations/turkey/",
+        "title": "Turkey",
+        "type": "page"
+    },
+    {
+        "url": "/nations/ukraine/",
+        "title": "Ukraine",
+        "type": "page"
+    },
+    {
+        "url": "/nations/wales/",
+        "title": "Wales",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/arsenal/",
+        "title": "Arsenal",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/aston-villa/",
+        "title": "Aston Villa",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/blackburn-rovers/",
+        "title": "Blackburn Rovers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bolton-wanderers/",
+        "title": "Bolton Wanderers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chelsea/",
+        "title": "Chelsea",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/coventry-city/",
+        "title": "Coventry City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/everton/",
+        "title": "Everton",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/leeds-united/",
+        "title": "Leeds United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/liverpool/",
+        "title": "Liverpool",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/manchester-city/",
+        "title": "Manchester City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/manchester-united/",
+        "title": "Manchester United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/middlesbrough/",
+        "title": "Middlesbrough",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/newcastle-united/",
+        "title": "Newcastle United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/nottingham-forest/",
+        "title": "Nottingham Forest",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/queens-park-rangers/",
+        "title": "Queens Park Rangers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sheffield-wednesday/",
+        "title": "Sheffield Wednesday",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/southampton/",
+        "title": "Southampton",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/tottenham-hotspur/",
+        "title": "Tottenham Hotspur",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/west-ham-united/",
+        "title": "West Ham United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wimbledon/",
+        "title": "Wimbledon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bayern-munchen/",
+        "title": "Bayern M\u00fcnchen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/borussia-dortmund/",
+        "title": "Borussia Dortmund",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/borussia-monchengladbach/",
+        "title": "Borussia M\u00f6nchengladbach",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/eintracht-frankfurt/",
+        "title": "Eintracht Frankfurt",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sc-freiburg/",
+        "title": "SC Freiburg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fortuna-dusseldorf/",
+        "title": "Fortuna D\u00fcsseldorf",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hansa-rostock/",
+        "title": "Hansa Rostock",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hamburger-sv/",
+        "title": "Hamburger SV",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/1-fc-kaiserslautern/",
+        "title": "1. FC Kaiserslautern",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/karlsruher-sc/",
+        "title": "Karlsruher SC",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/1-fc-koln/",
+        "title": "1. FC K\u00f6ln",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bayer-leverkusen/",
+        "title": "Bayer Leverkusen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/1860-munchen/",
+        "title": "1860 M\u00fcnchen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-schalke-04/",
+        "title": "FC Schalke 04",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-st-pauli/",
+        "title": "FC St. Pauli",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfb-stuttgart/",
+        "title": "VfB Stuttgart",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/kfc-uerdingen/",
+        "title": "KFC Uerdingen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/werder-bremen/",
+        "title": "Werder Bremen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/atalanta/",
+        "title": "Atalanta",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bari/",
+        "title": "Bari",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cagliari/",
+        "title": "Cagliari",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cremonese/",
+        "title": "Cremonese",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fiorentina/",
+        "title": "Fiorentina",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/internazionale/",
+        "title": "Internazionale",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/juventus/",
+        "title": "Juventus",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lazio/",
+        "title": "Lazio",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ac-milan/",
+        "title": "AC Milan",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/napoli/",
+        "title": "Napoli",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/padova/",
+        "title": "Padova",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/parma/",
+        "title": "Parma",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/piacenza/",
+        "title": "Piacenza",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/roma/",
+        "title": "Roma",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sampdoria/",
+        "title": "Sampdoria",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/torino/",
+        "title": "Torino",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/udinese/",
+        "title": "Udinese",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vicenza/",
+        "title": "Vicenza",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/auxerre/",
+        "title": "Auxerre",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bastia/",
+        "title": "Bastia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bordeaux/",
+        "title": "Bordeaux",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cannes/",
+        "title": "Cannes",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/gueugnon/",
+        "title": "Gueugnon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/guingamp/",
+        "title": "Guingamp",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/le-havre/",
+        "title": "Le Havre",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rc-lens/",
+        "title": "RC Lens",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lille/",
+        "title": "Lille",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lyon/",
+        "title": "Lyon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/martigues/",
+        "title": "Martigues",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-metz/",
+        "title": "FC Metz",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/monaco/",
+        "title": "Monaco",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/montpellier/",
+        "title": "Montpellier",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/nantes/",
+        "title": "Nantes",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/nice/",
+        "title": "Nice",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/paris-saint-germain/",
+        "title": "Paris Saint-Germain",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rennes/",
+        "title": "Rennes",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/saint-etienne/",
+        "title": "Saint-\u00c9tienne",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/strasbourg/",
+        "title": "Strasbourg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/aberdeen/",
+        "title": "Aberdeen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/celtic/",
+        "title": "Celtic",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/falkirk/",
+        "title": "Falkirk",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/heart-of-midlothian/",
+        "title": "Heart of Midlothian",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hibernian/",
+        "title": "Hibernian",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/kilmarnock/",
+        "title": "Kilmarnock",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/motherwell/",
+        "title": "Motherwell",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/partick-thistle/",
+        "title": "Partick Thistle",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/raith-rovers/",
+        "title": "Raith Rovers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rangers/",
+        "title": "Rangers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/barnsley/",
+        "title": "Barnsley",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/birmingham-city/",
+        "title": "Birmingham City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/charlton-athletic/",
+        "title": "Charlton Athletic",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/crystal-palace/",
+        "title": "Crystal Palace",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/derby-county/",
+        "title": "Derby County",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/grimsby-town/",
+        "title": "Grimsby Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/huddersfield-town/",
+        "title": "Huddersfield Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ipswich-town/",
+        "title": "Ipswich Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/leicester-city/",
+        "title": "Leicester City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/luton-town/",
+        "title": "Luton Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/millwall/",
+        "title": "Millwall",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/norwich-city/",
+        "title": "Norwich City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/oldham-athletic/",
+        "title": "Oldham Athletic",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/port-vale/",
+        "title": "Port Vale",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/portsmouth/",
+        "title": "Portsmouth",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/reading/",
+        "title": "Reading",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sheffield-united/",
+        "title": "Sheffield United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/southend-united/",
+        "title": "Southend United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/stoke-city/",
+        "title": "Stoke City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sunderland/",
+        "title": "Sunderland",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/tranmere-rovers/",
+        "title": "Tranmere Rovers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/watford/",
+        "title": "Watford",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/west-bromwich-albion/",
+        "title": "West Bromwich Albion",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wolverhampton-wanderers/",
+        "title": "Wolverhampton Wanderers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/blackpool/",
+        "title": "Blackpool",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bournemouth/",
+        "title": "Bournemouth",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bradford-city/",
+        "title": "Bradford City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/brentford/",
+        "title": "Brentford",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/brighton-hove-albion/",
+        "title": "Brighton & Hove Albion",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bristol-city/",
+        "title": "Bristol City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bristol-rovers/",
+        "title": "Bristol Rovers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/burnley/",
+        "title": "Burnley",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/carlisle-united/",
+        "title": "Carlisle United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chesterfield/",
+        "title": "Chesterfield",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/crewe-alexandra/",
+        "title": "Crewe Alexandra",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hull-city/",
+        "title": "Hull City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/notts-county/",
+        "title": "Notts County",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/oxford-united/",
+        "title": "Oxford United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/peterborough-united/",
+        "title": "Peterborough United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rotherham-united/",
+        "title": "Rotherham United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/shrewsbury-town/",
+        "title": "Shrewsbury Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/stockport-county/",
+        "title": "Stockport County",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/swansea-city/",
+        "title": "Swansea City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/swindon-town/",
+        "title": "Swindon Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/walsall/",
+        "title": "Walsall",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wrexham/",
+        "title": "Wrexham",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wycombe-wanderers/",
+        "title": "Wycombe Wanderers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/york-city/",
+        "title": "York City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/barnet/",
+        "title": "Barnet",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bury/",
+        "title": "Bury",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cambridge-united/",
+        "title": "Cambridge United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cardiff-city/",
+        "title": "Cardiff City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chester-city/",
+        "title": "Chester City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/colchester-united/",
+        "title": "Colchester United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/darlington/",
+        "title": "Darlington",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/doncaster-rovers/",
+        "title": "Doncaster Rovers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/exeter-city/",
+        "title": "Exeter City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fulham/",
+        "title": "Fulham",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/gillingham/",
+        "title": "Gillingham",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hartlepool-united/",
+        "title": "Hartlepool United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hereford-united/",
+        "title": "Hereford United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/leyton-orient/",
+        "title": "Leyton Orient",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lincoln-city/",
+        "title": "Lincoln City",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/mansfield-town/",
+        "title": "Mansfield Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/northampton-town/",
+        "title": "Northampton Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/plymouth-argyle/",
+        "title": "Plymouth Argyle",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/preston-north-end/",
+        "title": "Preston North End",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rochdale/",
+        "title": "Rochdale",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/scarborough/",
+        "title": "Scarborough",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/scunthorpe-united/",
+        "title": "Scunthorpe United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/torquay-united/",
+        "title": "Torquay United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wigan-athletic/",
+        "title": "Wigan Athletic",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/arminia-bielefeld/",
+        "title": "Arminia Bielefeld",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfl-bochum/",
+        "title": "VfL Bochum",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-carl-zeiss-jena/",
+        "title": "FC Carl Zeiss Jena",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chemnitz/",
+        "title": "Chemnitz",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/msv-duisburg/",
+        "title": "MSV Duisburg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fortuna-koln/",
+        "title": "Fortuna K\u00f6ln",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hannover-96/",
+        "title": "Hannover 96",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hertha-bsc/",
+        "title": "Hertha BSC",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfb-leipzig/",
+        "title": "VfB Leipzig",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfb-lubeck/",
+        "title": "VfB L\u00fcbeck",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/1-fsv-mainz-05/",
+        "title": "1. FSV Mainz 05",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sv-meppen/",
+        "title": "SV Meppen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/1-fc-nurnberg/",
+        "title": "1. FC N\u00fcrnberg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/spvgg-unterhaching/",
+        "title": "SpVgg Unterhaching",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sv-waldhof-mannheim/",
+        "title": "SV Waldhof Mannheim",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/wattenscheid/",
+        "title": "Wattenscheid",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfl-wolfsburg/",
+        "title": "VfL Wolfsburg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fsv-zwickau/",
+        "title": "FSV Zwickau",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/airdrieonians/",
+        "title": "Airdrieonians",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/clydebank/",
+        "title": "Clydebank",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dumbarton/",
+        "title": "Dumbarton",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dundee/",
+        "title": "Dundee",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dundee-united/",
+        "title": "Dundee United",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dunfermline-athletic/",
+        "title": "Dunfermline Athletic",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/greenock-morton/",
+        "title": "Greenock Morton",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hamilton-academical/",
+        "title": "Hamilton Academical",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/st-johnstone/",
+        "title": "St Johnstone",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/st-mirren/",
+        "title": "St Mirren",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ancona/",
+        "title": "Ancona",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/avellino/",
+        "title": "Avellino",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bologna/",
+        "title": "Bologna",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/brescia/",
+        "title": "Brescia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cesena/",
+        "title": "Cesena",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chievo/",
+        "title": "Chievo",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cosenza/",
+        "title": "Cosenza",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fidelis-andria/",
+        "title": "Fidelis Andria",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/foggia/",
+        "title": "Foggia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/genoa/",
+        "title": "Genoa",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lucchese/",
+        "title": "Lucchese",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/palermo/",
+        "title": "Palermo",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/perugia/",
+        "title": "Perugia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/pescara/",
+        "title": "Pescara",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/pistoiese/",
+        "title": "Pistoiese",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/reggiana/",
+        "title": "Reggiana",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/reggina/",
+        "title": "Reggina",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/salernitana/",
+        "title": "Salernitana",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/venezia/",
+        "title": "Venezia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hellas-verona/",
+        "title": "Hellas Verona",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ales/",
+        "title": "Ales",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/amiens/",
+        "title": "Amiens",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/angers/",
+        "title": "Angers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/caen/",
+        "title": "Caen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/charleville/",
+        "title": "Charleville",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/chateauroux/",
+        "title": "Ch\u00e2teauroux",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dunkerque/",
+        "title": "Dunkerque",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/epinal/",
+        "title": "\u00c9pinal",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/laval/",
+        "title": "Laval",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/le-mans/",
+        "title": "Le Mans",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lorient/",
+        "title": "Lorient",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/louhans-cuiseaux/",
+        "title": "Louhans-Cuiseaux",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/marseille/",
+        "title": "Marseille",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/mulhouse/",
+        "title": "Mulhouse",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/nancy/",
+        "title": "Nancy",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/niort/",
+        "title": "Niort",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/perpignan/",
+        "title": "Perpignan",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/poitiers/",
+        "title": "Poitiers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/red-star/",
+        "title": "Red Star",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sochaux/",
+        "title": "Sochaux",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/toulouse/",
+        "title": "Toulouse",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/valence/",
+        "title": "Valence",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/anderlecht/",
+        "title": "Anderlecht",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/antwerp/",
+        "title": "Antwerp",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/club-brugge/",
+        "title": "Club Brugge",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/standard-liege/",
+        "title": "Standard Liege",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rushden-diamonds/",
+        "title": "Rushden & Diamonds",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/benfica/",
+        "title": "Benfica",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/boavista/",
+        "title": "Boavista",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/porto/",
+        "title": "Porto",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sporting-lisbon/",
+        "title": "Sporting Lisbon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/belenenses/",
+        "title": "Belenenses",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lierse/",
+        "title": "Lierse",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/atletico-madrid/",
+        "title": "Atl\u00e9tico Madrid",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-barcelona/",
+        "title": "FC Barcelona",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/deportivo-la-coruna/",
+        "title": "Deportivo La Coru\u00f1a",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/real-madrid/",
+        "title": "Real Madrid",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/real-zaragoza/",
+        "title": "Real Zaragoza",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ajax/",
+        "title": "Ajax",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/feyenoord/",
+        "title": "Feyenoord",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/psv-eindhoven/",
+        "title": "PSV Eindhoven",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vitesse/",
+        "title": "Vitesse",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/twente/",
+        "title": "Twente",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/partizan/",
+        "title": "Partizan",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/teuta-durres/",
+        "title": "Teuta Durres",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/shirak-gyumri/",
+        "title": "Shirak Gyumri",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/kapaz-ganja/",
+        "title": "Kapaz Ganja",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rapid-vienna/",
+        "title": "Rapid Vienna",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/admira-wacker/",
+        "title": "Admira Wacker",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/austria-vienna/",
+        "title": "Austria Vienna",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dinamo-minsk/",
+        "title": "Dinamo Minsk",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/slavia-sofia/",
+        "title": "Slavia Sofia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/leveski-sofia/",
+        "title": "Leveski Sofia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/neftochimik/",
+        "title": "Neftochimik",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cska-sofia/",
+        "title": "CSKA Sofia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/toulon/",
+        "title": "Toulon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hadjuk-split/",
+        "title": "Hadjuk Split",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/omonia-nicosia/",
+        "title": "Omonia Nicosia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/apoel-nicosia/",
+        "title": "APOEL Nicosia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/slavia-prague/",
+        "title": "Slavia Prague",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sparta-prague/",
+        "title": "Sparta Prague",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/banik-ostrava/",
+        "title": "Banik Ostrava",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/brondby/",
+        "title": "Brondby",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/silkeborg/",
+        "title": "Silkeborg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/aarhus/",
+        "title": "Aarhus",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/odense/",
+        "title": "Odense",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/flora/",
+        "title": "Flora",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/itrottarfelag/",
+        "title": "Itrottarfelag",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/mypa/",
+        "title": "MYPA",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/samtredia/",
+        "title": "Samtredia",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dinamo-tbilisi/",
+        "title": "Dinamo Tbilisi",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/athens/",
+        "title": "Athens",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/panathinaikos/",
+        "title": "Panathinaikos",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/olympiakos/",
+        "title": "Olympiakos",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ferencvaros/",
+        "title": "Ferencvaros",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/budapest/",
+        "title": "Budapest",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hafnarfjardar/",
+        "title": "Hafnarfjardar",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/betar-jerusalem/",
+        "title": "Betar Jerusalem",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/skonto-riga/",
+        "title": "Skonto Riga",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vaduz/",
+        "title": "Vaduz",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/inkaraz-grifas/",
+        "title": "Inkaraz Grifas",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/jeunesse/",
+        "title": "Jeunesse",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/spora/",
+        "title": "Spora",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sliema/",
+        "title": "Sliema",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/hibernians/",
+        "title": "Hibernians",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/tiligul-tiraspol/",
+        "title": "Tiligul Tiraspol",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/troyes/",
+        "title": "Troyes",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/glenavon/",
+        "title": "Glenavon",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/crusaders/",
+        "title": "Crusaders",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/linfield/",
+        "title": "Linfield",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rosenborg/",
+        "title": "Rosenborg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lillestrom/",
+        "title": "Lillestrom",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/stravanger/",
+        "title": "Stravanger",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/widzew-lodz/",
+        "title": "Widzew Lodz",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/katowice/",
+        "title": "Katowice",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/legia-warsaw/",
+        "title": "Legia Warsaw",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/derry/",
+        "title": "Derry",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/bohemians/",
+        "title": "Bohemians",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/shamrock/",
+        "title": "Shamrock",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dinamo-bucharest/",
+        "title": "Dinamo Bucharest",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/uni-craiova/",
+        "title": "Uni Craiova",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/steaua-bucharest/",
+        "title": "Steaua Bucharest",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rapid-bucharest/",
+        "title": "Rapid Bucharest",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/spartak-moscow/",
+        "title": "Spartak Moscow",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dinamo-moscow/",
+        "title": "Dinamo Moscow",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rotor-volvograd/",
+        "title": "Rotor Volvograd",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/alania-vladikavkaz/",
+        "title": "Alania Vladikavkaz",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/cska-moscow/",
+        "title": "CSKA Moscow",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/tre-fiori/",
+        "title": "Tre Fiori",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/slovan-bratislava/",
+        "title": "Slovan Bratislava",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/olimpija-ljubljana/",
+        "title": "Olimpija Ljubljana",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/gothenburg/",
+        "title": "Gothenburg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/malmo/",
+        "title": "Malmo",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/halmstads/",
+        "title": "Halmstads",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/grasshoppers/",
+        "title": "Grasshoppers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/sion/",
+        "title": "Sion",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/servette/",
+        "title": "Servette",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/galatasaray/",
+        "title": "Galatasaray",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fenerbache/",
+        "title": "Fenerbache",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/besiktas/",
+        "title": "Besiktas",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/dinamo-kiev/",
+        "title": "Dinamo Kiev",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/karpaty-lviv/",
+        "title": "Karpaty Lviv",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/saint-brieuc/",
+        "title": "Saint-Brieuc",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rs-belgrade/",
+        "title": "RS Belgrade",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/partizan-belgrade/",
+        "title": "Partizan Belgrade",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/aberystwyth-town/",
+        "title": "Aberystwyth Town",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/other/",
+        "title": "Other",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/kidderminster/",
+        "title": "Kidderminster",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/spare/",
+        "title": "Spare",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ea-all-stars/",
+        "title": "EA All Stars",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ea-select-xi/",
+        "title": "EA Select XI",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/beauvais/",
+        "title": "Beauvais",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/vfb-oldenburg/",
+        "title": "VfB Oldenburg",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/fc-gutersloh/",
+        "title": "FC G\u00fctersloh",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/rot-wei-essen/",
+        "title": "Rot-Wei\u00df Essen",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/stuttgarter-kickers/",
+        "title": "Stuttgarter Kickers",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/east-fife/",
+        "title": "East Fife",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/stirling-albion/",
+        "title": "Stirling Albion",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/ravenna/",
+        "title": "Ravenna",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/lecce/",
+        "title": "Lecce",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/empoli/",
+        "title": "Empoli",
+        "type": "page"
+    },
+    {
+        "url": "/clubs/castel-di-sangro/",
+        "title": "Castel di Sangro",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/highbury/",
+        "title": "Highbury",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/villa-park/",
+        "title": "Villa Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ewood-park/",
+        "title": "Ewood Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/burnden-park/",
+        "title": "Burnden Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stamford-bridge/",
+        "title": "Stamford Bridge",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/highfield-road/",
+        "title": "Highfield Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/goodison-park/",
+        "title": "Goodison Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/elland-road/",
+        "title": "Elland Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/anfield/",
+        "title": "Anfield",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/maine-road/",
+        "title": "Maine Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/old-trafford/",
+        "title": "Old Trafford",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/riverside-stadium/",
+        "title": "Riverside Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/st-james-park/",
+        "title": "St James' Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-city-ground/",
+        "title": "The City Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/loftus-road/",
+        "title": "Loftus Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/hillsborough/",
+        "title": "Hillsborough",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-dell/",
+        "title": "The Dell",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/white-hart-lane/",
+        "title": "White Hart Lane",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/upton-park/",
+        "title": "Upton Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/selhurst-park/",
+        "title": "Selhurst Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/olympiastadion/",
+        "title": "Olympiastadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/westfalenstadion/",
+        "title": "Westfalenstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bokelberg/",
+        "title": "Bokelberg",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ostseestadion/",
+        "title": "Ostseestadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dreisamstadion/",
+        "title": "Dreisamstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/parkstadion/",
+        "title": "Parkstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/volksparkstadion/",
+        "title": "Volksparkstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fritz-walter-stadion/",
+        "title": "Fritz Walter Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/wildparkstadion/",
+        "title": "Wildparkstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/mungersdorfer-stadion/",
+        "title": "Mungersdorfer Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ulrich-haberland-stadion/",
+        "title": "Ulrich-Haberland Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/wilhelm-koch-stadion/",
+        "title": "Wilhelm-Koch-Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gottlieb-daimler-stadion/",
+        "title": "Gottlieb-Daimler Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/grotenburg/",
+        "title": "Grotenburg",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/weserstadion/",
+        "title": "Weserstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/comunale/",
+        "title": "Comunale",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/san-nicola/",
+        "title": "San Nicola",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/saint-ella/",
+        "title": "Saint' Ella",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/giovanni-zini/",
+        "title": "Giovanni Zini",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/artemio-franchi/",
+        "title": "Artemio Franchi",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/san-siro/",
+        "title": "San Siro",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/delle-alpi/",
+        "title": "Delle Alpi",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/olimpico/",
+        "title": "Olimpico",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/san-paolo/",
+        "title": "San Paolo",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/euganeo/",
+        "title": "Euganeo",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ennio-tardini/",
+        "title": "Ennio Tardini",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/galleana/",
+        "title": "Galleana",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/luigi-ferraris/",
+        "title": "Luigi Ferraris",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fruili/",
+        "title": "Fruili",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/romeo-menti/",
+        "title": "Romeo Menti",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/abbe-deschamps/",
+        "title": "Abbe-Deschamps",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/armand-cesari/",
+        "title": "Armand-Cesari",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/parc-lescure/",
+        "title": "Parc Lescure",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/pierre-de-coubertin/",
+        "title": "Pierre de Coubertin",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/jean-laville/",
+        "title": "Jean Laville",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/roudourou/",
+        "title": "Roudourou",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/jules-deschaseaux/",
+        "title": "Jules-Deschaseaux",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/felix-bollaert/",
+        "title": "Felix-Bollaert",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/grimonprez-jooris/",
+        "title": "Grimonprez-Jooris",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gerland/",
+        "title": "Gerland",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/francis-turcan/",
+        "title": "Francis-Turcan",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stadium-municipal/",
+        "title": "Stadium Municipal",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/loius-ii/",
+        "title": "Loius II",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/la-mosson/",
+        "title": "La Mosson",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/la-beaujoire/",
+        "title": "La Beaujoire",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ray/",
+        "title": "Ray",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/parc-des-princes/",
+        "title": "Parc Des Princes",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/route-de-lorient/",
+        "title": "Route de Lorient",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/geoffroy-guichard/",
+        "title": "Geoffroy-Guichard",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stade-de-la-meinau/",
+        "title": "Stade de la Meinau",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/pittodrie-stadium/",
+        "title": "Pittodrie Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/celtic-park/",
+        "title": "Celtic Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/brockville-park/",
+        "title": "Brockville Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/tynecastle-park/",
+        "title": "Tynecastle Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/easter-road-park/",
+        "title": "Easter Road Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/rugby-park/",
+        "title": "Rugby Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fir-park/",
+        "title": "Fir Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/firhill/",
+        "title": "Firhill",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/starks-park/",
+        "title": "Starks Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ibrox-stadium/",
+        "title": "Ibrox Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/oakwell/",
+        "title": "Oakwell",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/st-andrews/",
+        "title": "St Andrew's",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-valley/",
+        "title": "The Valley",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/baseball-ground/",
+        "title": "Baseball Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/blundell-park/",
+        "title": "Blundell Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-alfred-mcalpine-stadium/",
+        "title": "The Alfred McAlpine Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/portman-road/",
+        "title": "Portman Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/filbert-street/",
+        "title": "Filbert Street",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/kenilworth-road/",
+        "title": "Kenilworth Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-new-den/",
+        "title": "The New Den",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/carrow-road/",
+        "title": "Carrow Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/boundary-park/",
+        "title": "Boundary Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/vale-park/",
+        "title": "Vale Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fratton-park/",
+        "title": "Fratton Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/elm-park/",
+        "title": "Elm Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bramall-lane/",
+        "title": "Bramall Lane",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/roots-hall/",
+        "title": "Roots Hall",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/victoria-ground/",
+        "title": "Victoria Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/roker-park/",
+        "title": "Roker Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/prenton-park/",
+        "title": "Prenton Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/vicarage-road/",
+        "title": "Vicarage Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-hawthorns/",
+        "title": "The Hawthorns",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/molineux/",
+        "title": "Molineux",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bloomfield-road/",
+        "title": "Bloomfield Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dean-court/",
+        "title": "Dean Court",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-pulse-stadium/",
+        "title": "The Pulse Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/griffin-park/",
+        "title": "Griffin Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-goldstone-ground/",
+        "title": "The Goldstone Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ashton-gate/",
+        "title": "Ashton Gate",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/twerton-park/",
+        "title": "Twerton Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/turf-moor/",
+        "title": "Turf Moor",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/brunton-park/",
+        "title": "Brunton Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/recreation-ground/",
+        "title": "Recreation Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gresty-road/",
+        "title": "Gresty Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/boothferry-park/",
+        "title": "Boothferry Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/meadow-lane/",
+        "title": "Meadow Lane",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/manor-ground/",
+        "title": "Manor Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/london-road/",
+        "title": "London Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/millmoor/",
+        "title": "Millmoor",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gay-meadow/",
+        "title": "Gay Meadow",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/edgeley-park/",
+        "title": "Edgeley Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/vetch-field/",
+        "title": "Vetch Field",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/county-ground/",
+        "title": "County Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bescot-stadium/",
+        "title": "Bescot Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/racecourse-ground/",
+        "title": "Racecourse Ground",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/adams-park/",
+        "title": "Adams Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bootham-crescent/",
+        "title": "Bootham Crescent",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/underhill-stadium/",
+        "title": "Underhill Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gigg-lane/",
+        "title": "Gigg Lane",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/abbey-stadium/",
+        "title": "Abbey Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ninian-park/",
+        "title": "Ninian Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/deva-stadium/",
+        "title": "Deva Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/layer-road/",
+        "title": "Layer Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/feethams/",
+        "title": "Feethams",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/belle-vue/",
+        "title": "Belle Vue",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/st-james-park/",
+        "title": "St James Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/craven-cottage/",
+        "title": "Craven Cottage",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/priestfield-stadium/",
+        "title": "Priestfield Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/victoria-park/",
+        "title": "Victoria Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/edgar-street/",
+        "title": "Edgar Street",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/brisbane-road/",
+        "title": "Brisbane Road",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/sincil-bank/",
+        "title": "Sincil Bank",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/field-mill/",
+        "title": "Field Mill",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/sixfields/",
+        "title": "Sixfields",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/home-park/",
+        "title": "Home Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/deepdale/",
+        "title": "Deepdale",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/spotland/",
+        "title": "Spotland",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-mccain-stadium/",
+        "title": "The McCain Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/glanford-park/",
+        "title": "Glanford Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/plainmoor/",
+        "title": "Plainmoor",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/springfield-park/",
+        "title": "Springfield Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/alm/",
+        "title": "Alm",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ruhrstadion/",
+        "title": "Ruhrstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ernst-abbe-sports-field/",
+        "title": "Ernst-Abbe Sports Field",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stair-park/",
+        "title": "Stair Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/wedaustadion/",
+        "title": "Wedaustadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/berliner-olympiastadion/",
+        "title": "Berliner Olympiastadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bruno-plache-stadion/",
+        "title": "Bruno-Plache Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/lomuhle/",
+        "title": "Lomuhle",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bruchwegstadion/",
+        "title": "Bruchwegstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/emslandstadion/",
+        "title": "Emslandstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/sports-park-stadium/",
+        "title": "Sports Park Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/carl-benz-stadion/",
+        "title": "Carl-Benz Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/vfl-stadion/",
+        "title": "VfL Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/westsachsenstadion/",
+        "title": "Westsachsenstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/broomfield-park/",
+        "title": "Broomfield Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/kilbowie-park/",
+        "title": "Kilbowie Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/boghead-park/",
+        "title": "Boghead Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dens-park/",
+        "title": "Dens Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/tannadice-park/",
+        "title": "Tannadice Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/east-end-park/",
+        "title": "East End Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/cappielow-park/",
+        "title": "Cappielow Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/douglas-park/",
+        "title": "Douglas Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/mcdairmid-park/",
+        "title": "McDairmid Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/st-mirren-park/",
+        "title": "St Mirren Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/mario-rigamonti/",
+        "title": "Mario Rigamonti",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/pino-zaccheria/",
+        "title": "Pino Zaccheria",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/giglio/",
+        "title": "Giglio",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/pierre-pibarot/",
+        "title": "Pierre Pibarot",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/moulonguet/",
+        "title": "Moulonguet",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/jean-bouin/",
+        "title": "Jean-Bouin",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/michel-dornano/",
+        "title": "Michel D'Ornano",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stade-petit-bois/",
+        "title": "Stade Petit Bois",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gaston-petit/",
+        "title": "Gaston-Petit",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/tribut/",
+        "title": "Tribut",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stade-de-la-combiene/",
+        "title": "Stade de la Combiene",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/francis-le-basser/",
+        "title": "Francis Le Basser",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/leon-bollee/",
+        "title": "Leon-Bollee",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/le-moustoir/",
+        "title": "Le Moustoir",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/parc-des-sports-du-bram/",
+        "title": "Parc Des Sports Du Bram",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/velodrome/",
+        "title": "Velodrome",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/de-lill/",
+        "title": "De L'ill",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/marcel-picot/",
+        "title": "Marcel Picot",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/rene-gaillard/",
+        "title": "Rene Gaillard",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/jean-laffon/",
+        "title": "Jean-Laffon",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/la-pepiniere/",
+        "title": "La Pepiniere",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/municipal-red-star93/",
+        "title": "Municipal - Red Star93",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/auguste-bonal/",
+        "title": "Auguste-Bonal",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/municipal-toulose/",
+        "title": "Municipal Toulose",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/georges-pompidou/",
+        "title": "Georges Pompidou",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/constant-vanden-stock/",
+        "title": "Constant Vanden Stock",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bosuil/",
+        "title": "Bosuil",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/olypiastadion/",
+        "title": "Olypiastadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/sclessin/",
+        "title": "Sclessin",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stadium-of-light/",
+        "title": "Stadium of Light",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bessa/",
+        "title": "Bessa",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/das-antas/",
+        "title": "Das Antas",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/jose-alvalade/",
+        "title": "Jose Alvalade",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/restelo/",
+        "title": "Restelo",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/herman-v/",
+        "title": "Herman V",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/vicente-calderon/",
+        "title": "Vicente Calderon",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/nou-camp/",
+        "title": "Nou Camp",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/riazor/",
+        "title": "Riazor",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bernabeu/",
+        "title": "Bernabeu",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/la-romareda/",
+        "title": "La Romareda",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/feyenord-st/",
+        "title": "Feyenord St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/phillips-st/",
+        "title": "Phillips St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/monnikenhuize/",
+        "title": "Monnikenhuize",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/het-diekman/",
+        "title": "Het Diekman",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/qemal-stafa/",
+        "title": "Qemal Stafa",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/teuta-st/",
+        "title": "Teuta St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gerhard-hanappi/",
+        "title": "Gerhard Hanappi",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bundesstadion/",
+        "title": "Bundesstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/horr/",
+        "title": "Horr",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dinamo-dm/",
+        "title": "Dinamo (DM)",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/slavia/",
+        "title": "Slavia",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/georgi-asparuchov/",
+        "title": "Georgi Asparuchov",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/neftochimik-st/",
+        "title": "Neftochimik St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bulgarska-armia/",
+        "title": "Bulgarska Armia",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/mayol/",
+        "title": "Mayol",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/foljud/",
+        "title": "Foljud",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/makarion-stadium/",
+        "title": "Makarion Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dr-vacka/",
+        "title": "Dr. Vacka",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/letna/",
+        "title": "Letna",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bazaly/",
+        "title": "Bazaly",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/brondby-st/",
+        "title": "Brondby St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/silkeborg/",
+        "title": "Silkeborg",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/aarhus-st/",
+        "title": "Aarhus St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/odense/",
+        "title": "Odense",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/kadriorg/",
+        "title": "Kadriorg",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gotu/",
+        "title": "Gotu",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/saviniemi/",
+        "title": "Saviniemi",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/erosi-manjgaladze/",
+        "title": "Erosi Manjgaladze",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/boris-paichadze/",
+        "title": "Boris Paichadze",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/nikos-goumas/",
+        "title": "Nikos Goumas",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/oaka/",
+        "title": "Oaka",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/karaiskakis/",
+        "title": "Karaiskakis",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ulloiut/",
+        "title": "Ulloiut",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/hungariauti/",
+        "title": "Hungariauti",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/kaplakriki/",
+        "title": "Kaplakriki",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/malcha/",
+        "title": "Malcha",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/daugava/",
+        "title": "Daugava",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/inkaras/",
+        "title": "Inkaras",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dela-fontiere/",
+        "title": "Dela Fontiere",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/municipal-sl/",
+        "title": "Municipal (SL)",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ta-qali-national-stadium/",
+        "title": "Ta Qali National Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/stade-de-laube/",
+        "title": "Stade de L'Aube",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/mourneview-park/",
+        "title": "Mourneview Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/seaview/",
+        "title": "Seaview",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/windsor-park/",
+        "title": "Windsor Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/lerkendal/",
+        "title": "Lerkendal",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/arasen/",
+        "title": "Arasen",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/widzew-st/",
+        "title": "Widzew St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/gks-st/",
+        "title": "GKS St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/wojska-polskiego/",
+        "title": "Wojska Polskiego",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/the-brandywell/",
+        "title": "The Brandywell",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dalymount-park/",
+        "title": "Dalymount Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/rds-showgrounds/",
+        "title": "RDS Showgrounds",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/dinamo-db/",
+        "title": "Dinamo (DB)",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/central-uc/",
+        "title": "Central UC",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/steaua/",
+        "title": "Steaua",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/rapid/",
+        "title": "Rapid",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/luzniki/",
+        "title": "Luzniki",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/central-rv/",
+        "title": "Central RV",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/alania-st/",
+        "title": "Alania St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/cska-st/",
+        "title": "CSKA St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fiorentino/",
+        "title": "Fiorentino",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/tehelne-pole/",
+        "title": "Tehelne Pole",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bezigrad/",
+        "title": "Bezigrad",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/galim-ullevi/",
+        "title": "Galim Ullevi",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/malmo-st/",
+        "title": "Malmo St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/organsvall/",
+        "title": "Organsvall",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/hardfurm/",
+        "title": "Hardfurm",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/tourbillon/",
+        "title": "Tourbillon",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/charmilles/",
+        "title": "Charmilles",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ali-sami-yen/",
+        "title": "Ali Sami Yen",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/fenerbache-st/",
+        "title": "Fenerbache St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/inonu/",
+        "title": "Inonu",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/republican/",
+        "title": "Republican",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/ukraina/",
+        "title": "Ukraina",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/parc-fraud-albert/",
+        "title": "Parc Fraud-Albert",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/rad/",
+        "title": "Rad",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/partisan-st/",
+        "title": "Partisan St",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/park-avenue/",
+        "title": "Park Avenue",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/electronic-arts-vellodrome/",
+        "title": "Electronic Arts Vellodrome",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/pierre-brison/",
+        "title": "Pierre-Brison",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/marschweg-stadion/",
+        "title": "Marschweg Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/heidewaldstadion/",
+        "title": "Heidewaldstadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/georg-melches-stadion/",
+        "title": "Georg-Melches Stadion",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/waldaustadion-sk/",
+        "title": "Waldaustadion (SK)",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bayview-park/",
+        "title": "Bayview Park",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/forthbank-stadium/",
+        "title": "Forthbank Stadium",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/bruno-binelli/",
+        "title": "Bruno Binelli",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/via-del-mare/",
+        "title": "Via Del Mare",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/carlo-castellani/",
+        "title": "Carlo Castellani",
+        "type": "page"
+    },
+    {
+        "url": "/stadiums/teofilo-patini/",
+        "title": "Teofilo Patini",
+        "type": "page"
+    },
+    {
+        "url": "/positions/gk/",
+        "title": "GK \u2014 Goalkeeper",
+        "type": "page"
+    },
+    {
+        "url": "/positions/rb/",
+        "title": "RB \u2014 Right Back",
+        "type": "page"
+    },
+    {
+        "url": "/positions/lb/",
+        "title": "LB \u2014 Left  Back",
+        "type": "page"
+    },
+    {
+        "url": "/positions/cd/",
+        "title": "CD \u2014 Central Defence",
+        "type": "page"
+    },
+    {
+        "url": "/positions/rwb/",
+        "title": "RWB \u2014 Right Wing Back",
+        "type": "page"
+    },
+    {
+        "url": "/positions/lwb/",
+        "title": "LWB \u2014 Left Wing Back",
+        "type": "page"
+    },
+    {
+        "url": "/positions/sw/",
+        "title": "SW \u2014 Sweeper",
+        "type": "page"
+    },
+    {
+        "url": "/positions/dm/",
+        "title": "DM \u2014 Defensive Midfield",
+        "type": "page"
+    },
+    {
+        "url": "/positions/rm/",
+        "title": "RM \u2014 Right Midfield",
+        "type": "page"
+    },
+    {
+        "url": "/positions/lm/",
+        "title": "LM \u2014 Left Midfield",
+        "type": "page"
+    },
+    {
+        "url": "/positions/am/",
+        "title": "AM \u2014 Attacking Midfield",
+        "type": "page"
+    },
+    {
+        "url": "/positions/rw/",
+        "title": "RW \u2014 Right Winger",
+        "type": "page"
+    },
+    {
+        "url": "/positions/lw/",
+        "title": "LW \u2014 Left Winger",
+        "type": "page"
+    },
+    {
+        "url": "/positions/fr/",
+        "title": "FR \u2014 Free Role",
+        "type": "page"
+    },
+    {
+        "url": "/positions/for/",
+        "title": "FOR \u2014 Forward",
+        "type": "page"
+    },
+    {
+        "url": "/positions/ss/",
+        "title": "SS \u2014 Support Striker",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/english/",
+        "title": "English",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/french/",
+        "title": "French",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/dutch/",
+        "title": "Dutch",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/icelandic/",
+        "title": "Icelandic",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/portuguese/",
+        "title": "Portuguese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/trinidadian/",
+        "title": "Trinidadian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/serbian/",
+        "title": "Serbian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/yugoslavian/",
+        "title": "Yugoslavian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/australian/",
+        "title": "Australian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/irish/",
+        "title": "Irish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/greek/",
+        "title": "Greek",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/norwegian/",
+        "title": "Norwegian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/scottish/",
+        "title": "Scottish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/welsh/",
+        "title": "Welsh",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/danish/",
+        "title": "Danish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/swedish/",
+        "title": "Swedish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/finnish/",
+        "title": "Finnish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/italian/",
+        "title": "Italian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/romanian/",
+        "title": "Romanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/russian/",
+        "title": "Russian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/zimbabwean/",
+        "title": "Zimbabwean",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/ukranian/",
+        "title": "Ukranian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/belgian/",
+        "title": "Belgian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/ghanian/",
+        "title": "Ghanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/swiss/",
+        "title": "Swiss",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/south-african/",
+        "title": "South African",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/czech/",
+        "title": "Czech",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/georgian/",
+        "title": "Georgian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/german/",
+        "title": "German",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/cameroonian/",
+        "title": "Cameroonian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/brazilian/",
+        "title": "Brazilian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/slovakian/",
+        "title": "Slovakian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/colombian/",
+        "title": "Colombian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/american/",
+        "title": "American",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/israelian/",
+        "title": "Israelian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/croatian/",
+        "title": "Croatian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/nigerian/",
+        "title": "Nigerian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/polish/",
+        "title": "Polish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/macedonian/",
+        "title": "Macedonian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/austrian/",
+        "title": "Austrian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/tunisian/",
+        "title": "Tunisian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/bosnian/",
+        "title": "Bosnian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/congon/",
+        "title": "Congon",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/lithuanian/",
+        "title": "Lithuanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/bulgarian/",
+        "title": "Bulgarian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/argentinian/",
+        "title": "Argentinian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/turkish/",
+        "title": "Turkish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/albanian/",
+        "title": "Albanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/guinean/",
+        "title": "Guinean",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/luxembourgen/",
+        "title": "Luxembourgen",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/hungarian/",
+        "title": "Hungarian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/egyptian/",
+        "title": "Egyptian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/uruguayan/",
+        "title": "Uruguayan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/chilean/",
+        "title": "Chilean",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/liberian/",
+        "title": "Liberian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/slovenian/",
+        "title": "Slovenian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/algerian/",
+        "title": "Algerian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/mongolian/",
+        "title": "Mongolian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/senegalian/",
+        "title": "Senegalian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/ivoryian/",
+        "title": "Ivoryian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/tongan/",
+        "title": "Tongan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/moroccan/",
+        "title": "Moroccan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/chadian/",
+        "title": "Chadian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/panamanian/",
+        "title": "Panamanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/costa-rican/",
+        "title": "Costa Rican",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/estonian/",
+        "title": "Estonian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/canadian/",
+        "title": "Canadian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/jamaican/",
+        "title": "Jamaican",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/maltese/",
+        "title": "Maltese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/bermudan/",
+        "title": "Bermudan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/barbadian/",
+        "title": "Barbadian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/new-zealander/",
+        "title": "New Zealander",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/cypriot/",
+        "title": "Cypriot",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/sierra-leonean/",
+        "title": "Sierra Leonean",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/zambian/",
+        "title": "Zambian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/spanish/",
+        "title": "Spanish",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/latvian/",
+        "title": "Latvian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/bolivian/",
+        "title": "Bolivian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/zarian/",
+        "title": "Zarian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/tahitian/",
+        "title": "Tahitian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/guadeloupean/",
+        "title": "Guadeloupean",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/martinican/",
+        "title": "Martinican",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/madagascan/",
+        "title": "Madagascan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/haitian/",
+        "title": "Haitian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/beninese/",
+        "title": "Beninese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/san-marinese/",
+        "title": "San Marinese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/armenian/",
+        "title": "Armenian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/angolan/",
+        "title": "Angolan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/surinamese/",
+        "title": "Surinamese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/azerbijanian/",
+        "title": "Azerbijanian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/belarussian/",
+        "title": "Belarussian",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/faroese/",
+        "title": "Faroese",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/mexican/",
+        "title": "Mexican",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/paraguayan/",
+        "title": "Paraguayan",
+        "type": "page"
+    },
+    {
+        "url": "/nationalities/peruvian/",
+        "title": "Peruvian",
+        "type": "page"
+    }
+]
