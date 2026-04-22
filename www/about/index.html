@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — FIFA Soccer Manager 97</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;text y='1em' font-size='16'&gt;&#x26BD;&lt;/text&gt;&lt;/svg&gt;">
+</head>
+<body>
+<nav>
+<span class="nav-brand">&#x26BD; FSM97</span>
+<a href="/">Home</a>
+<a href="/leagues/">Leagues</a>
+<a href="/nations/">Nations</a>
+<a href="/clubs/">Clubs</a>
+<a href="/players/">Players</a>
+<a href="/stadiums/">Stadiums</a>
+<a href="/positions/">Positions</a>
+<a href="/nationalities/">Nationalities</a>
+<a href="/stats/">Stats</a>
+<a href="/events/">Events</a>
+<a href="/trivia/">Trivia</a>
+<a href="/videos/">Videos</a>
+<a href="/credits/">Credits</a>
+<a href="/about/" class="active">About</a>
+
+</nav>
+<header>
+<h1>About</h1>
+<div class="sub">About this project</div>
+
+</header>
+<main>
+
+    <p>This is an open source project for fans of FIFA Soccer Manager 97 to explore the game data
+    and provide a comprehensive database of as much in-game data as possible.</p>
+
+    <h2>Contents</h2>
+
+    <ul>
+      <li>Python library for extracting and processing game data, and building the static
+      website</li>
+      <li>CSV files of data extracted from the game files</li>
+      <li>Extensive HTML static website built from the CSV data</li>
+    </ul>
+
+    <h2>Who's behind the project?</h2>
+
+    <p>The project was created by <a href="https://bennuttall.com/">Ben Nuttall</a>, a software
+    engineer and <a href="/clubs/sheffield-wednesday/">Sheffield Wednesday</a> fan in the UK.</p>
+
+    <h2>Claude</h2>
+
+    <p>This project was built using <a href="https://claude.ai/">Claude</a>. Claude was able to do a
+    lot of the heavy lifting and discovery allowing for rapid development of the project. However,
+    the learnings from the discovery have been documented and extraction and parsing has been made
+    available as a <a href="https://www.python.org/">Python</a> library, so if you have the original
+    game data available, you would be able to reproduce the CSVs and the website by running the
+    generated Python code.</p>
+
+    <h2>Contribute</h2>
+    
+    <p>If you wish to contribute to the project, it's available on GitHub: <a
+    href="https://github.com/bennuttall/fsm-97-data">github.com/bennuttall/fsm-97-data</a>. Ideas
+    and suggestions welcome too - just <a href="https://bennuttall.com/about/">send me an
+    email</a>.</p>
+
+    <h2>Reddit community</h2>
+
+    <p>There is a small but thriving Reddit community for fans of the game: <a
+    href="https://www.reddit.com/r/fisom/">reddit.com/r/fisom</a>.</p>
+  
+</main>
+<footer>FIFA Soccer Manager 97 · Data extracted from <code>SM97.DAT</code> · A project by <a href="https://bennuttall.com/">Ben Nuttall</a> · See the project on <a href="https://github.com/bennuttall/fsm-97-data">GitHub</a></footer>
+<script>
+document.querySelectorAll('input[data-filter]').forEach(function(inp) {
+  var tbl = document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input', function() {
+    var q = this.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr) {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('thead th[data-sort]').forEach(function(th) {
+  var asc = true;
+  th.addEventListener('click', function() {
+    var tbl = th.closest('table');
+    var idx = Array.from(th.parentElement.children).indexOf(th);
+    var rows = Array.from(tbl.tBodies[0].querySelectorAll('tr'));
+    rows.sort(function(a, b) {
+      var ac = a.cells[idx], bc = b.cells[idx];
+      var av = ac ? (ac.dataset.sortValue !== undefined ? ac.dataset.sortValue : ac.textContent.trim()) : '';
+      var bv = bc ? (bc.dataset.sortValue !== undefined ? bc.dataset.sortValue : bc.textContent.trim()) : '';
+      var an = parseFloat(av.replace(/[^0-9.-]/g, '')),
+          bn = parseFloat(bv.replace(/[^0-9.-]/g, ''));
+      if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(function(r) { tbl.tBodies[0].appendChild(r); });
+    tbl.querySelectorAll('thead th[data-sort]').forEach(function(t) {
+      t.classList.remove('sort-asc', 'sort-desc');
+    });
+    th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+    asc = !asc;
+  });
+});
+(function() {
+  var h = window.location.hash;
+  if (!h) return;
+  var el = document.getElementById(h.slice(1));
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d) { d.open = true; });
+})();
+</script>
+</body>
+</html>
+

@@ -32,6 +32,7 @@ NAV_LINKS = [
     ("Trivia",        "/trivia/"),
     ("Videos",        "/videos/"),
     ("Credits",       "/credits/"),
+    ("About",         "/about/"),
 ]
 
 
@@ -1733,6 +1734,19 @@ class Scribe:
         (self.output_dir / "sitemap.xml").write_text(content, encoding="utf-8")
 
 
+    def write_about_page(self):
+        content = self.render(
+            "about",
+            nav_links=NAV_LINKS,
+            active="About",
+            page_title="About",
+            header_title="About",
+            header_sub="About this project",
+            breadcrumb="",
+        )
+        self.write_file("about/index.html", content)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate FIFA Soccer Manager 97 website")
     parser.add_argument("--csv-dir", default=str(CSV_DIR), help="Input CSV directory")
@@ -1768,6 +1782,8 @@ def main():
     scribe.write_videos_page()
     print("Writing Credits...")
     scribe.write_credits_page()
+    print("Writing About...")
+    scribe.write_about_page()
     if args.base_url:
         print("Writing Sitemap...")
         scribe.write_sitemap(args.base_url)

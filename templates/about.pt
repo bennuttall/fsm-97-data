@@ -1,0 +1,41 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+    <p>This is an open source project for fans of FIFA Soccer Manager 97 to explore the game data
+    and provide a comprehensive database of as much in-game data as possible.</p>
+
+    <h2>Contents</h2>
+
+    <ul>
+      <li>Python library for extracting and processing game data, and building the static
+      website</li>
+      <li>CSV files of data extracted from the game files</li>
+      <li>Extensive HTML static website built from the CSV data</li>
+    </ul>
+
+    <h2>Who's behind the project?</h2>
+
+    <p>The project was created by <a href="https://bennuttall.com/">Ben Nuttall</a>, a software
+    engineer and <a href="/clubs/sheffield-wednesday/">Sheffield Wednesday</a> fan in the UK.</p>
+
+    <h2>Claude</h2>
+
+    <p>This project was built using <a href="https://claude.ai/">Claude</a>. Claude was able to do a
+    lot of the heavy lifting and discovery allowing for rapid development of the project. However,
+    the learnings from the discovery have been documented and extraction and parsing has been made
+    available as a <a href="https://www.python.org/">Python</a> library, so if you have the original
+    game data available, you would be able to reproduce the CSVs and the website by running the
+    generated Python code.</p>
+
+    <h2>Contribute</h2>
+    
+    <p>If you wish to contribute to the project, it's available on GitHub: <a
+    href="https://github.com/bennuttall/fsm-97-data">github.com/bennuttall/fsm-97-data</a>. Ideas
+    and suggestions welcome too - just <a href="https://bennuttall.com/about/">send me an
+    email</a>.</p>
+
+    <h2>Reddit community</h2>
+
+    <p>There is a small but thriving Reddit community for fans of the game: <a
+    href="https://www.reddit.com/r/fisom/">reddit.com/r/fisom</a>.</p>
+  </div>
+</div>
