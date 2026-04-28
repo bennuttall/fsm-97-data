@@ -48,8 +48,9 @@ def slug(s):
 
 
 class Scribe:
-    def __init__(self, csv_dir=CSV_DIR, output_dir=OUT_DIR):
+    def __init__(self, csv_dir=CSV_DIR, output_dir=OUT_DIR, base_url=None):
         self.output_dir = Path(output_dir)
+        self.base_url = base_url.rstrip("/") if base_url else ""
         self.ds = Dataset(str(csv_dir))
         self.templates = PageTemplateLoader(
             search_path=[str(TEMPLATES_DIR)],
@@ -71,6 +72,9 @@ class Scribe:
                 dst = self.output_dir / rel
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(src, dst)
+
+    def _canonical(self, path):
+        return self.base_url + path if self.base_url else ""
 
     def render(self, template_name, **kwargs):
         template = self.templates[template_name]
@@ -131,6 +135,8 @@ class Scribe:
             header_title="FIFA Soccer Manager 97",
             header_sub="Interactive database — 1996/97 season",
             breadcrumb="",
+            meta_description=f"Interactive database of FIFA Soccer Manager 97 — {total_leagues} leagues, {total_teams:,} clubs and {total_players:,} players from the 1996/97 European football season.",
+            canonical_url=self._canonical("/"),
             total_leagues=total_leagues,
             total_players=total_players,
             highlights=highlights,
@@ -191,6 +197,8 @@ class Scribe:
             header_title="All Leagues",
             header_sub=f"{len(ds.league_names)} leagues",
             breadcrumb="",
+            meta_description=f"Browse {len(ds.league_names)} leagues from FIFA Soccer Manager 97, covering European football in the 1996/97 season.",
+            canonical_url=self._canonical("/leagues/"),
             league_groups=league_groups,
         )
         self.write_file("leagues/index.html", content)
@@ -241,6 +249,8 @@ class Scribe:
             header_title=f"{flag_str}{lg}",
             header_sub=f"{len(teams):,} clubs",
             breadcrumb=breadcrumb,
+            meta_description=f"{lg} — {len(teams):,} clubs with full squad and player data from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical(f"/leagues/{lg_slug}/"),
             lg_slug=lg_slug,
             club_rows=club_rows,
             player_rows=player_rows,
@@ -296,6 +306,8 @@ class Scribe:
             header_title="Nations",
             header_sub=f"{len(ds.nation_names)} nations",
             breadcrumb="",
+            meta_description=f"Browse {len(ds.nation_names)} nations represented in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical("/nations/"),
             rows=rows,
         )
         self.write_file("nations/index.html", content)
@@ -357,6 +369,8 @@ class Scribe:
             header_title=f"{flag_str}{nation}",
             header_sub=f"{len(clubs)} {'club' if len(clubs) == 1 else 'clubs'}",
             breadcrumb=breadcrumb,
+            meta_description=f"{nation} — {len(clubs)} {'club' if len(clubs) == 1 else 'clubs'} in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical(f"/nations/{slug(nation)}/"),
             leagued=leagued,
             unaffiliated=unaffiliated,
             unaffiliated_heading="Other clubs" if leagued_map else "Clubs",
@@ -557,6 +571,8 @@ class Scribe:
             header_title="All Clubs",
             header_sub=f"{len(ds.teams):,} clubs",
             breadcrumb="",
+            meta_description=f"Browse all {len(ds.teams):,} clubs in FIFA Soccer Manager 97, with squad ratings, stadium data and manager information.",
+            canonical_url=self._canonical("/clubs/"),
             letters=letters,
             teams=teams,
         )
@@ -637,6 +653,8 @@ class Scribe:
             header_title=team_name,
             header_sub=header_sub,
             breadcrumb=breadcrumb,
+            meta_description=f"{team_name} ({header_sub}) — squad ratings, player data and stadium info from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical(f"/clubs/{tslug}/"),
             team_slug=tslug,
             nickname=t.get("nickname", ""),
             league_card=league_card,
@@ -695,6 +713,8 @@ class Scribe:
             header_title="All Players",
             header_sub=f"{len(ds.players):,} players — search by name, club, position or nationality",
             breadcrumb="",
+            meta_description=f"Search all {len(ds.players):,} players in FIFA Soccer Manager 97 by name, club, position or nationality.",
+            canonical_url=self._canonical("/players/"),
             total_players=len(ds.players),
             players=players,
         )
@@ -721,6 +741,8 @@ class Scribe:
             header_title="Stats & Records",
             header_sub="",
             breadcrumb="",
+            meta_description="Statistics and records from FIFA Soccer Manager 97 — top players, skill leaders, squad rankings and more.",
+            canonical_url=self._canonical("/stats/"),
         )
         self.write_file("stats/index.html", content)
 
@@ -757,6 +779,8 @@ class Scribe:
             header_title="Top Players",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="The top 50 players in FIFA Soccer Manager 97 ranked by overall rating, plus top 10 by position.",
+            canonical_url=self._canonical("/stats/top-players/"),
             top50=top50_rows,
             by_pos=by_pos,
         )
@@ -797,6 +821,8 @@ class Scribe:
             header_title="Skill Leaders — Best in Every Category",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="The best players in every skill category from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/stats/skill-leaders/"),
             sections=sections,
         )
         self.write_file("stats/skill-leaders/index.html", content)
@@ -830,6 +856,8 @@ class Scribe:
             header_title="Top Players by Age Group",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="Top-rated players by age group in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/stats/age-groups/"),
             sections=sections,
         )
         self.write_file("stats/age-groups/index.html", content)
@@ -859,6 +887,8 @@ class Scribe:
             header_title="Player-Managers",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description=f"Player-managers in FIFA Soccer Manager 97 — {len(pm_players)} players who also managed their clubs.",
+            canonical_url=self._canonical("/stats/player-managers/"),
             total=len(pm_players),
             players=[self._pdict(p) for p in pm_players],
         )
@@ -924,6 +954,8 @@ class Scribe:
             header_title="Stadiums by Capacity",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="Stadiums ranked by capacity in FIFA Soccer Manager 97, with country breakdowns.",
+            canonical_url=self._canonical("/stats/stadiums/"),
             top50=top50,
             by_country=by_country,
             others_rows=others_rows,
@@ -961,6 +993,8 @@ class Scribe:
             header_title="Squad Rankings",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="Club squad rankings by average player rating in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/stats/squads/"),
             squads=squads,
         )
         self.write_file("stats/squads/index.html", content)
@@ -1010,6 +1044,8 @@ class Scribe:
             header_title="Nationality Statistics",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="Nationality statistics across all leagues in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/stats/nationalities/"),
             by_league=by_league,
             top20=top20_rows,
         )
@@ -1095,6 +1131,8 @@ class Scribe:
             header_title="Best Of All",
             header_sub="",
             breadcrumb=breadcrumb,
+            meta_description="Records and bests by position, skill, league and nationality in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/stats/best-of/"),
             best_by_pos=best_by_pos,
             best_by_skill=best_by_skill,
             best_by_league=best_by_league,
@@ -1130,6 +1168,8 @@ class Scribe:
             header_title="Nationalities",
             header_sub=f"{len(nats_sorted)} nationalities represented",
             breadcrumb="",
+            meta_description=f"Browse all {len(nats_sorted)} nationalities represented in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical("/nationalities/"),
             rows=rows,
         )
         self.write_file("nationalities/index.html", content)
@@ -1183,6 +1223,8 @@ class Scribe:
             header_title=f"{flag_str}{nat} Players",
             header_sub=f"{len(pp):,} players",
             breadcrumb=breadcrumb,
+            meta_description=f"{nat} — {len(pp):,} players in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical(f"/nationalities/{nat_slug}/"),
             nat=nat,
             nat_slug=nat_slug,
             league_count=len(by_league),
@@ -1292,6 +1334,8 @@ class Scribe:
             header_title="Playing Positions",
             header_sub="",
             breadcrumb="",
+            meta_description="Browse all playing positions in FIFA Soccer Manager 97, with ratings and top players for each position.",
+            canonical_url=self._canonical("/positions/"),
             positions=rows,
         )
         self.write_file("positions/index.html", content)
@@ -1325,6 +1369,8 @@ class Scribe:
             header_title=info.get("position", pos),
             header_sub=f"{pos} · {zone} · {len(pp_zone_sorted):,} players",
             breadcrumb=breadcrumb,
+            meta_description=f"{info.get('position', pos)} ({pos}) — position ratings and top players from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical(f"/positions/{pos_slug}/"),
             pos=pos,
             pos_slug=pos_slug,
             zone=zone,
@@ -1368,6 +1414,8 @@ class Scribe:
             header_title="All Stadiums",
             header_sub=f"{len(named)} named stadiums",
             breadcrumb="",
+            meta_description=f"All {len(named)} stadiums in FIFA Soccer Manager 97, ranked by capacity.",
+            canonical_url=self._canonical("/stadiums/"),
             stadiums=rows,
         )
         self.write_file("stadiums/index.html", content)
@@ -1417,6 +1465,8 @@ class Scribe:
             header_title=sname,
             header_sub=f"Capacity {cap:,}" + (f" · {cities}" if cities else ""),
             breadcrumb=breadcrumb,
+            meta_description=f"{sname} — capacity {cap:,}. Stadium data from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical(f"/stadiums/{sslug}/"),
             trivia=trivia,
             capacity=cap,
             address=addr,
@@ -1484,6 +1534,8 @@ class Scribe:
             header_title="In-Game Events",
             header_sub="Random events and messages from FIFA Soccer Manager 97",
             breadcrumb="",
+            meta_description=f"Browse {total} random in-game events and messages from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/events/"),
             total=total,
             categories=categories,
         )
@@ -1501,6 +1553,8 @@ class Scribe:
             header_title="Real World Trivia",
             header_sub="1996/97 season context",
             breadcrumb="",
+            meta_description="Real world trivia about the players, clubs and stadiums in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical("/trivia/"),
         )
         self.write_file("trivia/index.html", content)
 
@@ -1546,6 +1600,8 @@ class Scribe:
             header_title="Player Trivia",
             header_sub="Notable player stories",
             breadcrumb='<a href="/">Home</a> › <a href="/trivia/">Trivia</a> › Players',
+            meta_description="Trivia and stories about notable players featured in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/trivia/players/"),
             entries=player_entries,
         )
         self.write_file("trivia/players/index.html", content)
@@ -1581,6 +1637,8 @@ class Scribe:
             header_title="Stadium Trivia",
             header_sub="The grounds and their histories",
             breadcrumb='<a href="/">Home</a> › <a href="/trivia/">Trivia</a> › Stadiums',
+            meta_description="Histories and trivia about the stadiums featured in FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/trivia/stadiums/"),
             entries=stadium_entries,
         )
         self.write_file("trivia/stadiums/index.html", content)
@@ -1616,6 +1674,8 @@ class Scribe:
             header_title="Club Trivia",
             header_sub="Club stories from the era",
             breadcrumb='<a href="/">Home</a> › <a href="/trivia/">Trivia</a> › Clubs',
+            meta_description="Trivia and stories about clubs in FIFA Soccer Manager 97 from the 1996/97 season.",
+            canonical_url=self._canonical("/trivia/clubs/"),
             entries=club_entries,
         )
         self.write_file("trivia/clubs/index.html", content)
@@ -1629,6 +1689,8 @@ class Scribe:
             header_title="Game Videos",
             header_sub="FMV cutscenes from FIFA Soccer Manager 97",
             breadcrumb="",
+            meta_description="FMV cutscenes and video clips from FIFA Soccer Manager 97.",
+            canonical_url=self._canonical("/videos/"),
             videos=VIDEOS,
         )
         self.write_file("videos/index.html", content)
@@ -1697,6 +1759,8 @@ class Scribe:
             header_title="Game Credits",
             header_sub="The team behind FIFA Soccer Manager 97",
             breadcrumb="",
+            meta_description="The team behind FIFA Soccer Manager 97 — game credits and data matches.",
+            canonical_url=self._canonical("/credits/"),
             rows=rows,
             matches_count=matches_count,
             total_people=len(unique_people),
@@ -1813,6 +1877,8 @@ class Scribe:
             header_title="About",
             header_sub="About this project",
             breadcrumb="",
+            meta_description="About this FIFA Soccer Manager 97 interactive database — data extracted from the SM97.DAT game file.",
+            canonical_url=self._canonical("/about/"),
         )
         self.write_file("about/index.html", content)
 
@@ -1824,7 +1890,7 @@ def main():
     parser.add_argument("--base-url", default=None, help="Base URL for sitemap (e.g. https://example.com)")
     args = parser.parse_args()
 
-    scribe = Scribe(csv_dir=args.csv_dir, output_dir=args.out_dir)
+    scribe = Scribe(csv_dir=args.csv_dir, output_dir=args.out_dir, base_url=args.base_url)
     scribe.setup_output_path()
     print("Writing Home...")
     scribe.write_homepage()
