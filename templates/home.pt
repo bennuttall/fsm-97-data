@@ -1,30 +1,23 @@
 <div metal:use-macro="layout">
   <div metal:fill-slot="content" tal:omit-tag="1">
 
-    <p style="color:var(--muted);margin-bottom:1.5rem">
-      Data extracted from <strong>SM97.DAT</strong> — the master game database from FIFA Soccer Manager 97 (EA Sports, 1997).
-      Covering ${total_leagues} leagues across Europe with full player skill ratings, stadium data and club information.
-    </p>
-
-    <div class="highlights">
-      <tal:block tal:repeat="hl highlights">
-        <a href="${hl['url']}" style="text-decoration:none">
-          <div class="hl">
-            <div class="hl-val">${hl['value']}</div>
-            <div class="hl-lbl">${hl['label']}</div>
-          </div>
-        </a>
-      </tal:block>
-      <div class="hl">
-        <div class="hl-val">${best_player_rating}</div>
-        <div class="hl-lbl">Highest rated player</div>
-        <div class="hl-sub"><a href="${best_player_url}">${best_player['first_name']} ${best_player['last_name']}</a></div>
-      </div>
-      <div class="hl">
-        <div class="hl-val">${'{:,}'.format(int(biggest['capacity']))}</div>
-        <div class="hl-lbl">Largest stadium</div>
-        <div class="hl-sub"><a href="${biggest_url}">${biggest['stadium']}</a></div>
-      </div>
+    <h2>Browse</h2>
+    <div class="cards">
+      <a href="/leagues/" style="text-decoration:none"><div class="card"><h3>🏆 Leagues</h3><div class="label">${total_leagues} leagues across Europe</div></div></a>
+      <a href="/clubs/" style="text-decoration:none"><div class="card"><h3>⚽ Clubs</h3><div class="label">${'{:,}'.format(total_teams)} clubs with squad ratings, manager and stadium info</div></div></a>
+      <a href="/players/" style="text-decoration:none"><div class="card"><h3>👤 Players</h3><div class="label">Search all ${'{:,}'.format(total_players)} players by name, club or position</div></div></a>
+      <a href="/managers/" style="text-decoration:none"><div class="card"><h3>🧑‍💼 Managers</h3><div class="label">${num_managers} managers with club and squad data</div></div></a>
+      <a href="/stadiums/" style="text-decoration:none"><div class="card"><h3>🏟️ Stadiums</h3><div class="label">${total_stadiums} stadiums ranked by capacity</div></div></a>
+      <a href="/nations/" style="text-decoration:none"><div class="card"><h3>🗺️ Nations</h3><div class="label">${num_nations} nations with clubs in the database</div></div></a>
+      <a href="/positions/" style="text-decoration:none"><div class="card"><h3>🎯 Positions</h3><div class="label">${num_positions} playing positions with ratings and top players</div></div></a>
+      <a href="/nationalities/" style="text-decoration:none"><div class="card"><h3>🌍 Nationalities</h3><div class="label">${nats} nationalities represented</div></div></a>
+      <a href="/stats/" style="text-decoration:none"><div class="card"><h3>📊 Stats &amp; Records</h3><div class="label">Top players, skill leaders, squad rankings</div></div></a>
+      <a href="/stats/best-of/" style="text-decoration:none"><div class="card"><h3>🏆 Best Of All</h3><div class="label">Records by position, skill and league</div></div></a>
+      <a href="/trivia/" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players, clubs and stadiums</div></div></a>
+      <a href="/events/" style="text-decoration:none"><div class="card"><h3>🎲 Events</h3><div class="label">${num_events} random in-game events and messages</div></div></a>
+      <a href="/videos/" style="text-decoration:none"><div class="card"><h3>🎬 Videos</h3><div class="label">${num_videos} FMV cutscenes from the original game</div></div></a>
+      <a href="/credits/" style="text-decoration:none"><div class="card"><h3>📋 Credits</h3><div class="label">${num_credits} people credited in the game</div></div></a>
+      <a href="/about/" style="text-decoration:none"><div class="card"><h3>ℹ️ About</h3><div class="label">About this project and how the data was extracted</div></div></a>
     </div>
 
     <h2>Leagues</h2>
@@ -33,27 +26,57 @@
         <a href="${card['url']}" style="text-decoration:none">
           <div class="card">
             <h3><tal:block tal:condition="card['flag']">${card['flag']} </tal:block>${card['name']}</h3>
-            <div class="stat">${card['count']}</div>
-            <div class="label">clubs · ${'{:,}'.format(card['players'])} players</div>
+            <div class="label">${card['count']} clubs</div>
+            <div class="label">${'{:,}'.format(card['players'])} players</div>
           </div>
         </a>
       </tal:block>
     </div>
 
-    <h2>Browse</h2>
-    <div class="cards">
-      <a href="/clubs/" style="text-decoration:none"><div class="card"><h3>⚽ Clubs</h3><div class="label">All clubs with squad ratings and manager info</div></div></a>
-      <a href="/players/" style="text-decoration:none"><div class="card"><h3>👤 Players</h3><div class="label">Search all players by name, club or position</div></div></a>
-      <a href="/stadiums/" style="text-decoration:none"><div class="card"><h3>🏟️ Stadiums</h3><div class="label">All stadiums ranked by capacity</div></div></a>
-      <a href="/nations/" style="text-decoration:none"><div class="card"><h3>🗺️ Nations</h3><div class="label">${num_nations} nations with clubs in the database</div></div></a>
-      <a href="/positions/" style="text-decoration:none"><div class="card"><h3>🎯 Positions</h3><div class="label">Browse by playing position</div></div></a>
-      <a href="/nationalities/" style="text-decoration:none"><div class="card"><h3>🌍 Nationalities</h3><div class="label">${nats} nationalities represented</div></div></a>
-      <a href="/stats/" style="text-decoration:none"><div class="card"><h3>📊 Stats &amp; Records</h3><div class="label">Top players, skill leaders, squad rankings</div></div></a>
-      <a href="/stats/best-of/" style="text-decoration:none"><div class="card"><h3>🏆 Best Of All</h3><div class="label">Records by position, skill and league</div></div></a>
-      <a href="/trivia/" style="text-decoration:none"><div class="card"><h3>📖 Real World Trivia</h3><div class="label">The stories behind the players, clubs and stadiums</div></div></a>
-      <a href="/events/" style="text-decoration:none"><div class="card"><h3>🎲 Events</h3><div class="label">Random in-game events and messages</div></div></a>
-      <a href="/videos/" style="text-decoration:none"><div class="card"><h3>🎬 Videos</h3><div class="label">FMV cutscenes from the original game</div></div></a>
-      <a href="/credits/" style="text-decoration:none"><div class="card"><h3>📋 Credits</h3><div class="label">The team behind FIFA Soccer Manager 97</div></div></a>
+    <h2>Best of</h2>
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin:0.5rem 0">Highest rated players — ${top_rating}</h3>
+    <div class="highlights">
+      <tal:block tal:repeat="p best_players">
+        <a href="${p['url']}" style="text-decoration:none">
+          <div class="hl">
+            <h3><tal:block tal:condition="p['flag']">${p['flag']} </tal:block>${p['name']}</h3>
+            <div class="hl-lbl">${p['rating']} · ${p['sub']}</div>
+          </div>
+        </a>
+      </tal:block>
+    </div>
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin:1rem 0 0.5rem">Rated ${second_rating}</h3>
+    <div class="highlights">
+      <tal:block tal:repeat="p second_players">
+        <a href="${p['url']}" style="text-decoration:none">
+          <div class="hl">
+            <h3><tal:block tal:condition="p['flag']">${p['flag']} </tal:block>${p['name']}</h3>
+            <div class="hl-lbl">${p['rating']} · ${p['sub']}</div>
+          </div>
+        </a>
+      </tal:block>
+    </div>
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin:1rem 0 0.5rem">Largest stadiums</h3>
+    <div class="highlights">
+      <tal:block tal:repeat="s best_stadiums">
+        <a href="${s['url']}" style="text-decoration:none">
+          <div class="hl">
+            <h3><tal:block tal:condition="s['flag']">${s['flag']} </tal:block>${s['name']}</h3>
+            <div class="hl-lbl">${s['capacity']} · ${s['sub']}</div>
+          </div>
+        </a>
+      </tal:block>
+    </div>
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin:1rem 0 0.5rem">Highest rated clubs</h3>
+    <div class="highlights">
+      <tal:block tal:repeat="c best_clubs">
+        <a href="${c['url']}" style="text-decoration:none">
+          <div class="hl">
+            <h3><tal:block tal:condition="c['flag']">${c['flag']} </tal:block>${c['name']}</h3>
+            <div class="hl-lbl">${c['avg']} · ${c['sub']}</div>
+          </div>
+        </a>
+      </tal:block>
     </div>
 
   </div>

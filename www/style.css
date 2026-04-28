@@ -39,6 +39,7 @@ p  { margin: 0.5rem 0; color: var(--text); }
         padding: 1rem; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
 .card h3 { margin-top: 0; font-size: 0.95rem; }
+.hl h3 { margin-top: 0; }
 .card .stat { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
 .card .label { font-size: 0.8rem; color: var(--muted); }
 /* Tables */

@@ -5,29 +5,29 @@
 
     <div class="highlights" style="margin-bottom:1rem">
       <div class="hl">
-        <div class="stat">${'{:,}'.format(capacity)}</div>
-        <div class="label">Capacity</div>
+        <div class="hl-val">${'{:,}'.format(capacity)}</div>
+        <div class="hl-lbl">Capacity</div>
       </div>
       <div tal:condition="address" class="hl">
-        <div class="stat" style="font-size:1rem">${address}</div>
-        <div class="label">Address</div>
+        <div class="hl-val" style="font-size:1rem">${address}</div>
+        <div class="hl-lbl">Address</div>
       </div>
       <div tal:condition="area" class="hl">
-        <div class="stat">${area}</div>
-        <div class="label">Area</div>
+        <div class="hl-val">${area}</div>
+        <div class="hl-lbl">Area</div>
       </div>
       <div tal:condition="country" class="hl">
-        <div class="stat">
+        <div class="hl-val">
           <tal:block tal:condition="country_flag">${country_flag} </tal:block><a href="/nations/${country_slug}/">${country}</a>
         </div>
-        <div class="label">Nation</div>
+        <div class="hl-lbl">Nation</div>
       </div>
     </div>
 
     <p tal:condition="shared" class="muted">Shared by ${club_count} clubs.</p>
 
     <h2>${'Clubs' if club_count > 1 else 'Club'}</h2>
-    <div class="cards">
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0">
       <a tal:repeat="c club_cards" href="/clubs/${c['slug']}/" style="text-decoration:none">
         <div class="card">
           <h3>${c['name']}</h3>

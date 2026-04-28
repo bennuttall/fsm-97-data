@@ -89,27 +89,70 @@ class Scribe:
 
     def write_homepage(self):
         ds = self.ds
-        total_leagues  = len(ds.league_names)
+        total_leagues  = sum(1 for lg in ds.league_names if lg != "Others")
         total_teams    = len(ds.teams)
         total_players  = len(ds.players)
         total_stadiums = len(ds.stadium_to_teams)
         nats           = len(ds.players_by_nationality)
         num_nations    = len(ds.nation_names)
+        num_managers   = sum(1 for t in ds.teams if t.get("manager"))
+        num_positions  = sum(1 for pos in POS_ORDER if ds.players_by_position.get(pos))
+        num_events     = len(ds.strings)
+        num_videos     = len(VIDEOS)
+        num_credits    = len({(f, l) for f, l, r in CREDITS})
 
-        best_player = max(ds.players, key=ds.get_rating)
-        best_player_url = (
-            f"/clubs/{slug(best_player['team'])}/"
-            f"#{slug(best_player['first_name'])}-{slug(best_player['last_name'])}"
-        )
+        top_rated = sorted(ds.players, key=ds.get_rating, reverse=True)
+        top_rating = ds.get_rating(top_rated[0])
+        def player_item(p):
+            return {
+                "rating": ds.get_rating(p),
+                "name":   f"{p['first_name']} {p['last_name']}".strip(),
+                "flag":   self.nat_to_flag.get(p["nationality"], ""),
+                "sub":    f"{p['position']} · {p['team']}",
+                "url":    f"/clubs/{slug(p['team'])}/#{slug(p['first_name'])}-{slug(p['last_name'])}",
+            }
 
-        biggest = max(ds.teams, key=lambda t: int(t["capacity"] or 0))
+        best_players = [player_item(p) for p in top_rated if ds.get_rating(p) == top_rating]
+        second_rating = ds.get_rating(top_rated[len(best_players)])
+        second_players = [player_item(p) for p in top_rated if ds.get_rating(p) == second_rating]
 
-        highlights = [
-            {"value": f"{total_leagues}",   "label": "Leagues",       "url": "/leagues/"},
-            {"value": f"{total_teams:,}",   "label": "Clubs",         "url": "/clubs/"},
-            {"value": f"{total_players:,}", "label": "Players",       "url": "/players/"},
-            {"value": f"{total_stadiums:,}","label": "Stadiums",      "url": "/stadiums/"},
-            {"value": f"{nats:,}",          "label": "Nationalities", "url": "/nationalities/"},
+        def stadium_item(name, ts):
+            return {
+                "capacity": f"{int(ts[0]['capacity']):,}",
+                "name":     name,
+                "flag":     self.country_name_to_flag.get(self._team_country(ts[0]), ""),
+                "sub":      " · ".join(t["team"] for t in ts),
+                "url":      f"/stadiums/{slug(name)}/",
+            }
+
+        top_stads = sorted(
+            ds.stadium_to_teams.items(),
+            key=lambda x: int(x[1][0]["capacity"] or 0), reverse=True,
+        )[:10]
+        best_stadiums = [stadium_item(name, ts) for name, ts in top_stads]
+
+        def squad_avg(t):
+            pp = ds.players_by_team[t["team"]]
+            return sum(ds.get_rating(p) for p in pp) / len(pp) if pp else 0
+
+        def club_sub(t):
+            if t["league"] != "Others":
+                flag = self.league_to_flag.get(t["league"], "")
+                return (f"{flag} " if flag else "") + t["league"]
+            nat = CLUB_NATIONS.get(t["team"], "")
+            flag = self.country_name_to_flag.get(nat, "")
+            return (f"{flag} " if flag else "") + nat
+
+        top_clubs = sorted(ds.teams, key=squad_avg, reverse=True)[:10]
+        best_clubs = [
+            {
+                "avg":  f"{squad_avg(t):.1f}",
+                "name": t["team"],
+                "flag": self.country_name_to_flag.get(self._team_country(t), ""),
+                "sub":  club_sub(t),
+                "url":  f"/clubs/{slug(t['team'])}/",
+            }
+            for t in top_clubs
         ]
 
         ordered_leagues = [
@@ -139,16 +182,23 @@ class Scribe:
             meta_description=f"Interactive database of FIFA Soccer Manager 97 — {total_leagues} leagues, {total_teams:,} clubs and {total_players:,} players from the 1996/97 European football season.",
             canonical_url=self._canonical("/"),
             total_leagues=total_leagues,
+            total_teams=total_teams,
             total_players=total_players,
-            highlights=highlights,
-            best_player=best_player,
-            best_player_rating=ds.get_rating(best_player),
-            best_player_url=best_player_url,
-            biggest=biggest,
-            biggest_url=f"/stadiums/{slug(biggest['stadium'])}/",
+            total_stadiums=total_stadiums,
+            best_players=best_players,
+            top_rating=top_rating,
+            second_players=second_players,
+            second_rating=second_rating,
+            best_stadiums=best_stadiums,
+            best_clubs=best_clubs,
             league_cards=league_cards,
             nats=nats,
             num_nations=num_nations,
+            num_managers=num_managers,
+            num_positions=num_positions,
+            num_events=num_events,
+            num_videos=num_videos,
+            num_credits=num_credits,
         )
         self.write_file("index.html", content)
 
@@ -196,9 +246,9 @@ class Scribe:
             active="Leagues",
             page_title="Leagues",
             header_title="All Leagues",
-            header_sub=f"{len(ds.league_names)} leagues",
+            header_sub=f"{sum(1 for lg in ds.league_names if lg != 'Others')} leagues",
             breadcrumb="",
-            meta_description=f"Browse {len(ds.league_names)} leagues from FIFA Soccer Manager 97, covering European football in the 1996/97 season.",
+            meta_description=f"Browse {sum(1 for lg in ds.league_names if lg != 'Others')} leagues from FIFA Soccer Manager 97, covering European football in the 1996/97 season.",
             canonical_url=self._canonical("/leagues/"),
             league_groups=league_groups,
         )
