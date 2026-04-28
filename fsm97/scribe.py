@@ -25,6 +25,7 @@ NAV_LINKS = [
     ("Nations",       "/nations/"),
     ("Clubs",         "/clubs/"),
     ("Players",       "/players/"),
+    ("Managers",      "/managers/"),
     ("Stadiums",      "/stadiums/"),
     ("Positions",     "/positions/"),
     ("Nationalities", "/nationalities/"),
@@ -720,6 +721,41 @@ class Scribe:
         )
         self.write_file("players/index.html", content)
 
+
+    def write_managers_page(self):
+        ds = self.ds
+        managers = []
+        for t in sorted(ds.teams, key=lambda t: t.get("manager", "") or ""):
+            mgr = t.get("manager", "")
+            if not mgr:
+                continue
+            players = ds.players_by_team[t["team"]]
+            pc = len(players)
+            avg = (sum(ds.get_rating(p) for p in players) / pc) if pc else 0
+            is_pm = t.get("is_player_manager") == "True"
+            managers.append({
+                "manager":          mgr,
+                "club":             t["team"],
+                "club_slug":        slug(t["team"]),
+                "league_html":      self._league_html(t["league"], t["team"]),
+                "is_player_manager": is_pm,
+                "avg":              f"{avg:.1f}" if pc else "—",
+                "avg_class":        self._rating_class(avg) if pc else "",
+            })
+
+        content = self.render(
+            "managers",
+            nav_links=NAV_LINKS,
+            active="Managers",
+            page_title="Managers",
+            header_title="Managers",
+            header_sub=f"{len(managers)} managers",
+            breadcrumb="",
+            meta_description=f"Browse {len(managers)} managers in FIFA Soccer Manager 97, with their clubs and squad ratings.",
+            canonical_url=self._canonical("/managers/"),
+            managers=managers,
+        )
+        self.write_file("managers/index.html", content)
 
     def write_stats_page(self):
         self._write_stats_index()
@@ -1780,6 +1816,7 @@ class Scribe:
         e("/nations/", "Nations")
         e("/clubs/", "All Clubs")
         e("/players/", "Players")
+        e("/managers/", "Managers")
         e("/stadiums/", "Stadiums")
         e("/positions/", "Positions")
         e("/nationalities/", "Nationalities")
@@ -1839,8 +1876,9 @@ class Scribe:
     def write_sitemap(self, base_url):
         ds = self.ds
         urls = [
-            "/", "/leagues/", "/nations/", "/clubs/", "/stadiums/",
-            "/positions/", "/nationalities/", "/players/",
+            "/", "/leagues/", "/nations/", "/clubs/", "/players/",
+            "/managers/", "/stadiums/",
+            "/positions/", "/nationalities/",
             "/stats/", "/stats/top-players/", "/stats/skill-leaders/",
             "/stats/age-groups/", "/stats/player-managers/", "/stats/stadiums/",
             "/stats/squads/", "/stats/nationalities/", "/stats/best-of/",
@@ -1902,6 +1940,8 @@ def main():
     scribe.write_clubs_page()
     print("Writing Players...")
     scribe.write_players_page()
+    print("Writing Managers...")
+    scribe.write_managers_page()
     print("Writing Positions...")
     scribe.write_positions_page()
     print("Writing Nationalities...")

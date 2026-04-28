@@ -25,6 +25,11 @@
         "type": "page"
     },
     {
+        "url": "/managers/",
+        "title": "Managers",
+        "type": "page"
+    },
+    {
         "url": "/stadiums/",
         "title": "Stadiums",
         "type": "page"

@@ -1,0 +1,33 @@
+<div metal:use-macro="layout">
+  <div metal:fill-slot="content" tal:omit-tag="1">
+
+    <p style="color:var(--muted);margin-bottom:1rem">Manager data is available for English, German and Italian league clubs. Other leagues are not covered.</p>
+
+    <div class="filter-bar">
+      <input data-filter="all-managers" placeholder="Filter managers…">
+    </div>
+
+    <table id="all-managers">
+      <thead>
+        <tr>
+          <th data-sort="1">Manager</th>
+          <th data-sort="1">Club</th>
+          <th data-sort="1">League</th>
+          <th class="num" data-sort="1">Squad Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="m managers">
+          <td>
+            ${m['manager']}
+            <tal:block tal:condition="m['is_player_manager']"> <span title="Player-Manager" style="cursor:default">&#x2B50;</span></tal:block>
+          </td>
+          <td><a href="/clubs/${m['club_slug']}/">${m['club']}</a></td>
+          <td tal:content="structure m['league_html']"></td>
+          <td class="num"><span class="${m['avg_class']}">${m['avg']}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
