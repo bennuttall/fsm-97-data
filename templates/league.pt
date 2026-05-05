@@ -9,6 +9,7 @@
     <table tal:attributes="id 'teams-' + lg_slug">
       <thead>
         <tr>
+          <th class="num" data-sort="1">Pos</th>
           <th data-sort="1">Club</th>
           <th data-sort="1">Nickname</th>
           <th data-sort="1">Stadium</th>
@@ -19,6 +20,7 @@
       </thead>
       <tbody>
         <tr tal:repeat="t club_rows">
+          <td class="num">${t['pos'] or '—'}</td>
           <td><a href="/clubs/${t['slug']}/">${t['name']}</a></td>
           <td>${t['nickname']}</td>
           <td>

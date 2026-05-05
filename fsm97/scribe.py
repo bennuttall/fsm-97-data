@@ -7,10 +7,15 @@ from pathlib import Path
 
 from chameleon import PageTemplateLoader
 
-from fsm97.constants import LEAGUE_GROUPS, country_flag, CLUB_NATIONS, POS_ORDER, SKILL_COLS, SKILL_LABELS, SKILL_GROUPS
+from fsm97.constants import LEAGUE_GROUPS, country_flag, CLUB_NATIONS, POS_ORDER, SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, FINISH_POSITIONS
 from fsm97.data import Dataset
 from fsm97.content import CLUB_TRIVIA, STADIUM_TRIVIA, PLAYER_TRIVIA, PLAYER_DISPLAY_NAMES, VIDEOS
 from fsm97.credits import CREDITS, NO_PLAYER_MATCH
+
+
+def _ordinal(n):
+    suffix = {1: "st", 2: "nd", 3: "rd"}.get(n if n < 20 else n % 10, "th")
+    return f"{n}{suffix}"
 
 
 BASE_DIR = Path(__file__).parent.parent
@@ -272,6 +277,7 @@ class Scribe:
             players = ds.players_by_team[t["team"]]
             pc = len(players)
             avg = (sum(ds.get_rating(p) for p in players) / pc) if pc else 0
+            pos = FINISH_POSITIONS.get(t["team"])
             club_rows.append({
                 "slug":        slug(t["team"]),
                 "name":        t["team"],
@@ -282,7 +288,9 @@ class Scribe:
                 "manager":     t["manager"],
                 "avg":         f"{avg:.1f}" if pc else "—",
                 "avg_class":   self._rating_class(avg) if pc else "",
+                "pos":         pos,
             })
+        club_rows.sort(key=lambda r: (r["pos"] is None, r["pos"] or 0))
 
         top_players = sorted(
             [p for p in ds.players if p["league"] == lg],
@@ -699,6 +707,9 @@ class Scribe:
         else:
             header_sub = t["league"]
 
+        finish_pos = FINISH_POSITIONS.get(team_name)
+        finish_pos_str = _ordinal(finish_pos) if finish_pos else ""
+
         breadcrumb = f'<a href="/">Home</a> › <a href="/clubs/">Clubs</a> › {team_name}'
         content = self.render(
             "club",
@@ -713,6 +724,7 @@ class Scribe:
             team_slug=tslug,
             nickname=t.get("nickname", ""),
             league_card=league_card,
+            finish_pos=finish_pos_str,
             stadium_html=stadium_html,
             capacity=int(t["capacity"] or 0),
             area=t.get("area", ""),

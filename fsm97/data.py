@@ -29,7 +29,7 @@ import re
 import unicodedata
 from collections import defaultdict
 
-from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, TEAM_LEAGUES, COUNTRY_NAMES, CLUB_NATIONS, LEAGUE_GROUPS
+from .constants import POS_ORDER, TEAM_NAMES, STADIUM_NAMES, STADIUM_AREAS, TEAM_LEAGUES, COUNTRY_NAMES, CLUB_NATIONS, LEAGUE_GROUPS
 
 
 def _slug(s):
@@ -70,6 +70,8 @@ class Dataset:
         for row in self.teams:
             if row['stadium'] in STADIUM_NAMES:
                 row['stadium'] = STADIUM_NAMES[row['stadium']]
+            if row['stadium'] in STADIUM_AREAS and not row.get('area'):
+                row['area'] = STADIUM_AREAS[row['stadium']]
             if row['team'] in TEAM_LEAGUES:
                 row['league'] = TEAM_LEAGUES[row['team']]
 

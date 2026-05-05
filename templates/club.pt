@@ -9,6 +9,10 @@
         <div class="label">Nickname</div>
       </div>
       <div class="card" tal:content="structure league_card"></div>
+      <div tal:condition="finish_pos" class="card">
+        <div class="stat">${finish_pos}</div>
+        <div class="label">96/97 Finish</div>
+      </div>
       <div class="card">
         <div class="stat" tal:content="structure stadium_html"></div>
         <div class="label">Stadium · ${'{:,}'.format(capacity)} capacity</div>

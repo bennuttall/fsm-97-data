@@ -13,7 +13,7 @@
         <div class="hl-lbl">Address</div>
       </div>
       <div tal:condition="area" class="hl">
-        <div class="hl-val">${area}</div>
+        <div class="hl-val" style="font-size:1rem">${area}</div>
         <div class="hl-lbl">Area</div>
       </div>
       <div tal:condition="country" class="hl">
