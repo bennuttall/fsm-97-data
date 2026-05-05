@@ -380,6 +380,7 @@ class Scribe:
             else:
                 leagued_map.setdefault(t["league"], []).append(self._club_row(t))
 
+        league_order = [lg for _, lgs in LEAGUE_GROUPS for lg in lgs]
         leagued = [
             {
                 "name":     lg,
@@ -387,7 +388,10 @@ class Scribe:
                 "flag_str": (self.league_to_flag.get(lg, "") + " ") if self.league_to_flag.get(lg) else "",
                 "clubs":    lg_clubs,
             }
-            for lg, lg_clubs in sorted(leagued_map.items())
+            for lg, lg_clubs in sorted(
+                leagued_map.items(),
+                key=lambda item: league_order.index(item[0]) if item[0] in league_order else len(league_order),
+            )
         ]
 
         club_names = {t["team"] for t in clubs}
