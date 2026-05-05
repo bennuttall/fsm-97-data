@@ -8,6 +8,10 @@
         <div class="stat">${nickname}</div>
         <div class="label">Nickname</div>
       </div>
+      <div tal:condition="game_name" class="card">
+        <div class="stat">${game_name}</div>
+        <div class="label">In-game name</div>
+      </div>
       <div class="card" tal:content="structure league_card"></div>
       <div tal:condition="finish_pos" class="card">
         <div class="stat">${finish_pos}</div>

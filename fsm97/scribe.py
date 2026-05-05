@@ -7,7 +7,7 @@ from pathlib import Path
 
 from chameleon import PageTemplateLoader
 
-from fsm97.constants import LEAGUE_GROUPS, country_flag, CLUB_NATIONS, POS_ORDER, SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, FINISH_POSITIONS
+from fsm97.constants import LEAGUE_GROUPS, country_flag, CLUB_NATIONS, POS_ORDER, SKILL_COLS, SKILL_LABELS, SKILL_GROUPS, FINISH_POSITIONS, TEAM_NAMES
 from fsm97.data import Dataset
 from fsm97.content import CLUB_TRIVIA, STADIUM_TRIVIA, PLAYER_TRIVIA, PLAYER_DISPLAY_NAMES, VIDEOS
 from fsm97.credits import CREDITS, NO_PLAYER_MATCH
@@ -69,6 +69,7 @@ class Scribe:
             lg: self.country_name_to_flag.get(cn, "")
             for cn, lgs in LEAGUE_GROUPS for lg in lgs
         }
+        self.game_name = {corrected: original for original, corrected in TEAM_NAMES.items()}
 
     def setup_output_path(self):
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -709,6 +710,7 @@ class Scribe:
 
         finish_pos = FINISH_POSITIONS.get(team_name)
         finish_pos_str = _ordinal(finish_pos) if finish_pos else ""
+        game_name = self.game_name.get(team_name, "")
 
         breadcrumb = f'<a href="/">Home</a> › <a href="/clubs/">Clubs</a> › {team_name}'
         content = self.render(
@@ -725,6 +727,7 @@ class Scribe:
             nickname=t.get("nickname", ""),
             league_card=league_card,
             finish_pos=finish_pos_str,
+            game_name=game_name,
             stadium_html=stadium_html,
             capacity=int(t["capacity"] or 0),
             area=t.get("area", ""),
