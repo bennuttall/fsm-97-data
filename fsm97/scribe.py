@@ -1952,7 +1952,7 @@ class Scribe:
             "/stats/age-groups/", "/stats/player-managers/", "/stats/stadiums/",
             "/stats/squads/", "/stats/nationalities/", "/stats/best-of/",
             "/events/", "/trivia/", "/trivia/players/", "/trivia/stadiums/",
-            "/trivia/clubs/", "/videos/", "/credits/",
+            "/trivia/clubs/", "/videos/", "/credits/", "/about/",
         ]
         for lg in sorted(ds.league_names):
             if lg != "Others":
