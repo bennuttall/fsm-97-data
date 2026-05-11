@@ -676,7 +676,9 @@ class Scribe:
 
         # Player-manager
         is_pm = t.get("is_player_manager") == "True"
-        mgr_last = t.get("manager", "").split()[-1] if is_pm and t.get("manager") else ""
+        mgr_parts = t.get("manager", "").split() if is_pm and t.get("manager") else []
+        mgr_first_pm = mgr_parts[0] if mgr_parts else ""
+        mgr_last_pm  = mgr_parts[-1] if mgr_parts else ""
 
         # Squad rows
         squad_sorted = sorted(players, key=lambda p: int(p["shirt"]) if p["shirt"] else 99)
@@ -691,7 +693,7 @@ class Scribe:
                 "position":     p["position"],
                 "first_name":   p["first_name"],
                 "last_name":    p["last_name"],
-                "is_pm":        is_pm and p["last_name"] == mgr_last,
+                "is_pm":        is_pm and p["first_name"] == mgr_first_pm and p["last_name"] == mgr_last_pm,
                 "skills_html":  self._skills_html(p),
                 "nat_flag":     nat_flag,
                 "nat_name":     nat,

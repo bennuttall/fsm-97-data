@@ -302,9 +302,9 @@ def parse_game_data(dat_file, countries):
                 'skills':      skills,
             })
 
-        # is_player_manager: manager's last name appears in the player roster
-        player_surnames = {p['last_name'] for p in team_players}
-        is_pm = mgr_last in player_surnames
+        # is_player_manager: manager's full name appears in the player roster
+        player_fullnames = {(p['first_name'], p['last_name']) for p in team_players}
+        is_pm = (mgr_first, mgr_last) in player_fullnames
 
         teams.append({
             'team':              name,

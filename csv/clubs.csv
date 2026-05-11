@@ -2,7 +2,7 @@ team,nickname,abbreviation,league,stadium,stadium_address,area,capacity,manager,
 Arsenal,The Gunners,ARS,English Premier League,Highbury,Avenell Road,London,38500,Bruce Rioch,False
 Aston Villa,The Villa,AST,English Premier League,Villa Park,Trinity Road,,39500,Brian Little,False
 Blackburn,The Rovers,BLK,English Premier League,Ewood Park,Nuttall Street,,31800,Ray Harford,False
-Bolton,The Trotters,BOL,English First Division,Burnden Park,Bolton,,22616,Colin Todd,True
+Bolton,The Trotters,BOL,English First Division,Burnden Park,Bolton,,22616,Colin Todd,False
 Chelsea,The Blues,CHE,English Premier League,Stamford Bridge,Fulham Road,London,31500,Ruud Gullit,True
 Coventry,The Sky Blues,COV,English Premier League,Highfield Road,King Richard Street,,23000,Ron Atkinson,False
 Everton,The Toffeemen,EVE,English Premier League,Goodison Park,Liverpool,Merseyside,40000,Joe Royle,False
@@ -86,7 +86,7 @@ Partick,,PRT,Scottish First Division,Firhill,90 Firhill Road,,19243,,False
 Raith,,RAI,Scottish Premier League,Starks Park,Pratt Street,,8159,,False
 Rangers,,RAN,Scottish Premier League,Ibrox Stadium,150 Edminston Drive,,45407,,False
 Barnsley,The Tykes,BSY,English First Division,Oakwell Ground,Grove Street,Yorkshire,27310,Danny Wilson,True
-Birmingham,The Blues,BIR,English First Division,Saint Andrews,Birmingham,,28235,Trevor Francis,True
+Birmingham,The Blues,BIR,English First Division,Saint Andrews,Birmingham,,28235,Trevor Francis,False
 Charlton,The Addicks,CHA,English First Division,The Valley,Floyd Road,London,15000,Alan Curbishley,False
 Crystal Palace,The Eagles,CPA,English First Division,Selhurst Park,Selhurst Park,London,26000,Dave Bassett,False
 Derby,The Rams,DER,English Premier League,Baseball Ground,Shaftesbury Crescent,,25000,Jim Smith,False
@@ -103,11 +103,11 @@ Portsmouth,The Pompey,PTM,English First Division,Fratton Road,Frogmore Road,,264
 Reading,The Royals,REA,English First Division,Elm Park,Norfolk Road,Berkshire,14058,Mick Gooding,True
 Sheffield U,The Blades,SHU,English First Division,Bramall Lane Ground,Sheffield,,23327,Howard Kendall,False
 Southend,The Shrimpers,SOT,English First Division,Roots Hall,Victoria Avenue,,13000,Ronnie Whelan,True
-Stoke,The Potters,STK,English First Division,Victoria Ground,Stoke-on-Trent,Staffordshire,25409,Lou Macari,True
+Stoke,The Potters,STK,English First Division,Victoria Ground,Stoke-on-Trent,Staffordshire,25409,Lou Macari,False
 Sunderland,The Rokerites,SUN,English Premier League,Roker Park,Sunderland,Tyne & Wear,22657,Peter Reid,False
 Tranmere,The Rovers,TRA,English First Division,Prenton Park,Prenton Road West,Merseyside,16789,John Aldridge,True
 Watford,The Hornets,WAT,English Second Division,Vicarage Road Stadium,Watford,,22000,Glenn Roeder,False
-West Brom,The Throstles,WSB,English First Division,The Hawthorns,West Bromich,West Midlands,25117,Alan Buckley,True
+West Brom,The Throstles,WSB,English First Division,The Hawthorns,West Bromich,West Midlands,25117,Alan Buckley,False
 Wolves,The Wolves,WOL,English First Division,Molineux Ground,Waterloo Road,,28500,Mark McGhee,False
 Blackpool,The Seasiders,BLA,English Second Division,Bloomfield Road,Blackpool,Lancashire,9654,Gary Megson,False
 Bournemouth,The Cherries,BOU,English Second Division,Dean Court Ground,Bournemouth,Dorset,11880,Mel Machin,False
@@ -122,11 +122,11 @@ Chesterfield,The Spireites,CST,English Second Division,Recreation Ground,Chester
 Crewe,The Railwaymen,CRW,English Second Division,Gresty Road,Crewe,Cheshire,6000,Dario Gradi,False
 Hull,The Tigers,HUL,English Third Division,Boothferry Park,Boothferry Road,North Humberside,15828,Terry Duncan,False
 Nottingham C,The Magpies,NTC,English Second Division,Meadow Lane,Nottingham,Nottinghamshire,20300,Colin Murphy,False
-Oxford,The U's,OXF,English First Division,Manor Ground,London Road,Oxford,9572,Denis Smith,True
+Oxford,The U's,OXF,English First Division,Manor Ground,London Road,Oxford,9572,Denis Smith,False
 Peterborough,The Posh,PET,English Second Division,London Road Ground,Peterborough,,10675,Barry Fry,False
 Rotherham,The Merry Millers,ROT,English Second Division,Millmoor Ground,Rotherham,South Yorkshire,11533,Archie Gemmill,False
 Shrewsbury,The Blues,SHR,English Second Division,Gay Meadow,Shrewsbury,Shropshire,8000,Fred Davies,False
-Stockport,The Hatters,STO,English Second Division,Edgeley Park,Hardcastle Road - Edgeley,Cheshire,16419,David Jones,True
+Stockport,The Hatters,STO,English Second Division,Edgeley Park,Hardcastle Road - Edgeley,Cheshire,16419,David Jones,False
 Swansea,The Swans,SWA,English Third Division,Vetch Field,Swansea,,16550,Jan Molby,True
 Swindon,The Robins,SWI,English First Division,County Gorund,Swindon,,15341,Steve McMahon,False
 Walsall,The Saddlers,WAL,English Second Division,Bescot Stadium,Bescot Crescent,West Midlands,10400,Chris Nicholl,False
@@ -135,14 +135,14 @@ Wycombe,The Chairboys,WYC,English Second Division,Adams Park,Hillbottom Road,Buc
 York,The Minster Men,YOR,English Second Division,Bootham Crescent,York,Yorkshire,9534,Brian Little,False
 Barnet,The Bees,BRN,English Third Division,Underhill Stadium,Barnet Lane,Hertfordshire,3887,Ray Clemence,False
 Bury,The Shakers,BUR,English Second Division,Gigg Lane,Bury,Lancashire,11614,Stan Ternent,False
-Cambridge,The U's,CAM,English Third Division,Abbey Stadium,Newmarket Road,Cambridgeshire,9667,Tommy Taylor,True
+Cambridge,The U's,CAM,English Third Division,Abbey Stadium,Newmarket Road,Cambridgeshire,9667,Tommy Taylor,False
 Cardiff,The Bluebirds,CAR,English Third Division,Ninian Park,Sloper Road,,21000,Phil Neal,False
 Chester,The Blues,CHC,English Third Division,Deva Stadium,Bumpers Lane,Cheshire,6000,Kevin Ratcliffe,False
 Colchester,The U's,COL,English Third Division,Layer Road Ground,Colchester,Essex,7944,Steve Wignall,False
 Darlington,The Quakers,DAR,English Third Division,Feethams,Darlington,Durham,9984,Roy Hodgson,False
 Doncaster,The Rovers,DON,English Third Division,Belle Vue Ground,Doncaster,South Yorkshire,7794,Sammy Chung,False
 Exeter,The Grecians,EXE,English Third Division,St James Park,Well Street,Devon,8960,Peter Fox,True
-Fulham,The Cottagers,FUL,English Third Division,Craven Cottage,Stevenage Road,London,11600,Micky Adams,True
+Fulham,The Cottagers,FUL,English Third Division,Craven Cottage,Stevenage Road,London,11600,Micky Adams,False
 Gillingham,The Gills,GIL,English Second Division,Priestfield Stadium,Redern Avenue,Kent,10422,Tony Pulis,False
 Hartlepool,The Pool,HAR,English Third Division,The Victoria Park,Hartlepool,Cleveland,7229,Keith Houchen,True
 Hereford,United,HER,English Third Division,Edgar Street,Hereford,,13752,Dick Bate,False
